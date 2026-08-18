@@ -2,7 +2,7 @@
 #
 #   doctl apps create --spec .do/app.yaml          # first deploy
 #   doctl apps update <APP_ID> --spec .do/app.yaml # change this spec
-#   git push                                        # redeploys automatically
+#   doctl apps create-deployment <APP_ID>   # deploys are MANUAL with a git source
 #
 # Serves the committed dist/ directly — no build step runs on DO, so the
 # deployment is exactly what you built and verified locally with ./build.sh.
