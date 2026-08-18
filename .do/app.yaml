@@ -1,0 +1,19 @@
+# DigitalOcean App Platform — static site (free tier, HTTPS included).
+#
+#   doctl apps create --spec .do/app.yaml          # first deploy
+#   doctl apps update <APP_ID> --spec .do/app.yaml # change this spec
+#   git push                                        # redeploys automatically
+#
+# Serves the committed dist/ directly — no build step runs on DO, so the
+# deployment is exactly what you built and verified locally with ./build.sh.
+# Uses a public git clone URL, avoiding the DigitalOcean<->GitHub OAuth step.
+name: qassem-site
+region: fra
+static_sites:
+  - name: web
+    git:
+      repo_clone_url: https://github.com/engahmedragab/qassem-site.git
+      branch: main
+    source_dir: dist
+    index_document: index.html
+    catchall_document: index.html
