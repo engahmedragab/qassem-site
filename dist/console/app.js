@@ -7,11 +7,17 @@
  * — view-source defeats it. data.enc.json is AES-256-GCM ciphertext with a
  * PBKDF2-SHA256 key, so the published file is inert without the passphrase.
  *
- * Actions are the other honest constraint. This page cannot write to the Mac
- * that owns data/applications.json, so a button that claimed to "mark applied"
- * would be lying. Instead every action is recorded locally, shown immediately,
- * and turned into the exact mark.mjs commands to paste back. Triage on the
- * phone, sync in one paste.
+ * The page runs in one of two modes, decided by whether an API answers:
+ *
+ *   LIVE   — served by engine/server.mjs on the Mac. Clicks write straight to
+ *            data/applications.json, and an SSE stream pushes any change made
+ *            anywhere else (a run, a mark.mjs, an /apply-run) into the open page.
+ *   STATIC — the hosted copy. It cannot write to the Mac, and a button that
+ *            claimed to "mark applied" would be lying, so actions are recorded
+ *            on the device and rendered as the exact mark.mjs commands to paste.
+ *
+ * Same UI either way; only the consequence of a click differs, and the header
+ * says which is in force.
  */
 (() => {
   'use strict';
@@ -74,10 +80,12 @@
   };
 
   let DATA = null;
-  let ACTIONS = store.get(K_ACTS, {});         // key → {kind, at, note, snoozeUntil}
+  let MODE = 'static';                          // 'live' once an API answers
+  let ACTIONS = store.get(K_ACTS, {});          // static mode only: key → {kind, at, …}
 
   /** Payload row merged with anything done locally since the last sync. */
   function view(a) {
+    if (MODE === 'live') return a;              // the server already holds the truth
     const act = ACTIONS[a.key];
     if (!act) return a;
     if (act.kind === 'applied') return { ...a, status: 'applied', appliedAt: act.at, _local: act };
@@ -103,15 +111,51 @@
   }
 
   // ---------- actions ----------
-  function act(key, kind, extra = {}) {
+  async function act(key, kind, extra = {}) {
+    if (MODE === 'live') {
+      // Names differ between the UI and the engine's vocabulary.
+      const action = kind === 'ignore' ? 'skip' : kind;
+      const body = { key, action, ...(kind === 'snooze' ? { days: 3 } : {}) };
+      try {
+        const res = await fetch('/api/action', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+        });
+        const out = await res.json();
+        if (!res.ok || out.error) throw new Error(out.error || `HTTP ${res.status}`);
+        DATA = { ...DATA, ...out.state };
+        paint();
+      } catch (e) { toast(`Could not save: ${e.message}`); }
+      return;
+    }
     if (ACTIONS[key] && ACTIONS[key].kind === kind && kind !== 'snooze') delete ACTIONS[key];
     else ACTIONS[key] = { kind, at: todayISO(), ...extra };
     store.set(K_ACTS, ACTIONS);
     paint();
   }
 
+  async function setConfig(patch) {
+    if (MODE !== 'live') return;
+    try {
+      const res = await fetch('/api/config', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(patch),
+      });
+      const out = await res.json();
+      if (!res.ok || out.error) throw new Error(out.error || `HTTP ${res.status}`);
+      DATA = { ...DATA, workflow: out.workflow };
+      paint();
+    } catch (e) { toast(`Could not save: ${e.message}`); }
+  }
+
+  function toast(msg) {
+    const el = document.createElement('div');
+    el.className = 'toast'; el.textContent = msg;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 4000);
+  }
+
   /** The exact commands that reconcile this device's triage with the engine. */
   function syncCommands() {
+    if (MODE === 'live') return [];             // nothing to sync; it is already saved
     return Object.entries(ACTIONS).map(([key, a]) => {
       if (a.kind === 'applied') return `node engine/mark.mjs applied ${key}`;
       if (a.kind === 'ignore') return `node engine/mark.mjs skip ${key} "ignored from the console"`;
@@ -128,8 +172,8 @@
     const link = linkFor(a);
     const unknown = a.title === UNKNOWN_ROLE;
     const local = a._local;
-    const isApplied = local?.kind === 'applied';
-    const isIgnored = local?.kind === 'ignore';
+    const isApplied = MODE === 'live' ? a.status === 'applied' : local?.kind === 'applied';
+    const isIgnored = MODE === 'live' ? a.status === 'skipped' : local?.kind === 'ignore';
 
     return `<article class="row${overdue ? ' row--flag' : ''}" data-done="${!!isIgnored}">
       <span class="row__stripe tone-${st.tone}" aria-hidden="true"></span>
@@ -216,14 +260,16 @@
 
     return `<section class="group">
       <header class="group__head"><h3>Engine settings</h3>
-        <p>These live in engine/config.json on the Mac. This page shows the state and the command to change it.</p></header>
+        <p>${MODE === 'live'
+          ? 'Writes straight to engine/config.json. Takes effect on the next run.'
+          : 'These live on the Mac. This page shows the state and the command to change it.'}</p></header>
       ${toggle('autoSend', cfg.autoSend, 'Send email applications automatically',
         cfg.autoSend ? 'On — email applications are sent unattended.'
                      : 'Off — email applications become Gmail drafts and wait for you.',
-        `engine/config.json → "autoSend": ${!cfg.autoSend}`)}
-      ${toggle('riyadhOnly', cfg.locationMode === 'riyadh', 'Riyadh on-site only',
-        `Currently "${cfg.locationMode || 'both'}" — both Riyadh on-site and remote.`,
-        `engine/config.json → jobFilters.locationMode: "${cfg.locationMode === 'riyadh' ? 'both' : 'riyadh'}"`)}
+        MODE === 'live' ? '' : `engine/config.json → "autoSend": ${!cfg.autoSend}`)}
+      ${toggle('locationMode', cfg.locationMode === 'riyadh', 'Riyadh on-site only',
+        `Currently "${cfg.locationMode || 'both'}"${cfg.locationMode === 'riyadh' ? '' : ' — Riyadh on-site and remote'}.`,
+        MODE === 'live' ? '' : `engine/config.json → jobFilters.locationMode: "${cfg.locationMode === 'riyadh' ? 'both' : 'riyadh'}"`)}
     </section>
 
     <section class="group">
@@ -275,10 +321,12 @@
       <header class="mast">
         <h1>Pipeline Console <span>· ${esc(DATA.meta.owner)}</span></h1>
         <div class="mast__side">
-          <span class="mast__meta">Built ${esc(DATA.meta.generatedAt)}</span>
+          <span class="mast__meta">${MODE === 'live'
+            ? '<span class="dot" aria-hidden="true"></span>Live · writes to disk'
+            : 'Built ' + esc(DATA.meta.generatedAt)}</span>
           <div class="seg">${['system', 'light', 'dark'].map(m =>
             `<button data-theme-set="${m}" aria-pressed="${store.get(K_THEME, 'system') === m}">${m}</button>`).join('')}</div>
-          <button class="btn-ghost" id="lock">Lock</button>
+          ${MODE === 'live' ? '' : '<button class="btn-ghost" id="lock">Lock</button>'}
         </div>
       </header>
       <nav class="tabs">${Object.entries(SCREENS).map(([k, s]) => {
@@ -287,8 +335,9 @@
       }).join('')}</nav>
       ${SCREENS[id].render(SCREENS[id].of())}
       <footer>
-        Rebuilt by <b>node engine/run.mjs</b> · this page decrypts in your browser and never phones home.<br>
-        Actions taken here are stored on this device — paste the sync commands on the Mac to make them real.
+        ${MODE === 'live'
+          ? 'Live mode — clicks write to <b>data/applications.json</b>, and this page updates itself when a run or mark.mjs changes it.'
+          : 'Read-only copy — decrypts in your browser, never phones home. Actions here are device-local; paste the sync commands on the Mac to make them real.'}
       </footer>
       ${pending.length ? `<div class="sync"><div class="sync__in">
         <span class="sync__n">${pending.length} change${pending.length === 1 ? '' : 's'} not synced</span>
@@ -315,14 +364,21 @@
     app.querySelectorAll('[data-kind=snooze]').forEach(b =>
       b.addEventListener('click', () => act(b.dataset.key, 'snooze', { snoozeUntil: plusDays(3) })));
 
-    // Engine settings are read-only here by necessity: the page cannot edit a
-    // file on the Mac, so the switch reveals the command rather than pretending.
+    // Live: the switch really flips config.json. Static: it can only reveal the
+    // command, because this page cannot reach a file on the Mac.
     app.querySelectorAll('[data-cfg],[data-src]').forEach(b =>
       b.addEventListener('click', () => {
+        const on = b.getAttribute('aria-checked') === 'true';
+        if (MODE === 'live') {
+          if (b.dataset.src) return setConfig({ source: { name: b.dataset.src, enabled: !on } });
+          if (b.dataset.cfg === 'autoSend') return setConfig({ autoSend: !on });
+          if (b.dataset.cfg === 'locationMode') return setConfig({ locationMode: on ? 'both' : 'riyadh' });
+          return;
+        }
         const cmd = b.closest('.setting').querySelector('.cmd');
         if (cmd) { cmd.scrollIntoView({ block: 'nearest' }); cmd.style.outline = '2px solid var(--accent)';
           setTimeout(() => { cmd.style.outline = ''; }, 1200); }
-        else alert('Toggle sources in engine/config.json → sources.' + (b.dataset.src || '') + '.enabled');
+        else toast('Toggle sources in engine/config.json → sources.' + (b.dataset.src || '') + '.enabled');
       }));
 
     const copy = $('#copyCmds');
@@ -366,7 +422,42 @@
     } finally { btn.disabled = false; btn.textContent = 'Unlock'; }
   });
 
+  /** Subscribe to server-pushed state so work done elsewhere lands here. */
+  function listen() {
+    const es = new EventSource('/api/stream');
+    es.addEventListener('state', e => {
+      try {
+        const next = JSON.parse(e.data);
+        DATA = { ...DATA, ...next };
+        paint();
+      } catch { /* malformed frame; the next one will do */ }
+    });
+    // EventSource retries on its own; nothing to do but let it.
+    es.onerror = () => {};
+  }
+
   (async () => {
+    // Live first: if engine/server.mjs is answering, there is no passphrase to
+    // ask for — the port is bound to loopback and this is already the owner.
+    try {
+      const res = await fetch('/api/state', { cache: 'no-store' });
+      // The hosted copy has a catch-all that answers 200 with the portfolio HTML,
+      // so neither the status code nor a successful fetch proves an API is here.
+      // Require JSON, and require it to say it is live.
+      const ct = res.headers.get('content-type') || '';
+      if (res.ok && ct.includes('application/json')) {
+        const body = await res.json();
+        if (body && body.mode === 'live' && Array.isArray(body.applications)) {
+          DATA = body;
+          MODE = 'live';
+          gate.hidden = true; app.hidden = false;
+          paint();
+          listen();
+          return;
+        }
+      }
+    } catch { /* no API here — fall through to the encrypted copy */ }
+
     let saved = null;
     try { saved = sessionStorage.getItem(K_PASS); } catch { /* ignore */ }
     if (!saved) return;
