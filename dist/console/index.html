@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="dark">
+<title>Pipeline Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230A0A0B'/><rect x='22' y='54' width='13' height='26' fill='%234ADE80'/><rect x='43' y='36' width='13' height='44' fill='%234D7CFF'/><rect x='64' y='22' width='13' height='58' fill='%23FB7185'/></svg>">
+</head>
+<body>
+
+<!-- Gate. The payload really is encrypted, so this is not a hidden-div trick:
+     without the passphrase there is nothing here but ciphertext. -->
+<main class="gate" id="gate">
+  <form class="gate__card" id="gateForm" autocomplete="on">
+    <p class="gate__mark">OurWork</p>
+    <h1>Pipeline Console</h1>
+    <p>Private job and freelance tracker. The data on this page is encrypted — enter the passphrase to decrypt it in your browser.</p>
+    <div class="gate__row">
+      <input type="password" id="pass" name="password" placeholder="Passphrase"
+             autocomplete="current-password" required aria-label="Passphrase">
+      <button type="submit" id="unlock">Unlock</button>
+    </div>
+    <p class="gate__err" id="err" role="alert"></p>
+    <p class="gate__note">AES-256-GCM · key derived with PBKDF2-SHA256.<br>
+      Nothing is sent anywhere — decryption happens on this device.</p>
+  </form>
+</main>
+
+<div class="shell" id="app" hidden></div>
+
+<script src="app.js"></script>
+</body>
+</html>
