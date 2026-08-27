@@ -83,6 +83,34 @@
   .marquee span em{color:var(--accent);font-style:normal;padding:0 22px}
   @keyframes scroll{to{transform:translateX(-50%)}}
 
+  /* value strip */
+  .props{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .prop{background:var(--bg);padding:clamp(22px,2.8vw,34px);display:flex;flex-direction:column;gap:13px;transition:background .4s}
+  .prop:hover{background:var(--bg-2)}
+  .prop__ico{width:34px;height:34px;color:var(--ink-faint);transition:color .4s}
+  .prop:hover .prop__ico{color:var(--accent)}
+  .prop__ico svg{width:100%;height:100%;overflow:visible}
+  .prop h4{font-size:16px;font-weight:700;letter-spacing:-.015em}
+  .prop p{font-size:13.5px;color:var(--ink-soft);line-height:1.55;max-width:34ch}
+  .prop__k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:-4px}
+  @media(max-width:900px){ .props{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:560px){ .props{grid-template-columns:1fr} }
+  .pi-bolt .b{transform-box:fill-box;transform-origin:center;animation:zap 2.2s ease-in-out infinite}
+  @keyframes zap{0%,100%{opacity:.55}45%{opacity:1}}
+  .pi-shield .tick{stroke-dasharray:18;stroke-dashoffset:18;animation:draw 2.8s ease-in-out infinite}
+  @keyframes draw{0%{stroke-dashoffset:18}35%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:18}}
+  .pi-clock .hand{transform-box:view-box;transform-origin:17px 17px;animation:sweep 4s linear infinite}
+  @keyframes sweep{to{transform:rotate(360deg)}}
+  .pi-ai .p{transform-box:fill-box;transform-origin:center}
+  .pi-ai .p1{animation:ndp 2.4s ease-in-out infinite}
+  .pi-ai .p2{animation:ndp 2.4s ease-in-out .4s infinite}
+  .pi-ai .p3{animation:ndp 2.4s ease-in-out .8s infinite}
+  .pi-auto .ring{transform-box:view-box;transform-origin:17px 17px;animation:spin 5s linear infinite}
+  .pi-stack .l1{animation:lift 3s ease-in-out infinite}
+  .pi-stack .l2{animation:lift 3s ease-in-out .3s infinite}
+  @keyframes lift{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+  @media(prefers-reduced-motion:reduce){.prop__ico *{animation:none !important}}
+
   section{padding-top:clamp(80px,12vh,170px);padding-bottom:clamp(40px,6vh,80px)}
   .eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:14px;margin-bottom:clamp(30px,5vh,60px)}
   .eyebrow .no{color:var(--accent)}
@@ -279,6 +307,49 @@
     <span>AI PRODUCTS <em>✳</em> LLM AGENTS <i>/</i> AUTOMATION <em>✳</em> AI CONSULTING <em>✳</em> SHOPIFY <i>/</i> COMMERCE <em>✳</em> REACT · NEXT · NODE <em>✳</em> FLUTTER <i>/</i> LOGISTICS <em>✳</em> PAYMENTS <em>✳</em> </span>
     <span>AI PRODUCTS <em>✳</em> LLM AGENTS <i>/</i> AUTOMATION <em>✳</em> AI CONSULTING <em>✳</em> SHOPIFY <i>/</i> COMMERCE <em>✳</em> REACT · NEXT · NODE <em>✳</em> FLUTTER <i>/</i> LOGISTICS <em>✳</em> PAYMENTS <em>✳</em> </span>
   </div></div>
+
+  <!-- VALUE STRIP -->
+  <section class="wrap" style="padding-top:clamp(46px,7vh,86px);padding-bottom:0">
+    <div class="props reveal">
+
+      <div class="prop">
+        <div class="prop__ico"><svg viewBox="0 0 34 34" class="pi-bolt" fill="none"><path class="b" d="M19 3 L8 19 h7 l-2 12 L26 15 h-7 z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div class="prop__k">01</div><h4>Fast delivery</h4>
+        <p>Scoped in days, not quarters. Fixed timeline agreed before a line of code is written.</p>
+      </div>
+
+      <div class="prop">
+        <div class="prop__ico"><svg viewBox="0 0 34 34" class="pi-shield" fill="none"><path d="M17 3 L29 8 v9c0 7-5 12-12 14C10 29 5 24 5 17V8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path class="tick" d="M12 17.5 l3.5 3.5 L23 13" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="prop__k">02</div><h4>Secure by default</h4>
+        <p>Auth, payments and customer data handled to production standard — built for banking and telecom.</p>
+      </div>
+
+      <div class="prop">
+        <div class="prop__ico"><svg viewBox="0 0 34 34" class="pi-clock" fill="none"><circle cx="17" cy="17" r="13" stroke="currentColor" stroke-width="1.8"/><g class="hand"><line x1="17" y1="17" x2="17" y2="8" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/></g><line x1="17" y1="17" x2="23" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div class="prop__k">03</div><h4>Support 24/7</h4>
+        <p>Systems that take real orders and payments don't keep office hours. Neither does the monitoring.</p>
+      </div>
+
+      <div class="prop">
+        <div class="prop__ico"><svg viewBox="0 0 34 34" class="pi-ai" fill="none"><g stroke="currentColor" stroke-width="1.5" opacity=".45"><line x1="9" y1="10" x2="17" y2="17"/><line x1="9" y1="24" x2="17" y2="17"/><line x1="25" y1="17" x2="17" y2="17"/></g><circle class="p p1" cx="9" cy="10" r="2.6" fill="currentColor"/><circle class="p p2" cx="9" cy="24" r="2.6" fill="currentColor"/><circle class="p p3" cx="25" cy="17" r="2.6" fill="currentColor"/><circle cx="17" cy="17" r="4" fill="var(--accent)"/></svg></div>
+        <div class="prop__k">04</div><h4>AI capabilities</h4>
+        <p>LLM agents, retrieval and MCP servers that do real work in production — not demos.</p>
+      </div>
+
+      <div class="prop">
+        <div class="prop__ico"><svg viewBox="0 0 34 34" class="pi-auto" fill="none"><g class="ring"><circle cx="17" cy="17" r="11" stroke="currentColor" stroke-width="1.8" stroke-dasharray="5 4"/></g><circle cx="17" cy="17" r="4.5" stroke="var(--accent)" stroke-width="2"/></svg></div>
+        <div class="prop__k">05</div><h4>Automation</h4>
+        <p>WhatsApp order confirmation, shipping, follow-ups — the busywork that used to need a person.</p>
+      </div>
+
+      <div class="prop">
+        <div class="prop__ico"><svg viewBox="0 0 34 34" class="pi-stack" fill="none"><path class="l1" d="M17 5 L29 11 L17 17 L5 11 z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path class="l2" d="M5 17 L17 23 L29 17" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M5 23 L17 29 L29 23" stroke="var(--accent)" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div class="prop__k">06</div><h4>End-to-end ownership</h4>
+        <p>Storefront, app, AI, logistics, payments and the infrastructure under it — one person accountable.</p>
+      </div>
+
+    </div>
+  </section>
 
   <section class="wrap">
     <div class="eyebrow reveal"><span class="no">01</span> APPROACH <span class="ln"></span></div>
