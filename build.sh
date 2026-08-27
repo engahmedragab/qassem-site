@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 
 SRC="index.html"
 OUT="dist/index.html"
-SITE_URL="${SITE_URL:-https://qassem-site-d4esl.ondigitalocean.app}"   # override when a real domain exists
+SITE_URL="${SITE_URL:-https://qassem.online}"   # the real domain
 
 mkdir -p dist
 
