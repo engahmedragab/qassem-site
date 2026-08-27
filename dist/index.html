@@ -499,15 +499,15 @@ var LOGOS={ourgrowth:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53
      desc:"Egypt's commerce OS for bazaar events, concept stores and showrooms: a web platform plus a Flutter app.",soc:[]},
     {n:"Shaaml",yr:"2025",sub:"Providers, Managed",cat:"MOBILE APP",meta:"Provider App · Flutter",rc:"#2AB0A0",logo:"shaaml",live:0,dom:"shaaml.online",url:"https://shaaml.online",
      desc:"A provider app for the wedding industry: service providers manage profiles, services and bookings. Built in Flutter.",soc:[]},
-    {n:"Agency",yr:"2024",sub:"21 AI Agents",cat:"AI PLATFORM",meta:"21 AI Agents · 7 Departments",rc:"#4D7CFF",logo:"ourinc",live:0,dom:"app.ouragency.io",url:"https://app.ouragency.io",
+    {n:"Agency",yr:"2024",sub:"21 AI Agents",cat:"AI PLATFORM",meta:"21 AI Agents · 7 Departments",rc:"#4D7CFF",logo:"ourinc",live:0,dom:"app.ouragency.io",url:"",
      desc:"An AI marketing platform with 21 agents across 7 departments on a .NET + React stack, built for Egypt & KSA.",soc:[]},
-    {n:"AI Glossary",yr:"2026",sub:"Claude Skills, Cataloged",cat:"OPEN SOURCE · MCP",meta:"Claude Skills · MCP · npm",rc:"#54E0C7",logo:"ourinc",live:0,dom:"skills.ourinc.com",url:"https://skills.ourinc.com",
+    {n:"AI Glossary",yr:"2026",sub:"Claude Skills, Cataloged",cat:"OPEN SOURCE · MCP",meta:"Claude Skills · MCP · npm",rc:"#54E0C7",logo:"ourinc",live:0,dom:"skills.ourinc.com",url:"",
      desc:"A browsable catalog of Claude skills with structured inputs, outputs and ready-to-paste prompts, shipped as an npm package and an MCP server.",soc:[]},
-    {n:"FrontCores",yr:"2026",sub:"One Shared Core",cat:"MONOREPO",meta:"Shared Frontend Monorepo",rc:"#8A96B0",logo:"ourinc",live:0,dom:"*.ourinc.com",url:"https://ourinc.com",
+    {n:"FrontCores",yr:"2026",sub:"One Shared Core",cat:"MONOREPO",meta:"Shared Frontend Monorepo",rc:"#8A96B0",logo:"ourinc",live:0,dom:"*.ourinc.com",url:"",
      desc:"The shared frontend monorepo behind every product: auth, platform-config and a common design system, packaged as @ourinc/* for reuse.",soc:[]},
-    {n:"Shipping",yr:"2026",sub:"Ship Across Arabia",cat:"LOGISTICS",meta:"Logistics Platform",rc:"#5FBF8A",live:0,logo:"ourinc",dom:"ourdelivery.ourinc.com",url:"https://ourinc.com",
+    {n:"Shipping",yr:"2026",sub:"Ship Across Arabia",cat:"LOGISTICS",meta:"Logistics Platform",rc:"#5FBF8A",live:0,logo:"ourinc",dom:"ourdelivery.ourinc.com",url:"",
      desc:"A portal to manage carriers, warehouses and shipments across the Arab world. Built with Next.js.",soc:[]},
-    {n:"Storage",yr:"2026",sub:"Smart Storage",cat:"PLATFORM",meta:"Storage Platform",rc:"#E0A93A",live:0,logo:"ourinc",dom:"ourstorage.ourinc.com",url:"https://ourinc.com",
+    {n:"Storage",yr:"2026",sub:"Smart Storage",cat:"PLATFORM",meta:"Storage Platform",rc:"#E0A93A",live:0,logo:"ourinc",dom:"ourstorage.ourinc.com",url:"",
      desc:"A portal to book and manage storage spaces across the Arab world. Built with Next.js.",soc:[]}
   ];
   var wxlist=document.getElementById('wxlist'), bgtint=document.getElementById('bgtint'), dt=document.getElementById('dt'), wxCur=document.getElementById('wxCur'), wxTot=document.getElementById('wxTot');
@@ -532,7 +532,8 @@ var LOGOS={ourgrowth:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53
       if(p.logo&&LOGOS[p.logo]){dtLogo.style.backgroundImage='url('+LOGOS[p.logo]+')';dtLogo.classList.add('has');}else{dtLogo.classList.remove('has');dtLogo.style.backgroundImage='';}
       dtLive.classList.toggle('on',!!p.live);
       dtMeta.textContent=p.meta; dtName.textContent=p.n; dtDesc.textContent=p.desc;
-      var h='<a class="dt__dom" href="'+p.url+'" target="_blank" rel="noopener" data-hover>'+p.dom+' ↗</a>';
+      var h=p.url?'<a class="dt__dom" href="'+p.url+'" target="_blank" rel="noopener" data-hover>'+p.dom+' ↗</a>'
+                 :'<span class="dt__dom" style="background:transparent;color:var(--ink-faint);border:1px solid var(--line)">'+(p.dom||'not public')+'</span>';
       p.soc.forEach(function(s){ h+='<a class="dt__soc" href="'+s[1]+'" target="_blank" rel="noopener" data-hover>'+s[0]+' ↗</a>'; });
       dtLinks.innerHTML=h;
     }
