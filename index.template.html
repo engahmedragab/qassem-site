@@ -212,6 +212,9 @@
   @keyframes spin{to{transform:rotate(360deg)}}
   .dt__gridbg{position:absolute;inset:0;opacity:.13;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:32px 32px}
   .dt__vign{position:absolute;inset:0;background:radial-gradient(120% 100% at 30% 0%,transparent,rgba(10,10,11,.5) 72%,rgba(10,10,11,.9))}
+  .dt__shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;
+    opacity:0;transition:opacity .5s ease;filter:saturate(.92) contrast(1.02)}
+  .dt__shot.on{opacity:.62}
   .dt__mtop{position:absolute;inset:0;padding:20px;display:flex;justify-content:space-between;align-items:flex-start;z-index:2}
   .dt__logo{height:26px;width:160px;background-position:left center;background-repeat:no-repeat;background-size:contain;display:none}
   .dt__logo.has{display:block}
@@ -423,6 +426,7 @@
       <div class="wx__detail">
         <article class="dt" id="dt">
           <div class="dt__media">
+            <img class="dt__shot" id="dtShot" alt="" loading="lazy" decoding="async">
             <div class="dt__glow"></div><div class="dt__gridbg"></div><div class="dt__vign"></div>
             <div class="dt__mtop"><div class="dt__logo" id="dtLogo"></div><span class="dt__live" id="dtLive"><span class="d"></span>Live</span></div>
           </div>
@@ -557,30 +561,30 @@
 </footer>
 
 <script>
-var LOGOS={ourgrowth:"{{ASSET:logo-ourgrowth}}",ourscent:"{{ASSET:logo-ourscent}}",ourbride:"{{ASSET:logo-ourbride}}",bazaar:"{{ASSET:logo-bazaar}}",shaaml:"{{ASSET:logo-shaaml}}",ourinc:"{{ASSET:logo-ourinc}}"};
+var LOGOS={ourstore:"data:image/png;base64,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",ourgrowth:"{{ASSET:logo-ourgrowth}}",ourscent:"{{ASSET:logo-ourscent}}",ourbride:"{{ASSET:logo-ourbride}}",bazaar:"{{ASSET:logo-bazaar}}",shaaml:"{{ASSET:logo-shaaml}}",ourinc:"{{ASSET:logo-ourinc}}"};
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
   /* interactive work index — master / detail */
-  var PROJECTS=[{n:"Growth",yr:"2026",sub:"AI-Powered Growth",cat:"SAAS PLATFORM",meta:"AI Marketing Platform",rc:"#C9980D",logo:"ourgrowth",live:1,dom:"our-growth.com",url:"https://our-growth.com",
+  var PROJECTS=[{shot:"shots/growth.webp",n:"Growth",yr:"2026",sub:"AI-Powered Growth",cat:"SAAS PLATFORM",meta:"AI Marketing Platform",rc:"#C9980D",logo:"ourgrowth",live:1,dom:"our-growth.com",url:"https://our-growth.com",
      desc:"A multi-tenant AI marketing platform: 70 skills, an orchestrator, a live Shopify carrier app, Egypt Post & Bosta shipping, WhatsApp order confirmation and InstaPay collection, all self-optimising.",
      soc:[["Instagram","https://instagram.com/ourgrowth.ai"],["TikTok","https://tiktok.com/@ourgrowth.ai"],["YouTube",""],["Facebook","https://facebook.com/ourgrowth.ai"]]},
-    {n:"Store · EG",yr:"2026",sub:"Cosmetics, Delivered",cat:"SHOPIFY · EGP",meta:"Cosmetics · Shopify · EGP",rc:"#D98A4A",logo:"",live:1,dom:"our-store.store",url:"https://our-store.store",
+    {shot:"shots/store-eg.webp",n:"Store · EG",yr:"2026",sub:"Cosmetics, Delivered",cat:"SHOPIFY · EGP",meta:"Cosmetics · Shopify · EGP",rc:"#D98A4A",logo:"ourstore",live:1,dom:"our-store.store",url:"https://our-store.store",
      desc:"D2C cosmetics on Shopify (EGP). Custom theme, cash-on-delivery automation and WhatsApp flows on an Arabic-first storefront.",soc:[]},
-    {n:"Store · KSA",yr:"2026",sub:"Beauty for the Kingdom",cat:"SHOPIFY · SAR",meta:"Cosmetics · Shopify · SAR",rc:"#D98A4A",logo:"",live:1,dom:"sa.our-store.store",url:"https://sa.our-store.store",
+    {shot:"shots/store-ksa.webp",n:"Store · KSA",yr:"2026",sub:"Beauty for the Kingdom",cat:"SHOPIFY · SAR",meta:"Cosmetics · Shopify · SAR",rc:"#D98A4A",logo:"ourstore",live:1,dom:"sa.our-store.store",url:"https://sa.our-store.store",
      desc:"The Saudi storefront (SAR): same engine, localized market, payments and shipping wired for the Kingdom.",soc:[]},
-    {n:"Scent",yr:"2026",sub:"Find Your Scent",cat:"PERFUME · FULL-STACK",meta:"Perfume · Full-stack + Flutter",rc:"#7E14FF",logo:"ourscent",live:1,dom:"ourscent.com",url:"https://ourscent.com",
+    {n:"Scent",yr:"2026",sub:"Find Your Scent",cat:"PERFUME · FULL-STACK",meta:"Perfume · Full-stack + Flutter",rc:"#7E14FF",logo:"ourscent",live:1,dom:"our-scent.com",url:"",
      desc:"A perfume brand built as a full stack: storefront, admin dashboard, a Flutter app and a data pipeline that scrapes and structures the catalog.",soc:[]},
-    {n:"Bride",yr:"2025",sub:"Weddings, Reimagined",cat:"MARKETPLACE",meta:"Wedding & Beauty Ecosystem",rc:"#EF4444",logo:"ourbride",live:0,dom:"our-bride.com",url:"https://our-bride.com",
+    {shot:"shots/bride.webp",n:"Bride",yr:"2025",sub:"Weddings, Reimagined",cat:"MARKETPLACE",meta:"Wedding & Beauty Ecosystem",rc:"#EF4444",logo:"ourbride",live:0,dom:"our-bride.com",url:"https://our-bride.com",
      desc:"A wedding & beauty ecosystem: marketplace, mobile app, e-commerce and a bazaar on a .NET 8 backend. The most sprawling build in the portfolio.",
      soc:[["Instagram","https://www.instagram.com/ourbridestore"],["TikTok","https://www.tiktok.com/@our.bride.store"],["YouTube","https://www.youtube.com/@ourbride"],["Facebook","https://www.facebook.com/OurBrideStores"]]},
-    {n:"Bride Beauty",yr:"2025",sub:"Bridal Beauty",cat:"E-COMMERCE",meta:"Bridal Beauty Store",rc:"#E0608A",logo:"",live:1,dom:"bride-beauty.com",url:"https://bride-beauty.com",
+    {shot:"shots/bride-beauty.webp",n:"Bride Beauty",yr:"2025",sub:"Bridal Beauty",cat:"E-COMMERCE",meta:"Bridal Beauty Store",rc:"#E0608A",logo:"",live:1,dom:"bride-beauty.com",url:"https://bride-beauty.com",
      desc:"The beauty storefront in the OurBride family, a dedicated commerce experience for bridal beauty products.",soc:[]},
-    {n:"Events",yr:"2026",sub:"Discover What's On",cat:"EVENTS PLATFORM",meta:"Events Discovery",rc:"#4D9A3F",logo:"",live:1,dom:"our-events.com",url:"https://our-events.com",
+    {shot:"shots/events.webp",n:"Events",yr:"2026",sub:"Discover What's On",cat:"EVENTS PLATFORM",meta:"Events Discovery",rc:"#4D9A3F",logo:"",live:1,dom:"our-events.com",url:"https://our-events.com",
      desc:"An events-discovery platform: find the best events, expos and bazaars across Egypt.",soc:[]},
-    {n:"Bazaar",yr:"2026",sub:"Commerce OS for Events",cat:"COMMERCE OS",meta:"Commerce OS · Events · Flutter",rc:"#FF6B00",logo:"bazaar",live:0,dom:"our-bazaar.com",url:"https://our-bazaar.com",
+    {shot:"shots/bazaar.webp",n:"Bazaar",yr:"2026",sub:"Commerce OS for Events",cat:"COMMERCE OS",meta:"Commerce OS · Events · Flutter",rc:"#FF6B00",logo:"bazaar",live:0,dom:"our-bazaar.com",url:"https://our-bazaar.com",
      desc:"Egypt's commerce OS for bazaar events, concept stores and showrooms: a web platform plus a Flutter app.",soc:[]},
-    {n:"Shaaml",yr:"2025",sub:"Providers, Managed",cat:"MOBILE APP",meta:"Provider App · Flutter",rc:"#2AB0A0",logo:"shaaml",live:0,dom:"shaaml.online",url:"https://shaaml.online",
+    {shot:"shots/shaaml.webp",n:"Shaaml",yr:"2025",sub:"Providers, Managed",cat:"MOBILE APP",meta:"Provider App · Flutter",rc:"#2AB0A0",logo:"shaaml",live:0,dom:"shaaml.online",url:"https://shaaml.online",
      desc:"A provider app for the wedding industry: service providers manage profiles, services and bookings. Built in Flutter.",soc:[]}];
   var wxlist=document.getElementById('wxlist'), bgtint=document.getElementById('bgtint'), dt=document.getElementById('dt'), wxCur=document.getElementById('wxCur'), wxTot=document.getElementById('wxTot');
   if(wxlist && dt){
@@ -604,6 +608,8 @@ var LOGOS={ourgrowth:"{{ASSET:logo-ourgrowth}}",ourscent:"{{ASSET:logo-ourscent}
       if(p.logo&&LOGOS[p.logo]){dtLogo.style.backgroundImage='url('+LOGOS[p.logo]+')';dtLogo.classList.add('has');}else{dtLogo.classList.remove('has');dtLogo.style.backgroundImage='';}
       dtLive.classList.toggle('on',!!p.live);
       dtMeta.textContent=p.meta; dtName.textContent=p.n; dtDesc.textContent=p.desc;
+      var sh=document.getElementById('dtShot');
+      if(sh){ if(p.shot){ sh.src=p.shot; sh.classList.add('on'); } else { sh.removeAttribute('src'); sh.classList.remove('on'); } }
       var h=p.url?'<a class="dt__dom" href="'+p.url+'" target="_blank" rel="noopener" data-hover>'+p.dom+' ↗</a>'
                  :'<span class="dt__dom" style="background:transparent;color:var(--ink-faint);border:1px solid var(--line)">'+(p.dom||'not public')+'</span>';
       p.soc.forEach(function(s){ h+='<a class="dt__soc" href="'+s[1]+'" target="_blank" rel="noopener" data-hover>'+s[0]+' ↗</a>'; });
