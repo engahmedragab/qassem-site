@@ -48,7 +48,12 @@ head = f'''<!doctype html>
 <meta property="og:title" content="{html.escape(title)}" />
 <meta property="og:description" content="{html.escape(desc)}" />
 <meta property="og:url" content="{site}/" />
+<meta property="og:image" content="{site}/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Qassem — Developer, AI Consultant and Automation Engineer" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="{site}/og.jpg" />
 <meta name="twitter:title" content="{html.escape(title)}" />
 <meta name="twitter:description" content="{html.escape(desc)}" />
 <style>:root{{color-scheme:dark}}body{{margin:0;padding:0;background:#0A0A0B;color:#F1EFE9}}img{{max-width:100%}}</style>
