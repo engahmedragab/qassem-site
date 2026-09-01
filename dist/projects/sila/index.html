@@ -6,32 +6,82 @@
 <title>Online Sales Gate</title>
 <meta name="description" content="A proposal for turning an established Saudi SIM dealership into an online sales channel — the app, the dashboards, the flows, and what it costs to run." />
 <meta name="robots" content="noindex,nofollow" />
-<meta name="theme-color" content="#0A0A0B" />
-<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#F4F2EC" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0A0A0B" media="(prefers-color-scheme: dark)" />
+<meta name="color-scheme" content="light dark" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
-<style>:root{color-scheme:dark}body{margin:0;padding:0;background:#0A0A0B;color:#F1EFE9}img{max-width:100%}</style>
+<style>:root{color-scheme:light dark;background:#F4F2EC;color:#14140F}@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){background:#0A0A0B;color:#F1EFE9}}:root[data-theme="dark"]{background:#0A0A0B;color:#F1EFE9}:root[data-theme="light"]{background:#F4F2EC;color:#14140F}body{margin:0;padding:0;background:inherit;color:inherit}img{max-width:100%}</style>
 </head>
 <body>
 <style>
+  /* LIGHT is the base. The dark theme's warm ink becomes the light theme's ground —
+     the two palettes are one family seen from either side. */
   :root{
+    color-scheme:light dark;
+    --bg:#F4F2EC; --bg-2:#FFFFFF; --bg-3:#EAE7DE;
+    --ink:#14140F; --ink-soft:#55534B; --ink-faint:#847F76;
+    --line:rgba(20,20,15,.13); --line-2:rgba(20,20,15,.07);
+    --accent:#2F5FE0; --accent-2:#1E47B8; --accent-dim:rgba(47,95,224,.08);
+    --have:#1B7F4B; --have-dim:rgba(27,127,75,.10);
+    --fail:#B4452C; --fail-dim:rgba(180,69,44,.08);
+    --hdr:rgba(244,242,236,.88);
+    --glow:radial-gradient(circle,rgba(47,95,224,.10),transparent 66%);
+    --grain-op:.022;
+    --sh-phone:0 22px 48px -18px rgba(20,20,15,.38),0 0 0 1px rgba(255,255,255,.08) inset;
+    --sh-win:0 16px 36px -14px rgba(20,20,15,.26);
+    /* ── PRODUCT IDENTITY ──────────────────────────────────────────────
+       An aggregator cannot wear a supplier's colour — stc purple, Mobily blue,
+       Zain green, Salam red. Teal is unclaimed here, so the marketplace reads as
+       neutral. Brass marks the premium tier (vanity numbers). Chart steps are
+       validated for CVD + contrast in both modes. */
+    --a-bg:#FFFFFF; --a-2:#F3F6F5; --a-3:#E7EDEB;
+    --a-ink:#0C1917; --a-mid:#566A66; --a-faint:#8C9E9A; --a-line:#DEE7E5;
+    --a-brand:#00786C; --a-brand-2:#005C53; --a-brand-soft:#DFF1EE;
+    --a-warn:#B03D24; --a-warn-soft:#FBE9E4; --a-gold:#8A6410; --a-gold-soft:#F8EFD8;
+    /* validated chart steps — light */
+    --v1:#008C7E; --v2:#C08A10; --v3:#3D6FB5; --v4:#C8442A;
+    --v-grid:rgba(12,25,23,.09); --v-surface:#FFFFFF;
+    --ar:"IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+    --pad:clamp(20px,5vw,64px); --maxw:1240px;
+    --s1:8px; --s2:14px; --s3:22px; --s4:36px; --s5:56px; --s6:88px; --s7:120px;
+  }
+  /* system dark — but an explicit light choice still wins */
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
     --bg:#0A0A0B; --bg-2:#101012; --bg-3:#16161A;
     --ink:#F1EFE9; --ink-soft:#9A978E; --ink-faint:#5E5C56;
     --line:rgba(241,239,233,.10); --line-2:rgba(241,239,233,.05);
     --accent:#4D7CFF; --accent-2:#7FA0FF; --accent-dim:rgba(77,124,255,.13);
     --have:#4ADE80; --have-dim:rgba(74,222,128,.12);
     --fail:#F0836B; --fail-dim:rgba(240,131,107,.11);
-    /* the product's own identity — light, so the screens glow against the page */
-    --a-bg:#FFFFFF; --a-2:#F4F6F5; --a-3:#EAEEEC;
-    --a-ink:#0E1512; --a-mid:#5C6A64; --a-faint:#93A09A; --a-line:#E2E8E5;
-    --a-brand:#0E7A56; --a-brand-2:#0B6247; --a-brand-soft:#E3F3EC;
-    --a-warn:#B4442F; --a-warn-soft:#FCEAE6; --a-gold:#9A7018; --a-gold-soft:#FBF2DC;
-    --ar:"IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-    --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
-    --pad:clamp(20px,5vw,64px); --maxw:1240px;
-    --s1:8px; --s2:14px; --s3:22px; --s4:36px; --s5:56px; --s6:88px; --s7:120px;
+    --hdr:rgba(10,10,11,.86);
+    --glow:radial-gradient(circle,rgba(77,124,255,.15),transparent 66%);
+    --grain-op:.04;
+    --sh-phone:0 26px 60px -18px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.07) inset;
+    --sh-win:0 20px 44px -16px rgba(0,0,0,.7);
+    --v1:#1E9C8D; --v2:#B98B25; --v3:#5588D4; --v4:#D95B40;
+    --v-grid:rgba(241,239,233,.10);
+    }
+  }
+  /* explicit dark choice wins over a light OS */
+  :root[data-theme="dark"]{
+    --bg:#0A0A0B; --bg-2:#101012; --bg-3:#16161A;
+    --ink:#F1EFE9; --ink-soft:#9A978E; --ink-faint:#5E5C56;
+    --line:rgba(241,239,233,.10); --line-2:rgba(241,239,233,.05);
+    --accent:#4D7CFF; --accent-2:#7FA0FF; --accent-dim:rgba(77,124,255,.13);
+    --have:#4ADE80; --have-dim:rgba(74,222,128,.12);
+    --fail:#F0836B; --fail-dim:rgba(240,131,107,.11);
+    --hdr:rgba(10,10,11,.86);
+    --glow:radial-gradient(circle,rgba(77,124,255,.15),transparent 66%);
+    --grain-op:.04;
+    --sh-phone:0 26px 60px -18px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.07) inset;
+    --sh-win:0 20px 44px -16px rgba(0,0,0,.7);
+    --v1:#1E9C8D; --v2:#B98B25; --v3:#5588D4; --v4:#D95B40;
+    --v-grid:rgba(241,239,233,.10);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
@@ -40,7 +90,7 @@
   a{color:inherit;text-decoration:none}
   ::selection{background:var(--accent);color:#fff}
   :focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:3px}
-  body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.04;
+  body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:var(--grain-op);
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
 
   .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
@@ -57,15 +107,19 @@
   .eyebrow::before{content:"";width:26px;height:5px;border-radius:1px;flex:none;
     background:repeating-linear-gradient(90deg,var(--accent) 0 3px,transparent 3px 6px)}
   .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .scr .mono,.dbody .mono,.s-price,.s-num .n,.hb-v,.kpi .v,.spark-v,.strip .cnt,.sw .h,.ts-n{
+    direction:ltr;unicode-bidi:isolate}
+  .chr .url{direction:rtl;unicode-bidi:plaintext}
   .cta{display:inline-flex;align-items:center;gap:11px;background:var(--accent);color:#fff;
     font-weight:600;font-size:15px;padding:15px 28px;border-radius:8px;transition:.18s;margin-top:var(--s4)}
   .cta:hover{background:var(--accent-2);transform:translateY(-1px)}
+  .cta,.cta:hover{color:#fff}
   .cta span.t{font-family:var(--mono);font-size:12px;opacity:.75}
   .cta-note{margin-top:var(--s2);font-size:13px;color:var(--ink-faint)}
   .pull{border-inline-start:3px solid var(--accent);padding-inline-start:var(--s3);margin-top:var(--s5);max-width:58ch}
   .pull p{font-size:clamp(16px,1.9vw,19px);line-height:1.55}
 
-  header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-2)}
+  header{position:sticky;top:0;z-index:50;background:var(--hdr);backdrop-filter:blur(14px);border-bottom:1px solid var(--line-2)}
   .bar{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);
     padding-block:13px;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
   .home{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-soft)}
@@ -75,10 +129,22 @@
   .langs button{font:500 12px/1 var(--ar);background:none;border:0;color:var(--ink-faint);padding:7px 15px;border-radius:999px;cursor:pointer;transition:.18s}
   .langs button:hover{color:var(--ink)}
   .langs button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+  .ctrls{display:flex;align-items:center;gap:9px}
+  .tbtn{display:grid;place-items:center;width:34px;height:34px;border-radius:999px;cursor:pointer;
+    border:1px solid var(--line);background:none;color:var(--ink-faint);transition:.18s}
+  .tbtn:hover{color:var(--ink);border-color:var(--ink-faint)}
+  .tbtn svg{grid-area:1/1}
+  .tbtn .moon{display:none}
+  :root[data-theme="dark"] .tbtn .moon{display:block}
+  :root[data-theme="dark"] .tbtn .sun{display:none}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .tbtn .moon{display:block}
+    :root:not([data-theme="light"]) .tbtn .sun{display:none}
+  }
 
   /* ═══ PHONE MOCKUP SYSTEM ═══════════════════════════════════ */
   .phone{width:288px;flex:none;border-radius:34px;padding:9px;background:linear-gradient(160deg,#33353A,#17181B 55%);
-    box-shadow:0 26px 60px -18px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.07) inset}
+    box-shadow:var(--sh-phone)}
   .scr{border-radius:26px;overflow:hidden;background:var(--a-bg);color:var(--a-ink);
     font-size:12.5px;line-height:1.5;position:relative;direction:rtl}
   .sb{display:flex;justify-content:space-between;align-items:center;padding:9px 16px 3px;
@@ -173,14 +239,30 @@
     display:flex;align-items:center;gap:9px;margin-top:var(--s1)}
 </style>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="mk" viewBox="0 0 32 32">
+  <!-- the SIM silhouette: a rounded square with one chamfered corner -->
+  <path d="M11 2h15a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V11Z"/>
+  <!-- the node and its two waves, knocked out -->
+  <circle cx="11" cy="22" r="2.4" fill="var(--mk-bg,#fff)"/>
+  <path d="M11 16.6a5.4 5.4 0 0 1 5.4 5.4" fill="none" stroke="var(--mk-bg,#fff)" stroke-width="2.1" stroke-linecap="round"/>
+  <path d="M11 11.4a10.6 10.6 0 0 1 10.6 10.6" fill="none" stroke="var(--mk-bg,#fff)" stroke-width="2.1" stroke-linecap="round"/>
+</symbol></defs></svg>
+
 <div id="page" data-lang="ar" dir="rtl">
 
 <header>
   <div class="bar">
     <a class="home" href="/"><span class="dot"></span><span class="ar">قاسم</span><span class="en">Qassem</span></a>
-    <div class="langs">
-      <button type="button" data-set="ar" aria-pressed="true">العربية</button>
-      <button type="button" data-set="en" aria-pressed="false">English</button>
+    <div class="ctrls">
+      <div class="langs">
+        <button type="button" data-set="ar" aria-pressed="true">العربية</button>
+        <button type="button" data-set="en" aria-pressed="false">English</button>
+      </div>
+      <button type="button" id="theme" class="tbtn" aria-label="Switch theme">
+        <svg class="sun" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2M12 19.6v2M2.4 12h2M19.6 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.3A8.6 8.6 0 1 1 9.7 3.5a6.9 6.9 0 0 0 10.8 10.8Z"/></svg>
+      </button>
     </div>
   </div>
 </header>
@@ -189,7 +271,7 @@
 <!-- ══ HERO ═══════════════════════════════════════════════════ -->
 <section class="hero wrap" style="padding-block:clamp(48px,9vw,96px) var(--s6);position:relative;overflow:hidden">
   <div style="position:absolute;inset-block-start:-35%;inset-inline-start:-8%;width:56vw;height:56vw;border-radius:50%;
-    pointer-events:none;background:radial-gradient(circle,rgba(77,124,255,.15),transparent 66%);filter:blur(70px)"></div>
+    pointer-events:none;background:var(--glow);filter:blur(70px)"></div>
   <div style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s5);align-items:center" class="herogrid">
     <div>
       <div class="eyebrow"><span class="ar">عرض مشروع — سرّي</span><span class="en">Project proposal — confidential</span></div>
@@ -553,6 +635,63 @@
 
   </div>
 </section>
+
+<!-- ══ BRAND ═════════════════════════════════════════════════ -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">الهوية — مقترحة</span><span class="en">Identity — proposed</span></div>
+  <h2><span class="ar">اسم وهوية للمنتج، لا لشركتك.</span><span class="en">A name and identity for the product, not your company.</span></h2>
+  <p class="lede" style="margin-top:var(--s3)"><span class="ar">هذه هوية مقترحة للنقاش، لا قراراً. اسم المنتج وتسجيله التجاري قرارك وحدك.</span><span class="en">A proposal to react to, not a decision. The name and its trademark are yours alone to settle.</span></p>
+
+  <div class="brandwrap">
+    <div class="lockup">
+      <div class="mark"><svg><use href="#mk"/></svg></div>
+      <div class="wordmark">
+        <div class="wm-ar">صِلة</div>
+        <div class="wm-en">SILA</div>
+        <div class="wm-d"><span class="ar">صِلة — ما يربط بين طرفين</span><span class="en">ṣila — the bond between two parties</span></div>
+      </div>
+    </div>
+
+    <div class="brandnotes">
+      <div class="bn">
+        <h3><span class="ar">لماذا هذا الشكل</span><span class="en">Why this shape</span></h3>
+        <p><span class="ar">العلامة هي <b>شريحة اتصال</b> — المربّع المقصوص من زاوية، وهو أكثر شكل يعرفه أي شخص في هذا السوق. وداخلها نقطة تبثّ موجتين: الاتصال نفسه.</span><span class="en">The mark is <b>a SIM card</b> — the square with one corner cut, the most recognisable shape in this industry. Inside it, a node sending two waves: the connection itself.</span></p>
+      </div>
+      <div class="bn">
+        <h3><span class="ar">لماذا هذا اللون</span><span class="en">Why this colour</span></h3>
+        <p><span class="ar">stc بنفسجي، وموبايلي أزرق، وزين أخضر، وسلام أحمر. <b>الوسيط لا يرتدي لون أحد موردّيه</b> — وإلا بدا منحازاً. الفيروزي غير مملوك لأحد في هذا السوق.</span><span class="en">stc is purple, Mobily blue, Zain green, Salam red. <b>A marketplace cannot wear a supplier's colour</b> — it would look partial. Teal is unclaimed here.</span></p>
+      </div>
+      <div class="bn">
+        <h3><span class="ar">النحاسي للمميّز</span><span class="en">Brass for premium</span></h3>
+        <p><span class="ar">لون واحد فقط للأشياء التي تُدفع مقابلها إضافةً: الأرقام المميّزة. فيصبح اللون نفسه إشارة إلى القيمة.</span><span class="en">One colour, reserved for what costs extra: vanity numbers. The colour itself becomes a signal of value.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="swatches">
+    <div class="sw" style="--c:var(--a-ink)"><span class="d"></span><b><span class="ar">حبري</span><span class="en">Ink</span></b><span class="h mono">#0C1917</span><span class="u"><span class="ar">النصوص والأساس</span><span class="en">Text and ground</span></span></div>
+    <div class="sw" style="--c:var(--a-brand)"><span class="d"></span><b><span class="ar">فيروزي</span><span class="en">Teal</span></b><span class="h mono">#00786C</span><span class="u"><span class="ar">الشبكة والإجراء الأساسي</span><span class="en">Network, primary action</span></span></div>
+    <div class="sw" style="--c:var(--a-gold)"><span class="d"></span><b><span class="ar">نحاسي</span><span class="en">Brass</span></b><span class="h mono">#8A6410</span><span class="u"><span class="ar">المميّز فقط</span><span class="en">Premium only</span></span></div>
+    <div class="sw" style="--c:var(--a-warn)"><span class="d"></span><b><span class="ar">صدئي</span><span class="en">Rust</span></b><span class="h mono">#B03D24</span><span class="u"><span class="ar">التحذير والفشل</span><span class="en">Warning and failure</span></span></div>
+  </div>
+
+  <div class="brandrow">
+    <div class="appicons">
+      <div class="ai"><svg><use href="#mk"/></svg></div>
+      <div class="ai sm"><svg><use href="#mk"/></svg></div>
+      <div class="ai xs"><svg><use href="#mk"/></svg></div>
+      <div class="ai inv"><svg><use href="#mk"/></svg></div>
+      <div class="ailbl"><span class="ar">أيقونة التطبيق — تعمل حتى في أصغر مقاس، وبالأبيض والأسود</span><span class="en">The app icon — holds at the smallest size, and in one colour</span></div>
+    </div>
+    <div class="typespec">
+      <div class="ts-l"><span class="ar">الخط</span><span class="en">Typeface</span></div>
+      <div class="ts-big">صِلة · SILA · 0560</div>
+      <div class="ts-n">IBM Plex Sans Arabic</div>
+      <div class="ts-d"><span class="ar">خط عربي أولاً، بأوزان كاملة وأرقام متساوية العرض — تصطفّ الأسعار والأرقام في الجداول بلا اهتزاز.</span><span class="en">Arabic-first, a full weight range, and tabular figures — so prices and numbers line up in a column without wobbling.</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ THE JOURNEY, AS A FLOW ════════════════════════════════ -->
 <section class="wrap">
   <div class="eyebrow"><span class="ar">الرحلة كاملة</span><span class="en">The full journey</span></div>
@@ -635,20 +774,30 @@
       <div class="win">
         <div class="chr"><span></span><span></span><span></span><div class="url mono">admin · <span class="ar">غرفة التشغيل</span><span class="en">operations</span></div></div>
         <div class="dbody">
+          <div class="strip act"><span class="pip"></span><span class="ar">تنبيه واحد يحتاج قراراً</span><span class="en">1 alert needs a decision</span><span class="sp"></span><span class="cnt">09:41</span></div>
           <div class="kpis">
-            <div class="kpi bad"><div class="l"><span class="ar">أموال معلّقة</span><span class="en">Money at risk</span></div><div class="v">0.00</div><div class="s"><span class="ar">دُفعت ولم يُسلَّم خط</span><span class="en">paid, not provisioned</span></div></div>
+            <div class="kpi hero"><div class="l"><span class="ar">أموال معلّقة — دُفعت ولم يُسلَّم خط</span><span class="en">Money at risk — paid, not provisioned</span></div><div class="v">0.00</div><div class="s"><span class="ar">هذا الرقم يجب أن يبقى صفراً</span><span class="en">this must stay at zero</span></div></div>
             <div class="kpi"><div class="l"><span class="ar">طلبات متوقفة</span><span class="en">Stuck orders</span></div><div class="v">3</div><div class="s"><span class="ar">أقدمها ١٤ دقيقة</span><span class="en">oldest 14 min</span></div></div>
-            <div class="kpi"><div class="l"><span class="ar">نسبة النجاح</span><span class="en">Success rate</span></div><div class="v">98.6<i>%</i></div><div class="s"><span class="ar">آخر ٢٤ ساعة</span><span class="en">last 24h</span></div></div>
-            <div class="kpi"><div class="l"><span class="ar">استرداد خلال ٢٤س</span><span class="en">Refunds ≤24h</span></div><div class="v">100<i>%</i></div><div class="s"><span class="ar">٢ من ٢</span><span class="en">2 of 2</span></div></div>
+            <div class="kpi"><div class="l"><span class="ar">استرداد خلال ٢٤ ساعة</span><span class="en">Refunds within 24h</span></div><div class="v">2<i>/2</i></div><div class="s"><span class="ar">لا تأخير</span><span class="en">none late</span></div></div>
+          </div>
+          <div class="dcard">
+            <div class="spark-h"><span class="dh"><span class="ar">نسبة الطلبات المكتملة · ١٤ يوماً</span><span class="en">Fulfilment success · 14 days</span></span><span class="spark-v">98.6%</span></div>
+            <div class="spark"><svg viewBox="0 0 260 52" preserveAspectRatio="none" role="img" aria-label="Fulfilment success, 14 days, 96.8% to 98.6%">
+              <line class="gl" x1="0" y1="8" x2="260" y2="8"/><line class="gl" x1="0" y1="26" x2="260" y2="26"/><line class="gl" x1="0" y1="44" x2="260" y2="44"/>
+              <path class="area" d="M0,34 20,30 40,36 60,26 80,29 100,20 120,24 140,17 160,21 180,14 200,18 220,11 240,13 260,8 L260,52 L0,52 Z"/>
+              <polyline class="ln" points="0,34 20,30 40,36 60,26 80,29 100,20 120,24 140,17 160,21 180,14 200,18 220,11 240,13 260,8"/>
+              <circle class="pt" cx="260" cy="8" r="3.4"/>
+            </svg></div>
+            <div class="spark-x"><span><span class="ar">اليوم</span><span class="en">today</span></span><span><span class="ar">قبل ١٤ يوماً</span><span class="en">14 days ago</span></span></div>
           </div>
           <div class="dcard">
             <div class="dh"><span class="ar">حالة الاتصال بالمشغّلين</span><span class="en">Operator connections</span></div>
-            <div class="drow"><span class="ok">●</span><span class="ar">موبايلي</span><span class="en">Mobily</span><span class="sp"></span><span class="mono">99.9%</span><span class="mono dim">180ms</span></div>
-            <div class="drow"><span class="ok">●</span><span class="ar">stc</span><span class="en">stc</span><span class="sp"></span><span class="mono">99.7%</span><span class="mono dim">240ms</span></div>
-            <div class="drow"><span class="warn">●</span><span class="ar">زين</span><span class="en">Zain</span><span class="sp"></span><span class="mono">94.1%</span><span class="mono dim">1.9s</span><span class="tagoff"><span class="ar">أوقف البيع</span><span class="en">Stop selling</span></span></div>
-            <div class="drow"><span class="ok">●</span><span class="ar">سلام</span><span class="en">Salam</span><span class="sp"></span><span class="mono">99.4%</span><span class="mono dim">310ms</span></div>
+            <div class="drow"><span class="st-dot ok"></span><span class="ar">موبايلي</span><span class="en">Mobily</span><span class="sp"></span><span class="mono">99.9%</span><span class="mono dim">180ms</span></div>
+            <div class="drow"><span class="st-dot ok"></span><span class="ar">stc</span><span class="en">stc</span><span class="sp"></span><span class="mono">99.7%</span><span class="mono dim">240ms</span></div>
+            <div class="drow"><span class="st-dot wn"></span><span class="ar">زين</span><span class="en">Zain</span><span class="sp"></span><span class="mono">94.1%</span><span class="mono dim">1.9s</span><span class="tagoff"><span class="ar">أوقف البيع</span><span class="en">Stop selling</span></span></div>
+            <div class="drow"><span class="st-dot ok"></span><span class="ar">سلام</span><span class="en">Salam</span><span class="sp"></span><span class="mono">99.4%</span><span class="mono dim">310ms</span></div>
           </div>
-          <div class="dcard alert"><b><span class="ar">⚠ زين تتباطأ</span><span class="en">⚠ Zain is degrading</span></b><span class="ar">١١ محاولة فاشلة خلال ٢٠ دقيقة. يمكنك إيقاف بيع باقاتها بضغطة حتى تستقر.</span><span class="en">11 failures in 20 minutes. You can stop selling their plans in one click until it recovers.</span></div>
+          <div class="dcard alert"><b><span class="ar">⚠ زين تتباطأ</span><span class="en">⚠ Zain is degrading</span></b><span class="ar">١١ محاولة فاشلة خلال ٢٠ دقيقة. أوقف بيع باقاتها بضغطة حتى تستقر.</span><span class="en">11 failures in 20 minutes. Stop selling their plans in one click until it recovers.</span></div>
         </div>
       </div>
       <figcaption><b><span class="ar">أنت وفريق التشغيل</span><span class="en">You and your operations team</span></b><span class="ar"><span class="k">«أموال معلّقة» يجب أن يبقى صفراً.</span> أي رقم فوقه يعني عميلاً على وشك أن يشتكي — وأنت تعرف قبله.</span><span class="en"><span class="k">"Money at risk" must stay at zero.</span> Anything above it is a customer about to complain — and you know before they do.</span></figcaption>
@@ -658,23 +807,31 @@
       <div class="win">
         <div class="chr"><span></span><span></span><span></span><div class="url mono">partners · <span class="ar">موبايلي</span><span class="en">Mobily</span></div></div>
         <div class="dbody">
+          <div class="strip calm"><span class="pip"></span><span class="ar">بيانات موبايلي فقط</span><span class="en">Mobily data only</span><span class="sp"></span><span class="cnt"><span class="ar">أغسطس</span><span class="en">August</span></span></div>
           <div class="kpis">
-            <div class="kpi"><div class="l"><span class="ar">خطوط هذا الشهر</span><span class="en">Lines this month</span></div><div class="v">1,284</div><div class="s">▲ 18%</div></div>
+            <div class="kpi"><div class="l"><span class="ar">خطوط مفعّلة</span><span class="en">Lines activated</span></div><div class="v">1,284</div><div class="s">▲ 18%</div></div>
             <div class="kpi"><div class="l"><span class="ar">قيمة المبيعات</span><span class="en">Gross value</span></div><div class="v">162K</div><div class="s"><span class="ar">ريال</span><span class="en">SAR</span></div></div>
             <div class="kpi"><div class="l"><span class="ar">نسبة التفعيل</span><span class="en">Activation rate</span></div><div class="v">98.2<i>%</i></div><div class="s"><span class="ar">نعرضها كما هي</span><span class="en">shown as-is</span></div></div>
           </div>
           <div class="dcard">
-            <div class="dh"><span class="ar">أفضل باقاتكم لدينا</span><span class="en">Your best-selling plans</span></div>
-            <div class="drow"><span class="ar">باقة ٢٢٠</span><span class="en">Plan 220</span><span class="sp"></span><span class="dbar"><i style="width:86%"></i></span><span class="mono">612</span></div>
-            <div class="drow"><span class="ar">باقة ١٥٠</span><span class="en">Plan 150</span><span class="sp"></span><span class="dbar"><i style="width:54%"></i></span><span class="mono">388</span></div>
-            <div class="drow"><span class="ar">بيانات ١٠٠</span><span class="en">Data 100</span><span class="sp"></span><span class="dbar"><i style="width:39%"></i></span><span class="mono">284</span></div>
+            <div class="dh"><span class="ar">أفضل باقاتكم لدينا · عدد الخطوط</span><span class="en">Your best-selling plans · lines</span></div>
+            <div class="hb">
+              <div class="hb-r"><span class="hb-n"><span class="ar">باقة ٢٢٠</span><span class="en">Plan 220</span></span><span class="hb-t"><i style="width:100%"></i></span><span class="hb-v">612</span></div>
+              <div class="hb-r"><span class="hb-n"><span class="ar">باقة ١٥٠</span><span class="en">Plan 150</span></span><span class="hb-t"><i style="width:63%"></i></span><span class="hb-v">388</span></div>
+              <div class="hb-r"><span class="hb-n"><span class="ar">بيانات ١٠٠</span><span class="en">Data 100</span></span><span class="hb-t"><i style="width:46%"></i></span><span class="hb-v">284</span></div>
+              <div class="hb-r"><span class="hb-n"><span class="ar">باقة الزوار</span><span class="en">Visitor plan</span></span><span class="hb-t"><i style="width:23%"></i></span><span class="hb-v">141</span></div>
+            </div>
           </div>
-          <div class="dcard"><div class="dh"><span class="ar">أسباب عدم الاكتمال</span><span class="en">Why orders didn't complete</span></div>
-            <div class="drow"><span class="ar">العميل غير مؤهل — أُوقف قبل الدفع</span><span class="en">Not eligible — stopped before payment</span><span class="sp"></span><span class="mono">41</span></div>
-            <div class="drow"><span class="ar">جهاز لا يدعم eSIM</span><span class="en">Device doesn't support eSIM</span><span class="sp"></span><span class="mono">12</span></div>
-            <div class="drow"><span class="ar">تعذّر لدى المشغّل</span><span class="en">Operator-side failure</span><span class="sp"></span><span class="mono">7</span></div>
+          <div class="dcard">
+            <div class="dh"><span class="ar">أسباب عدم الاكتمال</span><span class="en">Why orders didn't complete</span></div>
+            <div class="hb">
+              <div class="hb-r v2"><span class="hb-n"><span class="ar">غير مؤهل</span><span class="en">Not eligible</span></span><span class="hb-t"><i style="width:100%"></i></span><span class="hb-v">41</span></div>
+              <div class="hb-r v3"><span class="hb-n"><span class="ar">جهاز غير متوافق</span><span class="en">Device unsupported</span></span><span class="hb-t"><i style="width:29%"></i></span><span class="hb-v">12</span></div>
+              <div class="hb-r v4"><span class="hb-n"><span class="ar">تعذّر لديكم</span><span class="en">Operator-side</span></span><span class="hb-t"><i style="width:17%"></i></span><span class="hb-v">7</span></div>
+            </div>
+            <div class="s-sub" style="font-size:9px;color:var(--a-faint)"><span class="ar">الأول أُوقف قبل الدفع — لم يُخصم من أي عميل شيء.</span><span class="en">The first was stopped before payment — no customer was charged.</span></div>
           </div>
-          <div class="dcard lock"><span class="ar">🔒 هذه الشاشة تعرض بيانات موبايلي فقط. لا يرى أي مشغّل أرقام غيره.</span><span class="en">🔒 This view shows Mobily data only. No operator ever sees another's numbers.</span></div>
+          <div class="dcard lock"><span class="ar">🔒 لا يرى أي مشغّل أرقام غيره — ولا حتى مجموعاً.</span><span class="en">🔒 No operator sees another's numbers — not even as a total.</span></div>
         </div>
       </div>
       <figcaption><b><span class="ar">المشغّلون</span><span class="en">Your operator partners</span></b><span class="ar">أغلب القنوات ترسل للمشغّل ملف إكسل شهرياً. <span class="k">قناة يرى المشغّل أرقامها لحظياً يصعب عليه تركها.</span></span><span class="en">Most channels email a spreadsheet once a month. <span class="k">A channel whose numbers a partner can see live is hard to walk away from.</span></span></figcaption>
@@ -684,22 +841,26 @@
       <div class="win">
         <div class="chr"><span></span><span></span><span></span><div class="url mono">dealers · <span class="ar">فرع العليا</span><span class="en">Olaya branch</span></div></div>
         <div class="dbody">
+          <div class="strip calm"><span class="pip"></span><span class="ar">فرع العليا · ١١ بائعاً</span><span class="en">Olaya branch · 11 sellers</span><span class="sp"></span><span class="cnt"><span class="ar">أغسطس</span><span class="en">August</span></span></div>
           <div class="kpis">
             <div class="kpi"><div class="l"><span class="ar">طلبات الشهر</span><span class="en">Orders</span></div><div class="v">318</div><div class="s">▲ 12%</div></div>
-            <div class="kpi ok"><div class="l"><span class="ar">عمولة مستحقة</span><span class="en">Commission earned</span></div><div class="v">18,640</div><div class="s"><span class="ar">ريال</span><span class="en">SAR</span></div></div>
-            <div class="kpi"><div class="l"><span class="ar">بائعون نشطون</span><span class="en">Active sellers</span></div><div class="v">9</div><div class="s"><span class="ar">من ١١</span><span class="en">of 11</span></div></div>
+            <div class="kpi hero"><div class="l"><span class="ar">عمولة مستحقة</span><span class="en">Commission earned</span></div><div class="v">18,640</div><div class="s"><span class="ar">ريال · تُدفع في الخامس</span><span class="en">SAR · paid on the 5th</span></div></div>
           </div>
           <div class="dcard">
-            <div class="dh"><span class="ar">البائعون</span><span class="en">Sellers</span></div>
-            <div class="drow"><span class="ar">محمد ع.</span><span class="en">Mohammed A.</span><span class="sp"></span><span class="mono">74</span><span class="mono ok2">4,120</span></div>
-            <div class="drow"><span class="ar">سلطان ر.</span><span class="en">Sultan R.</span><span class="sp"></span><span class="mono">61</span><span class="mono ok2">3,380</span></div>
-            <div class="drow"><span class="ar">عبدالله م.</span><span class="en">Abdullah M.</span><span class="sp"></span><span class="mono">55</span><span class="mono ok2">2,975</span></div>
-            <div class="drow"><span class="ar">فيصل ن.</span><span class="en">Faisal N.</span><span class="sp"></span><span class="mono">48</span><span class="mono ok2">2,610</span></div>
+            <div class="dh"><span class="ar">البائعون · العمولة بالريال</span><span class="en">Sellers · commission in SAR</span></div>
+            <div class="hb">
+              <div class="hb-r"><span class="hb-n"><span class="ar">محمد ع.</span><span class="en">Mohammed A.</span></span><span class="hb-t"><i style="width:100%"></i></span><span class="hb-v">4,120</span></div>
+              <div class="hb-r"><span class="hb-n"><span class="ar">سلطان ر.</span><span class="en">Sultan R.</span></span><span class="hb-t"><i style="width:82%"></i></span><span class="hb-v">3,380</span></div>
+              <div class="hb-r"><span class="hb-n"><span class="ar">عبدالله م.</span><span class="en">Abdullah M.</span></span><span class="hb-t"><i style="width:72%"></i></span><span class="hb-v">2,975</span></div>
+              <div class="hb-r"><span class="hb-n"><span class="ar">فيصل ن.</span><span class="en">Faisal N.</span></span><span class="hb-t"><i style="width:63%"></i></span><span class="hb-v">2,610</span></div>
+            </div>
           </div>
-          <div class="dcard"><div class="dh"><span class="ar">كشف العمولة</span><span class="en">Commission statement</span></div>
+          <div class="dcard">
+            <div class="dh"><span class="ar">كشف العمولة</span><span class="en">Commission statement</span></div>
             <div class="drow"><span class="ar">مستحقّة</span><span class="en">Earned</span><span class="sp"></span><span class="mono">18,640</span></div>
             <div class="drow"><span class="ar">مدفوعة</span><span class="en">Paid</span><span class="sp"></span><span class="mono">15,200</span></div>
-            <div class="drow"><span class="ar">مسترجعة — خطوط أُلغيت مبكراً</span><span class="en">Clawed back — lines cancelled early</span><span class="sp"></span><span class="mono warn2">−420</span></div>
+            <div class="drow"><span class="st-dot bd"></span><span class="ar">مسترجعة — ٣ خطوط أُلغيت قبل ٩٠ يوماً</span><span class="en">Clawed back — 3 lines cancelled inside 90 days</span><span class="sp"></span><span class="mono warn2">−420</span></div>
+            <div class="s-sub" style="font-size:9px;color:var(--a-faint)"><span class="ar">كل مبلغ مسترجع مذكور بسببه ورقم خطّه — فلا يتحوّل الخصم إلى خلاف.</span><span class="en">Every clawback names its reason and its line — so a deduction never becomes an argument.</span></div>
           </div>
         </div>
       </div>
@@ -710,16 +871,20 @@
       <div class="win">
         <div class="chr"><span></span><span></span><span></span><div class="url mono">support · <span class="ar">تذكرة ٨٨٢٤</span><span class="en">ticket 8824</span></div></div>
         <div class="dbody">
-          <div class="dcard"><div class="dh"><span class="ar">العميل — سجلّ كامل</span><span class="en">Customer — full history</span></div>
+          <div class="strip act"><span class="pip"></span><span class="ar">الوعد ساعتان · مضى ١٨ دقيقة</span><span class="en">2h promised · 18 min elapsed</span><span class="sp"></span><span class="cnt">01:42</span></div>
+          <div class="dcard">
+            <div class="dh"><span class="ar">العميل — السجل كاملاً</span><span class="en">Customer — full history</span></div>
             <div class="drow"><span class="ar">طلب ٤٤١٩٢ · شريحة إلكترونية</span><span class="en">Order 44192 · eSIM</span><span class="sp"></span><span class="chip warn3"><span class="ar">لم تُثبَّت</span><span class="en">not installed</span></span></div>
             <div class="drow"><span class="ar">الدفع</span><span class="en">Payment</span><span class="sp"></span><span class="chip ok3"><span class="ar">محجوز — لم يُخصم</span><span class="en">held, not taken</span></span></div>
             <div class="drow"><span class="ar">الرقم</span><span class="en">Number</span><span class="sp"></span><span class="mono">0560 148 902</span></div>
+            <div class="drow"><span class="ar">الهوية</span><span class="en">ID</span><span class="sp"></span><span class="mono">2•••••••41</span><span class="chip ok3"><span class="ar">مخفية</span><span class="en">masked</span></span></div>
           </div>
           <div class="dcard alert2"><b><span class="ar">سبب التعثّر</span><span class="en">What went wrong</span></b><span class="ar">الجهاز حمّل الشريحة لكنه لم يتصل بالشبكة. غالباً الجهاز مقفل على مشغّل آخر.</span><span class="en">The phone downloaded the profile but never attached. The device is most likely carrier-locked.</span></div>
-          <div class="dcard"><div class="dh"><span class="ar">ما يمكنك فعله الآن</span><span class="en">What you can do now</span></div>
+          <div class="dcard">
+            <div class="dh"><span class="ar">ما يمكنك فعله الآن</span><span class="en">What you can do now</span></div>
             <div class="acts"><span><span class="ar">إعادة المحاولة</span><span class="en">Retry</span></span><span><span class="ar">إصدار شريحة بديلة</span><span class="en">Reissue eSIM</span></span><span class="danger"><span class="ar">إلغاء واسترداد</span><span class="en">Cancel and refund</span></span></div>
+            <div class="s-sub" style="font-size:9px;color:var(--a-faint)"><span class="ar">كل إجراء يُسجَّل باسمك ووقته — بلا استثناء.</span><span class="en">Every action is logged with your name and the time — without exception.</span></div>
           </div>
-          <div class="dcard sla"><span class="ar">⏱ الوعد: ساعتان · مضى ١٨ دقيقة</span><span class="en">⏱ Promised: 2 hours · 18 minutes elapsed</span></div>
         </div>
       </div>
       <figcaption><b><span class="ar">موظفو الدعم</span><span class="en">Your support staff</span></b><span class="ar"><span class="k">سبب التعثّر مكتوب بلغة مفهومة، وأزرار الحل بجانبه.</span> تُحلّ الشكوى في أول مكالمة لا في اليوم الثالث.</span><span class="en"><span class="k">The failure explained in plain language, with the fix buttons beside it.</span> Solved on the first call, not the third day.</span></figcaption>
@@ -843,6 +1008,50 @@
 </main>
 </div>
 <style>
+
+  /* ═══ BRAND ═══════════════════════════════════════════════ */
+  .brandwrap{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:var(--s5);margin-top:var(--s5);align-items:start}
+  .lockup{background:var(--bg-2);border:1px solid var(--line-2);border-radius:16px;padding:var(--s5) var(--s4);
+    display:flex;flex-direction:column;align-items:center;gap:var(--s3);text-align:center}
+  .mark{width:82px;height:82px;color:var(--a-brand);--mk-bg:var(--bg-2)}
+  .mark svg{width:100%;height:100%;fill:currentColor}
+  .wm-ar{font-size:44px;font-weight:600;line-height:1.05;letter-spacing:-.01em}
+  .wm-en{font-family:var(--mono);font-size:15px;letter-spacing:.42em;color:var(--ink-soft);margin-top:6px;padding-inline-start:.42em}
+  .wm-d{font-size:12.5px;color:var(--ink-faint);margin-top:var(--s2)}
+  .brandnotes{display:flex;flex-direction:column;gap:var(--s3)}
+  .bn{border-inline-start:2px solid var(--line);padding-inline-start:var(--s3)}
+  .bn h3{font-size:15px;margin-bottom:5px}
+  .bn p{font-size:14px;color:var(--ink-soft);line-height:1.6;max-width:58ch}
+  .bn p b{color:var(--ink);font-weight:600}
+
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:var(--s2);margin-top:var(--s4)}
+  .sw{background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;padding:var(--s3);display:flex;flex-direction:column;gap:3px}
+  .sw .d{height:40px;border-radius:8px;background:var(--c);margin-bottom:var(--s1)}
+  .sw b{font-size:13.5px;font-weight:600}
+  .sw .h{font-size:11px;color:var(--ink-faint);direction:ltr;text-align:start;unicode-bidi:isolate}
+  .sw .u{font-size:11.5px;color:var(--ink-soft);line-height:1.45}
+
+  .brandrow{display:grid;grid-template-columns:auto 1fr;gap:var(--s5);margin-top:var(--s4);align-items:center}
+  .appicons{display:grid;grid-template-columns:repeat(4,auto);gap:var(--s2);align-items:center;justify-items:center}
+  .ai{width:62px;height:62px;border-radius:15px;background:var(--a-brand);color:#fff;--mk-bg:var(--a-brand);
+    display:grid;place-items:center;box-shadow:var(--sh-win)}
+  .ai svg{width:70%;height:70%;fill:currentColor}
+  .ai .cls{}
+  .ai svg circle,.ai svg path[stroke]{--mk-bg:var(--a-brand)}
+  .ai.sm{width:42px;height:42px;border-radius:11px}
+  .ai.xs{width:26px;height:26px;border-radius:7px}
+  .ai.inv{background:var(--ink);--mk-bg:var(--ink);color:var(--bg)}
+  .ailbl{grid-column:1/-1;font-size:12px;color:var(--ink-faint);text-align:center;margin-top:var(--s1);max-width:34ch}
+  .typespec{border-inline-start:2px solid var(--line);padding-inline-start:var(--s4)}
+  .ts-l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+  .ts-big{font-size:clamp(26px,4vw,42px);font-weight:500;letter-spacing:-.01em;margin-block:var(--s1)}
+  .ts-n{font-family:var(--mono);font-size:12.5px;color:var(--accent-2)}
+  .ts-d{font-size:14px;color:var(--ink-soft);margin-top:var(--s2);max-width:52ch;line-height:1.6}
+  @media(max-width:900px){
+    .brandwrap{grid-template-columns:1fr}
+    .brandrow{grid-template-columns:1fr;gap:var(--s4)}
+    .typespec{border-inline-start:0;padding-inline-start:0;border-top:1px solid var(--line);padding-top:var(--s3)}
+  }
   /* ═══ JOURNEY STEPS ═══════════════════════════════════════ */
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:9px;margin-top:var(--s5)}
   .stp{background:var(--bg-2);border:1px solid var(--line-2);border-radius:11px;padding:13px;
@@ -894,7 +1103,7 @@
   .dash figcaption b{display:block;color:var(--ink);font-size:13.5px;font-weight:600;margin-bottom:3px}
   .dash figcaption .k{color:var(--accent-2);font-weight:600}
   .win{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--a-bg);
-    box-shadow:0 20px 44px -16px rgba(0,0,0,.7)}
+    box-shadow:var(--sh-win)}
   .chr{display:flex;align-items:center;gap:6px;padding:9px 12px;background:var(--a-3);border-bottom:1px solid var(--a-line)}
   .chr>span{width:8px;height:8px;border-radius:50%;background:#C8D0CC;flex:none}
   .chr .url{margin-inline-start:9px;background:var(--a-bg);border-radius:5px;padding:3px 10px;font-size:9.5px;
@@ -934,6 +1143,43 @@
   .acts span{font-size:9.5px;font-weight:600;padding:6px 10px;border-radius:7px;background:var(--a-2);color:var(--a-ink)}
   .acts span.danger{background:var(--a-warn-soft);color:var(--a-warn)}
 
+
+  /* ═══ DASHBOARD CHART PRIMITIVES ══════════════════════════
+     Thin marks, rounded data-ends, a 2px surface gap between bars, a recessive
+     grid, and a direct label on every bar — the label is also what discharges
+     the brass step's contrast warning. */
+  .hb{display:flex;flex-direction:column;gap:2px}
+  .hb-r{display:grid;grid-template-columns:78px 1fr auto;gap:8px;align-items:center;font-size:10.5px}
+  .hb-n{color:var(--a-mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hb-t{height:7px;background:var(--a-3);overflow:hidden;border-start-end-radius:4px;border-end-end-radius:4px}
+  .hb-t i{display:block;height:100%;background:var(--v1);border-start-end-radius:4px;border-end-end-radius:4px}
+  .hb-r.v2 .hb-t i{background:var(--v2)}
+  .hb-r.v3 .hb-t i{background:var(--v3)}
+  .hb-r.v4 .hb-t i{background:var(--v4)}
+  .hb-v{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:10.5px;color:var(--a-ink);font-weight:500}
+
+  .spark{position:relative}
+  .spark svg{display:block;width:100%;height:52px;overflow:visible}
+  .spark .gl{stroke:var(--v-grid);stroke-width:1}
+  .spark .ln{fill:none;stroke:var(--v1);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .spark .area{fill:var(--v1);opacity:.10}
+  .spark .pt{fill:var(--v1);stroke:var(--a-bg);stroke-width:2}
+  .spark-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+  .spark-v{font-family:var(--mono);font-size:16px;font-weight:600;letter-spacing:-.02em}
+  .spark-x{display:flex;justify-content:space-between;font-size:8.5px;color:var(--a-faint);margin-top:3px}
+
+  .strip{display:flex;align-items:center;gap:8px;padding:8px 11px;border-radius:8px;font-size:10.5px;font-weight:600}
+  .strip.calm{background:var(--a-brand-soft);color:var(--a-brand-2)}
+  .strip.act{background:#FDF3E3;color:#7A5A12}
+  .strip .pip{width:7px;height:7px;border-radius:50%;flex:none;background:currentColor}
+  .strip .sp{flex:1}
+  .strip .cnt{font-family:var(--mono);font-weight:700}
+
+  .st-dot{width:7px;height:7px;border-radius:50%;flex:none}
+  .st-dot.ok{background:var(--v1)} .st-dot.wn{background:var(--v2)} .st-dot.bd{background:var(--v4)}
+  .kpi.hero{grid-column:span 2;border-color:#CFE6E2;background:var(--a-brand-soft)}
+  .kpi.hero .v{color:var(--a-brand-2);font-size:22px}
+  .kpi.hero .l{color:var(--a-brand-2);opacity:.8}
   /* ═══ SHARED BLOCKS ═══════════════════════════════════════ */
   .gates{display:grid;gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:12px;overflow:hidden;margin-top:var(--s5)}
   .gate{background:var(--bg-2);padding:var(--s3) var(--s4);display:grid;grid-template-columns:auto 1fr auto;gap:var(--s3);align-items:center}
@@ -1018,6 +1264,22 @@
   btns.forEach(function(b){ b.addEventListener('click',function(){ set(b.dataset.set); }); });
   var saved=null; try{ saved=localStorage.getItem('sila-lang'); }catch(e){}
   set(saved==='en'?'en':'ar');
+
+  // Theme. No stored choice means no stamp — the OS decides, as it should.
+  var root=document.documentElement, tbtn=document.getElementById('theme');
+  var mq=window.matchMedia('(prefers-color-scheme: dark)');
+  function stored(){ try{ return localStorage.getItem('sila-theme'); }catch(e){ return null; } }
+  function resolved(){ var v=stored(); return v==='light'||v==='dark' ? v : (mq.matches?'dark':'light'); }
+  function applyStored(){
+    var v=stored();
+    if(v==='light'||v==='dark') root.setAttribute('data-theme',v); else root.removeAttribute('data-theme');
+  }
+  applyStored();
+  tbtn.addEventListener('click',function(){
+    var next = resolved()==='dark' ? 'light' : 'dark';
+    try{ localStorage.setItem('sila-theme',next); }catch(e){}
+    root.setAttribute('data-theme',next);
+  });
 })();
 </script>
 </body>

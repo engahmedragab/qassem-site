@@ -22,11 +22,12 @@ HEAD = """<!doctype html>
 <title>{title}</title>
 <meta name="description" content="{desc}" />
 <meta name="robots" content="noindex,nofollow" />
-<meta name="theme-color" content="#0A0A0B" />
-<meta name="color-scheme" content="dark" />
+<meta name="theme-color" content="#F4F2EC" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0A0A0B" media="(prefers-color-scheme: dark)" />
+<meta name="color-scheme" content="light dark" />
 <link rel="icon" href="{favicon}" />
 {links}
-<style>:root{{color-scheme:dark}}body{{margin:0;padding:0;background:#0A0A0B;color:#F1EFE9}}img{{max-width:100%}}</style>
+<style>:root{{color-scheme:light dark;background:#F4F2EC;color:#14140F}}@media(prefers-color-scheme:dark){{:root:not([data-theme="light"]){{background:#0A0A0B;color:#F1EFE9}}}}:root[data-theme="dark"]{{background:#0A0A0B;color:#F1EFE9}}:root[data-theme="light"]{{background:#F4F2EC;color:#14140F}}body{{margin:0;padding:0;background:inherit;color:inherit}}img{{max-width:100%}}</style>
 </head>
 <body>
 """
