@@ -64,3 +64,6 @@ head = f'''<!doctype html>
 open(out, 'w', encoding='utf-8').write(head + body.strip() + '\n</body>\n</html>\n')
 print(f'built {out}  ({len(head)+len(body)} bytes)  canonical={site}')
 PY
+
+# Sub-pages: projects/*.html -> dist/projects/<name>/index.html (noindex, link-shared).
+SITE_URL="$SITE_URL" python3 build-pages.py

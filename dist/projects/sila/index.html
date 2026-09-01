@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Online Sales Gate</title>
+<meta name="description" content="A proposal for turning an established Saudi SIM dealership into an online sales channel — what exists already, what is missing, and what it costs to run." />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#0A0A0B" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<style>:root{color-scheme:dark}body{margin:0;padding:0;background:#0A0A0B;color:#F1EFE9}img{max-width:100%}</style>
+</head>
+<body>
+<style>
+  :root{
+    --bg:#0A0A0B; --bg-2:#101012; --bg-3:#16161A;
+    --ink:#F1EFE9; --ink-soft:#9A978E; --ink-faint:#5E5C56;
+    --line:rgba(241,239,233,.10); --line-2:rgba(241,239,233,.05);
+    --accent:#4D7CFF; --accent-2:#7FA0FF; --accent-dim:rgba(77,124,255,.13);
+    --have:#4ADE80; --have-dim:rgba(74,222,128,.12);
+    --fail:#F0836B; --fail-dim:rgba(240,131,107,.11);
+    --ar:"IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+    --pad:clamp(20px,5vw,64px); --maxw:1180px;
+    --s1:8px; --s2:14px; --s3:22px; --s4:36px; --s5:56px; --s6:88px; --s7:128px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--ar);line-height:1.65;overflow-x:hidden}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  :focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:3px}
+
+  /* grain — the one texture carried over from the parent site */
+  body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.04;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+
+  .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+  section{padding-block:var(--s7)}
+  section+section{border-top:1px solid var(--line-2)}
+
+  /* ── type scale ─────────────────────────────────────────── */
+  h1{font-size:clamp(30px,5.4vw,60px);font-weight:600;line-height:1.16;letter-spacing:-.01em;text-wrap:balance}
+  h2{font-size:clamp(23px,3.3vw,38px);font-weight:600;line-height:1.25;text-wrap:balance}
+  h3{font-size:clamp(16px,1.7vw,19px);font-weight:600;line-height:1.4}
+  p{max-width:62ch}
+  .lede{font-size:clamp(16px,2.1vw,21px);color:var(--ink-soft);font-weight:300;line-height:1.62}
+  .big{font-size:clamp(18px,2.6vw,26px);font-weight:400;line-height:1.5;color:var(--ink);max-width:26ch}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-faint);display:flex;align-items:center;gap:12px;margin-bottom:var(--s3)}
+  .eyebrow::before{content:"";width:26px;height:5px;border-radius:1px;flex:none;
+    background:repeating-linear-gradient(90deg,var(--accent) 0 3px,transparent 3px 6px)}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .muted{color:var(--ink-soft)}
+  .faint{color:var(--ink-faint)}
+
+  /* ── header ─────────────────────────────────────────────── */
+  header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.86);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-2)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);
+    padding-block:13px;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+  .home{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-soft)}
+  .home:hover{color:var(--ink)}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+  .langs{display:flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px}
+  .langs button{font:500 12px/1 var(--ar);background:none;border:0;color:var(--ink-faint);
+    padding:7px 15px;border-radius:999px;cursor:pointer;transition:.18s}
+  .langs button:hover{color:var(--ink)}
+  .langs button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+  /* ── hero ───────────────────────────────────────────────── */
+  .hero{padding-block:clamp(64px,13vw,150px) var(--s7);position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset-block-start:-40%;inset-inline-start:-10%;
+    width:62vw;height:62vw;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle,rgba(77,124,255,.16),transparent 66%);filter:blur(70px)}
+  .hero>*{position:relative}
+  .hero h1{max-width:19ch}
+  .hero .lede{margin-top:var(--s4);max-width:52ch;font-size:clamp(17px,2.3vw,23px);color:var(--ink)}
+  .hero .lede b{font-weight:600}
+
+  .cta{display:inline-flex;align-items:center;gap:11px;background:var(--accent);color:#fff;
+    font-weight:600;font-size:15px;padding:15px 28px;border-radius:8px;transition:.18s;margin-top:var(--s5)}
+  .cta:hover{background:var(--accent-2);transform:translateY(-1px)}
+  .cta span{font-family:var(--mono);font-size:12px;opacity:.75}
+  .cta-note{margin-top:var(--s2);font-size:13px;color:var(--ink-faint)}
+
+  /* ── gates ──────────────────────────────────────────────── */
+  .gates{display:grid;gap:1px;background:var(--line-2);border:1px solid var(--line-2);
+    border-radius:12px;overflow:hidden;margin-top:var(--s5)}
+  .gate{background:var(--bg-2);padding:var(--s3) var(--s4);display:grid;
+    grid-template-columns:auto 1fr auto;gap:var(--s3);align-items:center}
+  .gate .n{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+  .gate h3{font-weight:500;font-size:16px}
+  .gate .sub{font-size:13.5px;color:var(--ink-faint);margin-top:3px}
+  .tick{display:inline-flex;align-items:center;gap:8px;color:var(--have);font-size:13px;font-weight:500;
+    background:var(--have-dim);padding:6px 13px;border-radius:999px;white-space:nowrap}
+  .tick::before{content:"✓";font-size:12px}
+  @media(max-width:680px){.gate{grid-template-columns:auto 1fr}.gate .tick{grid-column:2;justify-self:start}}
+
+  .pull{border-inline-start:3px solid var(--accent);padding-inline-start:var(--s3);
+    margin-top:var(--s5);max-width:56ch}
+  .pull p{font-size:clamp(16px,2vw,20px);line-height:1.55}
+
+  /* ── failure table ──────────────────────────────────────── */
+  .tablewrap{overflow-x:auto;margin-top:var(--s5);border:1px solid var(--line-2);border-radius:12px}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+  th{text-align:start;font-weight:500;font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-faint);font-family:var(--mono);padding:var(--s3) var(--s3);border-bottom:1px solid var(--line)}
+  td{padding:var(--s3);border-bottom:1px solid var(--line-2);vertical-align:top;line-height:1.55}
+  tr:last-child td{border-bottom:0}
+  .quote{color:var(--fail);font-weight:500}
+  .fixcol{color:var(--ink)}
+  .cause{color:var(--ink-faint);font-size:13.5px}
+
+  /* ── two models ─────────────────────────────────────────── */
+  .models{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s5)}
+  @media(max-width:760px){.models{grid-template-columns:1fr}}
+  .model{background:var(--bg-2);border:1px solid var(--line-2);border-radius:14px;padding:var(--s4);
+    display:flex;flex-direction:column;gap:var(--s2)}
+  .model.b{border-color:rgba(77,124,255,.3);background:linear-gradient(180deg,var(--accent-dim),var(--bg-2) 55%)}
+  .model .tag{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint)}
+  .model.b .tag{color:var(--accent-2)}
+  .model h3{font-size:19px}
+  .model ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:var(--s2)}
+  .model li{font-size:14.5px;color:var(--ink-soft);padding-inline-start:20px;position:relative;line-height:1.55}
+  .model li::before{content:"";position:absolute;inset-inline-start:0;top:9px;width:6px;height:6px;
+    border-radius:50%;background:var(--ink-faint)}
+  .model.b li::before{background:var(--accent)}
+  .model li b{color:var(--ink);font-weight:600}
+
+  .flow{margin-top:var(--s5);border:1px solid var(--line-2);border-radius:14px;background:var(--bg-2);
+    padding:var(--s4);display:grid;grid-template-columns:1fr auto 1fr;gap:var(--s3);align-items:center}
+  @media(max-width:760px){.flow{grid-template-columns:1fr;text-align:center}.flow .arrowcol{transform:rotate(90deg)}}
+  .flow .node{border:1px dashed var(--line);border-radius:10px;padding:var(--s3);text-align:center}
+  .flow .node .t{font-size:14px;font-weight:600}
+  .flow .node .d{font-size:12.5px;color:var(--ink-faint);margin-top:5px}
+  .flow .arrowcol{display:flex;flex-direction:column;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .flow .arrowcol::before,.flow .arrowcol::after{content:"";width:1px;flex:1;min-height:18px;background:var(--line)}
+  .flow .down{grid-column:1/-1;text-align:center;color:var(--accent);font-size:17px;line-height:1;margin-top:var(--s2)}
+  @media(max-width:760px){.flow .arrowcol{flex-direction:row}
+    .flow .arrowcol::before,.flow .arrowcol::after{width:auto;height:1px;min-height:0}}
+  .flow .hub{grid-column:1/-1;margin-top:var(--s2);background:var(--accent-dim);
+    border:1px solid rgba(77,124,255,.3);border-radius:10px;padding:var(--s3);text-align:center;font-weight:600;font-size:15px}
+
+  /* ── build / dashboards grids ───────────────────────────── */
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:var(--s3);margin-top:var(--s5)}
+  .card{background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;padding:var(--s4)}
+  .card h3{margin-bottom:var(--s1)}
+  .card p{font-size:14px;color:var(--ink-soft);max-width:none;line-height:1.6}
+  .card .who{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--accent-2);margin-bottom:11px}
+
+  /* ── cost tables ────────────────────────────────────────── */
+  .costnote{margin-top:var(--s4);padding:var(--s3) var(--s4);border-radius:10px;
+    background:var(--bg-2);border:1px solid var(--line-2);font-size:14px;color:var(--ink-soft);max-width:70ch}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+    padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .pill.fixed{background:var(--line-2);color:var(--ink-faint)}
+  .pill.var{background:var(--fail-dim);color:var(--fail)}
+  .subhead{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);margin-top:var(--s5);margin-bottom:var(--s2)}
+
+  /* ── phases ─────────────────────────────────────────────── */
+  .phases{margin-top:var(--s5);display:flex;flex-direction:column;gap:1px;
+    background:var(--line-2);border:1px solid var(--line-2);border-radius:12px;overflow:hidden}
+  .phase{background:var(--bg-2);padding:var(--s4);display:grid;grid-template-columns:auto 1fr;gap:var(--s4)}
+  .phase .idx{font-family:var(--mono);font-size:12px;color:var(--accent);padding-top:3px}
+  .phase h3{margin-bottom:6px}
+  .phase p{font-size:14px;color:var(--ink-soft);max-width:none}
+  .phase.done{background:var(--bg-3)}
+  .phase.done .idx{color:var(--have)}
+
+  /* ── close ──────────────────────────────────────────────── */
+  .close{text-align:center;padding-block:var(--s7)}
+  .close h2{max-width:22ch;margin-inline:auto}
+  .close .lede{margin:var(--s3) auto 0;max-width:48ch}
+  footer{border-top:1px solid var(--line-2);padding-block:var(--s4);
+    font-size:12.5px;color:var(--ink-faint);display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
+
+  /* ── language switching ─────────────────────────────────── */
+  [data-lang="ar"] .en{display:none}
+  [data-lang="en"] .ar{display:none}
+  [data-lang="en"]{font-family:var(--ar)}
+</style>
+
+<div id="page" data-lang="ar" dir="rtl">
+
+<header>
+  <div class="bar">
+    <a class="home" href="/"><span class="dot"></span><span class="ar">قاسم</span><span class="en">Qassem</span></a>
+    <div class="langs">
+      <button type="button" data-set="ar" aria-pressed="true">العربية</button>
+      <button type="button" data-set="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ── HERO ───────────────────────────────────────────────── -->
+<section class="hero wrap">
+  <div class="eyebrow"><span class="ar">عرض مشروع — سرّي</span><span class="en">Project proposal — confidential</span></div>
+  <h1>
+    <span class="ar">أنت تملك بالفعل ما ينفق منافسوك سنوات في محاولة شرائه.</span>
+    <span class="en">You already own what your competitors spend years trying to buy.</span>
+  </h1>
+  <p class="lede">
+    <span class="ar">تايقو بنى تطبيقاً ليصل إلى المشغّلين. <b>أنت تملك المشغّلين — ينقصك التطبيق.</b></span>
+    <span class="en">Tygo built an app to reach the operators. <b>You have the operators — you're missing the app.</b></span>
+  </p>
+  <a class="cta" href="mailto:elec.eng.ahmedragab@gmail.com?subject=%D9%85%D9%83%D8%A7%D9%84%D9%85%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A7%D9%84%D8%A8%D9%88%D8%A7%D8%A8%D8%A9%20%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9">
+    <span class="ar">احجز مكالمة</span><span class="en">Book a call</span><span>30 min</span>
+  </a>
+  <div class="cta-note">
+    <span class="ar">ثلاثون دقيقة. أشرح فيها الحواجز الأربعة، وأين يقف مشروعك منها اليوم.</span>
+    <span class="en">Thirty minutes. I'll walk you through the four barriers and where your project already stands against them.</span>
+  </div>
+</section>
+
+<!-- ── WHAT YOU HAVE ──────────────────────────────────────── -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">ما تملكه</span><span class="en">What you have</span></div>
+  <h2>
+    <span class="ar">أربعة حواجز توقف كل من يحاول دخول هذا السوق. أنت تجاوزتها.</span>
+    <span class="en">Four barriers stop everyone trying to enter this market. You are already through them.</span>
+  </h2>
+
+  <div class="gates">
+    <div class="gate">
+      <span class="n">01</span>
+      <div>
+        <h3><span class="ar">كيان قانوني وسجل تجاري</span><span class="en">Legal entity and commercial registration</span></h3>
+        <div class="sub"><span class="ar">من ستة أشهر إلى سنة لمن يبدأ من الصفر</span><span class="en">Six months to a year from a standing start</span></div>
+      </div>
+      <span class="tick"><span class="ar">لديك شركات</span><span class="en">You have companies</span></span>
+    </div>
+    <div class="gate">
+      <span class="n">02</span>
+      <div>
+        <h3><span class="ar">اتفاقيات مع المشغّلين</span><span class="en">Operator agreements</span></h3>
+        <div class="sub"><span class="ar">الحاجز الذي يوقف أغلب المحاولات نهائياً</span><span class="en">The barrier that ends most attempts outright</span></div>
+      </div>
+      <span class="tick"><span class="ar">لديك علاقات مع الجميع</span><span class="en">You have all of them</span></span>
+    </div>
+    <div class="gate">
+      <span class="n">03</span>
+      <div>
+        <h3><span class="ar">التسجيل كقناة بيع معتمدة</span><span class="en">Registration as an authorised channel</span></h3>
+        <div class="sub"><span class="ar">تسجيل المنشأة والفروع والموظفين والأجهزة — كل طبقة موافقة منفصلة</span><span class="en">Organisation, branches, employees and devices — each a separate approval</span></div>
+      </div>
+      <span class="tick"><span class="ar">باعتك يفعّلون اليوم</span><span class="en">Your sellers activate today</span></span>
+    </div>
+    <div class="gate">
+      <span class="n">04</span>
+      <div>
+        <h3><span class="ar">الوصول إلى منصة التسجيل الوطنية</span><span class="en">Access to the national registration platform</span></h3>
+        <div class="sub"><span class="ar">كل رقم وكل شريحة في المملكة تمرّ من خلالها</span><span class="en">Every number and every SIM in the Kingdom passes through it</span></div>
+      </div>
+      <span class="tick"><span class="ar">عبر مشغّليك</span><span class="en">Through your operators</span></span>
+    </div>
+  </div>
+
+  <div class="pull">
+    <p>
+      <span class="ar">منافسك الأكبر أمضى أربع سنوات يبني تطبيقاً كي يحصل على ما تملكه أنت اليوم. الفارق الوحيد بينكما أنه وجّه ما يملكه نحو شاشة، وأنت لم تفعل بعد.</span>
+      <span class="en">Your largest competitor spent four years building an app to get access to what you already hold. The only difference between you is that they pointed it at a screen, and you have not yet.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ── WHAT'S MISSING ─────────────────────────────────────── -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">ما ينقصك</span><span class="en">What is missing</span></div>
+  <h2><span class="ar">البوابة الإلكترونية — وهي ليست «مجرد تطبيق».</span><span class="en">The online gate — and it is not "just an app".</span></h2>
+  <p class="lede" style="margin-top:var(--s4)">
+    <span class="ar">السبب في أن البيع عبر الإنترنت أصعب من البيع في محلاتك ليس البرمجة. بل أن كل مشكلة يحلّها موظفك في المحل خلال ثلاثين ثانية — بطاقة لا تعمل، رقم مرفوض، عميل غيّر رأيه — تتحوّل عبر الإنترنت إلى <b>استرداد أموال، وتذكرة دعم، وتقييم بنجمة واحدة</b>. وعلى نطاق لا يبلغه أي محل.</span>
+    <span class="en">The reason selling online is harder than selling in your shops is not the software. It is that every problem your assistant solves in thirty seconds — a card that won't work, a rejected number, a customer who changed their mind — becomes, online, <b>a refund, a support ticket and a one-star review</b>. At a scale no shop ever reaches.</span>
+  </p>
+  <p class="lede" style="margin-top:var(--s3)">
+    <span class="ar">هذا ما يميّز مشروعاً ناجحاً عن مشروع يضرّ باسم صاحبه. وهو ما بُني هذا العرض حوله.</span>
+    <span class="en">That is what separates a channel that works from one that damages the name above it. This proposal is built around it.</span>
+  </p>
+</section>
+
+<!-- ── WHERE THE COMPETITION FAILS ────────────────────────── -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">أين يفشل المنافس</span><span class="en">Where the competition fails</span></div>
+  <h2><span class="ar">شكاوى حقيقية منشورة على متاجر التطبيقات — ولكل واحدة سبب، ولكل سبب حل.</span><span class="en">Real published complaints — each with a cause, and each with a fix.</span></h2>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr>
+          <th><span class="ar">ما يقوله العميل</span><span class="en">What the customer says</span></th>
+          <th><span class="ar">السبب</span><span class="en">The cause</span></th>
+          <th><span class="ar">ما نفعله بدلاً منه</span><span class="en">What we do instead</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="quote"><span class="ar">«دفعت ولم تصلني الشريحة، ولا أحد يردّ.»</span><span class="en">"I paid, no SIM arrived, and nobody replies."</span></td>
+          <td class="cause"><span class="ar">المبلغ يُسحب من العميل قبل التأكد من نجاح التفعيل.</span><span class="en">The money is taken before activation is confirmed.</span></td>
+          <td class="fixcol"><span class="ar">لا يُسحب مبلغ حتى يعمل الخط فعلاً. وإن فشل، يُعاد المبلغ تلقائياً خلال ٢٤ ساعة.</span><span class="en">Nothing is charged until the line is live. If it fails, the money returns automatically within 24 hours.</span></td>
+        </tr>
+        <tr>
+          <td class="quote"><span class="ar">«دفعت، ثم قيل لي إني تجاوزت عدد الشرائح المسموح.»</span><span class="en">"I paid, then was told I'd exceeded my SIM limit."</span></td>
+          <td class="cause"><span class="ar">لا يوجد فحص لأهلية العميل قبل شاشة الدفع — رغم أن الفحص متاح ومجاني.</span><span class="en">No eligibility check before payment — though the check is available and free.</span></td>
+          <td class="fixcol"><span class="ar">نتحقق من أهلية العميل <b>قبل</b> أن يرى شاشة الدفع. لا تأخذ مالاً تضطر لإعادته.</span><span class="en">We check eligibility <b>before</b> the payment screen. You never take money you have to give back.</span></td>
+        </tr>
+        <tr>
+          <td class="quote"><span class="ar">«اشتريت شريحة إلكترونية ولم تعمل على جهازي.»</span><span class="en">"I bought an eSIM and it didn't work on my phone."</span></td>
+          <td class="cause"><span class="ar">لا فحص لتوافق الجهاز قبل الشراء.</span><span class="en">No device compatibility check before purchase.</span></td>
+          <td class="fixcol"><span class="ar">نفحص الجهاز قبل السماح بالشراء — <b>ونمنع البيع</b> إن لم يكن متوافقاً.</span><span class="en">We check the device first — and <b>block the sale</b> if it isn't compatible.</span></td>
+        </tr>
+        <tr>
+          <td class="quote"><span class="ar">«الدعم لا يردّ منذ ثلاثة أيام.»</span><span class="en">"Support hasn't replied in three days."</span></td>
+          <td class="cause"><span class="ar">واتساب فقط، بلا نظام تذاكر وبلا وقت استجابة معلن.</span><span class="en">WhatsApp only — no ticketing, no stated response time.</span></td>
+          <td class="fixcol"><span class="ar">نظام تذاكر بوقت استجابة معلن ومقاس، بالعربية والإنجليزية والأردية والهندية.</span><span class="en">Ticketing with a published, measured response time — in Arabic, English, Urdu and Hindi.</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="cta-note" style="margin-top:var(--s3)">
+    <span class="ar">هذه أربع من ثماني حالات فشل موثّقة. الباقي في المكالمة.</span>
+    <span class="en">These are four of eight documented failure modes. The rest in the call.</span>
+  </p>
+</section>
+
+<!-- ── YOUR DEALERS ───────────────────────────────────────── -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">شبكة موزّعيك</span><span class="en">Your dealer network</span></div>
+  <h2><span class="ar">بائعوك لا يخسرون. يتوقفون عن الأوراق، ويستمرون في الكسب.</span><span class="en">Your sellers don't lose. They stop doing paperwork and keep earning.</span></h2>
+  <p class="lede" style="margin-top:var(--s3)">
+    <span class="ar">السؤال الذي يخطر لكل تاجر قبل أن ينتقل إلى الإنترنت: هل سأقتل شبكة موزّعيّ؟ الإجابة أنك لست مضطراً للاختيار — هناك نموذجان، والمنصّة الواحدة تشغّلهما معاً.</span>
+    <span class="en">The question every dealer asks before going digital: will this kill my own network? You don't have to choose — there are two models, and one platform runs both.</span>
+  </p>
+
+  <div class="models">
+    <div class="model">
+      <div class="tag"><span class="ar">النموذج الأول</span><span class="en">Model one</span></div>
+      <h3><span class="ar">بيع مباشر</span><span class="en">Direct</span></h3>
+      <ul>
+        <li><span class="ar">العميل يشتري بنفسه، من التطبيق أو الموقع</span><span class="en">The customer buys on their own, from the app or the site</span></li>
+        <li><span class="ar">يصل عبر البحث والإعلان ومقارنة الباقات</span><span class="en">They arrive through search, ads and plan comparison</span></li>
+        <li><span class="ar">يدفع ببطاقته مباشرة</span><span class="en">They pay by card, directly</span></li>
+        <li><span class="ar">سوق جديد لم تكن تصل إليه محلاتك</span><span class="en">A market your shops never reached</span></li>
+      </ul>
+    </div>
+    <div class="model b">
+      <div class="tag"><span class="ar">النموذج الثاني</span><span class="en">Model two</span></div>
+      <h3><span class="ar">بيع منسوب للبائع</span><span class="en">Seller-attributed</span></h3>
+      <ul>
+        <li><span class="ar">البائع يعرض <b>رمز QR</b> على العميل</span><span class="en">The seller shows the customer a <b>QR code</b></span></li>
+        <li><span class="ar">العميل يكمل كل الخطوات على جواله بنفسه</span><span class="en">The customer completes every step on their own phone</span></li>
+        <li><span class="ar">النظام يعرف <b>أي بائع</b> جلبه</span><span class="en">The system knows <b>which seller</b> brought them</span></li>
+        <li><span class="ar"><b>العمولة تُحتسب للبائع تلقائياً</b> — تماماً كما يحدث اليوم</span><span class="en"><b>Commission is credited automatically</b> — exactly as it works today</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="node">
+      <div class="t"><span class="ar">عميل يشتري بنفسه</span><span class="en">A customer buying alone</span></div>
+      <div class="d"><span class="ar">من التطبيق مباشرة</span><span class="en">Straight from the app</span></div>
+    </div>
+    <div class="arrowcol"><span class="ar">أو</span><span class="en">or</span></div>
+    <div class="node">
+      <div class="t"><span class="ar">عميل أمام بائعك</span><span class="en">A customer in front of your seller</span></div>
+      <div class="d"><span class="ar">يمسح رمز البائع — والعمولة تُنسب له</span><span class="en">Scans the seller's code — commission attributed</span></div>
+    </div>
+    <div class="down">↓</div>
+    <div class="hub"><span class="ar">منصّة واحدة · مخزون واحد · تقارير واحدة</span><span class="en">One platform · one inventory · one set of reports</span></div>
+  </div>
+
+  <div class="pull">
+    <p>
+      <span class="ar">التطبيق يصبح أداة تجعل كل بائع أسرع، لا منافساً يحلّ محلّه. وشبكة موزّعيك — التي لا يستطيع أي منافس إلكتروني بناءها — تصبح قناة النمو التي تجعل بوابتك تكبر أسرع مما كبر أي منافس.</span>
+      <span class="en">The app becomes a tool that makes every seller faster, not a competitor that replaces them. And your dealer network — which no online-only competitor can build — becomes the growth channel that makes your gate grow faster than theirs ever did.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ── WHAT WE BUILD ──────────────────────────────────────── -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">ما سنبنيه</span><span class="en">What we build</span></div>
+  <h2><span class="ar">بوابة بيع كاملة — بالعربية أولاً.</span><span class="en">A complete sales gate — Arabic first.</span></h2>
+
+  <div class="grid3">
+    <div class="card">
+      <h3><span class="ar">مقارنة الباقات</span><span class="en">Plan comparison</span></h3>
+      <p><span class="ar">كل المشغّلين في مكان واحد. مجاني وبلا تسجيل — وهو ما يجلب الزوار قبل أن يشتروا شيئاً.</span><span class="en">Every operator in one place. Free, no login — this is what brings people in before they buy anything.</span></p>
+    </div>
+    <div class="card">
+      <h3><span class="ar">إصدار وتفعيل الخطوط</span><span class="en">Issuing and activating lines</span></h3>
+      <p><span class="ar">شريحة عادية أو إلكترونية، للمقيم والزائر، مع التحقق من الهوية إلكترونياً — دون زيارة محل.</span><span class="en">Physical or eSIM, for residents and visitors, with digital identity verification — no shop visit.</span></p>
+    </div>
+    <div class="card">
+      <h3><span class="ar">ثلاث طرق لاستلام الشريحة</span><span class="en">Three ways to get the SIM</span></h3>
+      <p><span class="ar">شريحة إلكترونية فوراً، أو شريحة بيد العميل بالفعل، أو توصيل إلى بابه. كل طريقة لها مسار مختلف.</span><span class="en">eSIM instantly, a SIM already in the customer's hand, or delivery to their door. Each is a different path.</span></p>
+    </div>
+    <div class="card">
+      <h3><span class="ar">شرائح السفر الدولية</span><span class="en">International travel eSIM</span></h3>
+      <p><span class="ar">ربح مرتفع، ولا تحتاج أي اتفاقية مشغّل. تُباع للمسافر السعودي وللزائر القادم على حدّ سواء.</span><span class="en">High margin, and needs no operator agreement at all. Sold to outbound Saudis and inbound visitors alike.</span></p>
+    </div>
+    <div class="card">
+      <h3><span class="ar">الدفع والفوترة</span><span class="en">Payments and invoicing</span></h3>
+      <p><span class="ar">مدى وآبل باي والبطاقات ومحفظة stc، مع فاتورة إلكترونية معتمدة من هيئة الزكاة والضريبة لكل طلب.</span><span class="en">mada, Apple Pay, cards and stc pay, with a ZATCA-compliant e-invoice on every order.</span></p>
+    </div>
+    <div class="card">
+      <h3><span class="ar">أربع لغات</span><span class="en">Four languages</span></h3>
+      <p><span class="ar">العربية والإنجليزية والأردية والهندية. جزء كبير من سوق الشرائح عمالة وافدة — <b>ولا يخدمهم أحد بلغتهم اليوم.</b></span><span class="en">Arabic, English, Urdu and Hindi. A large share of this market is expatriate workers — <b>and nobody serves them in their own language today.</b></span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ── DASHBOARDS ─────────────────────────────────────────── -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">لوحات التحكم</span><span class="en">Dashboards</span></div>
+  <h2><span class="ar">اليوم تدخل المحل فترى ما يحدث. عبر الإنترنت لا تستطيع — إلا إذا بنينا لك العيون.</span><span class="en">Today you walk into a shop and see what's happening. Online you can't — unless we build you the eyes.</span></h2>
+  <p class="lede" style="margin-top:var(--s3)">
+    <span class="ar">أربعة مداخل مختلفة، لأربعة أشخاص مختلفين — لا لوحة واحدة بصلاحيات.</span>
+    <span class="en">Four different doors for four different people — not one dashboard with permissions.</span>
+  </p>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="who"><span class="ar">أنت وفريق التشغيل</span><span class="en">You and your operations team</span></div>
+      <h3><span class="ar">هل هناك خلل الآن؟</span><span class="en">Is anything broken right now?</span></h3>
+      <p><span class="ar">أموال معلّقة، طلبات متوقفة، مبالغ واجبة الإرجاع، وحالة كل مشغّل. <b>المشكلة تصلك قبل أن تصل العميل.</b></span><span class="en">Money at risk, stuck orders, refunds owed, and the health of every operator connection. <b>Problems reach you before they reach a customer.</b></span></p>
+    </div>
+    <div class="card">
+      <div class="who"><span class="ar">موظفو الدعم</span><span class="en">Your support staff</span></div>
+      <h3><span class="ar">ماذا حدث لهذا العميل؟</span><span class="en">What happened to this customer?</span></h3>
+      <p><span class="ar">تاريخه كاملاً في شاشة واحدة، وأزرار الحل بجانبه. تُحلّ الشكوى في أول مكالمة، لا في اليوم الثالث.</span><span class="en">Their whole history on one screen, with the fix buttons beside it. Complaints solved on the first call, not the third day.</span></p>
+    </div>
+    <div class="card">
+      <div class="who"><span class="ar">المشغّلون</span><span class="en">Your operator partners</span></div>
+      <h3><span class="ar">هل هذه القناة تستحق؟</span><span class="en">Is this channel worth it?</span></h3>
+      <p><span class="ar">مبيعاتهم وطلباتهم وعمولاتهم — يراجعونها بأنفسهم. <b>كل مشغّل يرى أرقامه هو فقط.</b> قناة يرى المشغّل أرقامها لحظياً يصعب عليه تركها.</span><span class="en">Their sales, orders and commission — checked by them. <b>Each operator sees only their own numbers.</b> A channel whose figures a partner can see live is a hard one to walk away from.</span></p>
+    </div>
+    <div class="card">
+      <div class="who"><span class="ar">الموزّعون والبائعون</span><span class="en">Your dealers and sellers</span></div>
+      <h3><span class="ar">ماذا بعت، وكم لي؟</span><span class="en">What did I sell, and what am I owed?</span></h3>
+      <p><span class="ar">طلباته وعمولته ورموزه الخاصة. <b>هذا ما يجعل وعد «البائع لا يخسر» حقيقياً</b> وليس كلاماً.</span><span class="en">Their orders, their commission, their own codes. <b>This is what makes "your sellers don't lose" true</b> rather than a promise.</span></p>
+    </div>
+  </div>
+
+  <div class="pull">
+    <p>
+      <span class="ar">ومعها أدوات تحكّم: تستطيع إيقاف بيع أي باقة أو أي مشغّل <b>فوراً</b> دون انتظارنا. إن تعطّل نظام مشغّل في التاسعة مساءً، تختفي باقاته من التطبيق بضغطة — ولا تبيع ما لا تستطيع تسليمه.</span>
+      <span class="en">And the controls to go with them: you can stop selling any plan or any operator <b>instantly</b>, without waiting for us. If a partner's system fails at 9pm, their plans come off the app in one click — and you never sell what you cannot deliver.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ── RUNNING COSTS ──────────────────────────────────────── -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">التكاليف التشغيلية</span><span class="en">Running costs</span></div>
+  <h2><span class="ar">ما الذي سيكلّفك شهرياً — كل بند، بلا استثناء.</span><span class="en">What this costs you every month — every line, nothing left out.</span></h2>
+  <p class="lede" style="margin-top:var(--s3)">
+    <span class="ar">أغلب العروض تعطيك سعر البناء وتترك التكاليف الشهرية تفاجئك في الشهر الثالث. هذه كل البنود من الآن.</span>
+    <span class="en">Most proposals quote you a build price and let the monthly costs ambush you in month three. Here they all are, up front.</span>
+  </p>
+
+  <div class="subhead"><span class="ar">تكاليف لمرة واحدة</span><span class="en">One-time setup</span></div>
+  <div class="tablewrap">
+    <table>
+      <tbody>
+        <tr><td><span class="ar">النطاق والهوية البصرية</span><span class="en">Domain and brand identity</span></td><td class="cause"><span class="ar">اسم الموقع وتصميم العلامة</span><span class="en">The address and the brand</span></td></tr>
+        <tr><td><span class="ar">التصميم والبناء</span><span class="en">Design and build</span></td><td class="cause"><span class="ar">على مراحل — كل مرحلة تُسلَّم وتُدفع على حدة</span><span class="en">In phases — each delivered and paid separately</span></td></tr>
+        <tr><td><span class="ar">مراجعة أمنية واختبار اختراق</span><span class="en">Security review and penetration test</span></td><td class="cause"><span class="ar">قبل الإطلاق — أنت تحفظ أرقام هويات عملاء</span><span class="en">Before launch — you hold customers' ID numbers</span></td></tr>
+        <tr><td><span class="ar">حسابات متاجر التطبيقات</span><span class="en">App store accounts</span></td><td class="cause"><span class="ar">آبل وجوجل — رسوم سنوية بعد السنة الأولى</span><span class="en">Apple and Google — annual after year one</span></td></tr>
+        <tr><td><span class="ar">تفعيل بوابة الدفع والفوترة الإلكترونية</span><span class="en">Payment gateway and e-invoicing onboarding</span></td><td class="cause"><span class="ar">إجراءات تسجيل لدى مزوّد مرخّص</span><span class="en">Registration with a licensed provider</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subhead"><span class="ar">شهرياً — الجدول الذي يهمّك</span><span class="en">Monthly — the table that matters</span></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th><span class="ar">البند</span><span class="en">Line</span></th>
+        <th><span class="ar">ما هو</span><span class="en">What it is</span></th>
+        <th><span class="ar">يزيد مع</span><span class="en">Grows with</span></th>
+      </tr></thead>
+      <tbody>
+        <tr><td><span class="ar">الاستضافة</span><span class="en">Hosting</span></td><td class="cause"><span class="ar">الخوادم التي يعمل عليها النظام</span><span class="en">The servers the system runs on</span></td><td><span class="pill var"><span class="ar">عدد الزوار</span><span class="en">Traffic</span></span></td></tr>
+        <tr><td><span class="ar">قاعدة البيانات</span><span class="en">Database</span></td><td class="cause"><span class="ar">حيث تُحفظ الطلبات والعملاء</span><span class="en">Where orders and customers are kept</span></td><td><span class="pill var"><span class="ar">حجم البيانات</span><span class="en">Data volume</span></span></td></tr>
+        <tr><td><span class="ar">النسخ الاحتياطي</span><span class="en">Backups</span></td><td class="cause"><span class="ar">حتى لا يضيع شيء أبداً</span><span class="en">So nothing is ever lost</span></td><td><span class="pill var"><span class="ar">حجم البيانات</span><span class="en">Data volume</span></span></td></tr>
+        <tr><td><span class="ar">النطاق والشهادات</span><span class="en">Domain and certificates</span></td><td class="cause"><span class="ar">العنوان وقفل الأمان بجانبه</span><span class="en">The address and its padlock</span></td><td><span class="pill fixed"><span class="ar">ثابت</span><span class="en">Fixed</span></span></td></tr>
+        <tr><td><span class="ar">رسائل التحقق SMS</span><span class="en">SMS verification codes</span></td><td class="cause"><span class="ar">كل رمز تحقق يُرسل لعميل</span><span class="en">Every code sent to a customer</span></td><td><span class="pill var"><span class="ar">عدد الطلبات — بند يكبر مع نجاحك</span><span class="en">Orders — this grows as you grow</span></span></td></tr>
+        <tr><td><span class="ar">واتساب للأعمال</span><span class="en">WhatsApp Business</span></td><td class="cause"><span class="ar">التواصل مع العملاء</span><span class="en">Customer messaging</span></td><td><span class="pill var"><span class="ar">عدد المحادثات</span><span class="en">Conversations</span></span></td></tr>
+        <tr><td><span class="ar">البريد الإلكتروني</span><span class="en">Email delivery</span></td><td class="cause"><span class="ar">الفواتير ورموز الشرائح الإلكترونية</span><span class="en">Invoices and eSIM codes</span></td><td><span class="pill var"><span class="ar">عدد الرسائل</span><span class="en">Volume</span></span></td></tr>
+        <tr><td><span class="ar">رسوم بوابة الدفع</span><span class="en">Payment gateway fees</span></td><td class="cause"><span class="ar">نسبة من كل عملية دفع</span><span class="en">A percentage of every transaction</span></td><td><span class="pill var"><span class="ar">نسبة من مبيعاتك — لا مبلغ ثابت</span><span class="en">A share of revenue — not a fixed cost</span></span></td></tr>
+        <tr><td><span class="ar">المراقبة وتتبّع الأعطال</span><span class="en">Monitoring and error tracking</span></td><td class="cause"><span class="ar">أن تعرف بالعطل قبل أن يتصل بك عميل</span><span class="en">Knowing about a fault before a customer calls</span></td><td><span class="pill fixed"><span class="ar">شبه ثابت</span><span class="en">Near-fixed</span></span></td></tr>
+        <tr><td><span class="ar">نظام الدعم والتذاكر</span><span class="en">Support desk software</span></td><td class="cause"><span class="ar">التذاكر وأوقات الاستجابة</span><span class="en">Tickets and response times</span></td><td><span class="pill var"><span class="ar">عدد الموظفين</span><span class="en">Agents</span></span></td></tr>
+        <tr><td><span class="ar">لوحات التحكم والتقارير</span><span class="en">Dashboards and reporting</span></td><td class="cause"><span class="ar">المداخل الأربعة وتقاريرها</span><span class="en">The four portals and their reports</span></td><td><span class="pill var"><span class="ar">المستخدمون والبيانات</span><span class="en">Users and data</span></span></td></tr>
+        <tr><td><span class="ar">الصيانة والدعم الفني</span><span class="en">Maintenance and support</span></td><td class="cause"><span class="ar">نحن — لإبقاء كل ما سبق يعمل</span><span class="en">Us — keeping all of the above running</span></td><td><span class="pill fixed"><span class="ar">ثابت</span><span class="en">Fixed</span></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subhead"><span class="ar">سنوياً</span><span class="en">Annual</span></div>
+  <div class="tablewrap">
+    <table><tbody>
+      <tr><td><span class="ar">رسوم متاجر التطبيقات · تجديد النطاق · الشهادات الأمنية · مراجعة أمنية دورية · التزامات الفوترة الإلكترونية</span><span class="en">App store fees · domain renewal · security certificates · periodic security review · e-invoicing compliance</span></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="costnote">
+    <p style="max-width:none">
+      <span class="ar"><b>الأرقام الدقيقة تُحدَّد بعد المرحلة الأولى</b>، لأنها تعتمد على قرارات تقنية لم تُتخذ بعد — ووضع رقم قبلها يكون تخميناً، لا تقديراً. لكن هذه <b>كل</b> البنود. لا يوجد بند سيظهر لاحقاً.</span>
+      <span class="en"><b>Exact figures are set after phase one</b>, because they depend on technical decisions not yet made — a number before then is a guess, not an estimate. But these are <b>all</b> the lines. Nothing appears later.</span>
+    </p>
+    <p style="max-width:none;margin-top:var(--s2)">
+      <span class="ar">وبنداً واحداً يجب قوله بوضوح: <b>الاستضافة يجب أن تكون داخل السعودية</b> بحكم نظام حماية البيانات الشخصية. هذا أغلى من الاستضافة في الخارج. أُفضّل أن تعرف هذا الآن لا بعد التوقيع.</span>
+      <span class="en">And one line to say plainly: <b>hosting must be inside Saudi Arabia</b> under the personal data protection law. That costs more than hosting abroad. Better you know now than after signing.</span>
+    </p>
+    <p style="max-width:none;margin-top:var(--s2);color:var(--ink)">
+      <span class="ar"><b>إن وقّعت مع من لم يعرض عليك هذا الجدول — فاطلبه منه.</b></span>
+      <span class="en"><b>If you sign with someone who hasn't shown you this table — ask them for it.</b></span>
+    </p>
+  </div>
+</section>
+
+<!-- ── TEAM ───────────────────────────────────────────────── -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">الفريق</span><span class="en">The team</span></div>
+  <h2><span class="ar">فريق يُستدعى عند الحاجة — لا رواتب دائمة تدفعها أنت.</span><span class="en">Specialists engaged per phase — not permanent salaries you carry.</span></h2>
+
+  <div class="grid3">
+    <div class="card"><h3><span class="ar">القيادة والتصميم التقني</span><span class="en">Lead and architecture</span></h3>
+      <p><span class="ar">مسؤول عن المشروع كاملاً، وهو الشخص الوحيد الذي تحتاج للاتصال به.</span><span class="en">Owns the whole thing, and the only person you need to call.</span></p></div>
+    <div class="card"><h3><span class="ar">الأمن السيبراني</span><span class="en">Cyber security</span></h3>
+      <p><span class="ar">يراجع النظام كما يراجعه مهاجم، قبل الإطلاق. أنت تحفظ أرقام هويات عملاء — هذه ليست خطوة اختيارية.</span><span class="en">Reviews the system the way an attacker would, before launch. You hold customers' ID numbers — this is not optional.</span></p></div>
+    <div class="card"><h3><span class="ar">تصميم الواجهات</span><span class="en">Interface design</span></h3>
+      <p><span class="ar">يصمّم الشاشات بالعربية أولاً، حتى تبدو سعودية لا مترجمة.</span><span class="en">Designs the screens in Arabic first, so it feels Saudi rather than translated.</span></p></div>
+    <div class="card"><h3><span class="ar">الاختبار والجودة</span><span class="en">Testing and quality</span></h3>
+      <p><span class="ar">يحاول كسر النظام قبل أن يكسره عملاؤك. كل مسار دفع، وكل حالة فشل.</span><span class="en">Tries to break it before your customers do. Every payment path, every failure.</span></p></div>
+  </div>
+</section>
+
+<!-- ── THE PLAN ───────────────────────────────────────────── -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">خطة العمل</span><span class="en">The plan</span></div>
+  <h2><span class="ar">مراحل، لكل واحدة تسليم واضح.</span><span class="en">Phases, each with a clear deliverable.</span></h2>
+
+  <div class="phases">
+    <div class="phase done">
+      <div class="idx">00 ✓</div>
+      <div>
+        <h3><span class="ar">الدراسة — منجزة</span><span class="en">Discovery — done</span></h3>
+        <p><span class="ar">ثمانية عشر مستنداً تغطي السوق والمنافس والتنظيم والتشغيل، وتسعة وسبعون سؤالاً مفتوحاً موثّقاً ومتابَعاً. <b>لن تموّل منحنى تعلّم.</b></span><span class="en">Eighteen documents covering the market, the competitor, the regulation and the operations, and seventy-nine open questions logged and tracked. <b>You are not funding a learning curve.</b></span></p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="idx">01</div>
+      <div>
+        <h3><span class="ar">وثيقة المتطلبات</span><span class="en">Requirements document</span></h3>
+        <p><span class="ar">كل ما سيُبنى، مكتوباً ومتفقاً عليه قبل كتابة سطر برمجي واحد. هذه هي المرحلة التي تجعل ما بعدها قابلاً للتقدير بدل التخمين.</span><span class="en">Everything to be built, written and agreed before a line of code. This is the phase that makes everything after it estimable instead of guessed.</span></p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="idx">02</div>
+      <div>
+        <h3><span class="ar">الإطلاق الأول — بوابة تبيع فعلاً</span><span class="en">First launch — a gate that actually sells</span></h3>
+        <p><span class="ar">مقارنة الباقات، وشرائح السفر الدولية، والدفع، ونظام الدعم، ولوحة التشغيل. <b>إيرادات حقيقية قبل ربط أي مشغّل.</b></span><span class="en">Plan comparison, international travel eSIM, payments, the support desk and the operations dashboard. <b>Real revenue before any operator is connected.</b></span></p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="idx">03</div>
+      <div>
+        <h3><span class="ar">ربط المشغّلين وشبكة البائعين</span><span class="en">Operator and dealer integration</span></h3>
+        <p><span class="ar">بيع باقات مشغّليك وتفعيلها إلكترونياً، ومدخل الموزّعين والبائعين بعمولاتهم، ومدخل المشغّلين بتقاريرهم.</span><span class="en">Selling and activating your operators' plans online, the dealer and seller portal with commissions, and the operator portal with their reports.</span></p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="idx">04</div>
+      <div>
+        <h3><span class="ar">الإصدار الكامل للخطوط</span><span class="en">Full line issuance</span></h3>
+        <p><span class="ar">إصدار الشرائح للمقيمين والزوار، وفحص الأهلية، والتحقق من الهوية، ونقل الأرقام بين المشغّلين.</span><span class="en">Issuing SIMs for residents and visitors, eligibility checks, identity verification, and number portability.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLOSE ──────────────────────────────────────────────── -->
+<section class="close wrap">
+  <h2><span class="ar">ما ينقص هذا المشروع ليس رخصة ولا علاقة. ينقصه من يبنيه صحيحاً.</span><span class="en">What this project is missing isn't a licence or a relationship. It's someone to build it right.</span></h2>
+  <p class="lede"><span class="ar">ثلاثون دقيقة. أشرح فيها الحواجز الأربعة، وأين يقف مشروعك منها، وسؤالاً واحداً عن طريقة تسجيل شركاتك تغيّر شكل النظام كلّه.</span><span class="en">Thirty minutes. The four barriers, where your project stands against them, and one question about how your companies are registered that changes the shape of the whole system.</span></p>
+  <a class="cta" href="mailto:elec.eng.ahmedragab@gmail.com?subject=%D9%85%D9%83%D8%A7%D9%84%D9%85%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A7%D9%84%D8%A8%D9%88%D8%A7%D8%A8%D8%A9%20%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9">
+    <span class="ar">احجز مكالمة</span><span class="en">Book a call</span><span>30 min</span>
+  </a>
+</section>
+
+<footer class="wrap">
+  <div><span class="ar">عرض مشروع — سرّي، ومُعدّ لمستلم واحد.</span><span class="en">Project proposal — confidential, prepared for a single recipient.</span></div>
+  <div class="mono">qassem.online</div>
+</footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  var page = document.getElementById('page');
+  var btns = document.querySelectorAll('.langs button');
+  function set(lang){
+    page.setAttribute('data-lang', lang);
+    page.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.set === lang)); });
+    try { localStorage.setItem('sila-lang', lang); } catch (e) {}
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ set(b.dataset.set); }); });
+  var saved = null;
+  try { saved = localStorage.getItem('sila-lang'); } catch (e) {}
+  set(saved === 'en' ? 'en' : 'ar');
+})();
+</script>
+</body>
+</html>

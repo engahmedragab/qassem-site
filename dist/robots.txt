@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /console/
+Disallow: /projects/
 
 Sitemap: https://qassem.online/sitemap.xml
