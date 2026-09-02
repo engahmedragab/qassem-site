@@ -115,6 +115,15 @@
   .home{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-soft)}
   .home:hover{color:var(--ink)}
   .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none}
+  .idz{display:flex;align-items:center;gap:11px;min-width:0}
+  .sep{width:1px;height:18px;background:var(--ink-faint);opacity:.35;flex:none}
+  .prj{display:flex;align-items:center;gap:7px;min-width:0}
+  .prj-m{width:21px;height:21px;flex:none;color:var(--a-brand);--mk-bg:var(--bg)}
+  .prj-m svg{width:100%;height:100%;fill:currentColor}
+  .prj b{font-size:15px;font-weight:700;line-height:1}
+  .prj i{font-family:var(--mono);font-style:normal;font-size:9px;letter-spacing:.28em;
+    color:var(--ink-faint);padding-inline-start:.28em}
+  @media(max-width:560px){ .prj i{display:none} .home{font-size:12px} }
   .langs{display:flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:3px}
   .langs button{font:500 12px/1 var(--ar);background:none;border:0;color:var(--ink-faint);padding:7px 15px;border-radius:999px;cursor:pointer;transition:.18s}
   .langs button:hover{color:var(--ink)}
@@ -320,7 +329,11 @@
 
 <header>
   <div class="bar">
-    <a class="home" href="/"><span class="dot"></span>Qassem</a>
+    <div class="idz">
+      <a class="home" href="/"><span class="dot"></span>Qassem</a>
+      <span class="sep"></span>
+      <span class="prj"><span class="prj-m"><svg><use href="#mk"/></svg></span><b>صِلة</b><i>SILA</i></span>
+    </div>
     <div class="ctrls">
       <div class="langs">
         <button type="button" data-set="ar" aria-pressed="true">العربية</button>
