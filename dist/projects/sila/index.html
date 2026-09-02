@@ -747,61 +747,41 @@
   <h2><span class="ar">ليس «تطبيقاً». ثمانية أنظمة تعمل معاً.</span><span class="en">Not "an app". Eight systems working together.</span></h2>
   <p class="lede" style="margin-top:var(--s3)"><span class="ar">أغلب العروض تقول «تطبيق ولوحة تحكم». هذه قائمة كل ما يجب أن يوجد ليعمل الأمر فعلاً — ومتى يُبنى كل واحد.</span><span class="en">Most proposals say "an app and a dashboard". This is everything that has to exist for it to actually work — and when each one gets built.</span></p>
 
-  <div class="sysgrid">
-    <div class="sys">
-      <div class="sys-h"><span class="sys-i">📱</span><span class="ph p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
-      <h3><span class="ar">تطبيق العميل</span><span class="en">Customer app</span></h3>
-      <p><span class="ar">آيفون وأندرويد. المقارنة والشراء والتفعيل وإدارة الخطوط والدعم.</span><span class="en">iPhone and Android. Compare, buy, activate, manage lines, get support.</span></p>
-      <div class="sys-w"><span class="ar">يستخدمه: عملاؤك</span><span class="en">Used by: your customers</span></div>
+  <div class="arch">
+
+    <div class="lyr"><span class="ar">ما يلمسه الناس</span><span class="en">What people touch</span></div>
+    <div class="row two">
+      <div class="nd"><span class="nd-i">📱</span><div class="nd-b"><b><span class="ar">تطبيق العميل</span><span class="en">Customer app</span></b><span><span class="ar">آيفون وأندرويد</span><span class="en">iPhone and Android</span></span></div><span class="nd-p p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
+      <div class="nd"><span class="nd-i">🌐</span><div class="nd-b"><b><span class="ar">الموقع العام</span><span class="en">Public website</span></b><span><span class="ar">ومحرّك المقارنة الذي يجلب الزوار</span><span class="en">and the comparison engine that brings people in</span></span></div><span class="nd-p p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
     </div>
 
-    <div class="sys">
-      <div class="sys-h"><span class="sys-i">🌐</span><span class="ph p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
-      <h3><span class="ar">الموقع العام</span><span class="en">Public website</span></h3>
-      <p><span class="ar">نفس الرحلة على المتصفح — ومحرّك المقارنة الذي يجلب الزوار من محرّكات البحث بلا تطبيق.</span><span class="en">The same journey in a browser — and the comparison engine that brings people in from search with no app to install.</span></p>
-      <div class="sys-w"><span class="ar">يستخدمه: الزوار قبل أن يصبحوا عملاء</span><span class="en">Used by: visitors before they are customers</span></div>
+    <div class="conn"><i></i></div>
+
+    <div class="lyr"><span class="ar">القلب</span><span class="en">The heart</span></div>
+    <div class="row">
+      <div class="nd key wide"><span class="nd-i">⚙️</span><div class="nd-b"><b><span class="ar">المنصّة الأساسية</span><span class="en">The core platform</span></b><span><span class="ar">الطلبات والأسعار والمخزون والحالات — ومنطق «لا يُخصم مبلغ قبل أن يعمل الخط». كل شيء آخر يتحدّث معها.</span><span class="en">Orders, pricing, inventory and state — and the rule that nothing is charged before the line works. Everything else talks to this.</span></span></div><span class="nd-p p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
     </div>
 
-    <div class="sys key">
-      <div class="sys-h"><span class="sys-i">⚙️</span><span class="ph p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
-      <h3><span class="ar">المنصّة الأساسية</span><span class="en">The core platform</span></h3>
-      <p><span class="ar">القلب. الطلبات والأسعار والمخزون والحالات — ومنطق «لا يُخصم مبلغ قبل أن يعمل الخط». كل ما سبق وما يلي يتحدّث معها.</span><span class="en">The heart. Orders, pricing, inventory, state — and the rule that nothing is charged before the line works. Everything else talks to this.</span></p>
-      <div class="sys-w"><span class="ar">يستخدمه: كل نظام آخر</span><span class="en">Used by: every other system</span></div>
+    <div class="conn split"><i></i></div>
+
+    <div class="lyr"><span class="ar">ما تستدعيه المنصّة</span><span class="en">What the core calls</span></div>
+    <div class="row two">
+      <div class="nd"><span class="nd-i">💳</span><div class="nd-b"><b><span class="ar">الدفع والفوترة</span><span class="en">Payments and invoicing</span></b><span><span class="ar">الحجز والخصم والاسترداد، والفاتورة المعتمدة</span><span class="en">Hold, charge, refund, and the compliant invoice</span></span></div><span class="nd-p p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
+      <div class="nd key"><span class="nd-i">🔌</span><div class="nd-b"><b><span class="ar">طبقة ربط المشغّلين</span><span class="en">Operator adapter layer</span></b><span><span class="ar">تترجم بين أنظمة كل مشغّل — فيبقى ما فوقها كما هو مهما أضفت</span><span class="en">Translates between each operator's systems, so nothing above it changes as you add more</span></span></div><span class="nd-p p3"><span class="ar">مرحلة ٣</span><span class="en">Phase 3</span></span></div>
     </div>
 
-    <div class="sys key">
-      <div class="sys-h"><span class="sys-i">🔌</span><span class="ph p3"><span class="ar">مرحلة ٣</span><span class="en">Phase 3</span></span></div>
-      <h3><span class="ar">طبقة ربط المشغّلين</span><span class="en">Operator adapter layer</span></h3>
-      <p><span class="ar">كل مشغّل يفتح أنظمته بطريقة مختلفة. هذه الطبقة تترجم بينهم جميعاً، فيبقى باقي النظام كما هو مهما أضفت مشغّلين.</span><span class="en">Every operator opens their systems differently. This layer translates between all of them, so the rest of the platform never changes as you add partners.</span></p>
-      <div class="sys-w"><span class="ar">يستخدمه: المنصّة — ويوفّر شهوراً مع كل مشغّل جديد</span><span class="en">Used by: the platform — and saves months on every new operator</span></div>
+    <div class="conn"><i></i></div>
+
+    <div class="lyr out"><span class="ar">خارج المنصّة — لا نتحكّم فيه</span><span class="en">Outside the platform — not ours to control</span></div>
+    <div class="row">
+      <div class="nd ext wide"><span class="nd-i">🛰️</span><div class="nd-b"><b><span class="ar">أنظمة المشغّلين · الجهة الوطنية · نفاذ · شركة التوصيل</span><span class="en">Operator systems · the national platform · Nafath · the courier</span></b><span><span class="ar">هنا يمكن أن تفشل العملية بعد أن يدفع العميل — ولهذا كل ما فوق مبنيّ ليتراجع بأمان.</span><span class="en">This is where it can fail after the customer has paid — which is why everything above it is built to roll back safely.</span></span></div></div>
     </div>
 
-    <div class="sys">
-      <div class="sys-h"><span class="sys-i">💳</span><span class="ph p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
-      <h3><span class="ar">الدفع والفوترة</span><span class="en">Payments and invoicing</span></h3>
-      <p><span class="ar">مدى وآبل باي والبطاقات ومحفظة stc، مع الحجز والاسترداد التلقائي، والفاتورة المعتمدة لكل طلب.</span><span class="en">mada, Apple Pay, cards and stc pay — with holds, automatic refunds, and a compliant invoice on every order.</span></p>
-      <div class="sys-w"><span class="ar">يستخدمه: كل عملية بيع</span><span class="en">Used by: every sale</span></div>
-    </div>
-
-    <div class="sys">
-      <div class="sys-h"><span class="sys-i">📊</span><span class="ph p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
-      <h3><span class="ar">غرفة التشغيل</span><span class="en">Operations back office</span></h3>
-      <p><span class="ar">ما يُعرض عليك: أموال معلّقة، طلبات متوقفة، حالة المشغّلين — وأزرار إيقاف البيع فوراً.</span><span class="en">What you see: money at risk, stuck orders, operator health — and the switches that stop selling instantly.</span></p>
-      <div class="sys-w"><span class="ar">يستخدمه: أنت وفريق التشغيل</span><span class="en">Used by: you and your operations team</span></div>
-    </div>
-
-    <div class="sys">
-      <div class="sys-h"><span class="sys-i">🎧</span><span class="ph p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
-      <h3><span class="ar">مساحة عمل الدعم</span><span class="en">Support workspace</span></h3>
-      <p><span class="ar">سجل العميل كاملاً في شاشة واحدة، وسبب التعثّر بلغة مفهومة، وأزرار الحل بجانبه، ووقت استجابة محسوب.</span><span class="en">The customer's whole history on one screen, the failure explained plainly, the fix buttons beside it, and a counted response time.</span></p>
-      <div class="sys-w"><span class="ar">يستخدمه: موظفو الدعم</span><span class="en">Used by: your support staff</span></div>
-    </div>
-
-    <div class="sys">
-      <div class="sys-h"><span class="sys-i">🤝</span><span class="ph p3"><span class="ar">مرحلة ٣</span><span class="en">Phase 3</span></span></div>
-      <h3><span class="ar">مدخل المشغّلين</span><span class="en">Operator partner portal</span></h3>
-      <p><span class="ar">كل مشغّل يرى مبيعاته وعمولته وجودة التفعيل — أرقامه هو فقط، ولا يرى أرقام غيره أبداً.</span><span class="en">Each operator sees their sales, commission and activation quality — their own numbers only, never another's.</span></p>
-      <div class="sys-w"><span class="ar">يستخدمه: شركاؤك من المشغّلين</span><span class="en">Used by: your operator partners</span></div>
+    <div class="branch"><span class="ar">وتقرأ من المنصّة نفسها</span><span class="en">And reading from the same core</span></div>
+    <div class="row three">
+      <div class="nd"><span class="nd-i">📊</span><div class="nd-b"><b><span class="ar">غرفة التشغيل</span><span class="en">Operations room</span></b><span><span class="ar">أنت وفريقك</span><span class="en">You and your team</span></span></div><span class="nd-p p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
+      <div class="nd"><span class="nd-i">🎧</span><div class="nd-b"><b><span class="ar">مساحة عمل الدعم</span><span class="en">Support workspace</span></b><span><span class="ar">موظفو الدعم</span><span class="en">Your support staff</span></span></div><span class="nd-p p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
+      <div class="nd"><span class="nd-i">🤝</span><div class="nd-b"><b><span class="ar">مدخل المشغّلين</span><span class="en">Operator portal</span></b><span><span class="ar">شركاؤك — أرقامهم هم فقط</span><span class="en">Your partners — their numbers only</span></span></div><span class="nd-p p3"><span class="ar">مرحلة ٣</span><span class="en">Phase 3</span></span></div>
     </div>
 
   </div>
@@ -1353,6 +1333,50 @@
   .kpi.hero{grid-column:span 2;border-color:#CFE6E2;background:var(--a-brand-soft)}
   .kpi.hero .v{color:var(--a-brand-2);font-size:22px}
   .kpi.hero .l{color:var(--a-brand-2);opacity:.8}
+  /* ═══ ARCHITECTURE FLOW ═══════════════════════════════════
+     The systems were a grid of cards, which showed what exists but not that
+     they talk to each other. Connectors carry a travelling pulse so the
+     direction of flow is visible rather than implied. */
+  .arch{margin-top:var(--s4);display:flex;flex-direction:column;align-items:center}
+  .lyr{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-faint);margin-bottom:10px;text-align:center}
+  .lyr.out{color:var(--fail)}
+  .row{display:grid;gap:var(--s2);width:100%}
+  .row.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .row.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .nd{background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;padding:var(--s3);
+    display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start}
+  .nd.wide{max-width:none}
+  .nd-i{font-size:19px;line-height:1.2}
+  .nd-b b{display:block;font-size:14.5px;font-weight:600;margin-bottom:3px}
+  .nd-b span{font-size:12.5px;color:var(--ink-soft);line-height:1.55}
+  .nd-p{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;padding:4px 9px;border-radius:999px;
+    background:var(--have-dim);color:var(--have);white-space:nowrap;align-self:center}
+  .nd-p.p3{background:var(--accent-dim);color:var(--accent-2)}
+  .nd.key{border-color:rgba(77,124,255,.34);background:linear-gradient(var(--jg,to left),var(--accent-dim),var(--bg-2) 70%)}
+  .nd.ext{border-style:dashed;border-color:rgba(240,131,107,.4);background:var(--fail-dim)}
+  .nd.ext .nd-b span{color:var(--ink-soft)}
+
+  /* the connector, and the pulse that travels it */
+  .conn{height:42px;width:2px;position:relative;background:var(--line);margin-block:6px;flex:none}
+  .conn i{position:absolute;inset-inline-start:-3px;width:8px;height:8px;border-radius:50%;
+    background:var(--accent);box-shadow:0 0 0 4px var(--accent-dim);animation:pulse 2.4s linear infinite}
+  .conn.split i{animation-delay:.8s}
+  @keyframes pulse{
+    0%{top:-4px;opacity:0} 12%{opacity:1} 88%{opacity:1} 100%{top:calc(100% - 4px);opacity:0}
+  }
+  .branch{position:relative;margin-top:var(--s4);margin-bottom:var(--s3);padding-top:var(--s3);
+    width:100%;text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);border-top:1px dashed var(--line)}
+
+  @media(max-width:760px){
+    .row.two,.row.three{grid-template-columns:1fr}
+    .conn{height:30px}
+    .nd{padding:var(--s2) var(--s3);grid-template-columns:auto 1fr;gap:10px}
+    .nd-p{grid-column:2;justify-self:start;margin-top:4px}
+  }
+  @media (prefers-reduced-motion:reduce){ .conn i{animation:none;top:calc(50% - 4px)} }
+
   /* ═══ NEXT PHASES ═════════════════════════════════════════ */
   .nxt{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:var(--s2);margin-top:var(--s4)}
   .nx{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3);
@@ -1409,20 +1433,6 @@
 
 
   /* ═══ PLATFORMS & SYSTEMS ═════════════════════════════════ */
-  .sysgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:var(--s2);margin-top:var(--s4)}
-  .sys{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3);
-    display:flex;flex-direction:column;gap:var(--s1)}
-  .sys.key{border-color:rgba(77,124,255,.28);background:linear-gradient(var(--jg,to left),var(--accent-dim),var(--bg-2) 70%)}
-  .sys-h{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin-bottom:var(--s1)}
-  .sys-i{font-size:21px;line-height:1}
-  .ph{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
-    padding:4px 9px;border-radius:999px;white-space:nowrap}
-  .ph.p2{background:var(--have-dim);color:var(--have)}
-  .ph.p3{background:var(--accent-dim);color:var(--accent-2)}
-  .sys h3{font-size:16px}
-  .sys p{font-size:13px;color:var(--ink-soft);line-height:1.55;max-width:none}
-  .sys-w{margin-top:auto;padding-top:var(--s2);border-top:1px solid var(--line-2);
-    font-size:11.5px;color:var(--ink-faint)}
   .sysnote{margin-top:var(--s4);padding:var(--s3) var(--s4);border-radius:10px;background:var(--bg-2);
     border:1px solid var(--line-2);font-size:14px;color:var(--ink-soft);max-width:74ch}
   .sysnote b{color:var(--ink)}
