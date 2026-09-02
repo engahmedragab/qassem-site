@@ -50,6 +50,7 @@
     --grain-op:.04;
     --sh-phone:0 26px 60px -18px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.07) inset;
     --sh-win:0 20px 44px -16px rgba(0,0,0,.7);
+    --ix-glow:rgba(127,160,255,.13); --ix-sh:0 18px 38px -16px rgba(0,0,0,.62);
     --v1:#2CA87A; --v2:#B98B25; --v3:#5588D4; --v4:#D95B40;
     --v-grid:rgba(241,239,233,.10);
     }
@@ -67,6 +68,7 @@
     --grain-op:.04;
     --sh-phone:0 26px 60px -18px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.07) inset;
     --sh-win:0 20px 44px -16px rgba(0,0,0,.7);
+    --ix-glow:rgba(127,160,255,.13); --ix-sh:0 18px 38px -16px rgba(0,0,0,.62);
     --v1:#2CA87A; --v2:#B98B25; --v3:#5588D4; --v4:#D95B40;
     --v-grid:rgba(241,239,233,.10);
   }
@@ -1306,6 +1308,28 @@
     .brandrow{grid-template-columns:1fr;gap:var(--s4)}
     .typespec{border-inline-start:0;padding-inline-start:0;border-top:1px solid var(--line);padding-top:var(--s3)}
   }
+  /* ═══ INTERACTION LAYER ═══════════════════════════════════
+     One behaviour applied to every card rather than a different effect per
+     section: a small lift, a shadow that grows with it, and a soft light that
+     follows the pointer across the surface. Fine-pointer devices only, and off
+     entirely under reduced motion — a touch device gets none of it, since
+     there is no pointer to follow. */
+  :root{--ix-glow:rgba(47,95,224,.10); --ix-sh:0 16px 34px -16px rgba(20,20,15,.30)}
+  .ix{position:relative;
+    transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s ease,border-color .3s ease}
+  .ix::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    opacity:0;transition:opacity .35s ease;
+    background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),var(--ix-glow),transparent 64%)}
+  @media (hover:hover) and (pointer:fine){
+    .ix:hover{transform:translateY(-3px);border-color:var(--line);box-shadow:var(--ix-sh)}
+    .ix:hover::after{opacity:1}
+    .ix-shot{transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s ease}
+    .ix-shot:hover{transform:translateY(-6px)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ix,.ix-shot{transition:none}
+    .ix:hover{transform:none} .ix::after{display:none}
+  }
   /* ═══ IDENTITY BOARD ══════════════════════════════════════
      Everything the identity is, in one compact board: mark, wordmark, meaning,
      tagline, palette with its rule, typeface and the icon at four sizes. */
@@ -1717,6 +1741,7 @@
     --accent:#5D8BFF; --accent-2:#93B0FF; --accent-dim:rgba(93,139,255,.15);
     --have:#57E08D; --have-dim:rgba(87,224,141,.14);
     --fail:#F5947E; --fail-dim:rgba(245,148,126,.13);
+    --ix-glow:rgba(147,176,255,.14); --ix-sh:0 18px 40px -16px rgba(0,0,0,.55);
     background:var(--bg);color:var(--ink);position:relative;overflow:hidden;
     margin-top:var(--s6);border-block:1px solid var(--line-2)}
   .band-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
@@ -1918,6 +1943,30 @@
       }
     });
   }
+
+  // Interaction layer: applied here rather than in the markup so every card
+  // picks it up without touching a single section's HTML.
+  (function(){
+    if(!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var sel='.card,.nd,.nx,.rv,.fc,.stg,.cs,.stat,.hint,.gate,.phase,.kpi,.dcard,.sw2,'
+           +'.idb,.af,.tm,.jt-s,.rl,.hb-r,.mk,.tp';
+    document.querySelectorAll(sel).forEach(function(el){ el.classList.add('ix'); });
+    document.querySelectorAll('.phone,.win').forEach(function(el){ el.classList.add('ix-shot'); });
+    var raf=null,pending=null;
+    addEventListener('pointermove',function(e){
+      pending=e;
+      if(raf) return;
+      raf=requestAnimationFrame(function(){
+        raf=null;
+        var el=pending.target.closest && pending.target.closest('.ix');
+        if(!el) return;
+        var r=el.getBoundingClientRect();
+        el.style.setProperty('--mx',((pending.clientX-r.left)/r.width*100).toFixed(1)+'%');
+        el.style.setProperty('--my',((pending.clientY-r.top)/r.height*100).toFixed(1)+'%');
+      });
+    },{passive:true});
+  })();
 
   var fails=document.getElementById('fails');
   if(fails){
