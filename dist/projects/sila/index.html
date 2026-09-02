@@ -1038,7 +1038,7 @@
   <div class="subhead" style="margin-top:var(--s6)"><span class="ar">من تنافس فعلاً</span><span class="en">Who you actually compete with</span></div>
   <div class="rivals">
     <div class="rv hot">
-      <div class="rv-h"><span class="op op-tygo lg">tygo</span><span class="rv-t hot"><span class="ar">المنافس المباشر</span><span class="en">Direct</span></span></div>
+      <div class="rv-h"><span class="oplogo" aria-label="Tygo"><svg viewBox="0 0 314 149" role="img"><path d="M0 1H88V21H53.5V104.5H34.5V21H0V1Z" fill="#3EB6AE"/> <path fill-rule="evenodd" clip-rule="evenodd" d="M89 27.9715C76.4947 34.9878 68 48.7147 68 64.5C68 87.4198 85.9086 106 108 106C130.091 106 148 87.4198 148 64.5C148 48.7147 139.505 34.9878 127 27.9715V64H126.995C126.998 64.166 127 64.3326 127 64.5C127 76.5572 117.771 85 108 85C98.2286 85 89 76.5572 89 64.5C89 64.3326 89.0018 64.166 89.0053 64H89V27.9715Z" fill="#3EB6AE"/> <path fill-rule="evenodd" clip-rule="evenodd" d="M67.0032 105C67.0011 105.176 67 105.352 67 105.529C67 128.448 84.9086 147.029 107 147.029C129.091 147.029 147 128.448 147 105.529C147 105.352 146.999 105.176 146.997 105H125.994C125.998 105.175 126 105.352 126 105.529C126 117.586 116.771 126.029 107 126.029C97.2286 126.029 88 117.586 88 105.529C88 105.352 88.002 105.175 88.0059 105H67.0032Z" fill="#3EB6AE"/> <path fill-rule="evenodd" clip-rule="evenodd" d="M153.003 106C153.001 106.176 153 106.352 153 106.529C153 129.448 170.909 148.029 193 148.029C215.091 148.029 233 129.448 233 106.529C233 106.352 232.999 106.176 232.997 106H211.994C211.998 106.175 212 106.352 212 106.529C212 118.586 202.771 127.029 193 127.029C183.229 127.029 174 118.586 174 106.529C174 106.352 174.002 106.175 174.006 106H153.003Z" fill="#3EB6AE"/> <circle cx="193.5" cy="65.5" r="29.5" stroke="#3EB6AE" stroke-width="20"/> <circle cx="274.5" cy="65.5" r="29.5" stroke="#3EB6AE" stroke-width="20"/> <path d="M218 0.5C223.557 0.5 230.5 5 230.5 5L218 23L205 5C205 5 210.5 0.5 218 0.5Z" fill="#3EB6AE"/> <rect x="68" y="28" width="21" height="37" fill="#3EB6AE"/> <path d="M127 28H148V65H127V28Z" fill="#3EB6AE"/></svg></span><span class="rv-t hot"><span class="ar">المنافس المباشر</span><span class="en">Direct</span></span></div>
       <p><span class="ar">يقارن ويبيع ويصدر الشرائح ويفعّلها وينقل الأرقام — عبر ستة مشغّلين. أربع سنوات من التقدّم، و١٠٠ ألف تحميل.</span><span class="en">Compares, sells, issues, activates and ports — across six operators. A four-year head start and 100K downloads.</span></p>
       <div class="rv-w"><span class="ar"><b>نقطة ضعفه:</b> يأخذ المال قبل أن يتأكد، والدعم لا يردّ.</span><span class="en"><b>Their weakness:</b> they take the money before they're sure, and support doesn't reply.</span></div>
     </div>
@@ -1520,7 +1520,11 @@
 
   .rv.wide{grid-column:1/-1}
   .oplist{display:flex;flex-wrap:wrap;gap:6px;margin-block:var(--s1)}
-  .op-tygo{background:#1B1B1F}
+  /* the one real logo we could retrieve — the operators' sites block asset requests */
+  .oplogo{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 14px;
+    border-radius:9px;background:#0E1512;flex:none}
+  .oplogo svg{height:19px;width:auto;display:block}
+
   .op-jawwy{background:#5B2D8E}
   .hints{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:var(--s2);margin-top:var(--s2)}
   .hint{display:flex;gap:11px;align-items:flex-start;padding:12px 15px;border-radius:11px;
