@@ -298,7 +298,7 @@
     </div>
 
     <div class="herophones">
-      <div class="phone" style="transform:rotate(-3deg) translateY(14px) scale(.9);transform-origin:bottom">
+      <div class="pscale"><div class="phone">
         <div class="scr">
           <div class="sb"><b>9:41</b><span>▮▮▮ ⌁ 􀛨</span></div>
           <div class="s-hero">
@@ -326,9 +326,9 @@
             <div><i>☰</i><span class="ar">حسابي</span><span class="en">Account</span></div>
           </div>
         </div>
-      </div>
+      </div></div>
 
-      <div class="phone" style="z-index:2">
+      <div class="pscale"><div class="phone">
         <div class="scr">
           <div class="sb"><b>9:41</b><span>▮▮▮ ⌁ 􀛨</span></div>
           <div class="nav"><span class="ic">→</span><span><span class="ar">تأكيد الأهلية</span><span class="en">Eligibility</span></span><span class="ic"></span></div>
@@ -348,9 +348,9 @@
             <div class="s-btn"><span class="ar">متابعة</span><span class="en">Continue</span></div>
           </div>
         </div>
-      </div>
+      </div></div>
 
-      <div class="phone" style="transform:rotate(3deg) translateY(14px) scale(.9);transform-origin:bottom">
+      <div class="pscale"><div class="phone">
         <div class="scr">
           <div class="sb"><b>9:41</b><span>▮▮▮ ⌁ 􀛨</span></div>
           <div class="nav"><span class="ic"></span><span><span class="ar">تم التفعيل</span><span class="en">Activated</span></span><span class="ic">✕</span></div>
@@ -366,7 +366,7 @@
             <div class="s-btn" style="width:100%"><span class="ar">تثبيت على هذا الجهاز</span><span class="en">Install on this phone</span></div>
           </div>
         </div>
-      </div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1176,13 +1176,6 @@
   </div>
 </section>
 
-<!-- ══ CLOSE ═════════════════════════════════════════════════ -->
-<section class="close wrap">
-  <h2><span class="ar">ما ينقص هذا المشروع ليس رخصة ولا علاقة. ينقصه من يبنيه صحيحاً.</span><span class="en">What this project is missing isn't a licence or a relationship. It's someone to build it right.</span></h2>
-  <p class="lede"><span class="ar">ثلاثون دقيقة. الحواجز الأربعة، وأين يقف مشروعك منها، وسؤال واحد عن طريقة تسجيل شركاتك يغيّر شكل النظام كلّه.</span><span class="en">Thirty minutes. The four barriers, where you stand against them, and one question about how your companies are registered that changes the shape of the whole system.</span></p>
-  <a class="cta" href="mailto:elec.eng.ahmedragab@gmail.com?subject=%D9%85%D9%83%D8%A7%D9%84%D9%85%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A7%D9%84%D8%A8%D9%88%D8%A7%D8%A8%D8%A9%20%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9"><span class="ar">احجز مكالمة</span><span class="en">Book a call</span><span class="t">30 min</span></a>
-</section>
-
 <footer class="wrap">
   <div><span class="ar">عرض مشروع — سرّي، ومُعدّ لمستلم واحد.</span><span class="en">Project proposal — confidential, for a single recipient.</span></div>
   <div class="mono">qassem.online</div>
@@ -1527,22 +1520,24 @@
   .phase p{font-size:14px;color:var(--ink-soft);max-width:none}
   .phase.done{background:var(--bg-3)}
   .phase.done .idx{color:var(--have)}
-  .close{text-align:center}
-  .close h2{max-width:22ch;margin-inline:auto}
-  .close .lede{margin:var(--s3) auto 0;max-width:48ch}
   footer{border-top:1px solid var(--line-2);padding-block:var(--s4);font-size:12.5px;color:var(--ink-faint);
     display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
 
   /* ═══ RESPONSIVE ══════════════════════════════════════════ */
-  .herophones{display:flex;gap:16px;align-items:center}
-  .herophones .phone{width:238px}
+  .herophones{display:flex;gap:14px;align-items:center}
+  /* scale, never re-width: the screen height is fixed, so changing .phone width
+     alone stretches the aspect ratio. --sc drives both dimensions together. */
+  .pscale{--sc:1;width:calc(306px * var(--sc));height:calc(603px * var(--sc));
+    display:flex;justify-content:center;align-items:flex-start;flex:none}
+  .pscale .phone{transform:scale(var(--sc));transform-origin:top center}
+  .herophones .pscale{--sc:.80}
   .herogrid{grid-template-columns:minmax(330px,1fr) auto}
-  @media(max-width:1180px){ .herophones .phone:first-child{display:none} }
+  @media(max-width:1180px){ .herophones .pscale:first-child{display:none} }
   @media(max-width:1080px){
     .herogrid{grid-template-columns:1fr!important}
-    .herophones .phone:first-child{display:block}
+    .herophones .pscale:first-child{display:block}
     .herophones{overflow-x:auto;padding-block:var(--s2) var(--s3);margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad)}
-    .herophones .phone{transform:none!important}
+    .herophones .pscale{--sc:.92}
     .dash-grid{grid-template-columns:1fr}
   }
   @media(max-width:760px){
