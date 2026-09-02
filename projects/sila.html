@@ -34,7 +34,7 @@
     --ar:"IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
     --pad:clamp(20px,5vw,64px); --maxw:1240px;
-    --s1:8px; --s2:14px; --s3:22px; --s4:36px; --s5:56px; --s6:88px; --s7:120px;
+    --s1:8px; --s2:14px; --s3:22px; --s4:36px; --s5:56px; --s6:72px; --s7:78px;
   }
   /* system dark — but an explicit light choice still wins */
   @media (prefers-color-scheme:dark){
@@ -251,7 +251,7 @@
   .op-redbull{background:#0B2A63}
   .op-yaqoot{background:#9B1B45}
   /* screen gallery */
-  .gal{display:flex;gap:var(--s4);overflow-x:auto;padding:var(--s2) 4px var(--s4);scroll-snap-type:x mandatory;
+  .gal{display:flex;gap:var(--s3);overflow-x:auto;padding:var(--s2) 4px var(--s4);scroll-snap-type:x mandatory;
     margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad)}
   .gal::-webkit-scrollbar{height:5px}
   .gal::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px}
@@ -655,55 +655,15 @@
 <!-- ══ BRAND ═════════════════════════════════════════════════ -->
 <section class="wrap">
   <div class="eyebrow"><span class="ar">الهوية — مقترحة</span><span class="en">Identity — proposed</span></div>
-  <h2><span class="ar">اسم وهوية للمنتج، لا لشركتك.</span><span class="en">A name and identity for the product, not your company.</span></h2>
-  <p class="lede" style="margin-top:var(--s3)"><span class="ar">هذه هوية مقترحة للنقاش، لا قراراً. اسم المنتج وتسجيله التجاري قرارك وحدك.</span><span class="en">A proposal to react to, not a decision. The name and its trademark are yours alone to settle.</span></p>
-
-  <div class="brandwrap">
+  <div class="brandrow2">
     <div class="lockup">
       <div class="mark"><svg><use href="#mk"/></svg></div>
-      <div class="wordmark">
-        <div class="wm-ar">صِلة</div>
-        <div class="wm-en">SILA</div>
-        <div class="wm-d"><span class="ar">صِلة — ما يربط بين طرفين</span><span class="en">ṣila — the bond between two parties</span></div>
-      </div>
+      <div class="wordmark"><div class="wm-ar">صِلة</div><div class="wm-en">SILA</div></div>
     </div>
-
     <div class="brandnotes">
-      <div class="bn">
-        <h3><span class="ar">لماذا هذا الشكل</span><span class="en">Why this shape</span></h3>
-        <p><span class="ar">العلامة هي <b>شريحة اتصال</b> — المربّع المقصوص من زاوية، وهو أكثر شكل يعرفه أي شخص في هذا السوق. وداخلها نقطة تبثّ موجتين: الاتصال نفسه.</span><span class="en">The mark is <b>a SIM card</b> — the square with one corner cut, the most recognisable shape in this industry. Inside it, a node sending two waves: the connection itself.</span></p>
-      </div>
-      <div class="bn">
-        <h3><span class="ar">لماذا هذا اللون</span><span class="en">Why this colour</span></h3>
-        <p><span class="ar">stc بنفسجي، وموبايلي أزرق، وزين أخضر، وسلام أحمر. <b>الوسيط لا يرتدي لون أحد موردّيه</b> — وإلا بدا منحازاً. الفيروزي غير مملوك لأحد في هذا السوق.</span><span class="en">stc is purple, Mobily blue, Zain green, Salam red. <b>A marketplace cannot wear a supplier's colour</b> — it would look partial. Teal is unclaimed here.</span></p>
-      </div>
-      <div class="bn">
-        <h3><span class="ar">النحاسي للمميّز</span><span class="en">Brass for premium</span></h3>
-        <p><span class="ar">لون واحد فقط للأشياء التي تُدفع مقابلها إضافةً: الأرقام المميّزة. فيصبح اللون نفسه إشارة إلى القيمة.</span><span class="en">One colour, reserved for what costs extra: vanity numbers. The colour itself becomes a signal of value.</span></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="swatches">
-    <div class="sw" style="--c:var(--a-ink)"><span class="d"></span><b><span class="ar">حبري</span><span class="en">Ink</span></b><span class="h mono">#0C1917</span><span class="u"><span class="ar">النصوص والأساس</span><span class="en">Text and ground</span></span></div>
-    <div class="sw" style="--c:var(--a-brand)"><span class="d"></span><b><span class="ar">فيروزي</span><span class="en">Teal</span></b><span class="h mono">#00786C</span><span class="u"><span class="ar">الشبكة والإجراء الأساسي</span><span class="en">Network, primary action</span></span></div>
-    <div class="sw" style="--c:var(--a-gold)"><span class="d"></span><b><span class="ar">نحاسي</span><span class="en">Brass</span></b><span class="h mono">#8A6410</span><span class="u"><span class="ar">المميّز فقط</span><span class="en">Premium only</span></span></div>
-    <div class="sw" style="--c:var(--a-warn)"><span class="d"></span><b><span class="ar">صدئي</span><span class="en">Rust</span></b><span class="h mono">#B03D24</span><span class="u"><span class="ar">التحذير والفشل</span><span class="en">Warning and failure</span></span></div>
-  </div>
-
-  <div class="brandrow">
-    <div class="appicons">
-      <div class="ai"><svg><use href="#mk"/></svg></div>
-      <div class="ai sm"><svg><use href="#mk"/></svg></div>
-      <div class="ai xs"><svg><use href="#mk"/></svg></div>
-      <div class="ai inv"><svg><use href="#mk"/></svg></div>
-      <div class="ailbl"><span class="ar">أيقونة التطبيق — تعمل حتى في أصغر مقاس، وبالأبيض والأسود</span><span class="en">The app icon — holds at the smallest size, and in one colour</span></div>
-    </div>
-    <div class="typespec">
-      <div class="ts-l"><span class="ar">الخط</span><span class="en">Typeface</span></div>
-      <div class="ts-big">صِلة · SILA · 0560</div>
-      <div class="ts-n">IBM Plex Sans Arabic</div>
-      <div class="ts-d"><span class="ar">خط عربي أولاً، بأوزان كاملة وأرقام متساوية العرض — تصطفّ الأسعار والأرقام في الجداول بلا اهتزاز.</span><span class="en">Arabic-first, a full weight range, and tabular figures — so prices and numbers line up in a column without wobbling.</span></div>
+      <h2 style="font-size:clamp(20px,2.6vw,29px)"><span class="ar">الوسيط لا يرتدي لون أحد موردّيه.</span><span class="en">A marketplace cannot wear a supplier's colour.</span></h2>
+      <p class="lede" style="margin-top:var(--s2);font-size:15px"><span class="ar">stc بنفسجي، وموبايلي أزرق، وزين أخضر، وسلام أحمر. من يرتدي لون أحدهم يبدو منحازاً — والفيروزي غير مملوك لأحد في هذا السوق. والعلامة نفسها <b>شريحة اتصال</b>: المربّع المقصوص من زاوية، وداخلها نقطة تبثّ موجتين.</span><span class="en">stc is purple, Mobily blue, Zain green, Salam red. Wear one of them and you look partial — teal is unclaimed here. The mark is <b>a SIM card</b>: the square with one corner cut, a node inside sending two waves.</span></p>
+      <p class="cta-note"><span class="ar">اسم مقترح للنقاش. التسمية والتسجيل التجاري قرارك وحدك.</span><span class="en">A proposed name. Naming and trademark are yours alone to settle.</span></p>
     </div>
   </div>
 </section>
@@ -820,57 +780,49 @@
 
   </div>
 
-  <div class="sysnote">
-    <p style="max-width:none"><span class="ar"><b>لماذا هذه القائمة مهمة:</b> العرض الذي يذكر «تطبيقاً ولوحة تحكم» فقط يكتشف الباقي أثناء التنفيذ — ويطلب منك مالاً إضافياً في منتصف الطريق. هذه القائمة كاملة من الآن.</span><span class="en"><b>Why this list matters:</b> a proposal that mentions only "an app and a dashboard" discovers the rest during the build — and asks you for more money halfway through. This list is complete now.</span></p>
-  </div>
-</section>
+  <div class="subhead" style="margin-top:var(--s6)"><span class="ar">وما تضيفه بعد الإطلاق</span><span class="en">And what you add after launch</span></div>
+  <p class="lede" style="font-size:15px;margin-bottom:var(--s3)"><span class="ar">حين يوجد متجر يعرف عميله ووسيلة دفعه وعنوانه، فإن فئة منتجات جديدة تكلّف جزءاً بسيطاً مما كلّفته الأولى.</span><span class="en">Once the store knows the customer, their payment method and their address, a new product category costs a fraction of the first.</span></p>
+  <div class="nxt">
+    <div class="nx now">
+      <div class="nx-h"><span class="nx-i">📶</span><span class="nx-p"><span class="ar">الآن</span><span class="en">Now</span></span></div>
+      <h3><span class="ar">الخطوط والباقات</span><span class="en">Lines and plans</span></h3>
+      <p><span class="ar">إصدار وتفعيل ونقل الأرقام، وشرائح السفر. المنتج الأساسي الذي يبني قاعدة العملاء.</span><span class="en">Issuing, activation, porting and travel eSIM. The core product that builds the customer base.</span></p>
+    </div>
 
-<!-- ══ UI SYSTEM ═════════════════════════════════════════════ -->
-<section class="wrap">
-  <div class="eyebrow"><span class="ar">نظام الواجهات</span><span class="en">The interface system</span></div>
-  <h2><span class="ar">الشاشات ليست رسومات. إنها قطع تُبنى مرة وتُستخدم في كل مكان.</span><span class="en">The screens aren't drawings. They're parts, built once and reused everywhere.</span></h2>
-  <p class="lede" style="margin-top:var(--s3)"><span class="ar">كل شاشة رأيتها في الأعلى مبنية من هذه القطع نفسها. لهذا تتشابه، ولهذا الشاشة الخمسون تكلّف جزءاً بسيطاً مما كلّفته الأولى.</span><span class="en">Every screen above is built from these same parts. That is why they match — and why the fiftieth screen costs a fraction of the first.</span></p>
+    <div class="nx">
+      <div class="nx-h"><span class="nx-i">📱</span><span class="nx-p"><span class="ar">التالي</span><span class="en">Next</span></span></div>
+      <h3><span class="ar">متجر الأجهزة</span><span class="en">Device store</span></h3>
+      <p><span class="ar">هواتف وراوترات وأجهزة لوحية وملحقات. نفس السلة ونفس الدفع ونفس التوصيل الذي بُني للشرائح — والمخزون وحده هو الجديد.</span><span class="en">Phones, routers, tablets, accessories. The same cart, payment and delivery already built for SIMs — inventory is the only new part.</span></p>
+      <div class="nx-w"><span class="ar"><b>لماذا هي التالية:</b> ترفع متوسط قيمة الطلب أضعافاً، وتُباع لعميل دفع لك بالفعل.</span><span class="en"><b>Why it's next:</b> it multiplies average order value, and sells to someone who has already paid you once.</span></div>
+    </div>
 
-  <div class="kit">
-    <div class="kitcard">
-      <div class="kitlbl"><span class="ar">الأزرار</span><span class="en">Buttons</span></div>
-      <div class="kitrow"><span class="s-btn" style="margin:0;flex:1"><span class="ar">إجراء أساسي</span><span class="en">Primary</span></span><span class="s-btn ghost" style="margin:0;flex:1"><span class="ar">ثانوي</span><span class="en">Secondary</span></span><span class="s-btn off" style="margin:0;flex:1"><span class="ar">معطّل</span><span class="en">Disabled</span></span></div>
+    <div class="nx">
+      <div class="nx-h"><span class="nx-i">🎁</span><span class="nx-p"><span class="ar">التالي</span><span class="en">Next</span></span></div>
+      <h3><span class="ar">الحزم: جهاز + خط</span><span class="en">Bundles: device + line</span></h3>
+      <p><span class="ar">راوتر مع باقة بيانات، أو هاتف مع خط — بسعر واحد أو بالتقسيط عبر مزوّد «اشترِ الآن وادفع لاحقاً».</span><span class="en">A router with a data plan, a phone with a line — one price, or instalments through a buy-now-pay-later provider.</span></p>
+      <div class="nx-w"><span class="ar"><b>لماذا:</b> الحزمة تجعل المقارنة السعرية أصعب على المنافس، وترفع الاحتفاظ.</span><span class="en"><b>Why:</b> a bundle is harder for a competitor to price against, and it lifts retention.</span></div>
     </div>
-    <div class="kitcard">
-      <div class="kitlbl"><span class="ar">الوسوم</span><span class="en">Chips</span></div>
-      <div class="kitrow"><span class="s-chip b"><span class="ar">فعّال</span><span class="en">Active</span></span><span class="s-chip g"><span class="ar">مميّز</span><span class="en">Premium</span></span><span class="s-chip w"><span class="ar">فشل</span><span class="en">Failed</span></span><span class="s-chip"><span class="ar">محايد</span><span class="en">Neutral</span></span></div>
+
+    <div class="nx">
+      <div class="nx-h"><span class="nx-i">🔁</span><span class="nx-p"><span class="ar">لاحقاً</span><span class="en">Later</span></span></div>
+      <h3><span class="ar">التجديد والاشتراكات</span><span class="en">Renewals and subscriptions</span></h3>
+      <p><span class="ar">تجديد تلقائي، وتذكير قبل الانتهاء، وإضافات البيانات — الإيراد المتكرر الذي لا يحتاج استحواذاً جديداً.</span><span class="en">Auto-renewal, expiry reminders, data add-ons — recurring revenue that needs no new acquisition.</span></p>
     </div>
-    <div class="kitcard">
-      <div class="kitlbl"><span class="ar">التنبيهات</span><span class="en">Alerts</span></div>
-      <div class="kitcol">
-        <div class="s-alert ok"><i>✓</i><div><span class="ar">نجحت العملية</span><span class="en">It worked</span></div></div>
-        <div class="s-alert bad"><i>✕</i><div><span class="ar">تعذّر — وإليك السبب والبديل</span><span class="en">It failed — here's why, and the alternative</span></div></div>
-      </div>
+
+    <div class="nx">
+      <div class="nx-h"><span class="nx-i">🏢</span><span class="nx-p"><span class="ar">لاحقاً</span><span class="en">Later</span></span></div>
+      <h3><span class="ar">قسم الأعمال</span><span class="en">Business</span></h3>
+      <p><span class="ar">خطوط الشركات وأساطيل المركبات وشرائح إنترنت الأشياء — طلبات جماعية بفاتورة واحدة وإدارة مركزية.</span><span class="en">Corporate lines, vehicle fleets and IoT SIMs — bulk orders on one invoice, centrally managed.</span></p>
     </div>
-    <div class="kitcard">
-      <div class="kitlbl"><span class="ar">خطوات العملية</span><span class="en">Progress steps</span></div>
-      <div class="kitcol">
-        <div class="s-step"><span class="m done">✓</span><span class="ar">خطوة مكتملة</span><span class="en">Done</span></div>
-        <div class="s-step"><span class="m now">●</span><span class="ar">خطوة جارية</span><span class="en">In progress</span></div>
-        <div class="s-step wait"><span class="m wait">○</span><span class="ar">خطوة لم تبدأ</span><span class="en">Not started</span></div>
-      </div>
-    </div>
-    <div class="kitcard">
-      <div class="kitlbl"><span class="ar">مؤشرات اللوحات</span><span class="en">Dashboard tiles</span></div>
-      <div class="kitrow"><span class="kpi" style="flex:1"><span class="l"><span class="ar">نسبة النجاح</span><span class="en">Success</span></span><span class="v">98.6<i>%</i></span></span><span class="kpi hero" style="flex:1;grid-column:auto"><span class="l"><span class="ar">أموال معلّقة</span><span class="en">At risk</span></span><span class="v">0.00</span></span></div>
-    </div>
-    <div class="kitcard">
-      <div class="kitlbl"><span class="ar">الرسوم البيانية</span><span class="en">Charts</span></div>
-      <div class="hb">
-        <div class="hb-r"><span class="hb-n"><span class="ar">الأعلى</span><span class="en">Top</span></span><span class="hb-t"><i style="width:100%"></i></span><span class="hb-v">612</span></div>
-        <div class="hb-r v2"><span class="hb-n"><span class="ar">الثاني</span><span class="en">Second</span></span><span class="hb-t"><i style="width:63%"></i></span><span class="hb-v">388</span></div>
-        <div class="hb-r v3"><span class="hb-n"><span class="ar">الثالث</span><span class="en">Third</span></span><span class="hb-t"><i style="width:46%"></i></span><span class="hb-v">284</span></div>
-      </div>
+
+    <div class="nx">
+      <div class="nx-h"><span class="nx-i">🌍</span><span class="nx-p"><span class="ar">لاحقاً</span><span class="en">Later</span></span></div>
+      <h3><span class="ar">التوسّع الخليجي</span><span class="en">Regional</span></h3>
+      <p><span class="ar">المنصّة تُبنى بطبقة ربط مستقلة عن أي مشغّل، فالانتقال إلى سوق خليجي آخر يعني ربط مشغّليه — لا إعادة بناء المنصّة.</span><span class="en">The platform is built with an operator-independent adapter layer, so entering another Gulf market means connecting its operators — not rebuilding the platform.</span></p>
     </div>
   </div>
-
   <div class="sysnote">
-    <p style="max-width:none"><span class="ar">ألوان الرسوم البيانية <b>مُختبرة لا مُختارة</b> — تمرّ على فحوص عمى الألوان ووضوح التباين في الوضعين الفاتح والداكن. رقم كل عمود مكتوب بجانبه دائماً، فلا يعتمد الفهم على اللون وحده.</span><span class="en">The chart colours are <b>tested, not picked</b> — they pass colour-blindness and contrast checks in both light and dark. Every bar carries its number, so nothing depends on colour alone.</span></p>
+    <p style="max-width:none"><span class="ar"><b>لماذا هذه القائمة كاملة من الآن:</b> العرض الذي يذكر «تطبيقاً ولوحة تحكم» يكتشف الباقي أثناء التنفيذ ويطلب مالاً إضافياً في منتصف الطريق. ولا شيء في القائمة الثانية يحتاج منصّة جديدة — السلة والدفع والفوترة والتوصيل والدعم تُبنى مرة واحدة. <b>وما لم يُبنَ بهذا الشكل من البداية، يُعاد كتابته لاحقاً.</b></span><span class="en"><b>Why the list is complete now:</b> a proposal naming only "an app and a dashboard" discovers the rest during the build and asks for more money halfway through. And nothing in the second list needs a new platform — cart, payment, invoicing, delivery and support are built once. <b>What isn't built that way at the start gets rewritten later.</b></span></p>
   </div>
 </section>
 
@@ -976,57 +928,6 @@
 
   <div class="pull"><p><span class="ar">ومعها أدوات تحكّم: تستطيع إيقاف بيع أي باقة أو أي مشغّل <b>فوراً</b> دون انتظارنا — فلا تبيع ما لا تستطيع تسليمه.</span><span class="en">And the controls to match: you can stop selling any plan or operator <b>instantly</b>, without waiting for us — so you never sell what you cannot deliver.</span></p></div>
 </section>
-<!-- ══ NEXT PHASES ═══════════════════════════════════════════ -->
-<section class="wrap">
-  <div class="eyebrow"><span class="ar">ما بعد الإطلاق</span><span class="en">After launch</span></div>
-  <h2><span class="ar">الخط هو المنتج الأول، لا الأخير.</span><span class="en">The line is the first product, not the last.</span></h2>
-  <p class="lede" style="margin-top:var(--s3)"><span class="ar">حين يوجد لديك متجر يعرف عميله ووسيلة دفعه وعنوانه وتاريخ شرائه، فإن إضافة فئة منتجات جديدة تكلّف جزءاً بسيطاً مما كلّفته الأولى. هذه هي الفئات التالية، مرتّبة حسب قربها.</span><span class="en">Once you have a store that knows the customer, their payment method, their address and their purchase history, adding a product category costs a fraction of what the first one did. These are the next categories, in order of how close they sit.</span></p>
-
-  <div class="nxt">
-    <div class="nx now">
-      <div class="nx-h"><span class="nx-i">📶</span><span class="nx-p"><span class="ar">الآن</span><span class="en">Now</span></span></div>
-      <h3><span class="ar">الخطوط والباقات</span><span class="en">Lines and plans</span></h3>
-      <p><span class="ar">إصدار وتفعيل ونقل الأرقام، وشرائح السفر. المنتج الأساسي الذي يبني قاعدة العملاء.</span><span class="en">Issuing, activation, porting and travel eSIM. The core product that builds the customer base.</span></p>
-    </div>
-
-    <div class="nx">
-      <div class="nx-h"><span class="nx-i">📱</span><span class="nx-p"><span class="ar">التالي</span><span class="en">Next</span></span></div>
-      <h3><span class="ar">متجر الأجهزة</span><span class="en">Device store</span></h3>
-      <p><span class="ar">هواتف وراوترات وأجهزة لوحية وملحقات. نفس السلة ونفس الدفع ونفس التوصيل الذي بُني للشرائح — والمخزون وحده هو الجديد.</span><span class="en">Phones, routers, tablets, accessories. The same cart, payment and delivery already built for SIMs — inventory is the only new part.</span></p>
-      <div class="nx-w"><span class="ar"><b>لماذا هي التالية:</b> ترفع متوسط قيمة الطلب أضعافاً، وتُباع لعميل دفع لك بالفعل.</span><span class="en"><b>Why it's next:</b> it multiplies average order value, and sells to someone who has already paid you once.</span></div>
-    </div>
-
-    <div class="nx">
-      <div class="nx-h"><span class="nx-i">🎁</span><span class="nx-p"><span class="ar">التالي</span><span class="en">Next</span></span></div>
-      <h3><span class="ar">الحزم: جهاز + خط</span><span class="en">Bundles: device + line</span></h3>
-      <p><span class="ar">راوتر مع باقة بيانات، أو هاتف مع خط — بسعر واحد أو بالتقسيط عبر مزوّد «اشترِ الآن وادفع لاحقاً».</span><span class="en">A router with a data plan, a phone with a line — one price, or instalments through a buy-now-pay-later provider.</span></p>
-      <div class="nx-w"><span class="ar"><b>لماذا:</b> الحزمة تجعل المقارنة السعرية أصعب على المنافس، وترفع الاحتفاظ.</span><span class="en"><b>Why:</b> a bundle is harder for a competitor to price against, and it lifts retention.</span></div>
-    </div>
-
-    <div class="nx">
-      <div class="nx-h"><span class="nx-i">🔁</span><span class="nx-p"><span class="ar">لاحقاً</span><span class="en">Later</span></span></div>
-      <h3><span class="ar">التجديد والاشتراكات</span><span class="en">Renewals and subscriptions</span></h3>
-      <p><span class="ar">تجديد تلقائي، وتذكير قبل الانتهاء، وإضافات البيانات — الإيراد المتكرر الذي لا يحتاج استحواذاً جديداً.</span><span class="en">Auto-renewal, expiry reminders, data add-ons — recurring revenue that needs no new acquisition.</span></p>
-    </div>
-
-    <div class="nx">
-      <div class="nx-h"><span class="nx-i">🏢</span><span class="nx-p"><span class="ar">لاحقاً</span><span class="en">Later</span></span></div>
-      <h3><span class="ar">قسم الأعمال</span><span class="en">Business</span></h3>
-      <p><span class="ar">خطوط الشركات وأساطيل المركبات وشرائح إنترنت الأشياء — طلبات جماعية بفاتورة واحدة وإدارة مركزية.</span><span class="en">Corporate lines, vehicle fleets and IoT SIMs — bulk orders on one invoice, centrally managed.</span></p>
-    </div>
-
-    <div class="nx">
-      <div class="nx-h"><span class="nx-i">🌍</span><span class="nx-p"><span class="ar">لاحقاً</span><span class="en">Later</span></span></div>
-      <h3><span class="ar">التوسّع الخليجي</span><span class="en">Regional</span></h3>
-      <p><span class="ar">المنصّة تُبنى بطبقة ربط مستقلة عن أي مشغّل، فالانتقال إلى سوق خليجي آخر يعني ربط مشغّليه — لا إعادة بناء المنصّة.</span><span class="en">The platform is built with an operator-independent adapter layer, so entering another Gulf market means connecting its operators — not rebuilding the platform.</span></p>
-    </div>
-  </div>
-
-  <div class="sysnote">
-    <p style="max-width:none"><span class="ar"><b>هذا ليس وعداً بمراحل إضافية لبيعها لك لاحقاً.</b> إنه سبب معماري: الفئات أعلاه لا تحتاج منصّة جديدة، لأن السلة والدفع والفوترة والتوصيل والدعم ولوحات التحكم تُبنى مرة واحدة في المرحلة الثانية. <b>ما لم يُبنَ بهذا الشكل من البداية، تُعاد كتابته لاحقاً.</b></span><span class="en"><b>This isn't a promise of extra phases to sell you later.</b> It's an architectural reason: none of the categories above needs a new platform, because cart, payment, invoicing, delivery, support and dashboards are built once in phase two. <b>What isn't built that way at the start gets rewritten later.</b></span></p>
-  </div>
-</section>
-
 <!-- ══ MARKET & COMPETITION ══════════════════════════════════ -->
 <section class="wrap">
   <div class="eyebrow"><span class="ar">السوق والمنافسة</span><span class="en">Market and competition</span></div>
@@ -1085,15 +986,8 @@
     </div>
   </div>
 
-  <div class="subhead" style="margin-top:var(--s6)"><span class="ar">الطلب الذي يكبر تحت هذا كله</span><span class="en">The demand growing underneath all of it</span></div>
-  <div class="mkt">
-    <div class="mk"><div class="mv">~30<span>M</span></div><div class="ml"><span class="ar">زائر دولي للمملكة في السنة</span><span class="en">international visitors a year</span></div><div class="mn"><span class="ar">إحصاءات رسمية</span><span class="en">official statistics</span></div></div>
-    <div class="mk"><div class="mv">19.5<span>M</span></div><div class="ml"><span class="ar">معتمر وحاج قادم من الخارج</span><span class="en">Umrah and Hajj arrivals from abroad</span></div><div class="mn"><span class="ar">إحصاءات رسمية</span><span class="en">official statistics</span></div></div>
-    <div class="mk"><div class="mv">150<span>M</span></div><div class="ml"><span class="ar">مستهدف الزوار في رؤية ٢٠٣٠</span><span class="en">visitor target under Vision 2030</span></div><div class="mn"><span class="ar">هدف معلن</span><span class="en">stated target</span></div></div>
-    <div class="mk est"><div class="mv">57.6<span>%</span></div><div class="ml"><span class="ar">من بيع المشغّلين الافتراضيين يحدث رقمياً بالفعل</span><span class="en">of MVNO acquisition already happens digitally</span></div><div class="mn"><span class="ar">⚠ تقدير سوقي — لا رقم رسمي</span><span class="en">⚠ market estimate — not an official figure</span></div></div>
-  </div>
   <div class="sysnote">
-    <p style="max-width:none"><span class="ar"><b>ملاحظة على الأرقام:</b> أرقام التطبيقات والزوار منشورة ويمكنك التحقق منها بنفسك. أما تقديرات حجم السوق فهي من شركات أبحاث تجارية وتختلف فيما بينها — وضعتها لأنها تفيد الاتجاه، لا لأنها دقيقة. <b>ولم أضع تقديرات لعمولات المشغّلين إطلاقاً: أنت تعرف أرقامها الحقيقية وأنا لا.</b></span><span class="en"><b>A note on the numbers:</b> the app-store and visitor figures are published and you can check them yourself. The market-size estimates come from commercial research firms and disagree with each other — they're here for direction, not precision. <b>And I've put no operator-commission estimates here at all: you know those real numbers and I don't.</b></span></p>
+    <p style="max-width:none"><span class="ar"><b>ملاحظة على الأرقام:</b> أرقام المتاجر منشورة ويمكنك التحقق منها بنفسك. <b>ولم أضع تقديرات لحجم السوق ولا لعمولات المشغّلين: أنت تعرف أرقامها الحقيقية وأنا لا.</b></span><span class="en"><b>A note on the numbers:</b> the app-store figures are published and you can check them yourself. <b>I have put no market-size or operator-commission estimates here: you know those real numbers and I don't.</b></span></p>
   </div>
 </section>
 
@@ -1163,11 +1057,9 @@
     </tbody>
   </table></div>
 
-  <div class="subhead"><span class="ar">لمرة واحدة، وسنوياً</span><span class="en">One-time, and annual</span></div>
-  <div class="tablewrap"><table><tbody>
-    <tr><td style="width:34%"><span class="ar"><b>لمرة واحدة</b></span><span class="en"><b>One-time</b></span></td><td class="cause"><span class="ar">النطاق والهوية البصرية · التصميم والبناء على مراحل · مراجعة أمنية واختبار اختراق · حسابات متاجر التطبيقات · تفعيل بوابة الدفع والفوترة الإلكترونية</span><span class="en">Domain and brand · design and build, in phases · security review and penetration test · app store accounts · payment gateway and e-invoicing onboarding</span></td></tr>
-    <tr><td><span class="ar"><b>سنوياً</b></span><span class="en"><b>Annual</b></span></td><td class="cause"><span class="ar">رسوم متاجر التطبيقات · تجديد النطاق · الشهادات الأمنية · مراجعة أمنية دورية · التزامات الفوترة الإلكترونية</span><span class="en">App store fees · domain renewal · certificates · periodic security review · e-invoicing compliance</span></td></tr>
-  </tbody></table></div>
+  <div class="costnote" style="margin-top:var(--s3)">
+    <p style="max-width:none"><span class="ar"><b>لمرة واحدة:</b> النطاق والهوية · التصميم والبناء على مراحل · مراجعة أمنية واختبار اختراق · حسابات متاجر التطبيقات · تفعيل بوابة الدفع والفوترة الإلكترونية.<br><b>سنوياً:</b> رسوم متاجر التطبيقات · تجديد النطاق · الشهادات · مراجعة أمنية دورية · التزامات الفوترة الإلكترونية.</span><span class="en"><b>One-time:</b> domain and identity · design and build, in phases · security review and penetration test · app-store accounts · payment-gateway and e-invoicing onboarding.<br><b>Annual:</b> app-store fees · domain renewal · certificates · periodic security review · e-invoicing compliance.</span></p>
+  </div>
 
   <div class="costnote">
     <p style="max-width:none"><span class="ar"><b>الأرقام الدقيقة تُحدَّد بعد المرحلة الأولى</b>، لأنها تعتمد على قرارات تقنية لم تُتخذ بعد — ووضع رقم قبلها تخمين لا تقدير. لكن هذه <b>كل</b> البنود. لا بند سيظهر لاحقاً.</span><span class="en"><b>Exact figures come after phase one</b>, because they depend on decisions not yet made — a number before then is a guess, not an estimate. But these are <b>all</b> the lines. Nothing appears later.</span></p>
@@ -1206,43 +1098,22 @@
 <style>
 
   /* ═══ BRAND ═══════════════════════════════════════════════ */
-  .brandwrap{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:var(--s5);margin-top:var(--s5);align-items:start}
-  .lockup{background:var(--bg-2);border:1px solid var(--line-2);border-radius:16px;padding:var(--s5) var(--s4);
+  .brandrow2{display:grid;grid-template-columns:auto 1fr;gap:var(--s5);margin-top:var(--s4);align-items:center}
+  @media(max-width:760px){.brandrow2{grid-template-columns:1fr}}
+  .lockup{background:var(--bg-2);border:1px solid var(--line-2);border-radius:16px;padding:var(--s4);
     display:flex;flex-direction:column;align-items:center;gap:var(--s3);text-align:center}
-  .mark{width:82px;height:82px;color:var(--a-brand);--mk-bg:var(--bg-2)}
+  .mark{width:64px;height:64px;color:var(--a-brand);--mk-bg:var(--bg-2)}
   .mark svg{width:100%;height:100%;fill:currentColor}
-  .wm-ar{font-size:44px;font-weight:600;line-height:1.05;letter-spacing:-.01em}
+  .wm-ar{font-size:34px;font-weight:600;line-height:1.05;letter-spacing:-.01em}
   .wm-en{font-family:var(--mono);font-size:15px;letter-spacing:.42em;color:var(--ink-soft);margin-top:6px;padding-inline-start:.42em}
-  .wm-d{font-size:12.5px;color:var(--ink-faint);margin-top:var(--s2)}
   .brandnotes{display:flex;flex-direction:column;gap:var(--s3)}
   .bn{border-inline-start:2px solid var(--line);padding-inline-start:var(--s3)}
   .bn h3{font-size:15px;margin-bottom:5px}
   .bn p{font-size:14px;color:var(--ink-soft);line-height:1.6;max-width:58ch}
   .bn p b{color:var(--ink);font-weight:600}
 
-  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:var(--s2);margin-top:var(--s4)}
-  .sw{background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;padding:var(--s3);display:flex;flex-direction:column;gap:3px}
-  .sw .d{height:40px;border-radius:8px;background:var(--c);margin-bottom:var(--s1)}
-  .sw b{font-size:13.5px;font-weight:600}
-  .sw .h{font-size:11px;color:var(--ink-faint);direction:ltr;text-align:start;unicode-bidi:isolate}
-  .sw .u{font-size:11.5px;color:var(--ink-soft);line-height:1.45}
 
-  .brandrow{display:grid;grid-template-columns:auto 1fr;gap:var(--s5);margin-top:var(--s4);align-items:center}
-  .appicons{display:grid;grid-template-columns:repeat(4,auto);gap:var(--s2);align-items:center;justify-items:center}
-  .ai{width:62px;height:62px;border-radius:15px;background:var(--a-brand);color:#fff;--mk-bg:var(--a-brand);
-    display:grid;place-items:center;box-shadow:var(--sh-win)}
-  .ai svg{width:70%;height:70%;fill:currentColor}
   .ai .cls{}
-  .ai svg circle,.ai svg path[stroke]{--mk-bg:var(--a-brand)}
-  .ai.sm{width:42px;height:42px;border-radius:11px}
-  .ai.xs{width:26px;height:26px;border-radius:7px}
-  .ai.inv{background:var(--ink);--mk-bg:var(--ink);color:var(--bg)}
-  .ailbl{grid-column:1/-1;font-size:12px;color:var(--ink-faint);text-align:center;margin-top:var(--s1);max-width:34ch}
-  .typespec{border-inline-start:2px solid var(--line);padding-inline-start:var(--s4)}
-  .ts-l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
-  .ts-big{font-size:clamp(26px,4vw,42px);font-weight:500;letter-spacing:-.01em;margin-block:var(--s1)}
-  .ts-n{font-family:var(--mono);font-size:12.5px;color:var(--accent-2)}
-  .ts-d{font-size:14px;color:var(--ink-soft);margin-top:var(--s2);max-width:52ch;line-height:1.6}
   @media(max-width:900px){
     .brandwrap{grid-template-columns:1fr}
     .brandrow{grid-template-columns:1fr;gap:var(--s4)}
@@ -1257,18 +1128,18 @@
   .jt-rail i{display:block;width:100%;height:0;border-radius:2px;background:linear-gradient(180deg,var(--accent),var(--have));
     transition:height 1.9s cubic-bezier(.4,0,.2,1) .15s}
   .jt.in .jt-rail i{height:100%}
-  .jt-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .jt-list{list-style:none;display:flex;flex-direction:column;gap:5px}
   .jt-ph{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
-    margin-top:var(--s3);margin-inline-start:-10px}
+    margin-top:var(--s2);margin-inline-start:-10px}
   .jt-ph:first-child{margin-top:0}
   .jt-s{position:relative;display:grid;grid-template-columns:auto 1fr;gap:var(--s3);align-items:center;
-    background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;padding:13px var(--s3)}
-  .jt-n{position:absolute;inset-inline-start:-46px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    background:var(--bg-2);border:1px solid var(--line-2);border-radius:11px;padding:9px var(--s3)}
+  .jt-n{position:absolute;inset-inline-start:-44px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
     font-family:var(--mono);font-size:12.5px;font-weight:600;background:var(--bg-3);color:var(--ink-soft);
     border:2px solid var(--bg);box-shadow:0 0 0 1px var(--line-2)}
   .jt-b{grid-column:1/-1;display:flex;flex-direction:column;gap:3px}
-  .jt-b b{font-size:14.5px;font-weight:600}
-  .jt-b span{font-size:12.5px;color:var(--ink-faint);line-height:1.5}
+  .jt-b b{font-size:14px;font-weight:600}
+  .jt-b span{font-size:12px;color:var(--ink-faint);line-height:1.5}
   .jt-s.gate{border-color:rgba(74,222,128,.3);background:linear-gradient(var(--jg),var(--have-dim),var(--bg-2) 62%)}
   .jt-s.gate .jt-n{background:var(--have-dim);color:var(--have);box-shadow:0 0 0 1px rgba(74,222,128,.4)}
   .jt-s.gate .jt-b b{color:var(--have)}
@@ -1325,9 +1196,9 @@
   }
 
   /* ═══ DASHBOARD MOCKUPS ═══════════════════════════════════ */
-  .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);margin-top:var(--s5)}
-  .dash{display:flex;flex-direction:column;gap:var(--s2);min-width:0}
-  .dash figcaption{font-size:12.5px;color:var(--ink-soft);line-height:1.55}
+  .dash-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s4)}
+  .dash{display:flex;flex-direction:column;gap:10px;min-width:0}
+  .dash figcaption{font-size:12px;color:var(--ink-soft);line-height:1.55}
   .dash figcaption b{display:block;color:var(--ink);font-size:13.5px;font-weight:600;margin-bottom:3px}
   .dash figcaption .k{color:var(--accent-2);font-weight:600}
   .win{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--a-bg);
@@ -1412,8 +1283,8 @@
   .kpi.hero .v{color:var(--a-brand-2);font-size:22px}
   .kpi.hero .l{color:var(--a-brand-2);opacity:.8}
   /* ═══ NEXT PHASES ═════════════════════════════════════════ */
-  .nxt{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:var(--s3);margin-top:var(--s5)}
-  .nx{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s4);
+  .nxt{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:var(--s2);margin-top:var(--s4)}
+  .nx{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3);
     display:flex;flex-direction:column;gap:var(--s1)}
   .nx.now{border-color:rgba(74,222,128,.32);background:linear-gradient(var(--jg,to left),var(--have-dim),var(--bg-2) 68%)}
   .nx-h{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin-bottom:var(--s1)}
@@ -1422,21 +1293,21 @@
     padding:4px 9px;border-radius:999px;background:var(--line-2);color:var(--ink-faint);white-space:nowrap}
   .nx.now .nx-p{background:var(--have-dim);color:var(--have)}
   .nx h3{font-size:16px}
-  .nx p{font-size:13.5px;color:var(--ink-soft);line-height:1.6;max-width:none}
+  .nx p{font-size:13px;color:var(--ink-soft);line-height:1.55;max-width:none}
   .nx-w{margin-top:auto;padding-top:var(--s2);border-top:1px solid var(--line-2);
     font-size:12.5px;color:var(--ink-faint);line-height:1.55}
   .nx-w b{color:var(--ink)}
 
   /* ═══ MARKET & COMPETITION ════════════════════════════════ */
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:var(--s2);margin-top:var(--s5)}
-  .stat{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3) var(--s4)}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:var(--s2);margin-top:var(--s4)}
+  .stat{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s2) var(--s3)}
   .sv{font-family:var(--mono);font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.03em;
     line-height:1.05;direction:ltr;unicode-bidi:isolate}
   .sv span{font-size:.5em;color:var(--ink-faint);font-weight:400}
   .sl{font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin-top:7px}
 
   .gapcard{margin-top:var(--s4);border:1px solid rgba(240,131,107,.3);border-radius:16px;
-    background:linear-gradient(var(--jg,to left),var(--fail-dim),var(--bg-2) 58%);padding:var(--s4)}
+    background:linear-gradient(var(--jg,to left),var(--fail-dim),var(--bg-2) 58%);padding:var(--s3)}
   .gap-h{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
     color:var(--fail);margin-bottom:var(--s3)}
   .gap-b{display:grid;grid-template-columns:auto auto auto minmax(0,1fr);gap:var(--s4);align-items:center}
@@ -1451,8 +1322,8 @@
   @media(max-width:860px){ .gap-b{grid-template-columns:1fr 1fr;gap:var(--s3)} .gap-vs{display:none}
     .gap-say{grid-column:1/-1;border-top:1px solid var(--line-2);padding-top:var(--s3)} }
 
-  .rivals{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:var(--s3);margin-top:var(--s2)}
-  .rv{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s4);
+  .rivals{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:var(--s2);margin-top:var(--s2)}
+  .rv{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3);
     display:flex;flex-direction:column;gap:var(--s2)}
   .rv.hot{border-color:rgba(240,131,107,.3)}
   .rv-h{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);flex-wrap:wrap}
@@ -1465,18 +1336,10 @@
     font-size:12.5px;color:var(--ink-faint);line-height:1.55}
   .rv-w b{color:var(--ink)}
 
-  .mkt{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--s2);margin-top:var(--s2)}
-  .mk{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3) var(--s4)}
-  .mk.est{border-style:dashed}
-  .mv{font-family:var(--mono);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1.05;
-    direction:ltr;unicode-bidi:isolate;color:var(--accent-2)}
-  .mv span{font-size:.55em;color:var(--ink-faint)}
-  .ml{font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin-top:6px}
-  .mn{font-size:10.5px;color:var(--ink-faint);margin-top:6px}
 
   /* ═══ PLATFORMS & SYSTEMS ═════════════════════════════════ */
-  .sysgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:var(--s3);margin-top:var(--s5)}
-  .sys{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s4);
+  .sysgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:var(--s2);margin-top:var(--s4)}
+  .sys{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3);
     display:flex;flex-direction:column;gap:var(--s1)}
   .sys.key{border-color:rgba(77,124,255,.28);background:linear-gradient(var(--jg,to left),var(--accent-dim),var(--bg-2) 70%)}
   .sys-h{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);margin-bottom:var(--s1)}
@@ -1486,27 +1349,16 @@
   .ph.p2{background:var(--have-dim);color:var(--have)}
   .ph.p3{background:var(--accent-dim);color:var(--accent-2)}
   .sys h3{font-size:16px}
-  .sys p{font-size:13.5px;color:var(--ink-soft);line-height:1.6;max-width:none}
+  .sys p{font-size:13px;color:var(--ink-soft);line-height:1.55;max-width:none}
   .sys-w{margin-top:auto;padding-top:var(--s2);border-top:1px solid var(--line-2);
     font-size:11.5px;color:var(--ink-faint)}
   .sysnote{margin-top:var(--s4);padding:var(--s3) var(--s4);border-radius:10px;background:var(--bg-2);
     border:1px solid var(--line-2);font-size:14px;color:var(--ink-soft);max-width:74ch}
   .sysnote b{color:var(--ink)}
 
-  /* ═══ UI KIT ══════════════════════════════════════════════ */
-  .kit{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:var(--s3);margin-top:var(--s5)}
-  .kitcard{background:var(--a-bg);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3);
-    color:var(--a-ink);direction:rtl;display:flex;flex-direction:column;gap:11px;box-shadow:var(--sh-win)}
-  .kitlbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--a-faint)}
-  .kitrow{display:flex;gap:7px;align-items:stretch;flex-wrap:wrap}
-  .kitcol{display:flex;flex-direction:column;gap:8px}
-  .kitcard .s-btn{font-size:11px;padding:9px}
-  .kitcard .kpi{display:flex;flex-direction:column;gap:2px}
-  .kitcard .kpi .l{font-size:8.5px}
-
   /* ═══ SHARED BLOCKS ═══════════════════════════════════════ */
-  .gates{display:grid;gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:12px;overflow:hidden;margin-top:var(--s5)}
-  .gate{background:var(--bg-2);padding:var(--s3) var(--s4);display:grid;grid-template-columns:auto 1fr auto;gap:var(--s3);align-items:center}
+  .gates{display:grid;gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:12px;overflow:hidden;margin-top:var(--s4)}
+  .gate{background:var(--bg-2);padding:var(--s2) var(--s3);display:grid;grid-template-columns:auto 1fr auto;gap:var(--s3);align-items:center}
   .gate .n{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
   .gate h3{font-weight:500;font-size:16px}
   .gate .sub{font-size:13.5px;color:var(--ink-faint);margin-top:3px}
@@ -1516,8 +1368,8 @@
   .tablewrap{overflow-x:auto;margin-top:var(--s3);border:1px solid var(--line-2);border-radius:12px}
   table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
   th{text-align:start;font-weight:500;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint);
-    font-family:var(--mono);padding:var(--s3);border-bottom:1px solid var(--line)}
-  td{padding:var(--s3);border-bottom:1px solid var(--line-2);vertical-align:top;line-height:1.55}
+    font-family:var(--mono);padding:13px var(--s3);border-bottom:1px solid var(--line)}
+  td{padding:12px var(--s3);border-bottom:1px solid var(--line-2);vertical-align:top;line-height:1.55}
   tr:last-child td{border-bottom:0}
   .quote{color:var(--fail);font-weight:500}
   .cause{color:var(--ink-faint);font-size:13px}
@@ -1528,13 +1380,13 @@
   .subhead{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:var(--s5);margin-bottom:var(--s2)}
   .costnote{margin-top:var(--s4);padding:var(--s3) var(--s4);border-radius:10px;background:var(--bg-2);
     border:1px solid var(--line-2);font-size:14px;color:var(--ink-soft);max-width:72ch}
-  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s3);margin-top:var(--s5)}
-  .card{background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;padding:var(--s4)}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s3);margin-top:var(--s4)}
+  .card{background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;padding:var(--s3)}
   .card h3{margin-bottom:var(--s1)}
   .card p{font-size:14px;color:var(--ink-soft);max-width:none;line-height:1.6}
   .phases{margin-top:var(--s4);display:flex;flex-direction:column;gap:1px;background:var(--line-2);
     border:1px solid var(--line-2);border-radius:12px;overflow:hidden}
-  .phase{background:var(--bg-2);padding:var(--s4);display:grid;grid-template-columns:auto 1fr;gap:var(--s4)}
+  .phase{background:var(--bg-2);padding:var(--s3);display:grid;grid-template-columns:auto 1fr;gap:var(--s4)}
   .phase .idx{font-family:var(--mono);font-size:12px;color:var(--accent);padding-top:3px}
   .phase h3{margin-bottom:6px}
   .phase p{font-size:14px;color:var(--ink-soft);max-width:none}
@@ -1565,6 +1417,15 @@
     .flow{grid-template-columns:1fr;text-align:center}
     .flow .arrowcol{flex-direction:row;align-self:auto}
     .flow .arrowcol::before,.flow .arrowcol::after{width:auto;height:1px;min-height:0}
+  }
+  /* phones read this in one sitting — tighten the rhythm further there */
+  @media(max-width:620px){
+    :root{--s7:52px;--s6:44px;--s5:40px}
+    .sys,.nx,.rv,.card{padding:var(--s2) var(--s3)}
+    .sysgrid,.nxt,.rivals,.grid3,.stats{gap:9px}
+    .sys p,.nx p,.rv p{font-size:12.5px}
+    .lede{font-size:15px}
+    h2{font-size:clamp(20px,5.4vw,26px)}
   }
   @media(max-width:680px){
     .gate{grid-template-columns:auto 1fr}
