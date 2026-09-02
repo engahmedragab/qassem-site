@@ -147,7 +147,7 @@
     box-shadow:var(--sh-phone)}
   .scr{border-radius:26px;overflow:hidden;background:var(--a-bg);color:var(--a-ink);
     font-size:12.5px;line-height:1.5;position:relative;direction:rtl;
-    height:524px;display:flex;flex-direction:column}
+    height:585px;display:flex;flex-direction:column}   /* 270 x 585 = 19.5:9, a real phone */
   .sb{display:flex;justify-content:space-between;align-items:center;padding:9px 16px 3px;
     font-family:var(--mono);font-size:9.5px;color:var(--a-ink);direction:ltr}
   .sb b{font-weight:500}
@@ -236,6 +236,20 @@
   .s-tile .d{font-size:9px;color:var(--a-faint)}
   .flag{width:20px;height:14px;border-radius:2px;flex:none;display:inline-block}
 
+  /* operator marks — representational wordmarks in each brand's colour.
+     NOT the official logos: using those in the shipped product needs brand-usage
+     rights, which is a clause in every operator agreement. */
+  .op{display:inline-flex;align-items:center;justify-content:center;height:22px;padding:0 8px;border-radius:6px;
+    color:#fff;font-size:10px;font-weight:700;letter-spacing:-.01em;flex:none;line-height:1;white-space:nowrap}
+  .op.lg{height:30px;padding:0 12px;font-size:13px;border-radius:8px}
+  .op-stc{background:#4F008C;font-family:var(--mono);text-transform:lowercase;letter-spacing:.02em}
+  .op-mobily{background:#00A9CE}
+  .op-zain{background:#6EBE4A}
+  .op-salam{background:#D91E28}
+  .op-lebara{background:#0E7A56}
+  .op-virgin{background:#C8102E}
+  .op-redbull{background:#0B2A63}
+  .op-yaqoot{background:#9B1B45}
   /* screen gallery */
   .gal{display:flex;gap:var(--s4);overflow-x:auto;padding:var(--s2) 4px var(--s4);scroll-snap-type:x mandatory;
     margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad)}
@@ -334,7 +348,7 @@
           <div class="body">
             <div class="s-alert ok"><i>✓</i><div><b><span class="ar">يمكنك إصدار خط جديد</span><span class="en">You can get a new line</span></b><span class="ar">تحقّقنا قبل الدفع — لديك خط واحد من أصل ١٠ مسموحة.</span><span class="en">Checked before payment — you hold 1 line of 10 allowed.</span></div></div>
             <div class="s-card">
-              <div class="s-row"><div class="s-op"><span class="s-logo" style="background:#0090D4">M</span><span class="ar">موبايلي</span><span class="en">Mobily</span></div><span class="s-chip b"><span class="ar">مسبق الدفع</span><span class="en">Prepaid</span></span></div>
+              <div class="s-row"><div class="s-op"><span class="op op-mobily">mobily</span></div><span class="s-chip b"><span class="ar">مسبق الدفع</span><span class="en">Prepaid</span></span></div>
               <div class="s-row"><span style="font-size:12px;font-weight:600"><span class="ar">باقة ٢٢٠</span><span class="en">Plan 220</span></span><span class="s-price">126 <s>220</s></span></div>
               <div class="s-meta"><span class="s-chip">100 GB</span><span class="s-chip"><span class="ar">مكالمات مفتوحة</span><span class="en">Unlimited calls</span></span><span class="s-chip g"><span class="ar">خصم ٤٣٪</span><span class="en">43% off</span></span></div>
             </div>
@@ -386,19 +400,19 @@
           <div class="s-tabs"><span class="on"><span class="ar">مسبق</span><span class="en">Prepaid</span></span><span><span class="ar">فوترة</span><span class="en">Postpaid</span></span><span><span class="ar">بيانات</span><span class="en">Data</span></span></div>
           <div class="s-meta"><span class="s-chip b">100 GB+</span><span class="s-chip"><span class="ar">أقل من ١٥٠</span><span class="en">Under 150</span></span><span class="s-chip"><span class="ar">٧ مشغّلين</span><span class="en">7 operators</span></span></div>
           <div class="s-card sel">
-            <div class="s-row"><div class="s-op"><span class="s-logo" style="background:#0090D4">M</span><span class="ar">موبايلي</span><span class="en">Mobily</span></div><span class="s-price">126 <s>220</s></span></div>
+            <div class="s-row"><div class="s-op"><span class="op op-mobily">mobily</span></div><span class="s-price">126 <s>220</s></span></div>
             <div class="s-meta"><span class="s-chip">100 GB</span><span class="s-chip"><span class="ar">مكالمات مفتوحة</span><span class="en">Unlimited</span></span><span class="s-chip g"><span class="ar">أوفر خيار</span><span class="en">Best value</span></span></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><div class="s-op"><span class="s-logo" style="background:#4F008C">S</span><span class="ar">stc</span><span class="en">stc</span></div><span class="s-price">149</span></div>
+            <div class="s-row"><div class="s-op"><span class="op op-stc">stc</span></div><span class="s-price">149</span></div>
             <div class="s-meta"><span class="s-chip">80 GB</span><span class="s-chip"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><div class="s-op"><span class="s-logo" style="background:#E2231A">س</span><span class="ar">سلام</span><span class="en">Salam</span></div><span class="s-price">149</span></div>
+            <div class="s-row"><div class="s-op"><span class="op op-salam">سلام</span></div><span class="s-price">149</span></div>
             <div class="s-meta"><span class="s-chip"><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span><span class="s-chip"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><div class="s-op"><span class="s-logo" style="background:#7AC143">Z</span><span class="ar">زين</span><span class="en">Zain</span></div><span class="s-price">165</span></div>
+            <div class="s-row"><div class="s-op"><span class="op op-zain">zain</span></div><span class="s-price">165</span></div>
             <div class="s-meta"><span class="s-chip">120 GB</span><span class="s-chip"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
         </div>
@@ -892,7 +906,7 @@
           <div class="nav"><span class="ic">→</span><span><span class="ar">إتمام الطلب</span><span class="en">Checkout</span></span><span class="ic"></span></div>
           <div class="body">
             <div class="s-card sel">
-              <div class="s-row"><div class="s-op"><span class="s-logo" style="background:#0090D4">M</span><span class="ar">موبايلي</span><span class="en">Mobily</span></div><span class="s-price">126</span></div>
+              <div class="s-row"><div class="s-op"><span class="op op-mobily">mobily</span></div><span class="s-price">126</span></div>
               <div class="s-meta"><span class="s-chip">100 GB</span><span class="s-chip b"><span class="ar">شريحة إلكترونية</span><span class="en">eSIM</span></span></div>
             </div>
             <div class="s-pay"><div class="on">مدى</div><div>Apple&nbsp;Pay</div><div>VISA</div></div>
@@ -936,7 +950,7 @@
           <div class="body">
             <div class="s-alert ok" style="padding:9px"><i>👤</i><div><span class="ar">بواسطة <b>محمد · العليا</b></span><span class="en">Referred by <b>Mohammed · Olaya</b></span></div></div>
             <div class="s-card sel">
-              <div class="s-row"><div class="s-op"><span class="s-logo" style="background:#0090D4">M</span><span class="ar">موبايلي</span><span class="en">Mobily</span></div><span class="s-price">126</span></div>
+              <div class="s-row"><div class="s-op"><span class="op op-mobily">mobily</span></div><span class="s-price">126</span></div>
               <div class="s-meta"><span class="s-chip">100 GB</span><span class="s-chip b"><span class="ar">شريحة إلكترونية</span><span class="en">eSIM</span></span></div>
             </div>
             <div class="s-pay"><div class="on">مدى</div><div>Apple&nbsp;Pay</div><div>VISA</div></div>
@@ -1007,7 +1021,6 @@
             <div class="drow"><span class="st-dot wn"></span><span class="ar">زين</span><span class="en">Zain</span><span class="sp"></span><span class="mono">94.1%</span><span class="mono dim">1.9s</span><span class="tagoff"><span class="ar">أوقف البيع</span><span class="en">Stop selling</span></span></div>
             <div class="drow"><span class="st-dot ok"></span><span class="ar">سلام</span><span class="en">Salam</span><span class="sp"></span><span class="mono">99.4%</span><span class="mono dim">310ms</span></div>
           </div>
-          <div class="dcard alert"><b><span class="ar">⚠ زين تتباطأ</span><span class="en">⚠ Zain is degrading</span></b><span class="ar">١١ محاولة فاشلة خلال ٢٠ دقيقة. أوقف بيع باقاتها بضغطة حتى تستقر.</span><span class="en">11 failures in 20 minutes. Stop selling their plans in one click until it recovers.</span></div>
         </div>
       </div>
       <figcaption><b><span class="ar">أنت وفريق التشغيل</span><span class="en">You and your operations team</span></b><span class="ar"><span class="k">«أموال معلّقة» يجب أن يبقى صفراً.</span> أي رقم فوقه يعني عميلاً على وشك أن يشتكي — وأنت تعرف قبله.</span><span class="en"><span class="k">"Money at risk" must stay at zero.</span> Anything above it is a customer about to complain — and you know before they do.</span></figcaption>
@@ -1104,6 +1117,76 @@
 
   <div class="pull"><p><span class="ar">ومعها أدوات تحكّم: تستطيع إيقاف بيع أي باقة أو أي مشغّل <b>فوراً</b> دون انتظارنا — فلا تبيع ما لا تستطيع تسليمه.</span><span class="en">And the controls to match: you can stop selling any plan or operator <b>instantly</b>, without waiting for us — so you never sell what you cannot deliver.</span></p></div>
 </section>
+<!-- ══ MARKET & COMPETITION ══════════════════════════════════ -->
+<section class="wrap">
+  <div class="eyebrow"><span class="ar">السوق والمنافسة</span><span class="en">Market and competition</span></div>
+  <h2><span class="ar">أنت تعرف هذا السوق أكثر من أي تقرير. هذه الأرقام التي لا تراها من موقعك.</span><span class="en">You know this market better than any report. These are the numbers you can't see from where you sit.</span></h2>
+  <p class="lede" style="margin-top:var(--s3)"><span class="ar">لن أخبرك بحجم سوق الشرائح — أنت تعيش فيه. لكن أرقام منافسك منشورة للعلن، وهي تقول شيئاً مفيداً جداً.</span><span class="en">I won't tell you the size of the SIM market — you live in it. But your competitor's numbers are published, and they say something very useful.</span></p>
+
+  <div class="stats">
+    <div class="stat"><div class="sv">100K<span>+</span></div><div class="sl"><span class="ar">تحميل على أندرويد لتطبيق تايقو</span><span class="en">Tygo Android downloads</span></div></div>
+    <div class="stat"><div class="sv">9,200</div><div class="sl"><span class="ar">تقييم على آب ستور</span><span class="en">App Store ratings</span></div></div>
+    <div class="stat"><div class="sv">#25</div><div class="sl"><span class="ar">ترتيبه في قسم الأدوات بالسعودية</span><span class="en">Rank in Utilities, Saudi Arabia</span></div></div>
+    <div class="stat"><div class="sv">4<span> سنوات</span></div><div class="sl"><span class="ar">من التطوير المستمر بفريق صغير</span><span class="en">of continuous work by a small team</span></div></div>
+  </div>
+
+  <div class="gapcard">
+    <div class="gap-h"><span class="ar">🔑 الرقم الذي يستحق الانتباه</span><span class="en">🔑 The number worth stopping on</span></div>
+    <div class="gap-b">
+      <div class="gap-side">
+        <div class="gs-l"><span class="ar">تقييمه على آيفون</span><span class="en">Rating on iPhone</span></div>
+        <div class="gs-v ok">4.0</div>
+        <div class="gs-n"><span class="ar">مقبول</span><span class="en">Acceptable</span></div>
+      </div>
+      <div class="gap-vs"><span class="ar">مقابل</span><span class="en">vs</span></div>
+      <div class="gap-side">
+        <div class="gs-l"><span class="ar">تقييمه على أندرويد</span><span class="en">Rating on Android</span></div>
+        <div class="gs-v bad">3.4</div>
+        <div class="gs-n"><span class="ar">ضعيف</span><span class="en">Poor</span></div>
+      </div>
+      <div class="gap-say">
+        <p><span class="ar">نفس التطبيق. نفس الشركة. الفارق أن <b>أندرويد هو جهاز العامل الوافد</b> — وهو العميل الذي يفقد مئة ريال ولا يجد من يردّ عليه.</span><span class="en">Same app. Same company. The difference is that <b>Android is the expatriate worker's phone</b> — and he is the customer who loses a hundred riyals and finds nobody answering.</span></p>
+        <p style="margin-top:var(--s2)"><span class="ar">فشلهم يتركّز في الشريحة التي تعرفها محلاتك أكثر من أي أحد. <b>هذا هو الباب.</b></span><span class="en">Their failure concentrates in exactly the segment your shops know better than anyone. <b>That is the opening.</b></span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subhead" style="margin-top:var(--s6)"><span class="ar">من تنافس فعلاً</span><span class="en">Who you actually compete with</span></div>
+  <div class="rivals">
+    <div class="rv hot">
+      <div class="rv-h"><span class="rv-n"><span class="ar">تايقو</span><span class="en">Tygo</span></span><span class="rv-t hot"><span class="ar">المنافس المباشر</span><span class="en">Direct</span></span></div>
+      <p><span class="ar">يقارن ويبيع ويصدر الشرائح ويفعّلها وينقل الأرقام — عبر ستة مشغّلين. أربع سنوات من التقدّم.</span><span class="en">Compares, sells, issues, activates and ports — across six operators. A four-year head start.</span></p>
+      <div class="rv-w"><span class="ar"><b>نقطة ضعفه:</b> يأخذ المال قبل أن يتأكد، والدعم لا يردّ.</span><span class="en"><b>Their weakness:</b> they take the money before they're sure, and support doesn't reply.</span></div>
+    </div>
+    <div class="rv">
+      <div class="rv-h"><span class="rv-n"><span class="ar">تطبيقات المشغّلين</span><span class="en">The operators' own apps</span></span><span class="rv-t"><span class="ar">مورّد ومنافس</span><span class="en">Supplier and rival</span></span></div>
+      <p><span class="ar">كل مشغّل لديه تطبيقه، وبعضهم رقمي بالكامل. يبيعون خطوطهم مباشرة بلا وسيط.</span><span class="en">Every operator has an app, and some are fully digital. They sell their own lines with no middleman.</span></p>
+      <div class="rv-w"><span class="ar"><b>نقطة ضعفهم:</b> لن يخبر أيّ منهم عميله أن باقة منافسه أرخص.</span><span class="en"><b>Their weakness:</b> not one of them will tell a customer a rival's plan is cheaper.</span></div>
+    </div>
+    <div class="rv">
+      <div class="rv-h"><span class="rv-n"><span class="ar">أكشاك المطارات</span><span class="en">Airport kiosks</span></span><span class="rv-t"><span class="ar">منافس الزوار</span><span class="en">Visitor rival</span></span></div>
+      <p><span class="ar">هي الخيار الافتراضي لكل زائر يصل المملكة اليوم. فورية وموثوقة ومعروفة.</span><span class="en">The default for every visitor arriving today. Instant, trusted, familiar.</span></p>
+      <div class="rv-w"><span class="ar"><b>نقطة ضعفها:</b> طابور بعد رحلة طويلة — وسعر لا يقارنه أحد.</span><span class="en"><b>Their weakness:</b> a queue after a long flight — and a price nobody compares.</span></div>
+    </div>
+    <div class="rv">
+      <div class="rv-h"><span class="rv-n"><span class="ar">شرائح السفر العالمية</span><span class="en">Global travel eSIM</span></span><span class="rv-t"><span class="ar">منافس السفر</span><span class="en">Travel rival</span></span></div>
+      <p><span class="ar">تغطية تفوق مئتَي دولة وأسماء معروفة عالمياً في سوق الشرائح الإلكترونية للمسافرين.</span><span class="en">Coverage past two hundred countries, and globally known names in traveller eSIM.</span></p>
+      <div class="rv-w"><span class="ar"><b>نقطة ضعفها:</b> لا واجهة عربية، ولا سعر بالريال، ولا مدى ولا محفظة stc.</span><span class="en"><b>Their weakness:</b> no Arabic interface, no riyal pricing, no mada, no stc pay.</span></div>
+    </div>
+  </div>
+
+  <div class="subhead" style="margin-top:var(--s6)"><span class="ar">الطلب الذي يكبر تحت هذا كله</span><span class="en">The demand growing underneath all of it</span></div>
+  <div class="mkt">
+    <div class="mk"><div class="mv">~30<span>M</span></div><div class="ml"><span class="ar">زائر دولي للمملكة في السنة</span><span class="en">international visitors a year</span></div><div class="mn"><span class="ar">إحصاءات رسمية</span><span class="en">official statistics</span></div></div>
+    <div class="mk"><div class="mv">19.5<span>M</span></div><div class="ml"><span class="ar">معتمر وحاج قادم من الخارج</span><span class="en">Umrah and Hajj arrivals from abroad</span></div><div class="mn"><span class="ar">إحصاءات رسمية</span><span class="en">official statistics</span></div></div>
+    <div class="mk"><div class="mv">150<span>M</span></div><div class="ml"><span class="ar">مستهدف الزوار في رؤية ٢٠٣٠</span><span class="en">visitor target under Vision 2030</span></div><div class="mn"><span class="ar">هدف معلن</span><span class="en">stated target</span></div></div>
+    <div class="mk est"><div class="mv">57.6<span>%</span></div><div class="ml"><span class="ar">من بيع المشغّلين الافتراضيين يحدث رقمياً بالفعل</span><span class="en">of MVNO acquisition already happens digitally</span></div><div class="mn"><span class="ar">⚠ تقدير سوقي — لا رقم رسمي</span><span class="en">⚠ market estimate — not an official figure</span></div></div>
+  </div>
+  <div class="sysnote">
+    <p style="max-width:none"><span class="ar"><b>ملاحظة على الأرقام:</b> أرقام التطبيقات والزوار منشورة ويمكنك التحقق منها بنفسك. أما تقديرات حجم السوق فهي من شركات أبحاث تجارية وتختلف فيما بينها — وضعتها لأنها تفيد الاتجاه، لا لأنها دقيقة. <b>ولم أضع تقديرات لعمولات المشغّلين إطلاقاً: أنت تعرف أرقامها الحقيقية وأنا لا.</b></span><span class="en"><b>A note on the numbers:</b> the app-store and visitor figures are published and you can check them yourself. The market-size estimates come from commercial research firms and disagree with each other — they're here for direction, not precision. <b>And I've put no operator-commission estimates here at all: you know those real numbers and I don't.</b></span></p>
+  </div>
+</section>
+
 <!-- ══ WHAT YOU HAVE ═════════════════════════════════════════ -->
 <section class="wrap">
   <div class="eyebrow"><span class="ar">ما تملكه</span><span class="en">What you have</span></div>
@@ -1353,9 +1436,9 @@
     padding:var(--s3) 0;border-radius:12px}
   .mod-stage.pair{gap:0}
   /* align-items:flex-start matters: as a stretched flex item the phone was being
-     squashed to the wrapper height while its screen stayed 524px, so the content
-     spilled out below the frame. Height = (524 + 18 padding) x the scale factor. */
-  .pmini{width:188px;height:332px;display:flex;justify-content:center;align-items:flex-start;flex:none}
+     squashed to the wrapper height while its screen stayed 585px, so the content
+     spilled out below the frame. Height = (585 + 18 padding) x the scale factor. */
+  .pmini{width:188px;height:369px;display:flex;justify-content:center;align-items:flex-start;flex:none}
   .pmini .phone{transform:scale(.612);transform-origin:top center;flex:none;width:288px}
   .mod-l{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:auto}
   .mod-l li{font-size:13.5px;color:var(--ink-soft);line-height:1.55;padding-inline-start:19px;position:relative}
@@ -1414,17 +1497,17 @@
   .dash figcaption b{display:block;color:var(--ink);font-size:13.5px;font-weight:600;margin-bottom:3px}
   .dash figcaption .k{color:var(--accent-2);font-weight:600}
   .win{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--a-bg);
-    height:452px;display:flex;flex-direction:column;
+    height:470px;display:flex;flex-direction:column;
     box-shadow:var(--sh-win)}
   .chr{display:flex;align-items:center;gap:6px;padding:9px 12px;background:var(--a-3);border-bottom:1px solid var(--a-line)}
   .chr>span{width:8px;height:8px;border-radius:50%;background:#C8D0CC;flex:none}
   .chr .url{margin-inline-start:9px;background:var(--a-bg);border-radius:5px;padding:3px 10px;font-size:9.5px;
     color:var(--a-mid);flex:1;text-align:center;direction:rtl}
-  .dbody{padding:13px;display:flex;flex-direction:column;gap:10px;color:var(--a-ink);direction:rtl;
+  .dbody{padding:11px;display:flex;flex-direction:column;gap:7px;color:var(--a-ink);direction:rtl;
     flex:1;min-height:0;overflow:hidden}
   .chr{flex:none}
-  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:8px}
-  .kpi{border:1px solid var(--a-line);border-radius:9px;padding:9px}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:7px}
+  .kpi{border:1px solid var(--a-line);border-radius:9px;padding:8px}
   .kpi .l{font-size:8.5px;color:var(--a-faint);line-height:1.35}
   .kpi .v{font-family:var(--mono);font-size:17px;font-weight:600;letter-spacing:-.03em;margin-top:3px}
   .kpi .v i{font-size:10px;font-style:normal;color:var(--a-faint)}
@@ -1432,7 +1515,7 @@
   .kpi.bad{border-color:#CBE8D9;background:var(--a-brand-soft)}
   .kpi.bad .v{color:var(--a-brand-2)}
   .kpi.ok .v{color:var(--a-brand)}
-  .dcard{border:1px solid var(--a-line);border-radius:9px;padding:10px;display:flex;flex-direction:column;gap:6px}
+  .dcard{border:1px solid var(--a-line);border-radius:9px;padding:9px;display:flex;flex-direction:column;gap:5px}
   .dh{font-size:9.5px;font-weight:600;color:var(--a-faint);letter-spacing:.04em}
   .drow{display:flex;align-items:center;gap:7px;font-size:10.5px}
   .drow .sp{flex:1}
@@ -1494,6 +1577,53 @@
   .kpi.hero{grid-column:span 2;border-color:#CFE6E2;background:var(--a-brand-soft)}
   .kpi.hero .v{color:var(--a-brand-2);font-size:22px}
   .kpi.hero .l{color:var(--a-brand-2);opacity:.8}
+  /* ═══ MARKET & COMPETITION ════════════════════════════════ */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:var(--s2);margin-top:var(--s5)}
+  .stat{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3) var(--s4)}
+  .sv{font-family:var(--mono);font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.03em;
+    line-height:1.05;direction:ltr;unicode-bidi:isolate}
+  .sv span{font-size:.5em;color:var(--ink-faint);font-weight:400}
+  .sl{font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin-top:7px}
+
+  .gapcard{margin-top:var(--s4);border:1px solid rgba(240,131,107,.3);border-radius:16px;
+    background:linear-gradient(var(--jg,to left),var(--fail-dim),var(--bg-2) 58%);padding:var(--s4)}
+  .gap-h{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--fail);margin-bottom:var(--s3)}
+  .gap-b{display:grid;grid-template-columns:auto auto auto minmax(0,1fr);gap:var(--s4);align-items:center}
+  .gap-side{text-align:center}
+  .gs-l{font-size:11.5px;color:var(--ink-faint)}
+  .gs-v{font-family:var(--mono);font-size:44px;font-weight:600;letter-spacing:-.03em;line-height:1.1;margin-top:4px}
+  .gs-v.ok{color:var(--have)} .gs-v.bad{color:var(--fail)}
+  .gs-n{font-size:11px;color:var(--ink-faint)}
+  .gap-vs{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+  .gap-say p{font-size:14.5px;color:var(--ink-soft);line-height:1.6;max-width:46ch}
+  .gap-say b{color:var(--ink);font-weight:600}
+  @media(max-width:860px){ .gap-b{grid-template-columns:1fr 1fr;gap:var(--s3)} .gap-vs{display:none}
+    .gap-say{grid-column:1/-1;border-top:1px solid var(--line-2);padding-top:var(--s3)} }
+
+  .rivals{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:var(--s3);margin-top:var(--s2)}
+  .rv{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s4);
+    display:flex;flex-direction:column;gap:var(--s2)}
+  .rv.hot{border-color:rgba(240,131,107,.3)}
+  .rv-h{display:flex;align-items:center;justify-content:space-between;gap:var(--s2);flex-wrap:wrap}
+  .rv-n{font-size:17px;font-weight:600}
+  .rv-t{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+    padding:4px 9px;border-radius:999px;background:var(--line-2);color:var(--ink-faint);white-space:nowrap}
+  .rv-t.hot{background:var(--fail-dim);color:var(--fail)}
+  .rv p{font-size:13.5px;color:var(--ink-soft);line-height:1.6;max-width:none}
+  .rv-w{margin-top:auto;padding-top:var(--s2);border-top:1px solid var(--line-2);
+    font-size:12.5px;color:var(--ink-faint);line-height:1.55}
+  .rv-w b{color:var(--ink)}
+
+  .mkt{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--s2);margin-top:var(--s2)}
+  .mk{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s3) var(--s4)}
+  .mk.est{border-style:dashed}
+  .mv{font-family:var(--mono);font-size:30px;font-weight:600;letter-spacing:-.03em;line-height:1.05;
+    direction:ltr;unicode-bidi:isolate;color:var(--accent-2)}
+  .mv span{font-size:.55em;color:var(--ink-faint)}
+  .ml{font-size:12.5px;color:var(--ink-soft);line-height:1.5;margin-top:6px}
+  .mn{font-size:10.5px;color:var(--ink-faint);margin-top:6px}
+
   /* ═══ PLATFORMS & SYSTEMS ═════════════════════════════════ */
   .sysgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:var(--s3);margin-top:var(--s5)}
   .sys{background:var(--bg-2);border:1px solid var(--line-2);border-radius:13px;padding:var(--s4);
