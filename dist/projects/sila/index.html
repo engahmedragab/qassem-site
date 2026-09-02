@@ -290,7 +290,7 @@
 
 <header>
   <div class="bar">
-    <a class="home" href="/"><span class="dot"></span><span class="ar">قاسم</span><span class="en">Qassem</span></a>
+    <a class="home" href="/"><span class="dot"></span>Qassem</a>
     <div class="ctrls">
       <div class="langs">
         <button type="button" data-set="ar" aria-pressed="true">العربية</button>
@@ -1164,8 +1164,9 @@
 </div>
 
 <footer class="wrap">
-  <div><span class="ar">عرض مشروع — سرّي، ومُعدّ لمستلم واحد.</span><span class="en">Project proposal — confidential, for a single recipient.</span></div>
-  <div class="mono">qassem.online</div>
+  <span>© 2026 Qassem — OurInc</span>
+  <span id="clock">—</span>
+  <span>Built from scratch. No template.</span>
 </footer>
 
 </main>
@@ -1636,8 +1637,7 @@
   .dur.gated{background:var(--line-2);color:var(--ink-faint)}
   .phase.done{background:var(--bg-3)}
   .phase.done .idx{color:var(--have)}
-  footer{border-top:1px solid var(--line-2);padding-block:var(--s4);font-size:12.5px;color:var(--ink-faint);
-    display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap}
+  footer{padding:34px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.02em;direction:ltr;text-align:start}
 
   /* ═══ RESPONSIVE ══════════════════════════════════════════ */
   .herophones{display:flex;gap:14px;align-items:center}
@@ -1682,6 +1682,18 @@
 
 <script>
 (function(){
+  // Riyadh clock in the footer, matching the home page
+  var clk=document.getElementById('clock');
+  if(clk){
+    function tick(){
+      try{
+        clk.textContent=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit',
+          hour12:false,timeZone:'Asia/Riyadh'}).format(new Date())+' AST';
+      }catch(e){ clk.textContent='—'; }
+    }
+    tick(); setInterval(tick,1000);
+  }
+
   var page=document.getElementById('page'), btns=document.querySelectorAll('.langs button');
   function set(lang){
     page.setAttribute('data-lang',lang);
