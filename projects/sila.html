@@ -728,7 +728,7 @@
 <!-- ══ PLATFORMS & SYSTEMS ═══════════════════════════════════ -->
 <section class="wrap">
   <div class="eyebrow"><span class="ar">ما سيُبنى فعلياً</span><span class="en">What actually gets built</span></div>
-  <h2><span class="ar">ليس «تطبيقاً». ثمانية أنظمة تعمل معاً.</span><span class="en">Not "an app". Eight systems working together.</span></h2>
+  <h2><span class="ar">ليس «تطبيقاً». تسعة أنظمة تعمل معاً.</span><span class="en">Not "an app". Nine systems working together.</span></h2>
   <p class="lede" style="margin-top:var(--s3)"><span class="ar">أغلب العروض تقول «تطبيق ولوحة تحكم». هذه قائمة كل ما يجب أن يوجد ليعمل الأمر فعلاً — ومتى يُبنى كل واحد.</span><span class="en">Most proposals say "an app and a dashboard". This is everything that has to exist for it to actually work — and when each one gets built.</span></p>
 
   <div class="arch">
@@ -749,9 +749,10 @@
     <div class="conn split"><i></i></div>
 
     <div class="lyr"><span class="ar">ما تستدعيه المنصّة</span><span class="en">What the core calls</span></div>
-    <div class="row two">
+    <div class="row three">
       <div class="nd"><span class="nd-i">💳</span><div class="nd-b"><b><span class="ar">الدفع والفوترة</span><span class="en">Payments and invoicing</span></b><span><span class="ar">الحجز والخصم والاسترداد، والفاتورة المعتمدة</span><span class="en">Hold, charge, refund, and the compliant invoice</span></span></div><span class="nd-p p2"><span class="ar">مرحلة ٢</span><span class="en">Phase 2</span></span></div>
       <div class="nd key"><span class="nd-i">🔌</span><div class="nd-b"><b><span class="ar">طبقة ربط المشغّلين</span><span class="en">Operator adapter layer</span></b><span><span class="ar">تترجم بين أنظمة كل مشغّل — فيبقى ما فوقها كما هو مهما أضفت</span><span class="en">Translates between each operator's systems, so nothing above it changes as you add more</span></span></div><span class="nd-p p3"><span class="ar">مرحلة ٣</span><span class="en">Phase 3</span></span></div>
+      <div class="nd"><span class="nd-i">🚚</span><div class="nd-b"><b><span class="ar">التوصيل والشحن</span><span class="en">Delivery and shipping</span></b><span><span class="ar">يُنشئ شحنة لدى شركة التوصيل عند تأكيد الطلب، ويتابعها حتى باب العميل — للشرائح التي تُوصَّل، وللأجهزة لاحقاً</span><span class="en">Creates a shipment with the courier once the order is confirmed and tracks it to the customer's door — for SIMs that ship, and devices later</span></span></div><span class="nd-p p4"><span class="ar">مرحلة ٤</span><span class="en">Phase 4</span></span></div>
     </div>
 
     <div class="conn"><i></i></div>
@@ -1349,6 +1350,7 @@
   .nd-p{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;padding:4px 9px;border-radius:999px;
     background:var(--have-dim);color:var(--have);white-space:nowrap;align-self:center}
   .nd-p.p3{background:var(--accent-dim);color:var(--accent-2)}
+  .nd-p.p4{background:var(--line-2);color:var(--ink-faint)}
   .nd.key{border-color:rgba(77,124,255,.34);background:linear-gradient(var(--jg,to left),var(--accent-dim),var(--bg-2) 70%)}
   .nd.ext{border-style:dashed;border-color:rgba(240,131,107,.4);background:var(--fail-dim)}
   .nd.ext .nd-b span{color:var(--ink-soft)}
