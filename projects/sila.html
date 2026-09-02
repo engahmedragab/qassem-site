@@ -85,6 +85,9 @@
   section+section{border-top:1px solid var(--line-2)}
 
   h1{font-size:clamp(29px,5vw,56px);font-weight:600;line-height:1.17;letter-spacing:-.01em;text-wrap:balance}
+  /* the headline is three beats — each gets its own line, or the rhythm is lost */
+  .beat{display:block;font-weight:inherit}
+  .hero h1{font-size:clamp(26px,3.4vw,44px);text-wrap:initial;max-width:none}
   h2{font-size:clamp(22px,3.2vw,36px);font-weight:600;line-height:1.26;text-wrap:balance}
   h3{font-size:clamp(16px,1.7vw,19px);font-weight:600;line-height:1.4}
   p{max-width:62ch}
@@ -297,8 +300,8 @@
     <div>
       <div class="eyebrow"><span class="ar">عرض مشروع — سرّي</span><span class="en">Project proposal — confidential</span></div>
       <h1>
-        <span class="ar">أنت تملك المشغّلين. ما ينقصك هو المتجر.</span>
-        <span class="en">You own the operators. What's missing is the store.</span>
+        <span class="ar"><b class="beat">متجر واحد.</b><b class="beat">كل المشغّلين.</b><b class="beat">خط يعمل في دقيقتين.</b></span>
+        <span class="en"><b class="beat">One store.</b><b class="beat">Every operator.</b><b class="beat">Live in two minutes.</b></span>
       </h1>
       <div class="hlock">
         <span class="hlock-m"><svg><use href="#mk"/></svg></span>
@@ -1547,7 +1550,7 @@
   .pscale{--sc:1;width:calc(306px * var(--sc));height:calc(603px * var(--sc));
     display:flex;justify-content:center;align-items:flex-start;flex:none}
   .pscale .phone{transform:scale(var(--sc));transform-origin:top center}
-  .herophones .pscale{--sc:.80}
+  .herophones .pscale{--sc:.70}
   .herogrid{grid-template-columns:minmax(330px,1fr) auto}
   @media(max-width:1180px){ .herophones .pscale:first-child{display:none} }
   @media(max-width:1080px){
