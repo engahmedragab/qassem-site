@@ -696,32 +696,47 @@
 <section class="wrap">
   <div class="eyebrow"><span class="ar">الرحلة كاملة</span><span class="en">The full journey</span></div>
   <h2><span class="ar">كل خطوة، وأين يتوقّف كل شيء لو ساءت.</span><span class="en">Every step — and where it all stops if something goes wrong.</span></h2>
+  <p class="lede" style="margin-top:var(--s3)"><span class="ar">ترتيب هذه الخطوات هو المنتج. اضغط الزر في الأسفل لترى ما يحدث حين تفشل خطوة بعد الدفع.</span><span class="en">The order of these steps is the product. Press the button below to see what happens when a step fails after payment.</span></p>
 
-  <div class="steps">
-    <div class="stp"><span class="k">01</span><b><span class="ar">يقارن</span><span class="en">Compare</span></b><span class="ar">بلا تسجيل</span><span class="en">No login</span></div>
-    <div class="stp"><span class="k">02</span><b><span class="ar">يختار الباقة</span><span class="en">Pick a plan</span></b><span class="ar">السعر شامل الضريبة</span><span class="en">VAT included</span></div>
-    <div class="stp gate"><span class="k">03</span><b><span class="ar">فحص الأهلية</span><span class="en">Eligibility</span></b><span class="ar">🔒 هنا نتوقّف إن لم يكن مؤهلاً</span><span class="en">🔒 We stop here if he isn't eligible</span></div>
-    <div class="stp"><span class="k">04</span><b><span class="ar">طريقة الاستلام</span><span class="en">Fulfilment</span></b><span class="ar">فحص الجهاز</span><span class="en">Device checked</span></div>
-    <div class="stp"><span class="k">05</span><b><span class="ar">الرقم</span><span class="en">Number</span></b><span class="ar">يُحجز فوراً</span><span class="en">Held immediately</span></div>
-    <div class="stp pay"><span class="k">06</span><b><span class="ar">تفويض الدفع</span><span class="en">Authorise</span></b><span class="ar">💳 حجز فقط — لا خصم</span><span class="en">💳 Held, not taken</span></div>
-    <div class="stp"><span class="k">07</span><b><span class="ar">نفاذ</span><span class="en">Nafath</span></b><span class="ar">تحقّق الهوية</span><span class="en">Identity verified</span></div>
-    <div class="stp"><span class="k">08</span><b><span class="ar">تسجيل الرقم</span><span class="en">Register</span></b><span class="ar">لدى الجهة الوطنية</span><span class="en">Nationally</span></div>
-    <div class="stp"><span class="k">09</span><b><span class="ar">إنشاء الخط</span><span class="en">Create line</span></b><span class="ar">لدى المشغّل</span><span class="en">With the operator</span></div>
-    <div class="stp money"><span class="k">10</span><b><span class="ar">الخصم</span><span class="en">Charge</span></b><span class="ar">💰 الآن فقط</span><span class="en">💰 Only now</span></div>
-    <div class="stp"><span class="k">11</span><b><span class="ar">الفاتورة</span><span class="en">Invoice</span></b><span class="ar">معتمدة</span><span class="en">Compliant</span></div>
-    <div class="stp ok"><span class="k">12</span><b><span class="ar">الخط يعمل</span><span class="en">Line live</span></b><span class="ar">✓ يُسلَّم للعميل</span><span class="en">✓ Handed over</span></div>
+  <div class="jt" id="jt">
+    <div class="jt-rail"><i></i></div>
+    <ol class="jt-list">
+
+      <li class="jt-ph" style="--i:0"><span class="ar">الاختيار</span><span class="en">Choosing</span></li>
+      <li class="jt-s" style="--i:1"><span class="jt-n">1</span><div class="jt-b"><b><span class="ar">يقارن الباقات</span><span class="en">Compares plans</span></b><span><span class="ar">مجاناً وبلا تسجيل</span><span class="en">Free, no login</span></span></div></li>
+      <li class="jt-s" style="--i:2"><span class="jt-n">2</span><div class="jt-b"><b><span class="ar">يختار باقة</span><span class="en">Picks a plan</span></b><span><span class="ar">السعر شامل الضريبة، ومدّة الخصم مكتوبة</span><span class="en">Price includes VAT, discount duration stated</span></span></div></li>
+
+      <li class="jt-ph" style="--i:3"><span class="ar">التحقق — قبل أي مال</span><span class="en">Checks — before any money</span></li>
+      <li class="jt-s gate" style="--i:4"><span class="jt-n">🔒</span><div class="jt-b"><b><span class="ar">فحص الأهلية</span><span class="en">Eligibility check</span></b><span><span class="ar">إن لم يكن مؤهلاً نتوقّف هنا — ولم يدفع شيئاً بعد</span><span class="en">If he isn't eligible we stop here — and he has paid nothing</span></span></div></li>
+      <li class="jt-s gate" style="--i:5"><span class="jt-n">📲</span><div class="jt-b"><b><span class="ar">فحص الجهاز</span><span class="en">Device check</span></b><span><span class="ar">جهاز لا يقبل الشريحة الإلكترونية؟ نمنع البيع</span><span class="en">Phone can't take an eSIM? We block the sale</span></span></div></li>
+      <li class="jt-s" style="--i:6"><span class="jt-n">3</span><div class="jt-b"><b><span class="ar">يختار رقمه</span><span class="en">Chooses a number</span></b><span><span class="ar">يُحجز له فوراً</span><span class="en">Held for him immediately</span></span></div></li>
+
+      <li class="jt-ph" style="--i:7"><span class="ar">الدفع والتفعيل</span><span class="en">Payment and activation</span></li>
+      <li class="jt-s hold" style="--i:8"><span class="jt-n">💳</span><div class="jt-b"><b><span class="ar">حجز المبلغ — لا خصم</span><span class="en">Amount held — not taken</span></b><span><span class="ar">المبلغ محجوز على بطاقته فقط، ولم يصل إليك بعد</span><span class="en">Reserved on his card only — it has not reached you yet</span></span></div></li>
+      <li class="jt-s" style="--i:9"><span class="jt-n">4</span><div class="jt-b"><b><span class="ar">التحقق عبر نفاذ</span><span class="en">Nafath verification</span></b><span><span class="ar">دون زيارة محل</span><span class="en">No shop visit</span></span></div></li>
+      <li class="jt-s" style="--i:10"><span class="jt-n">5</span><div class="jt-b"><b><span class="ar">تسجيل الرقم باسمه</span><span class="en">Number registered to him</span></b><span><span class="ar">لدى الجهة الوطنية</span><span class="en">Nationally</span></span></div></li>
+      <li class="jt-s" style="--i:11"><span class="jt-n">6</span><div class="jt-b"><b><span class="ar">إنشاء الخط</span><span class="en">Line created</span></b><span><span class="ar">لدى المشغّل</span><span class="en">With the operator</span></span></div></li>
+      <li class="jt-s money" style="--i:12"><span class="jt-n">💰</span><div class="jt-b"><b><span class="ar">الآن يُخصم المبلغ</span><span class="en">Now the money is taken</span></b><span><span class="ar">بعد أن أصبح الخط جاهزاً — لا قبله</span><span class="en">After the line is ready — not before</span></span></div></li>
+      <li class="jt-s" style="--i:13"><span class="jt-n">7</span><div class="jt-b"><b><span class="ar">الفاتورة</span><span class="en">Invoice</span></b><span><span class="ar">معتمدة من هيئة الزكاة والضريبة</span><span class="en">ZATCA-compliant</span></span></div></li>
+      <li class="jt-s done" style="--i:14"><span class="jt-n">✓</span><div class="jt-b"><b><span class="ar">الخط يعمل</span><span class="en">The line works</span></b><span><span class="ar">يُسلَّم للعميل</span><span class="en">Handed to the customer</span></span></div></li>
+    </ol>
   </div>
 
-  <div class="rollback">
-    <div class="rb-t"><span class="ar">وإن فشلت أي خطوة بعد الدفع؟</span><span class="en">And if a step fails after payment?</span></div>
-    <div class="rb-f">
-      <span><span class="ar">يُلغى الخط</span><span class="en">Line cancelled</span></span><i>←</i>
-      <span><span class="ar">يُلغى تسجيل الرقم</span><span class="en">Registration reversed</span></span><i>←</i>
-      <span><span class="ar">يُفكّ حجز المبلغ</span><span class="en">Payment hold released</span></span><i>←</i>
-      <span class="fin"><span class="ar">العميل لم يُخصم منه شيء</span><span class="en">The customer paid nothing</span></span>
+  <div class="jt-demo">
+    <button type="button" id="failbtn" class="failbtn">
+      <span class="lbl-a"><span class="ar">▶ ماذا لو فشل إنشاء الخط؟</span><span class="en">▶ What if creating the line fails?</span></span>
+      <span class="lbl-b"><span class="ar">↻ أعد التشغيل</span><span class="en">↻ Play again</span></span>
+    </button>
+
+    <div class="jt-roll" id="roll" aria-live="polite">
+      <div class="rl" style="--r:0"><span class="ic">✕</span><div><b><span class="ar">فشل إنشاء الخط لدى المشغّل</span><span class="en">Line creation failed at the operator</span></b><span><span class="ar">السبب لا يهمّ — النظام يتصرّف وحده</span><span class="en">The reason doesn't matter — the system acts on its own</span></span></div></div>
+      <div class="rl" style="--r:1"><span class="ic">↩</span><div><b><span class="ar">يُلغى تسجيل الرقم</span><span class="en">Registration reversed</span></b><span><span class="ar">يعود الرقم متاحاً</span><span class="en">The number goes back to the pool</span></span></div></div>
+      <div class="rl" style="--r:2"><span class="ic">↩</span><div><b><span class="ar">يُفكّ حجز المبلغ</span><span class="en">The payment hold is released</span></b><span><span class="ar">لم يصل إليك أصلاً، فلا يوجد ما تُرجعه</span><span class="en">It never reached you, so there is nothing to refund</span></span></div></div>
+      <div class="rl fin" style="--r:3"><span class="ic">✓</span><div><b><span class="ar">العميل لم يُخصم منه ريال واحد</span><span class="en">The customer was not charged a single riyal</span></b><span><span class="ar">ويصله إشعار بما حدث، ورقمه محفوظ إن أراد المحاولة</span><span class="en">He is told what happened, and his number is kept if he wants to retry</span></span></div></div>
     </div>
   </div>
-  <div class="pull"><p><span class="ar">ترتيب هذه الخطوات هو المنتج. المنافس يخصم في الخطوة السادسة ثم يكتشف المشكلة في التاسعة — <b>ويحتفظ بالمال.</b></span><span class="en">The order of these steps is the product. The competitor charges at step six, discovers the problem at step nine — <b>and keeps the money.</b></span></p></div>
+
+  <div class="pull"><p><span class="ar">المنافس يخصم في الخطوة الرابعة ثم يكتشف المشكلة في السادسة — <b>ويحتفظ بالمال.</b> الفارق ليس في البرمجة، بل في ترتيب الخطوات.</span><span class="en">The competitor charges at step four, discovers the problem at step six — <b>and keeps the money.</b> The difference isn't the code. It's the order.</span></p></div>
 </section>
 
 <!-- ══ DEALERS ═══════════════════════════════════════════════ -->
@@ -1052,26 +1067,81 @@
     .brandrow{grid-template-columns:1fr;gap:var(--s4)}
     .typespec{border-inline-start:0;padding-inline-start:0;border-top:1px solid var(--line);padding-top:var(--s3)}
   }
-  /* ═══ JOURNEY STEPS ═══════════════════════════════════════ */
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:9px;margin-top:var(--s5)}
-  .stp{background:var(--bg-2);border:1px solid var(--line-2);border-radius:11px;padding:13px;
-    display:flex;flex-direction:column;gap:4px;font-size:11.5px;color:var(--ink-faint);line-height:1.45}
-  .stp .k{font-family:var(--mono);font-size:10px;color:var(--ink-faint);opacity:.7}
-  .stp b{font-size:13.5px;color:var(--ink);font-weight:600}
-  .stp.gate{border-color:rgba(74,222,128,.35);background:linear-gradient(180deg,var(--have-dim),var(--bg-2) 60%)}
-  .stp.gate b,.stp.gate{color:var(--have)}
-  .stp.pay{border-color:rgba(77,124,255,.32);background:linear-gradient(180deg,var(--accent-dim),var(--bg-2) 60%)}
-  .stp.pay b{color:var(--accent-2)}
-  .stp.money{border-color:rgba(77,124,255,.5);background:var(--accent-dim)}
-  .stp.money b{color:var(--accent-2)}
-  .stp.ok{border-color:rgba(74,222,128,.5);background:var(--have-dim)}
-  .stp.ok b{color:var(--have)}
+  /* ═══ JOURNEY TRACK ═══════════════════════════════════════
+     A rail that draws itself, nodes that arrive in order, and a rollback that
+     plays backwards on demand. Reduced-motion users get the finished state. */
+  .jt{position:relative;margin-top:var(--s5);padding-inline-start:46px;--jg:to left}
+  [dir="ltr"] .jt{--jg:to right}
+  .jt-rail{position:absolute;inset-block:14px 22px;inset-inline-start:17px;width:2px;background:var(--line-2);border-radius:2px}
+  .jt-rail i{display:block;width:100%;height:0;border-radius:2px;background:linear-gradient(180deg,var(--accent),var(--have));
+    transition:height 1.9s cubic-bezier(.4,0,.2,1) .15s}
+  .jt.in .jt-rail i{height:100%}
+  .jt-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .jt-ph{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
+    margin-top:var(--s3);margin-inline-start:-10px}
+  .jt-ph:first-child{margin-top:0}
+  .jt-s{position:relative;display:grid;grid-template-columns:auto 1fr;gap:var(--s3);align-items:center;
+    background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;padding:13px var(--s3)}
+  .jt-n{position:absolute;inset-inline-start:-46px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    font-family:var(--mono);font-size:12.5px;font-weight:600;background:var(--bg-3);color:var(--ink-soft);
+    border:2px solid var(--bg);box-shadow:0 0 0 1px var(--line-2)}
+  .jt-b{grid-column:1/-1;display:flex;flex-direction:column;gap:3px}
+  .jt-b b{font-size:14.5px;font-weight:600}
+  .jt-b span{font-size:12.5px;color:var(--ink-faint);line-height:1.5}
+  .jt-s.gate{border-color:rgba(74,222,128,.3);background:linear-gradient(var(--jg),var(--have-dim),var(--bg-2) 62%)}
+  .jt-s.gate .jt-n{background:var(--have-dim);color:var(--have);box-shadow:0 0 0 1px rgba(74,222,128,.4)}
+  .jt-s.gate .jt-b b{color:var(--have)}
+  .jt-s.hold{border-color:rgba(77,124,255,.32);background:linear-gradient(var(--jg),var(--accent-dim),var(--bg-2) 62%)}
+  .jt-s.hold .jt-n{background:var(--accent-dim);color:var(--accent-2);box-shadow:0 0 0 1px rgba(77,124,255,.42)}
+  .jt-s.hold .jt-b b{color:var(--accent-2)}
+  .jt-s.money{border-color:rgba(77,124,255,.5);background:var(--accent-dim)}
+  .jt-s.money .jt-n{background:var(--accent);color:#fff;box-shadow:0 0 0 1px var(--accent)}
+  .jt-s.done{border-color:rgba(74,222,128,.5);background:var(--have-dim)}
+  .jt-s.done .jt-n{background:var(--have);color:var(--bg);box-shadow:0 0 0 1px var(--have)}
+  .jt-s.done .jt-b b{color:var(--have)}
 
-  .rollback{margin-top:var(--s3);border:1px solid var(--line-2);border-radius:12px;background:var(--bg-2);padding:var(--s3) var(--s4)}
-  .rb-t{font-weight:600;font-size:14px;margin-bottom:var(--s2)}
-  .rb-f{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:12.5px;color:var(--ink-soft)}
-  .rb-f i{font-style:normal;color:var(--fail);font-size:14px}
-  .rb-f .fin{color:var(--have);font-weight:600}
+  /* arrival */
+  .jt-s,.jt-ph{opacity:0;transform:translateY(9px);transition:opacity .45s ease,transform .45s ease;
+    transition-delay:calc(var(--i) * 85ms)}
+  .jt.in .jt-s,.jt.in .jt-ph{opacity:1;transform:none}
+
+  /* the rollback demo */
+  .jt-demo{margin-top:var(--s4)}
+  .failbtn{display:inline-flex;align-items:center;gap:9px;font:600 14px/1 var(--ar);cursor:pointer;
+    background:var(--bg-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:13px 20px;transition:.18s}
+  .failbtn:hover{border-color:var(--fail);color:var(--fail)}
+  .failbtn .lbl-b{display:none}
+  .failbtn.on .lbl-a{display:none}
+  .failbtn.on .lbl-b{display:inline}
+  .jt-roll{display:flex;flex-direction:column;gap:8px;margin-top:var(--s3);
+    max-height:0;overflow:hidden;transition:max-height .5s ease}
+  .jt-roll.on{max-height:640px}
+  .rl{display:flex;gap:var(--s3);align-items:flex-start;background:var(--bg-2);border:1px solid var(--line-2);
+    border-radius:11px;padding:13px var(--s3);opacity:0;transform:translateY(-8px)}
+  .jt-roll.on .rl{animation:rlin .5s ease forwards;animation-delay:calc(var(--r) * 620ms + 200ms)}
+  @keyframes rlin{to{opacity:1;transform:none}}
+  .rl .ic{width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:12px;
+    background:var(--fail-dim);color:var(--fail)}
+  .rl b{display:block;font-size:14px;font-weight:600;margin-bottom:2px}
+  .rl span{font-size:12.5px;color:var(--ink-faint);line-height:1.5}
+  .rl.fin{border-color:rgba(74,222,128,.42);background:var(--have-dim)}
+  .rl.fin .ic{background:rgba(74,222,128,.2);color:var(--have)}
+  .rl.fin b{color:var(--have)}
+  /* the two steps being undone flash as the rollback reaches them */
+  .jt.rolling .jt-s.money,.jt.rolling .jt-s:nth-last-child(3){animation:undo 1.5s ease .4s}
+  @keyframes undo{0%,100%{filter:none}35%,65%{filter:grayscale(1) opacity(.45)}}
+
+  @media(max-width:620px){
+    .jt{padding-inline-start:34px}
+    .jt-rail{inset-inline-start:12px}
+    .jt-n{inset-inline-start:-34px;width:26px;height:26px;font-size:11px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .jt-s,.jt-ph{opacity:1;transform:none;transition:none}
+    .jt-rail i{height:100%;transition:none}
+    .jt-roll.on .rl{opacity:1;transform:none;animation:none}
+    .jt.rolling .jt-s.money,.jt.rolling .jt-s:nth-last-child(3){animation:none}
+  }
 
   /* ═══ MODELS / FLOW ═══════════════════════════════════════ */
   .models{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s5)}
@@ -1262,6 +1332,28 @@
     try{ localStorage.setItem('sila-lang',lang); }catch(e){}
   }
   btns.forEach(function(b){ b.addEventListener('click',function(){ set(b.dataset.set); }); });
+  // Journey track: draw the rail and land the steps once it is on screen.
+  var jt=document.getElementById('jt');
+  if(jt){
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ jt.classList.add('in'); io.disconnect(); } });
+      },{threshold:.12});
+      io.observe(jt);
+    } else { jt.classList.add('in'); }
+  }
+  var fb=document.getElementById('failbtn'), roll=document.getElementById('roll');
+  if(fb&&roll){
+    fb.addEventListener('click',function(){
+      if(roll.classList.contains('on')){
+        roll.classList.remove('on'); fb.classList.remove('on'); jt.classList.remove('rolling');
+        void roll.offsetWidth;              // restart the stagger next time
+      } else {
+        roll.classList.add('on'); fb.classList.add('on'); jt.classList.add('rolling');
+      }
+    });
+  }
+
   var saved=null; try{ saved=localStorage.getItem('sila-lang'); }catch(e){}
   set(saved==='en'?'en':'ar');
 
