@@ -2,7 +2,7 @@
 <meta name="description" content="A proposal for turning an established Saudi SIM dealership into an online sales channel — the app, the dashboards, the flows, and what it costs to run." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" />
 <style>
   /* LIGHT is the base. The dark theme's warm ink becomes the light theme's ground —
      the two palettes are one family seen from either side. */
@@ -31,7 +31,7 @@
     /* validated chart steps — light */
     --v1:#008C7E; --v2:#C08A10; --v3:#3D6FB5; --v4:#C8442A;
     --v-grid:rgba(12,25,23,.09); --v-surface:#FFFFFF;
-    --ar:"IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    --ar:"Tajawal","IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
     --pad:clamp(20px,5vw,64px); --maxw:1240px;
     --s1:8px; --s2:14px; --s3:22px; --s4:36px; --s5:56px; --s6:72px; --s7:78px;
@@ -141,6 +141,49 @@
   .hlock-l{font-family:var(--mono);font-size:10.5px;letter-spacing:.34em;color:var(--ink-faint);font-weight:400}
   .hlock-s{font-size:11.5px;color:var(--ink-faint);margin-top:3px;line-height:1.4}
   @media(max-width:520px){ .hlock{width:auto} .hlock-n{font-size:20px} }
+
+  /* ═══ ARABIC TYPE ═════════════════════════════════════════
+     Arabic is a connected script. Every label on this page was set in a Latin
+     mono face with letter-spacing and uppercase — which pulls the joins apart,
+     drops to a fallback font, and does nothing at all for casing. All of it is
+     reset here. Arabic also needs more size and more leading than Latin to read
+     at the same comfort, so the small labels are set larger. */
+  [data-lang="ar"] .eyebrow,[data-lang="ar"] .lyr,[data-lang="ar"] .subhead,[data-lang="ar"] .jt-ph,
+  [data-lang="ar"] .branch,[data-lang="ar"] .galhint,[data-lang="ar"] .gap-h,[data-lang="ar"] .gap-vs,
+  [data-lang="ar"] .dh,[data-lang="ar"] .cs-l,[data-lang="ar"] .af-l,[data-lang="ar"] .tr-l,
+  [data-lang="ar"] .stg-w,[data-lang="ar"] .stg-t,[data-lang="ar"] .rv-t,[data-lang="ar"] .nx-p,
+  [data-lang="ar"] .nd-p,[data-lang="ar"] .dur,[data-lang="ar"] .jt-c,[data-lang="ar"] .pill,
+  [data-lang="ar"] .fc-c b,[data-lang="ar"] .fc-f b,[data-lang="ar"] .fc-l,[data-lang="ar"] .need-w,
+  [data-lang="ar"] .oc-t,[data-lang="ar"] .strip,[data-lang="ar"] th{
+    font-family:var(--ar);letter-spacing:normal;text-transform:none;font-weight:500}
+
+  [data-lang="ar"] .eyebrow{font-size:13.5px;font-weight:600}
+  [data-lang="ar"] .lyr,[data-lang="ar"] .subhead,[data-lang="ar"] .branch,[data-lang="ar"] .af-l,
+  [data-lang="ar"] .tr-l,[data-lang="ar"] .cs-l,[data-lang="ar"] .dh,[data-lang="ar"] .galhint,
+  [data-lang="ar"] .gap-h,[data-lang="ar"] .oc-t{font-size:13px;font-weight:600}
+  [data-lang="ar"] .jt-ph{font-size:12.5px;font-weight:600}
+  [data-lang="ar"] th{font-size:13px;font-weight:600}
+  [data-lang="ar"] .rv-t,[data-lang="ar"] .nx-p,[data-lang="ar"] .nd-p,[data-lang="ar"] .dur,
+  [data-lang="ar"] .jt-c,[data-lang="ar"] .pill,[data-lang="ar"] .stg-w,[data-lang="ar"] .need-w{font-size:12px}
+  [data-lang="ar"] .fc-c b,[data-lang="ar"] .fc-f b,[data-lang="ar"] .fc-l,[data-lang="ar"] .stg-t{font-size:12.5px}
+  [data-lang="ar"] .strip{font-size:12px}
+  /* Arabic words sitting inside mono number blocks */
+  [data-lang="ar"] .sv span,[data-lang="ar"] .cs-v b,[data-lang="ar"] .fc-sh i,
+  [data-lang="ar"] .kpi .v i,[data-lang="ar"] td.num span{font-family:var(--ar);letter-spacing:normal}
+
+  /* size and leading: Arabic reads smaller than Latin at the same px */
+  [data-lang="ar"] p,[data-lang="ar"] li,[data-lang="ar"] .sl,[data-lang="ar"] .ml{line-height:1.8}
+  [data-lang="ar"] .lede{font-size:clamp(17px,2.1vw,21px);line-height:1.75}
+  [data-lang="ar"] h1,[data-lang="ar"] h2{line-height:1.32;font-weight:700}
+  [data-lang="ar"] h3,[data-lang="ar"] .jt-b b,[data-lang="ar"] .nd-b b,[data-lang="ar"] .stg h3{font-weight:700}
+  [data-lang="ar"] .card p,[data-lang="ar"] .sys p,[data-lang="ar"] .nx p,[data-lang="ar"] .rv p,
+  [data-lang="ar"] .stg p,[data-lang="ar"] .nd-b span{font-size:14px;line-height:1.75}
+  [data-lang="ar"] .jt-b span,[data-lang="ar"] .fc-c,[data-lang="ar"] .fc-f,
+  [data-lang="ar"] .stg-d,[data-lang="ar"] .stg-n{font-size:13.5px;line-height:1.7}
+  [data-lang="ar"] td,[data-lang="ar"] .cause{font-size:14px;line-height:1.7}
+  [data-lang="ar"] .cta-note,[data-lang="ar"] .sysnote,[data-lang="ar"] .costnote{font-size:14.5px;line-height:1.8}
+  [data-lang="ar"] .shot figcaption,[data-lang="ar"] .dash figcaption{font-size:13.5px;line-height:1.7}
+  [data-lang="ar"] .hint span,[data-lang="ar"] .af span,[data-lang="ar"] .tm span{font-size:12.5px}
 
   /* ═══ PHONE MOCKUP SYSTEM ═══════════════════════════════════ */
   .phone{width:288px;flex:none;border-radius:34px;padding:9px;background:linear-gradient(160deg,#33353A,#17181B 55%);
