@@ -301,6 +301,31 @@
   .s-tile .d{font-size:9px;color:var(--a-faint)}
   .flag{width:20px;height:14px;border-radius:2px;flex:none;display:inline-block}
 
+  /* ── Contents rail ───────────────────────────────────────────
+     A fixed index on the inline-start edge. Collapsed it is a column of
+     markers; on hover or keyboard focus it widens to show the labels over
+     the page, so it never steals layout width from the 1240px column.
+     Hidden below 1180px and in print, where it has no room and no purpose. */
+  .toc{position:fixed;inset-block-start:50%;inset-inline-start:14px;transform:translateY(-50%);
+    z-index:45;display:none;flex-direction:column;gap:2px;padding:10px 9px;border-radius:14px;
+    background:transparent;border:1px solid transparent;transition:background .22s ease,border-color .22s ease,box-shadow .22s ease}
+  .toc:hover,.toc:focus-within{background:var(--bg-2);border-color:var(--line-2);box-shadow:var(--sh-1,0 8px 30px rgba(0,0,0,.10))}
+  .toc a{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink-faint);
+    padding:4px 5px;border-radius:8px;font-size:12px;line-height:1.3;white-space:nowrap;
+    transition:color .18s ease,background .18s ease}
+  .toc i{flex:none;width:16px;height:2px;border-radius:2px;background:currentColor;
+    transition:width .22s ease,background .18s ease}
+  .toc span{max-width:0;overflow:hidden;opacity:0;transition:max-width .26s ease,opacity .2s ease}
+  .toc:hover span,.toc:focus-within span{max-width:220px;opacity:1}
+  .toc a:hover,.toc a:focus-visible{color:var(--ink);background:var(--bg-3);outline:none}
+  .toc a.on{color:var(--accent)}
+  .toc a.on i{width:24px}
+  @media (min-width:1280px){.toc{display:flex}}
+  @media print{.toc{display:none}}
+  @media (prefers-reduced-motion:reduce){.toc,.toc *{transition:none}}
+  /* the header is sticky, so an anchored section must clear it */
+  section[id],div.band section[id]{scroll-margin-top:76px}
+
   /* screen gallery */
   .gal{display:grid;grid-template-columns:repeat(auto-fit,288px);justify-content:center;
     gap:var(--s5) var(--s3);align-items:start;padding:var(--s3) 0 var(--s2)}
@@ -344,7 +369,22 @@
 
 <main>
 <!-- ══ HERO ═══════════════════════════════════════════════════ -->
-<section class="hero wrap" style="padding-block:clamp(48px,9vw,96px) var(--s6);position:relative;overflow:hidden">
+<nav class="toc" aria-label="محتويات العرض">
+  <a href="#s-top"><i></i><span class="ar">المقدّمة</span><span class="en">Overview</span></a>
+  <a href="#s-have"><i></i><span class="ar">ما تملكونه</span><span class="en">What you have</span></a>
+  <a href="#s-brand"><i></i><span class="ar">الهوية</span><span class="en">Identity</span></a>
+  <a href="#app"><i></i><span class="ar">شاشات التطبيق</span><span class="en">App screens</span></a>
+  <a href="#s-flow"><i></i><span class="ar">الرحلة كاملة</span><span class="en">The full journey</span></a>
+  <a href="#s-systems"><i></i><span class="ar">ما سيُبنى</span><span class="en">What gets built</span></a>
+  <a href="#s-dash"><i></i><span class="ar">لوحات التحكم</span><span class="en">Dashboards</span></a>
+  <a href="#s-rivals"><i></i><span class="ar">المنافسون</span><span class="en">Competitors</span></a>
+  <a href="#s-market"><i></i><span class="ar">السوق</span><span class="en">The market</span></a>
+  <a href="#fails"><i></i><span class="ar">أين يفشل المنافس</span><span class="en">Where they fail</span></a>
+  <a href="#s-costs"><i></i><span class="ar">التكاليف التشغيلية</span><span class="en">Running costs</span></a>
+  <a href="#s-plan"><i></i><span class="ar">خطة التنفيذ</span><span class="en">The plan</span></a>
+</nav>
+
+<section id="s-top" class="hero wrap" style="padding-block:clamp(48px,9vw,96px) var(--s6);position:relative;overflow:hidden">
   <div style="position:absolute;inset-block-start:-35%;inset-inline-start:-8%;width:56vw;height:56vw;border-radius:50%;
     pointer-events:none;background:var(--glow);filter:blur(70px)"></div>
   <div style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s5);align-items:center" class="herogrid">
@@ -442,7 +482,7 @@
   </div>
 </section>
 <!-- ══ WHAT YOU HAVE ═════════════════════════════════════════ -->
-<section class="wrap">
+<section id="s-have" class="wrap">
   <div class="eyebrow"><span class="ar">ما تملكونه</span><span class="en">What you have</span></div>
   <h2><span class="ar">أربعة متطلبات تحدّ من دخول هذا السوق، وهي متوفّرة لديكم بالفعل.</span><span class="en">Four requirements limit entry to this market. You already meet all four.</span></h2>
   <div class="gates">
@@ -455,7 +495,7 @@
 </section>
 
 <!-- ══ BRAND ═════════════════════════════════════════════════ -->
-<section class="wrap">
+<section id="s-brand" class="wrap">
   <div class="eyebrow"><span class="ar">الهوية — مقترحة</span><span class="en">Identity — proposed</span></div>
 
   <div class="idb">
@@ -793,7 +833,7 @@
 </section>
 
 <!-- ══ THE JOURNEY, AS A FLOW ════════════════════════════════ -->
-<section class="wrap">
+<section id="s-flow" class="wrap">
   <div class="eyebrow"><span class="ar">الرحلة كاملة</span><span class="en">The full journey</span></div>
   <h2><span class="ar">كل خطوة في العملية، وموضع التوقّف عند حدوث خلل.</span><span class="en">Every step in the process, and where it stops when something fails.</span></h2>
   <p class="lede" style="margin-top:var(--s3)"><span class="ar">ترتيب هذه الخطوات هو جوهر التصميم. يعرض الزر أدناه سلوك النظام عند فشل خطوة بعد الدفع.</span><span class="en">The order of these steps is the core of the design. The button below shows how the system behaves when a step fails after payment.</span></p>
@@ -837,7 +877,7 @@
 </section>
 
 <!-- ══ PLATFORMS & SYSTEMS ═══════════════════════════════════ -->
-<section class="wrap">
+<section id="s-systems" class="wrap">
   <div class="eyebrow"><span class="ar">ما سيُبنى فعلياً</span><span class="en">What actually gets built</span></div>
   <h2><span class="ar">النطاق ليس تطبيقاً واحداً، بل تسعة أنظمة مترابطة.</span><span class="en">The scope is not a single app, but nine interconnected systems.</span></h2>
   <p class="lede" style="margin-top:var(--s3)"><span class="ar">تقتصر أغلب العروض على تطبيق ولوحة تحكّم. هذه قائمة بكل نظام لازم للتشغيل الفعلي، مع توقيت بناء كل منها.</span><span class="en">Most proposals cover an app and a dashboard. This is the list of every system required for actual operation, with the build timing of each.</span></p>
@@ -974,7 +1014,7 @@
 </section>
 
 <!-- ══ DASHBOARDS ════════════════════════════════════════════ -->
-<section class="wrap">
+<section id="s-dash" class="wrap">
   <div class="eyebrow"><span class="ar">لوحات التحكم</span><span class="en">Dashboards</span></div>
   <h2><span class="ar">في المحل تُتابَع العمليات بالملاحظة المباشرة. أما عبر الإنترنت فتتطلّب المتابعة شاشات تحكّم مخصّصة.</span><span class="en">In a shop, operations are monitored by direct observation. Online, monitoring requires purpose-built control screens.</span></h2>
   <p class="lede" style="margin-top:var(--s3)"><span class="ar">أربع شاشات: ثلاثة أدوار، وواجب تنظيمي لا يخصّ أحداً منهم.</span><span class="en">Four screens: three roles, and one regulatory duty that belongs to none of them.</span></p>
@@ -1102,7 +1142,7 @@
   <div class="pull"><p><span class="ar">ومعها أدوات تحكّم تتيح إيقاف بيع أي باقة أو أي مشغّل <b>فوراً</b> ودون الرجوع إلينا، بما يمنع بيع ما لا يمكن تسليمه.</span><span class="en">With controls that allow selling of any plan or operator to be stopped <b>immediately</b> and without reference to us, preventing the sale of anything that cannot be delivered.</span></p></div>
 </section>
 <!-- ══ COMPETITORS ═══════════════════════════════════════════ -->
-<section class="wrap">
+<section id="s-rivals" class="wrap">
   <div class="eyebrow"><span class="ar">من تنافس فعلاً</span><span class="en">Who you actually compete with</span></div>
   <h2><span class="ar">جهتان تتنافسان على العميل نفسه، ولكل منهما نقطة ضعف بنيوية.</span><span class="en">Two parties compete for the same customer, and each has a structural weakness.</span></h2>
   <div class="rivals">
@@ -1131,7 +1171,7 @@
 </section>
 
 <!-- ══ MARKET & COMPETITION ══════════════════════════════════ -->
-<section class="wrap">
+<section id="s-market" class="wrap">
   <div class="eyebrow"><span class="ar">السوق والمنافسة</span><span class="en">Market and competition</span></div>
   <h2><span class="ar">أرقام منشورة عن أداء المنافس، مكمّلة لمعرفتكم المباشرة بالسوق.</span><span class="en">Published figures on the competitor's performance, complementing your direct knowledge of the market.</span></h2>
   <p class="lede" style="margin-top:var(--s3)"><span class="ar">حجم سوق الشرائح معروف لديكم بحكم العمل. أما أرقام المنافس فمنشورة للعلن، وتحمل دلالة تشغيلية مفيدة.</span><span class="en">The size of the SIM market is known to you from the business itself. The competitor's figures, however, are published, and they carry a useful operational signal.</span></p>
@@ -1214,7 +1254,7 @@
 <div class="band">
   <div class="band-bg" aria-hidden="true"><i></i><i></i></div>
 
-  <section class="wrap band-s">
+  <section id="s-costs" class="wrap band-s">
     <div class="eyebrow inv"><span class="ar">التكاليف التشغيلية</span><span class="en">Running costs</span></div>
     <span class="once-b rec"><span class="ar">يتكرّر شهرياً</span><span class="en">Recurs monthly</span></span>
     <h2 class="big"><span class="ar">التكلفة الشهرية للتشغيل، مفصّلة بنداً بنداً.</span><span class="en">The monthly cost of operation, itemised line by line.</span></h2>
@@ -1248,7 +1288,7 @@
     </div>
   </section>
 
-  <section class="wrap band-s">
+  <section id="s-plan" class="wrap band-s">
     <div class="eyebrow inv"><span class="ar">خطة التنفيذ</span><span class="en">The delivery plan</span></div>
     <h2 class="big"><span class="ar">منصّة تشغيلية تبيع خلال شهرين إلى ثلاثة أشهر.</span><span class="en">An operating platform selling within two to three months.</span></h2>
     <p class="lede inv"><span class="ar">أربع مراحل بناء متتابعة، ولكل مرحلة تسليم قابل للمعاينة. والمدد أدناه تخصّ البناء. أما المرحلتان بعد الإطلاق فمرتبطتان بجداول المشغّلين، ولا تُقدَّر مدتهما من طرفنا.</span><span class="en">Four build stages, each with a deliverable you can inspect. The durations cover build time. The two stages after launch depend on operator schedules, and we do not estimate their duration.</span></p>
@@ -2002,6 +2042,39 @@
     try{ localStorage.setItem('sila-lang',lang); }catch(e){}
   }
   btns.forEach(function(b){ b.addEventListener('click',function(){ set(b.dataset.set); }); });
+  // Contents rail: mark the section currently in view. A scroll handler rather
+  // than an observer, because the answer is "which section owns the line just
+  // under the sticky header" — a position question, not a visibility one, and
+  // this stays correct when several sections are on screen at once.
+  (function(){
+    var rail=document.querySelector('.toc'); if(!rail) return;
+    var links=[].slice.call(rail.querySelectorAll('a'));
+    var targets=links.map(function(a){
+      return {a:a, el:document.getElementById(a.getAttribute('href').slice(1))};
+    }).filter(function(t){ return t.el; });
+    if(!targets.length) return;
+    var current=null, ticking=false;
+    function mark(){
+      ticking=false;
+      // rect + scrollY, never offsetTop: the hero and the costs band are both
+      // position:relative, so offsetTop is measured from them and reads ~0.
+      var line=96;                            // just below the sticky header
+      var hit=targets[0];
+      for(var i=0;i<targets.length;i++){
+        if(targets[i].el.getBoundingClientRect().top <= line) hit=targets[i]; else break;
+      }
+      // at the very bottom the last section wins, however short it is
+      if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) hit=targets[targets.length-1];
+      if(hit.a===current) return;
+      if(current){ current.classList.remove('on'); current.removeAttribute('aria-current'); }
+      current=hit.a; current.classList.add('on'); current.setAttribute('aria-current','true');
+    }
+    function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(mark); } }
+    addEventListener('scroll', onScroll, {passive:true});
+    addEventListener('resize', onScroll);
+    mark();
+  })();
+
   // Journey track: draw the rail and land the steps once it is on screen.
   var jt=document.getElementById('jt');
   if(jt){
