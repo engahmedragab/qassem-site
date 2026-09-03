@@ -4,7 +4,7 @@
 Each fragment is served at /projects/<name>. These are noindex by default —
 they are private proposals shared by link, not part of the public site.
 """
-import glob, html, os, re, sys
+import glob, html, os, re, shutil, sys
 
 SITE = os.environ.get("SITE_URL", "https://qassem.online")
 
@@ -31,6 +31,18 @@ HEAD = """<!doctype html>
 </head>
 <body>
 """
+
+
+def copy_assets(name):
+    """projects/assets/<name>/ ships alongside the page as dist/projects/<name>/assets/."""
+    src = os.path.join("projects", "assets", name)
+    if not os.path.isdir(src):
+        return 0
+    dst = os.path.join("dist", "projects", name, "assets")
+    if os.path.isdir(dst):
+        shutil.rmtree(dst)
+    shutil.copytree(src, dst)
+    return len(os.listdir(dst))
 
 
 def build(src):
@@ -64,7 +76,8 @@ def build(src):
         links=links,
     )
     open(out, "w", encoding="utf-8").write(head + body.strip() + "\n</body>\n</html>\n")
-    print(f"built {out}  (noindex)  /projects/{name}")
+    n = copy_assets(name)
+    print(f"built {out}  (noindex)  /projects/{name}" + (f"  +{n} assets" if n else ""))
 
 
 srcs = sorted(glob.glob("projects/*.html"))

@@ -290,20 +290,6 @@
   .s-tile .d{font-size:9px;color:var(--a-faint)}
   .flag{width:20px;height:14px;border-radius:2px;flex:none;display:inline-block}
 
-  /* operator marks — representational wordmarks in each brand's colour.
-     NOT the official logos: using those in the shipped product needs brand-usage
-     rights, which is a clause in every operator agreement. */
-  .op{display:inline-flex;align-items:center;justify-content:center;height:22px;padding:0 8px;border-radius:6px;
-    color:#fff;font-size:10px;font-weight:700;letter-spacing:-.01em;flex:none;line-height:1;white-space:nowrap}
-  .op.lg{height:30px;padding:0 12px;font-size:13px;border-radius:8px}
-  .op-stc{background:#4F008C;font-family:var(--mono);text-transform:lowercase;letter-spacing:.02em}
-  .op-mobily{background:#00A9CE}
-  .op-zain{background:#4FA72E}
-  .op-salam{background:#D91E28}
-  .op-lebara{background:#1B3FD8}
-  .op-virgin{background:#C8102E}
-  .op-redbull{background:#0B2A63}
-  .op-yaqoot{background:#9B1B45}
   /* screen gallery */
   .gal{display:flex;gap:var(--s3);overflow-x:auto;padding:var(--s2) 4px var(--s4);scroll-snap-type:x mandatory;
     margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad)}
@@ -413,7 +399,7 @@
           <div class="body">
             <div class="s-alert ok"><i>✓</i><div><b><span class="ar">يمكنك إصدار خط جديد</span><span class="en">You can get a new line</span></b><span class="ar">تحقّقنا قبل الدفع — لديك خط واحد من أصل ١٠ مسموحة.</span><span class="en">Checked before payment — you hold 1 line of 10 allowed.</span></div></div>
             <div class="s-card">
-              <div class="s-row"><div class="s-op"><span class="op op-mobily">mobily</span></div><span class="s-chip b"><span class="ar">مسبق الدفع</span><span class="en">Prepaid</span></span></div>
+              <div class="s-row"><div class="s-op"><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span></div><span class="s-chip b"><span class="ar">مسبق الدفع</span><span class="en">Prepaid</span></span></div>
               <div class="s-row"><span style="font-size:12px;font-weight:600"><span class="ar">باقة ٢٢٠</span><span class="en">Plan 220</span></span><span class="s-price">126 <s>220</s></span></div>
               <div class="s-meta"><span class="s-chip">100 GB</span><span class="s-chip"><span class="ar">مكالمات مفتوحة</span><span class="en">Unlimited calls</span></span><span class="s-chip g"><span class="ar">خصم ٤٣٪</span><span class="en">43% off</span></span></div>
             </div>
@@ -530,19 +516,19 @@
           <div class="s-tabs"><span class="on"><span class="ar">مسبق</span><span class="en">Prepaid</span></span><span><span class="ar">فوترة</span><span class="en">Postpaid</span></span><span><span class="ar">بيانات</span><span class="en">Data</span></span></div>
           <div class="s-meta"><span class="s-chip b">100 GB+</span><span class="s-chip"><span class="ar">أقل من ١٥٠</span><span class="en">Under 150</span></span><span class="s-chip"><span class="ar">٧ مشغّلين</span><span class="en">7 operators</span></span></div>
           <div class="s-card sel">
-            <div class="s-row"><div class="s-op"><span class="op op-mobily">mobily</span></div><span class="s-price">126 <s>220</s></span></div>
+            <div class="s-row"><div class="s-op"><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span></div><span class="s-price">126 <s>220</s></span></div>
             <div class="s-meta"><span class="s-chip">100 GB</span><span class="s-chip"><span class="ar">مكالمات مفتوحة</span><span class="en">Unlimited</span></span><span class="s-chip g"><span class="ar">أوفر خيار</span><span class="en">Best value</span></span></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><div class="s-op"><span class="op op-stc">stc</span></div><span class="s-price">149</span></div>
+            <div class="s-row"><div class="s-op"><span class="oplg" title="stc"><img src="assets/stc.webp" alt="stc" loading="lazy"></span></div><span class="s-price">149</span></div>
             <div class="s-meta"><span class="s-chip">80 GB</span><span class="s-chip"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><div class="s-op"><span class="op op-salam">سلام</span></div><span class="s-price">149</span></div>
+            <div class="s-row"><div class="s-op"><span class="oplg" title="سلام"><img src="assets/salam.png" alt="سلام" loading="lazy"></span></div><span class="s-price">149</span></div>
             <div class="s-meta"><span class="s-chip"><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span><span class="s-chip"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><div class="s-op"><span class="op op-zain">zain</span></div><span class="s-price">165</span></div>
+            <div class="s-row"><div class="s-op"><span class="oplg" title="zain"><img src="assets/zain.webp" alt="zain" loading="lazy"></span></div><span class="s-price">165</span></div>
             <div class="s-meta"><span class="s-chip">120 GB</span><span class="s-chip"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
         </div>
@@ -879,9 +865,9 @@
               </div>
               <div class="wb-f"><span class="on"><span class="ar">مسبق الدفع</span><span class="en">Prepaid</span></span><span><span class="ar">فوترة</span><span class="en">Postpaid</span></span><span><span class="ar">بيانات</span><span class="en">Data</span></span><span class="gap"></span><span><span class="ar">100 GB+</span><span class="en">100 GB+</span></span></div>
               <div class="wb-grid">
-                <div class="wb-p sel"><div class="wb-ph"><span class="op op-mobily">mobily</span><span class="s-chip g"><span class="ar">أوفر</span><span class="en">Best</span></span></div><div class="wb-pr">126<s>220</s></div><div class="wb-pm"><span>100 GB</span><span><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span></div></div>
-                <div class="wb-p"><div class="wb-ph"><span class="op op-stc">stc</span></div><div class="wb-pr">149</div><div class="wb-pm"><span>80 GB</span><span><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div></div>
-                <div class="wb-p"><div class="wb-ph"><span class="op op-salam">سلام</span></div><div class="wb-pr">149</div><div class="wb-pm"><span><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span><span><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div></div>
+                <div class="wb-p sel"><div class="wb-ph"><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span><span class="s-chip g"><span class="ar">أوفر</span><span class="en">Best</span></span></div><div class="wb-pr">126<s>220</s></div><div class="wb-pm"><span>100 GB</span><span><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span></div></div>
+                <div class="wb-p"><div class="wb-ph"><span class="oplg" title="stc"><img src="assets/stc.webp" alt="stc" loading="lazy"></span></div><div class="wb-pr">149</div><div class="wb-pm"><span>80 GB</span><span><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div></div>
+                <div class="wb-p"><div class="wb-ph"><span class="oplg" title="سلام"><img src="assets/salam.png" alt="سلام" loading="lazy"></span></div><div class="wb-pr">149</div><div class="wb-pm"><span><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span><span><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div></div>
               </div>
             </div>
           </div>
@@ -1097,9 +1083,9 @@
     <div class="rv wide">
       <div class="rv-h"><span class="rv-n"><span class="ar">تطبيقات المشغّلين أنفسهم</span><span class="en">The operators' own apps</span></span><span class="rv-t"><span class="ar">مورّد ومنافس</span><span class="en">Supplier and rival</span></span></div>
       <div class="oplist">
-        <span class="op op-stc">stc</span><span class="op op-mobily">mobily</span><span class="op op-zain">zain</span>
-        <span class="op op-salam">سلام</span><span class="op op-lebara">Lebara</span><span class="op op-virgin">Virgin</span>
-        <span class="op op-redbull">Red Bull</span><span class="op op-yaqoot">ياقوت</span><span class="op op-jawwy">جوّي</span>
+        <span class="oplg" title="stc"><img src="assets/stc.webp" alt="stc" loading="lazy"></span><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span><span class="oplg" title="zain"><img src="assets/zain.webp" alt="zain" loading="lazy"></span>
+        <span class="oplg" title="سلام"><img src="assets/salam.png" alt="سلام" loading="lazy"></span><span class="oplg" title="Lebara"><img src="assets/lebara.png" alt="Lebara" loading="lazy"></span><span class="oplg" title="Virgin"><img src="assets/virgin.png" alt="Virgin" loading="lazy"></span>
+        <span class="oplg" title="Red Bull"><img src="assets/redbull.svg" alt="Red Bull" loading="lazy"></span><span class="oplg" title="ياقوت"><img src="assets/yaqoot.svg" alt="ياقوت" loading="lazy"></span><span class="oplg" title="جوّي"><img src="assets/jawwy.svg" alt="جوّي" loading="lazy"></span>
       </div>
       <p><span class="ar">تسع علامات، لكل منها تطبيقها، وبعضها رقمي بالكامل. تبيع خطوطها مباشرة بلا وسيط، وبثقة علامة يعرفها العميل.</span><span class="en">Nine brands, each with its own app, some fully digital. They sell their own lines directly, with a brand the customer already trusts.</span></p>
       <div class="rv-w"><span class="ar"><b>نقطة ضعفهم — وهي بنيوية:</b> لن يخبر أيّ منهم عميله أن باقة منافسه أرخص. المقارنة لا يمكن أن تعيش داخل تطبيق مشغّل واحد.</span><span class="en"><b>Their weakness, and it is structural:</b> not one of them will tell a customer a rival's plan is cheaper. Comparison cannot live inside one operator's app.</span></div>
