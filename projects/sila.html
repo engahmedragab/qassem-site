@@ -160,7 +160,7 @@
      reset here. Arabic also needs more size and more leading than Latin to read
      at the same comfort, so the small labels are set larger. */
   [data-lang="ar"] .eyebrow,[data-lang="ar"] .lyr,[data-lang="ar"] .subhead,[data-lang="ar"] .jt-ph,
-  [data-lang="ar"] .branch,[data-lang="ar"] .galhint,[data-lang="ar"] .gap-h,[data-lang="ar"] .gap-vs,
+  [data-lang="ar"] .branch,[data-lang="ar"] .gap-h,[data-lang="ar"] .gap-vs,
   [data-lang="ar"] .dh,[data-lang="ar"] .cs-l,[data-lang="ar"] .af-l,[data-lang="ar"] .tr-l,
   [data-lang="ar"] .stg-w,[data-lang="ar"] .stg-t,[data-lang="ar"] .rv-t,[data-lang="ar"] .nx-p,
   [data-lang="ar"] .nd-p,[data-lang="ar"] .dur,[data-lang="ar"] .jt-c,[data-lang="ar"] .pill,
@@ -170,7 +170,7 @@
 
   [data-lang="ar"] .eyebrow{font-size:13.5px;font-weight:600}
   [data-lang="ar"] .lyr,[data-lang="ar"] .subhead,[data-lang="ar"] .branch,[data-lang="ar"] .af-l,
-  [data-lang="ar"] .tr-l,[data-lang="ar"] .cs-l,[data-lang="ar"] .dh,[data-lang="ar"] .galhint,
+  [data-lang="ar"] .tr-l,[data-lang="ar"] .cs-l,[data-lang="ar"] .dh,
   [data-lang="ar"] .gap-h,[data-lang="ar"] .oc-t{font-size:13px;font-weight:600}
   [data-lang="ar"] .jt-ph{font-size:12.5px;font-weight:600}
   [data-lang="ar"] th{font-size:13px;font-weight:600}
@@ -291,16 +291,12 @@
   .flag{width:20px;height:14px;border-radius:2px;flex:none;display:inline-block}
 
   /* screen gallery */
-  .gal{display:flex;gap:var(--s3);overflow-x:auto;padding:var(--s2) 4px var(--s4);scroll-snap-type:x mandatory;
-    margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad)}
-  .gal::-webkit-scrollbar{height:5px}
-  .gal::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px}
-  .shot{scroll-snap-align:center;display:flex;flex-direction:column;gap:var(--s2);width:288px;flex:none}
+  .gal{display:grid;grid-template-columns:repeat(auto-fit,288px);justify-content:center;
+    gap:var(--s5) var(--s3);align-items:start;padding:var(--s3) 0 var(--s2)}
+  .shot{display:flex;flex-direction:column;gap:var(--s2);width:288px;break-inside:avoid}
   .shot figcaption{font-size:12.5px;color:var(--ink-soft);line-height:1.55}
   .shot figcaption b{display:block;color:var(--ink);font-size:13.5px;font-weight:600;margin-bottom:3px}
   .shot figcaption .k{color:var(--accent-2);font-weight:600}
-  .galhint{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
-    display:flex;align-items:center;gap:9px;margin-top:var(--s1)}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -504,7 +500,6 @@
   <div class="eyebrow"><span class="ar">التطبيق — رحلة الشراء</span><span class="en">The app — the buying journey</span></div>
   <h2><span class="ar">من فتح التطبيق حتى عمل الخط. كل شاشة.</span><span class="en">From opening the app to a working line. Every screen.</span></h2>
   <p class="lede" style="margin-top:var(--s3)"><span class="ar">هذه ليست رسوماً تخيلية — هذه الشاشات كما ستكون، بالعربية أولاً.</span><span class="en">These aren't impressions — this is how the screens work, Arabic first.</span></p>
-  <div class="galhint"><span class="ar">اسحب لعرض بقية الشاشات ←</span><span class="en">→ Scroll for the rest</span></div>
 
   <div class="gal">
 
