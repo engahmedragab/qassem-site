@@ -353,7 +353,42 @@
     .toc{background:var(--bg-2);border-color:var(--line-2);box-shadow:0 8px 30px rgba(0,0,0,.08)}
     .toc span{max-width:150px;opacity:1}
   }
-  @media print{.toc,.toc-bd,.tocb{display:none}}
+  /* ── Print / PDF ─────────────────────────────────────────────
+     The proposal is meant to be handed over as a PDF, so print is a real
+     target, not an afterthought. Colour is forced to the light palette
+     whatever the reader's theme, backgrounds are kept (the costs band and
+     the phone screens are meaningless without them), and nothing that only
+     makes sense on screen is carried across. */
+  @media print{
+    @page{size:A4;margin:13mm 11mm}
+    :root,:root[data-theme="dark"]{
+      --bg:#FFFFFF; --bg-2:#FFFFFF; --bg-3:#F1EFE9;
+      --ink:#14140F; --ink-soft:#4A4841; --ink-faint:#726E66;
+      --line:rgba(20,20,15,.20); --line-2:rgba(20,20,15,.11);
+      --accent:#2F5FE0; --accent-2:#1E47B8; --accent-dim:rgba(47,95,224,.08);
+      --have:#1B7F4B; --have-dim:rgba(27,127,75,.10);
+      --fail:#B4452C; --fail-dim:rgba(180,69,44,.08);
+      --grain-op:0; --glow:none;
+      --sh-phone:0 0 0 1px rgba(20,20,15,.18); --sh-win:0 0 0 1px rgba(20,20,15,.14);
+      --a-bg:#FFFFFF; --a-2:#F3F6F5; --a-3:#E7EDEB;
+      --a-ink:#0C1917; --a-mid:#566A66; --a-faint:#7C8E8A; --a-line:#D6E0DE;
+      --v-surface:#FFFFFF; --v-grid:rgba(12,25,23,.12);
+    }
+    *,*::before,*::after{
+      -webkit-print-color-adjust:exact;print-color-adjust:exact;
+      animation:none!important;transition:none!important}
+    html,body{background:#fff}
+    body::after{display:none}               /* the grain overlay */
+    header,.toc,.toc-bd,.tocb,.ix,.hero .glow{display:none!important}
+    section{padding-block:var(--s4)}
+    /* nothing that reads as one object may be split down the middle */
+    .shot,figure,.gate,.card,.sys,.rv,.nx,.kpi,.once,.cs-c,.win,.phone,
+    .fc,.jt-s,.stg,.oplist,.idb,tr,thead{break-inside:avoid}
+    h1,h2,h3,.eyebrow{break-after:avoid}
+    a{text-decoration:none;color:inherit}
+    .gal{gap:var(--s4) var(--s3)}
+  }
+
   @media (prefers-reduced-motion:reduce){.toc,.toc *,.toc-bd{transition:none}}
   /* the header is sticky, so an anchored section must clear it */
   section[id],div.band section[id]{scroll-margin-top:76px}
