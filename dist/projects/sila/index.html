@@ -236,6 +236,15 @@
   .s-card.flat{background:var(--a-2);border-color:transparent}
   .s-row{display:flex;align-items:center;justify-content:space-between;gap:9px}
   .s-op{display:flex;align-items:center;gap:7px;font-weight:600;font-size:12px}
+  /* Operator marks. Supplied at wildly different ratios, so the box is fixed and
+     the image fits inside it — never the other way round. Inside a phone screen the
+     canvas is already light, so no plate; on the page the wall gets one, or the
+     dark logos vanish in dark mode. */
+  .oplg{display:inline-flex;align-items:center;justify-content:center;flex:none}
+  .oplg img{display:block;width:auto;height:auto;max-height:19px;max-width:58px;object-fit:contain}
+  .oplist .oplg{height:32px;min-width:66px;padding:0 9px;border-radius:7px;
+    background:#fff;border:1px solid rgba(0,0,0,.07)}
+  .oplist .oplg img{max-height:18px;max-width:78px}
   .s-logo{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;color:#fff;font-size:9px;font-weight:700;flex:none}
   .s-price{font-family:var(--mono);font-weight:600;font-size:15px;letter-spacing:-.02em}
   .s-price s{color:var(--a-faint);font-size:10px;font-weight:400;margin-inline-start:5px}
@@ -284,6 +293,8 @@
   .s-li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px;border:1px solid var(--a-line);border-radius:10px}
   .s-li .t{font-size:11.5px;font-weight:600}
   .s-li .d{font-size:9.5px;color:var(--a-faint);margin-top:1px}
+  .s-gauge{height:5px;border-radius:999px;background:var(--a-3);overflow:hidden}
+  .s-gauge i{display:block;height:100%;border-radius:999px;background:var(--a-brand)}
   .s-hero{background:linear-gradient(150deg,var(--a-brand),var(--a-brand-2));color:#fff;padding:16px 14px 18px;border-radius:0 0 16px 16px}
   .s-brand{display:flex;align-items:center;gap:7px;margin-bottom:10px}
   .s-brand .m{width:19px;height:19px;color:#fff;--mk-bg:var(--a-brand)}
@@ -409,7 +420,7 @@
             <div class="s-alert ok"><i>✓</i><div><b><span class="ar">يمكنك إصدار خط جديد</span><span class="en">You can get a new line</span></b><span class="ar">تحقّقنا قبل الدفع — لديك خط واحد من أصل ١٠ مسموحة.</span><span class="en">Checked before payment — you hold 1 line of 10 allowed.</span></div></div>
             <div class="s-card">
               <div class="s-row"><div class="s-op"><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span></div><span class="s-chip b"><span class="ar">مسبق الدفع</span><span class="en">Prepaid</span></span></div>
-              <div class="s-row"><span style="font-size:12px;font-weight:600"><span class="ar">باقة ٢٢٠</span><span class="en">Plan 220</span></span><span class="s-price">126 <s>220</s></span></div>
+              <div class="s-row"><span style="font-size:12px;font-weight:600"><span class="ar">باقة ٢٢٠</span><span class="en">Plan 220</span></span><span class="s-price">126<i class="ryl" aria-hidden="true"></i> <s>220</s></span></div>
               <div class="s-meta"><span class="s-chip">100 GB</span><span class="s-chip"><span class="ar">مكالمات مفتوحة</span><span class="en">Unlimited calls</span></span><span class="s-chip g"><span class="ar">خصم ٤٣٪</span><span class="en">43% off</span></span></div>
             </div>
             <div class="s-card flat">
@@ -524,19 +535,19 @@
           <div class="s-tabs"><span class="on"><span class="ar">مسبق</span><span class="en">Prepaid</span></span><span><span class="ar">فوترة</span><span class="en">Postpaid</span></span><span><span class="ar">بيانات</span><span class="en">Data</span></span></div>
           <div class="s-meta"><span class="s-chip b">100 GB+</span><span class="s-chip"><span class="ar">أقل من ١٥٠</span><span class="en">Under 150</span></span><span class="s-chip"><span class="ar">٧ مشغّلين</span><span class="en">7 operators</span></span></div>
           <div class="s-card sel">
-            <div class="s-row"><div class="s-op"><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span></div><span class="s-price">126 <s>220</s></span></div>
+            <div class="s-row"><div class="s-op"><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span></div><span class="s-price">126<i class="ryl" aria-hidden="true"></i> <s>220</s></span></div>
             <div class="s-meta"><span class="s-chip">100 GB</span><span class="s-chip"><span class="ar">مكالمات مفتوحة</span><span class="en">Unlimited</span></span><span class="s-chip g"><span class="ar">أوفر خيار</span><span class="en">Best value</span></span></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><div class="s-op"><span class="oplg" title="stc"><img src="assets/stc.webp" alt="stc" loading="lazy"></span></div><span class="s-price">149</span></div>
+            <div class="s-row"><div class="s-op"><span class="oplg" title="stc"><img src="assets/stc.webp" alt="stc" loading="lazy"></span></div><span class="s-price">149<i class="ryl" aria-hidden="true"></i></span></div>
             <div class="s-meta"><span class="s-chip">80 GB</span><span class="s-chip"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><div class="s-op"><span class="oplg" title="سلام"><img src="assets/salam.png" alt="سلام" loading="lazy"></span></div><span class="s-price">149</span></div>
+            <div class="s-row"><div class="s-op"><span class="oplg" title="سلام"><img src="assets/salam.png" alt="سلام" loading="lazy"></span></div><span class="s-price">149<i class="ryl" aria-hidden="true"></i></span></div>
             <div class="s-meta"><span class="s-chip"><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span><span class="s-chip"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><div class="s-op"><span class="oplg" title="zain"><img src="assets/zain.webp" alt="zain" loading="lazy"></span></div><span class="s-price">165</span></div>
+            <div class="s-row"><div class="s-op"><span class="oplg" title="zain"><img src="assets/zain.webp" alt="zain" loading="lazy"></span></div><span class="s-price">165<i class="ryl" aria-hidden="true"></i></span></div>
             <div class="s-meta"><span class="s-chip">120 GB</span><span class="s-chip"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
         </div>
@@ -551,7 +562,7 @@
         <div class="body">
           <div class="s-card sel">
             <div class="s-row"><div class="s-op"><span class="s-logo" style="background:#0090D4">M</span><span class="ar">موبايلي · باقة ٢٢٠</span><span class="en">Mobily · Plan 220</span></div></div>
-            <div class="s-row"><span class="s-price" style="font-size:22px">126</span><span class="s-chip g"><span class="ar">بدلاً من ٢٢٠</span><span class="en">was 220</span></span></div>
+            <div class="s-row"><span class="s-price" style="font-size:22px">126<i class="ryl" aria-hidden="true"></i></span><span class="s-chip g"><span class="ar">بدلاً من ٢٢٠</span><span class="en">was 220</span></span></div>
             <div class="s-sub"><span class="ar">شامل ضريبة القيمة المضافة ١٥٪</span><span class="en">Includes 15% VAT</span></div>
           </div>
           <div class="s-card flat">
@@ -559,7 +570,7 @@
             <div class="s-row"><span class="s-sub"><span class="ar">المكالمات</span><span class="en">Calls</span></span><span style="font-weight:600;font-size:11.5px"><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span></div>
             <div class="s-row"><span class="s-sub"><span class="ar">الصلاحية</span><span class="en">Validity</span></span><span style="font-weight:600;font-size:11.5px"><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div>
           </div>
-          <div class="s-alert ok"><i>ⓘ</i><div><b><span class="ar">الخصم لمدة ١٢ شهراً</span><span class="en">Discount runs 12 months</span></b><span class="ar">بعدها يعود السعر إلى ٢٢٠ ريال. نخبرك الآن، لا بعد سنة.</span><span class="en">After that it returns to SAR 220. We tell you now, not in a year.</span></div></div>
+          <div class="s-alert ok"><i>ⓘ</i><div><b><span class="ar">الخصم لمدة ١٢ شهراً</span><span class="en">Discount runs 12 months</span></b><span class="ar">بعدها يعود السعر إلى ٢٢٠<i class="ryl" aria-hidden="true"></i>. نخبرك الآن، لا بعد سنة.</span><span class="en">After that it returns to 220<i class="ryl" aria-hidden="true"></i>. We tell you now, not in a year.</span></div></div>
           <div class="s-btn"><span class="ar">اختر هذه الباقة</span><span class="en">Choose this plan</span></div>
         </div>
       </div></div>
@@ -622,9 +633,9 @@
           <div class="s-nums">
             <div class="s-num free"><div class="n">0560 148 902</div><div class="p"><span class="ar">مجاني</span><span class="en">Free</span></div></div>
             <div class="s-num free"><div class="n">0560 233 471</div><div class="p"><span class="ar">مجاني</span><span class="en">Free</span></div></div>
-            <div class="s-num"><div class="n">0560 700 700</div><div class="p"><span class="ar">٩٠ ريال</span><span class="en">SAR 90</span></div></div>
-            <div class="s-num gold"><div class="n">0560 777 777</div><div class="p"><span class="ar">٢٥٨٫٧٥ ريال</span><span class="en">SAR 258.75</span></div></div>
-            <div class="s-num"><div class="n">0560 112 233</div><div class="p"><span class="ar">٤٥ ريال</span><span class="en">SAR 45</span></div></div>
+            <div class="s-num"><div class="n">0560 700 700</div><div class="p"><span class="ar">٩٠<i class="ryl" aria-hidden="true"></i></span><span class="en">90<i class="ryl" aria-hidden="true"></i></span></div></div>
+            <div class="s-num gold"><div class="n">0560 777 777</div><div class="p"><span class="ar">٢٥٨٫٧٥<i class="ryl" aria-hidden="true"></i></span><span class="en">258.75<i class="ryl" aria-hidden="true"></i></span></div></div>
+            <div class="s-num"><div class="n">0560 112 233</div><div class="p"><span class="ar">٤٥<i class="ryl" aria-hidden="true"></i></span><span class="en">45<i class="ryl" aria-hidden="true"></i></span></div></div>
             <div class="s-num free"><div class="n">0560 384 615</div><div class="p"><span class="ar">مجاني</span><span class="en">Free</span></div></div>
           </div>
           <div class="s-sub" style="text-align:center"><span class="ar">١٠ أرقام من ٢٤٠ متاحاً</span><span class="en">10 of 240 available</span></div>
@@ -640,18 +651,18 @@
         <div class="nav"><span class="ic">→</span><span><span class="ar">الملخّص والدفع</span><span class="en">Summary and payment</span></span><span class="ic"></span></div>
         <div class="body">
           <div class="s-card flat">
-            <div class="s-row"><span class="s-sub"><span class="ar">باقة ٢٢٠ · موبايلي</span><span class="en">Plan 220 · Mobily</span></span><span class="mono" style="font-size:11px">126.00</span></div>
+            <div class="s-row"><span class="s-sub"><span class="ar">باقة ٢٢٠ · موبايلي</span><span class="en">Plan 220 · Mobily</span></span><span class="mono" style="font-size:11px">126.00<i class="ryl" aria-hidden="true"></i></span></div>
             <div class="s-row"><span class="s-sub"><span class="ar">الرقم 0560 148 902</span><span class="en">Number 0560 148 902</span></span><span class="mono" style="font-size:11px"><span class="ar">مجاني</span><span class="en">Free</span></span></div>
             <div class="s-row"><span class="s-sub"><span class="ar">شريحة إلكترونية</span><span class="en">eSIM</span></span><span class="mono" style="font-size:11px"><span class="ar">مجاني</span><span class="en">Free</span></span></div>
           </div>
           <div class="s-tot">
-            <div class="g"><span><span class="ar">المجموع قبل الضريبة</span><span class="en">Subtotal</span></span><span class="mono">109.57</span></div>
-            <div class="g"><span><span class="ar">ضريبة القيمة المضافة ١٥٪</span><span class="en">VAT 15%</span></span><span class="mono">16.43</span></div>
-            <div class="g big"><span><span class="ar">الإجمالي</span><span class="en">Total</span></span><span class="mono">126.00</span></div>
+            <div class="g"><span><span class="ar">المجموع قبل الضريبة</span><span class="en">Subtotal</span></span><span class="mono">109.57<i class="ryl" aria-hidden="true"></i></span></div>
+            <div class="g"><span><span class="ar">ضريبة القيمة المضافة ١٥٪</span><span class="en">VAT 15%</span></span><span class="mono">16.43<i class="ryl" aria-hidden="true"></i></span></div>
+            <div class="g big"><span><span class="ar">الإجمالي</span><span class="en">Total</span></span><span class="mono">126.00<i class="ryl" aria-hidden="true"></i></span></div>
           </div>
           <div class="s-pay"><div class="on">مدى</div><div>Apple&nbsp;Pay</div><div>VISA</div><div>stc&nbsp;pay</div></div>
           <div class="s-alert ok" style="padding:9px"><i>🛡</i><div><span class="ar"><b>لن يُخصم المبلغ حتى يعمل خطّك.</b> وإن لم يعمل، يعود إليك خلال ٢٤ ساعة.</span><span class="en"><b>Nothing is charged until your line works.</b> If it doesn't, the money returns within 24 hours.</span></div></div>
-          <div class="s-btn"><span class="ar">ادفع ١٢٦٫٠٠ ريال</span><span class="en">Pay SAR 126.00</span></div>
+          <div class="s-btn"><span class="ar">ادفع ١٢٦٫٠٠<i class="ryl" aria-hidden="true"></i></span><span class="en">Pay 126.00<i class="ryl" aria-hidden="true"></i></span></div>
         </div>
       </div></div>
       <figcaption><b><span class="ar">٦ · الدفع</span><span class="en">6 · Payment</span></b><span class="ar">الضريبة تُضاف مرة واحدة وبوضوح. <span class="k">والوعد مكتوب على شاشة الدفع نفسها</span> — لا في صفحة شروط لا يقرأها أحد.</span><span class="en">VAT added once, in the open. <span class="k">And the promise sits on the payment screen itself</span> — not in terms nobody reads.</span></figcaption>
@@ -731,11 +742,11 @@
           </div>
           <div class="s-sub" style="font-weight:600;color:var(--a-ink)"><span class="ar">الأكثر طلباً</span><span class="en">Most popular</span></div>
           <div class="s-list">
-            <div class="s-li"><div><div class="t">🇹🇷 <span class="ar">تركيا</span><span class="en">Türkiye</span></div><div class="d"><span class="ar">من ٥ جيجا · ٧ أيام</span><span class="en">From 5 GB · 7 days</span></div></div><span class="s-price" style="font-size:12.5px">39</span></div>
-            <div class="s-li"><div><div class="t">🇦🇪 <span class="ar">الإمارات</span><span class="en">UAE</span></div><div class="d"><span class="ar">من ٣ جيجا · ٧ أيام</span><span class="en">From 3 GB · 7 days</span></div></div><span class="s-price" style="font-size:12.5px">29</span></div>
-            <div class="s-li"><div><div class="t">🇪🇬 <span class="ar">مصر</span><span class="en">Egypt</span></div><div class="d"><span class="ar">من ٥ جيجا · ١٥ يوماً</span><span class="en">From 5 GB · 15 days</span></div></div><span class="s-price" style="font-size:12.5px">55</span></div>
-            <div class="s-li"><div><div class="t">🇬🇧 <span class="ar">بريطانيا</span><span class="en">UK</span></div><div class="d"><span class="ar">من ١٠ جيجا · ٣٠ يوماً</span><span class="en">From 10 GB · 30 days</span></div></div><span class="s-price" style="font-size:12.5px">75</span></div>
-            <div class="s-li"><div><div class="t">🌍 <span class="ar">أوروبا — ٣٩ دولة</span><span class="en">Europe — 39 countries</span></div><div class="d"><span class="ar">من ١٠ جيجا · ٣٠ يوماً</span><span class="en">From 10 GB · 30 days</span></div></div><span class="s-price" style="font-size:12.5px">99</span></div>
+            <div class="s-li"><div><div class="t">🇹🇷 <span class="ar">تركيا</span><span class="en">Türkiye</span></div><div class="d"><span class="ar">من ٥ جيجا · ٧ أيام</span><span class="en">From 5 GB · 7 days</span></div></div><span class="s-price" style="font-size:12.5px">39<i class="ryl" aria-hidden="true"></i></span></div>
+            <div class="s-li"><div><div class="t">🇦🇪 <span class="ar">الإمارات</span><span class="en">UAE</span></div><div class="d"><span class="ar">من ٣ جيجا · ٧ أيام</span><span class="en">From 3 GB · 7 days</span></div></div><span class="s-price" style="font-size:12.5px">29<i class="ryl" aria-hidden="true"></i></span></div>
+            <div class="s-li"><div><div class="t">🇪🇬 <span class="ar">مصر</span><span class="en">Egypt</span></div><div class="d"><span class="ar">من ٥ جيجا · ١٥ يوماً</span><span class="en">From 5 GB · 15 days</span></div></div><span class="s-price" style="font-size:12.5px">55<i class="ryl" aria-hidden="true"></i></span></div>
+            <div class="s-li"><div><div class="t">🇬🇧 <span class="ar">بريطانيا</span><span class="en">UK</span></div><div class="d"><span class="ar">من ١٠ جيجا · ٣٠ يوماً</span><span class="en">From 10 GB · 30 days</span></div></div><span class="s-price" style="font-size:12.5px">75<i class="ryl" aria-hidden="true"></i></span></div>
+            <div class="s-li"><div><div class="t">🌍 <span class="ar">أوروبا — ٣٩ دولة</span><span class="en">Europe — 39 countries</span></div><div class="d"><span class="ar">من ١٠ جيجا · ٣٠ يوماً</span><span class="en">From 10 GB · 30 days</span></div></div><span class="s-price" style="font-size:12.5px">99<i class="ryl" aria-hidden="true"></i></span></div>
           </div>
         </div>
       </div></div>
@@ -763,6 +774,31 @@
         </div>
       </div></div>
       <figcaption><b><span class="ar">١١ · الدعم</span><span class="en">11 · Support</span></b><span class="ar"><span class="k">وقت الاستجابة مكتوب وظاهر للعميل ومحسوب.</span> شكوى المنافس الأولى أن الدعم لا يردّ لأيام.</span><span class="en"><span class="k">The response time is published, visible and counted.</span> The competitor's top complaint is support that doesn't reply for days.</span></figcaption>
+    </figure>
+    <figure class="shot">
+      <div class="phone"><div class="scr">
+        <div class="sb"><b>9:41</b><span>▮▮▮ ⌁ 􀛨</span></div>
+        <div class="nav"><span class="ic">→</span><span><span class="ar">خطوطي</span><span class="en">My lines</span></span><span class="ic">＋</span></div>
+        <div class="body">
+          <div class="s-card sel">
+            <div class="s-row"><div class="s-op"><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span><span class="mono" style="font-size:11.5px;font-weight:600">0560 148 902</span></div><span class="s-chip b"><span class="ar">نشط</span><span class="en">Active</span></span></div>
+            <div class="s-sub"><span class="ar">موبايلي · باقة ٢٢٠</span><span class="en">Mobily · Plan 220</span></div>
+            <div class="s-gauge"><i style="width:52%"></i></div>
+            <div class="s-row"><span class="s-sub"><span class="ar">٥٢ جيجا متبقية من ١٠٠</span><span class="en">52 GB left of 100</span></span><span class="s-sub"><span class="ar">يجدّد بعد ٨ أيام</span><span class="en">Renews in 8 days</span></span></div>
+          </div>
+          <div class="s-alert ok" style="padding:9px"><i>↻</i><div><span class="ar"><b>التجديد التلقائي مفعّل.</b> نذكّرك قبل يومين، ويمكنك إيقافه في أي وقت.</span><span class="en"><b>Auto-renew is on.</b> We remind you two days before, and you can stop it any time.</span></div></div>
+          <div class="s-card flat">
+            <div class="s-row"><div class="t" style="font-size:11.5px;font-weight:600">🇹🇷 <span class="ar">شريحة سفر · تركيا</span><span class="en">Travel eSIM · Türkiye</span></div><span class="s-chip w"><span class="ar">ينتهي بعد ٣ أيام</span><span class="en">3 days left</span></span></div>
+          </div>
+          <div class="s-list">
+            <div class="s-li"><div class="t"><span class="ar">أضف باقة بيانات</span><span class="en">Add a data pack</span></div><span class="ic">←</span></div>
+            <div class="s-li"><div class="t"><span class="ar">غيّر الباقة</span><span class="en">Change plan</span></div><span class="ic">←</span></div>
+            <div class="s-li"><div class="t"><span class="ar">أوقف التجديد التلقائي</span><span class="en">Turn off auto-renew</span></div><span class="ic">←</span></div>
+          </div>
+          <div class="s-btn"><span class="ar">جدّد الآن · ١٢٦٫٠٠<i class="ryl" aria-hidden="true"></i></span><span class="en">Renew now · 126.00<i class="ryl" aria-hidden="true"></i></span></div>
+        </div>
+      </div></div>
+      <figcaption><b><span class="ar">١٢ · خطوطي والتجديد</span><span class="en">12 · My lines and renewal</span></b><span class="ar"><span class="k">هنا يتحوّل العميل من بيعة واحدة إلى دخل متكرّر.</span> يرى ما تبقّى ومتى يجدّد قبل أن ينقطع — والمنافس يتركه يكتشف الانقطاع بنفسه.</span><span class="en"><span class="k">This is where a customer stops being one sale and becomes recurring revenue.</span> They see what's left and when it renews before it cuts out — the competitor lets them find out the hard way.</span></figcaption>
     </figure>
 
 
@@ -873,9 +909,9 @@
               </div>
               <div class="wb-f"><span class="on"><span class="ar">مسبق الدفع</span><span class="en">Prepaid</span></span><span><span class="ar">فوترة</span><span class="en">Postpaid</span></span><span><span class="ar">بيانات</span><span class="en">Data</span></span><span class="gap"></span><span><span class="ar">100 GB+</span><span class="en">100 GB+</span></span></div>
               <div class="wb-grid">
-                <div class="wb-p sel"><div class="wb-ph"><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span><span class="s-chip g"><span class="ar">أوفر</span><span class="en">Best</span></span></div><div class="wb-pr">126<s>220</s></div><div class="wb-pm"><span>100 GB</span><span><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span></div></div>
-                <div class="wb-p"><div class="wb-ph"><span class="oplg" title="stc"><img src="assets/stc.webp" alt="stc" loading="lazy"></span></div><div class="wb-pr">149</div><div class="wb-pm"><span>80 GB</span><span><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div></div>
-                <div class="wb-p"><div class="wb-ph"><span class="oplg" title="سلام"><img src="assets/salam.png" alt="سلام" loading="lazy"></span></div><div class="wb-pr">149</div><div class="wb-pm"><span><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span><span><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div></div>
+                <div class="wb-p sel"><div class="wb-ph"><span class="oplg" title="mobily"><img src="assets/mobily.webp" alt="mobily" loading="lazy"></span><span class="s-chip g"><span class="ar">أوفر</span><span class="en">Best</span></span></div><div class="wb-pr">126<i class="ryl" aria-hidden="true"></i><s>220</s></div><div class="wb-pm"><span>100 GB</span><span><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span></div></div>
+                <div class="wb-p"><div class="wb-ph"><span class="oplg" title="stc"><img src="assets/stc.webp" alt="stc" loading="lazy"></span></div><div class="wb-pr">149<i class="ryl" aria-hidden="true"></i></div><div class="wb-pm"><span>80 GB</span><span><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div></div>
+                <div class="wb-p"><div class="wb-ph"><span class="oplg" title="سلام"><img src="assets/salam.png" alt="سلام" loading="lazy"></span></div><div class="wb-pr">149<i class="ryl" aria-hidden="true"></i></div><div class="wb-pm"><span><span class="ar">مفتوحة</span><span class="en">Unlimited</span></span><span><span class="ar">٣٠ يوماً</span><span class="en">30 days</span></span></div></div>
               </div>
             </div>
           </div>
@@ -997,7 +1033,7 @@
           <div class="strip calm"><span class="pip"></span><span class="ar">بيانات موبايلي فقط</span><span class="en">Mobily data only</span><span class="sp"></span><span class="cnt"><span class="ar">أغسطس</span><span class="en">August</span></span></div>
           <div class="kpis">
             <div class="kpi"><div class="l"><span class="ar">خطوط مفعّلة</span><span class="en">Lines activated</span></div><div class="v">1,284</div><div class="s">▲ 18%</div></div>
-            <div class="kpi"><div class="l"><span class="ar">قيمة المبيعات</span><span class="en">Gross value</span></div><div class="v">162K</div><div class="s"><span class="ar">ريال</span><span class="en">SAR</span></div></div>
+            <div class="kpi"><div class="l"><span class="ar">قيمة المبيعات</span><span class="en">Gross value</span></div><div class="v">162K</div><div class="s"><span class="ar"><i class="ryl" aria-hidden="true"></i></span><span class="en"><i class="ryl" aria-hidden="true"></i></span></div></div>
             <div class="kpi"><div class="l"><span class="ar">نسبة التفعيل</span><span class="en">Activation rate</span></div><div class="v">98.2<i>%</i></div><div class="s"><span class="ar">نعرضها كما هي</span><span class="en">shown as-is</span></div></div>
           </div>
           <div class="dcard">
@@ -1198,23 +1234,23 @@
     <p class="lede inv"><span class="ar">تقديرات أولية بأسعار السوق اليوم، تُثبَّت بعد قرار البنية في المرحلة الأولى. البندان الأخيران يزيدان مع نجاحك — وذلك مقصود.</span><span class="en">Indicative figures at today's market rates, fixed once the architecture is decided in phase one. The last two grow as you grow — which is the point.</span></p>
 
     <div class="cost-sum">
-      <div class="cs"><div class="cs-l"><span class="ar">عند الإطلاق</span><span class="en">At launch</span></div><div class="cs-v">2,400<i>–</i>4,200<u>﷼</u></div><div class="cs-n"><span class="ar">شهرياً · حتى ~٢٠٠٠ طلب</span><span class="en">per month · up to ~2,000 orders</span></div></div>
-      <div class="cs"><div class="cs-l"><span class="ar">مع النمو</span><span class="en">Growing</span></div><div class="cs-v">5,500<i>–</i>9,000<u>﷼</u></div><div class="cs-n"><span class="ar">شهرياً · ~١٠٬٠٠٠ طلب</span><span class="en">per month · ~10,000 orders</span></div></div>
+      <div class="cs"><div class="cs-l"><span class="ar">عند الإطلاق</span><span class="en">At launch</span></div><div class="cs-v">2,400<i>–</i>4,200<u class="ryl"></u></div><div class="cs-n"><span class="ar">شهرياً · حتى ~٢٠٠٠ طلب</span><span class="en">per month · up to ~2,000 orders</span></div></div>
+      <div class="cs"><div class="cs-l"><span class="ar">مع النمو</span><span class="en">Growing</span></div><div class="cs-v">5,500<i>–</i>9,000<u class="ryl"></u></div><div class="cs-n"><span class="ar">شهرياً · ~١٠٬٠٠٠ طلب</span><span class="en">per month · ~10,000 orders</span></div></div>
       <div class="cs"><div class="cs-l"><span class="ar">إضافةً إلى ذلك</span><span class="en">On top of that</span></div><div class="cs-v">2.0<i>–</i>2.9<b>%</b></div><div class="cs-n"><span class="ar">رسوم الدفع — نسبة من كل عملية</span><span class="en">payment fees — a share of every sale</span></div></div>
     </div>
 
     <div class="tablewrap inv"><table>
       <thead><tr><th><span class="ar">البند</span><span class="en">Line</span></th><th><span class="ar">ما هو</span><span class="en">What it is</span></th><th><span class="ar">تقدير شهري</span><span class="en">Monthly estimate</span></th></tr></thead>
       <tbody>
-        <tr><td><span class="ar">الاستضافة — داخل السعودية</span><span class="en">Hosting — inside Saudi Arabia</span></td><td class="cause"><span class="ar">الخوادم التي يعمل عليها كل شيء</span><span class="en">The servers everything runs on</span></td><td class="num">900 – 2,400<u>﷼</u></td></tr>
-        <tr><td><span class="ar">قاعدة البيانات</span><span class="en">Database</span></td><td class="cause"><span class="ar">الطلبات والعملاء والحالات</span><span class="en">Orders, customers, state</span></td><td class="num">450 – 1,300<u>﷼</u></td></tr>
-        <tr><td><span class="ar">النسخ الاحتياطي والتعافي</span><span class="en">Backups and recovery</span></td><td class="cause"><span class="ar">حتى لا يضيع شيء أبداً</span><span class="en">So nothing is ever lost</span></td><td class="num">150 – 400<u>﷼</u></td></tr>
-        <tr><td><span class="ar">النطاق والشهادات</span><span class="en">Domain and certificates</span></td><td class="cause"><span class="ar">العنوان وقفل الأمان</span><span class="en">The address and its padlock</span></td><td class="num">40 – 90<u>﷼</u></td></tr>
-        <tr><td><span class="ar">المراقبة والتنبيهات</span><span class="en">Monitoring and alerting</span></td><td class="cause"><span class="ar">خدمة تراقب الأنظمة وتنبّه فور تعطّل أي منها — أن تعرف بالعطل قبل أن يتصل بك عميل</span><span class="en">A service watching every system and alerting the moment one fails — knowing before a customer calls</span></td><td class="num">250 – 700<u>﷼</u></td></tr>
-        <tr><td><span class="ar">نظام الدعم والتذاكر</span><span class="en">Support desk</span></td><td class="cause"><span class="ar">التذاكر وأوقات الاستجابة</span><span class="en">Tickets and response times</span></td><td class="num">180 – 500<u>﷼</u></td></tr>
-        <tr><td><span class="ar">البريد الإلكتروني</span><span class="en">Email delivery</span></td><td class="cause"><span class="ar">الفواتير ورموز الشرائح</span><span class="en">Invoices and eSIM codes</span></td><td class="num">120 – 350<u>﷼</u></td></tr>
+        <tr><td><span class="ar">الاستضافة — داخل السعودية</span><span class="en">Hosting — inside Saudi Arabia</span></td><td class="cause"><span class="ar">الخوادم التي يعمل عليها كل شيء</span><span class="en">The servers everything runs on</span></td><td class="num">900 – 2,400<u class="ryl"></u></td></tr>
+        <tr><td><span class="ar">قاعدة البيانات</span><span class="en">Database</span></td><td class="cause"><span class="ar">الطلبات والعملاء والحالات</span><span class="en">Orders, customers, state</span></td><td class="num">450 – 1,300<u class="ryl"></u></td></tr>
+        <tr><td><span class="ar">النسخ الاحتياطي والتعافي</span><span class="en">Backups and recovery</span></td><td class="cause"><span class="ar">حتى لا يضيع شيء أبداً</span><span class="en">So nothing is ever lost</span></td><td class="num">150 – 400<u class="ryl"></u></td></tr>
+        <tr><td><span class="ar">النطاق والشهادات</span><span class="en">Domain and certificates</span></td><td class="cause"><span class="ar">العنوان وقفل الأمان</span><span class="en">The address and its padlock</span></td><td class="num">40 – 90<u class="ryl"></u></td></tr>
+        <tr><td><span class="ar">المراقبة والتنبيهات</span><span class="en">Monitoring and alerting</span></td><td class="cause"><span class="ar">خدمة تراقب الأنظمة وتنبّه فور تعطّل أي منها — أن تعرف بالعطل قبل أن يتصل بك عميل</span><span class="en">A service watching every system and alerting the moment one fails — knowing before a customer calls</span></td><td class="num">250 – 700<u class="ryl"></u></td></tr>
+        <tr><td><span class="ar">نظام الدعم والتذاكر</span><span class="en">Support desk</span></td><td class="cause"><span class="ar">التذاكر وأوقات الاستجابة</span><span class="en">Tickets and response times</span></td><td class="num">180 – 500<u class="ryl"></u></td></tr>
+        <tr><td><span class="ar">البريد الإلكتروني</span><span class="en">Email delivery</span></td><td class="cause"><span class="ar">الفواتير ورموز الشرائح</span><span class="en">Invoices and eSIM codes</span></td><td class="num">120 – 350<u class="ryl"></u></td></tr>
         <tr><td><span class="ar">الصيانة والدعم الفني</span><span class="en">Maintenance and support</span></td><td class="cause"><span class="ar">نحن — لإبقاء كل ما سبق يعمل</span><span class="en">Us — keeping all of it running</span></td><td class="num"><span class="ar">يُتفق عليه</span><span class="en">agreed</span></td></tr>
-        <tr class="var"><td><span class="ar">رسائل التحقق SMS</span><span class="en">SMS verification</span></td><td class="cause"><span class="ar">كل رمز تحقق يُرسل — <b>يزيد مع عدد الطلبات</b></span><span class="en">Every code sent — <b>grows with orders</b></span></td><td class="num">0.10 – 0.18<u>﷼</u><small><span class="ar">لكل رسالة</span><span class="en">/msg</span></small></td></tr>
+        <tr class="var"><td><span class="ar">رسائل التحقق SMS</span><span class="en">SMS verification</span></td><td class="cause"><span class="ar">كل رمز تحقق يُرسل — <b>يزيد مع عدد الطلبات</b></span><span class="en">Every code sent — <b>grows with orders</b></span></td><td class="num">0.10 – 0.18<u class="ryl"></u><small><span class="ar">لكل رسالة</span><span class="en">/msg</span></small></td></tr>
         <tr class="var"><td><span class="ar">رسوم بوابة الدفع</span><span class="en">Payment gateway</span></td><td class="cause"><span class="ar">نسبة من كل عملية — <b>ليست مبلغاً ثابتاً</b></span><span class="en">A share of every transaction — <b>not a fixed cost</b></span></td><td class="num">2.0 – 2.9<small>%</small></td></tr>
       </tbody>
     </table></div>
@@ -1790,9 +1826,18 @@
   .cs-v i{font-style:normal;color:var(--ink-faint);margin-inline:2px}
   .cs-v b{font-size:.6em;color:var(--ink-faint)}
   .once-b.rec{background:var(--fail);color:#0F1512;margin-bottom:var(--s2);display:inline-block}
+  /* The 2025 Saudi Riyal symbol. Masked rather than drawn so it takes currentColor —
+     dark ink on a card, white on the green button, correct in both themes, and it
+     prints. Ratio 1920:2146. */
+  .ryl{display:inline-block;width:.72em;height:.8em;vertical-align:-.05em;
+    margin-inline-start:.24em;background:currentColor;
+    -webkit-mask:url(assets/riyal.webp) center/contain no-repeat;
+            mask:url(assets/riyal.webp) center/contain no-repeat}
+  .s-price .ryl{margin-inline-start:.18em}
   .cs-v u,.band td.num u{text-decoration:none;font-size:.55em;color:var(--ink-faint);
     margin-inline-start:4px;font-family:var(--ar)}
   .band td.num u{font-size:.8em}
+  .cs-v u.ryl,.band td.num u.ryl{font-size:1em;width:.56em;height:.62em;vertical-align:-.02em}
   .cs-n{font-size:12px;color:var(--ink-soft);margin-top:7px;line-height:1.45}
   .band td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate;
     text-align:start;white-space:nowrap;color:var(--ink)}
