@@ -331,6 +331,17 @@
     font:500 12px/1 var(--ar);cursor:pointer;transition:.18s}
   .tocb:hover{color:var(--ink)}
   .tocb[aria-expanded="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .dlb{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 13px;text-decoration:none;
+    border:1px solid var(--accent);border-radius:999px;background:var(--accent);color:#fff;
+    font:600 12px/1 var(--ar);transition:.18s;white-space:nowrap}
+  .dlb:hover{background:var(--accent-2);border-color:var(--accent-2)}
+  /* the bar has no room for a fourth control on a phone, so below 820px the
+     download lives at the foot of the contents sheet instead */
+  @media(max-width:820px){.dlb{display:none}}
+  .toc-dl{margin-top:6px;border-top:1px solid var(--line-2);padding-top:14px!important;
+    color:var(--accent)!important;font-weight:600}
+  .toc-dl svg{flex:none}
+  @media(min-width:821px){.toc .toc-dl{display:none}}
 
   @media (min-width:1280px){
     .tocb,.toc-bd{display:none}
@@ -486,6 +497,10 @@
       <span class="prj"><span class="prj-m"><svg><use href="#mk"/></svg></span><b>صِلة</b><i>SILA</i></span>
     </div>
     <div class="ctrls">
+      <a class="dlb" href="assets/proposal-ar.pdf" download="SILA-proposal.pdf">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
+        <span class="ar">تحميل العرض PDF</span><span class="en">Download PDF</span>
+      </a>
       <button type="button" id="tocbtn" class="tocb" aria-expanded="false" aria-controls="toc" aria-label="المحتويات">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
         <span class="ar">المحتويات</span><span class="en">Contents</span>
@@ -518,6 +533,10 @@
   <a href="#fails"><i></i><span class="ar">أين يفشل المنافس</span><span class="en">Where they fail</span></a>
   <a href="#s-costs"><i></i><span class="ar">التكاليف التشغيلية</span><span class="en">Running costs</span></a>
   <a href="#s-plan"><i></i><span class="ar">خطة التنفيذ</span><span class="en">The plan</span></a>
+  <a class="toc-dl" href="assets/proposal-ar.pdf" download="SILA-proposal.pdf">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
+    <span class="ar">تحميل العرض PDF</span><span class="en">Download PDF</span>
+  </a>
 </nav>
 
 <section id="s-top" class="hero wrap" style="padding-block:clamp(48px,9vw,96px) var(--s6);position:relative;overflow:hidden">
