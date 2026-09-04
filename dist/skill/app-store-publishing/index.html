@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Qassem">
+<meta name="theme-color" content="#0A0A0B">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E">
+<title>App Store Publishing — Google Play and Apple App Store release</title>
+<meta name="description" content="Get your app live on Google Play and the Apple App Store. Developer accounts, signing, Arabic and English store listings, review handling, and ongoing support. From $150, or ship on my developer account with no platform fees.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="App Store Publishing — Google Play and Apple App Store release">
+<meta property="og:description" content="Get your app live on Google Play and the Apple App Store. Developer accounts, signing, Arabic and English store listings, review handling, and ongoing support. From $150, or ship on my developer account with no platform fees.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="App Store Publishing — Google Play and Apple App Store release">
+<meta name="twitter:description" content="Get your app live on Google Play and the Apple App Store. Developer accounts, signing, Arabic and English store listings, review handling, and ongoing support. From $150, or ship on my developer account with no platform fees.">
+<style>
+/* Same system as the home page, cut down to what one service page needs.
+   Single-theme on purpose — every colour is painted, nothing inherits. */
+:root{
+  --bg:#0A0A0B; --bg-2:#101012;
+  --ink:#F1EFE9; --ink-soft:#9A978E; --ink-faint:#5E5C56;
+  --line:rgba(241,239,233,.10); --line-2:rgba(241,239,233,.055);
+  --accent:#4D7CFF; --accent-dim:rgba(77,124,255,.14); --live:#4ADE80;
+  --rc:#4ADE80;
+  --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,"Cascadia Code",monospace;
+  --pad:clamp(20px,5vw,72px); --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--rc);color:#0A0A0B}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+.nav{border-bottom:1px solid var(--line)}
+.nav__row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
+.brand{font-weight:700;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:9px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.nav__back{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);transition:color .3s}
+.nav__back:hover{color:var(--ink)}
+
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:-70% -10% auto -10%;height:240%;background:radial-gradient(46% 56% at 16% 0%,var(--rc),transparent 70%);opacity:.17;pointer-events:none}
+.hero__in{position:relative;padding:clamp(40px,8vh,88px) 0 clamp(34px,6vh,64px)}
+.crumb{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:22px}
+.crumb a{color:var(--ink-soft)}
+.crumb a:hover{color:var(--ink)}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--rc);display:flex;align-items:center;gap:10px}
+.eyebrow .d{width:7px;height:7px;border-radius:50%;background:var(--live)}
+h1{font-size:clamp(34px,6.4vw,74px);font-weight:700;letter-spacing:-.04em;line-height:.96;margin-top:16px;text-wrap:balance}
+.hero__sub{font-size:clamp(16px,2vw,21px);color:var(--ink-soft);margin-top:16px}
+.hero__desc{font-size:15px;color:var(--ink-soft);line-height:1.65;max-width:60ch;margin-top:22px}
+.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:30px}
+.btn{font-family:var(--mono);font-size:12.5px;font-weight:600;color:#0A0A0B;background:var(--rc);border-radius:100px;padding:12px 20px;display:inline-flex;align-items:center;gap:8px;transition:transform .3s,filter .3s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn--ghost{background:none;color:var(--ink-soft);border:1px solid var(--line)}
+.btn--ghost:hover{color:var(--ink);border-color:var(--rc);filter:none}
+.hero__cur{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+
+section.blk{padding:clamp(34px,6vh,64px) 0;border-bottom:1px solid var(--line)}
+.k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);margin-bottom:18px}
+.lead{font-size:14.5px;color:var(--ink-soft);line-height:1.65;max-width:64ch;margin-bottom:20px}
+
+.req{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:11px 26px}
+@media(max-width:720px){ .req{grid-template-columns:1fr} }
+.req li{font-size:14px;color:var(--ink-soft);line-height:1.5;padding-left:17px;position:relative}
+.req li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--rc);opacity:.8}
+
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:13px}
+.of{position:relative;display:flex;flex-direction:column;gap:9px;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:18px 19px;transition:border-color .35s,transform .35s}
+.of:hover{border-color:var(--rc);transform:translateY(-2px)}
+.of--pick{border-color:var(--rc);box-shadow:inset 0 0 0 1px var(--rc)}
+@supports (background:color-mix(in srgb,red 10%,transparent)){
+  .of--pick{background:linear-gradient(180deg,color-mix(in srgb,var(--rc) 13%,transparent),transparent 62%),var(--bg-2)}
+}
+.of__tag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--rc)}
+.of__n{font-size:16px;font-weight:600;letter-spacing:-.012em;line-height:1.25}
+.of__p{font-family:var(--mono);font-size:25px;font-weight:600;letter-spacing:-.025em;font-variant-numeric:tabular-nums;line-height:1}
+.of__p s{text-decoration:none;font-size:11px;color:var(--ink-faint);margin-left:8px;letter-spacing:.05em;text-transform:uppercase}
+.of ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:3px}
+.of li{font-size:13px;color:var(--ink-soft);line-height:1.45;padding-left:16px;position:relative}
+.of li::before{content:"→";position:absolute;left:0;top:0;font-size:11px;color:var(--ink-faint)}
+.of__note{font-size:12.2px;color:var(--ink-faint);line-height:1.5;margin-top:auto;padding-top:10px;border-top:1px solid var(--line-2)}
+
+.fee{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:11px;overflow:hidden}
+.fee > div{background:var(--bg-2);padding:17px 18px}
+.fee .n{font-family:var(--mono);font-size:20px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.fee .n.free{color:var(--live)}
+.fee .k{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);margin:8px 0 0}
+.fee .s{font-size:12.5px;color:var(--ink-soft);line-height:1.45;margin-top:7px}
+.foot-note{font-size:12.5px;color:var(--ink-faint);line-height:1.55;margin-top:14px}
+
+.steps{list-style:none;display:flex;flex-direction:column}
+.st{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid var(--line-2)}
+.st:last-child{border-bottom:0}
+.st__n{font-family:var(--mono);font-size:12px;color:var(--rc);font-variant-numeric:tabular-nums;padding-top:3px;flex:none;letter-spacing:.05em}
+.st h3{font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+.st p{font-size:13.8px;color:var(--ink-soft);line-height:1.6;margin-top:7px;max-width:66ch}
+
+.qa{border-bottom:1px solid var(--line-2)}
+.qa:last-of-type{border-bottom:0}
+.qa summary{list-style:none;cursor:pointer;padding:16px 0;font-size:15px;font-weight:600;letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center;gap:18px;transition:color .3s}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:hover{color:var(--rc)}
+.qa__m{position:relative;width:11px;height:11px;flex:none}
+.qa__m::before,.qa__m::after{content:"";position:absolute;background:var(--ink-faint);transition:transform .3s,background .3s}
+.qa__m::before{left:0;top:5px;width:11px;height:1px}
+.qa__m::after{left:5px;top:0;width:1px;height:11px}
+.qa[open] .qa__m::after{transform:scaleY(0)}
+.qa[open] .qa__m::before{background:var(--rc)}
+.qa p{font-size:13.8px;color:var(--ink-soft);line-height:1.65;max-width:66ch;padding:0 0 18px}
+
+.also{display:flex;flex-wrap:wrap;gap:10px}
+.also a{font-family:var(--mono);font-size:12px;color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:9px 15px;transition:border-color .3s,color .3s}
+.also a:hover{color:var(--ink);border-color:var(--rc)}
+
+.end{padding:clamp(40px,7vh,80px) 0}
+.end h2{font-size:clamp(24px,3.6vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.05;max-width:20ch}
+.end p{font-size:14.5px;color:var(--ink-soft);line-height:1.6;max-width:56ch;margin-top:16px}
+footer{border-top:1px solid var(--line);padding:26px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.001s!important}}
+:focus-visible{outline:2px solid var(--rc);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="wrap nav__row">
+  <a class="brand" href="/"><span class="dot"></span>Qassem</a>
+  <a class="nav__back" href="/#skills">← All services</a>
+</div></header>
+
+<main>
+  <section class="hero"><div class="wrap hero__in">
+    <p class="crumb"><a href="/">Home</a> / <a href="/#skills">Services</a> / App Store Publishing</p>
+    <p class="eyebrow">Publishing · Google Play · App Store<span class="d"></span></p>
+    <h1>App Store Publishing</h1>
+    <p class="hero__sub">Google Play + Apple App Store</p>
+    <p class="hero__desc">You have a finished app. I get it live. Developer accounts, signing, an Arabic and English store listing, privacy and data-safety declarations, submission, and every review rejection answered until it is approved. No developer account? It can ship under mine.</p>
+    <div class="hero__cta">
+      <a class="btn" href="mailto:hello@qassem.site?subject=App%20store%20publishing">Request this service ↗</a>
+      <a class="btn btn--ghost" href="/#skills">See every service</a>
+      <span class="hero__cur">Prices in USD. EGP and SAR on request.</span>
+    </div>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <p class="k">What I need from you</p>
+    <ul class="req"><li>The source code or a release build (AAB / IPA), or repo access</li><li>App name plus a short and full description — Arabic and English</li><li>App icon at 1024×1024 PNG, no transparency</li><li>Brand colours, and any screenshots or artwork you already have</li><li>A privacy policy URL — or I write and host one for you</li><li>Support email and a website URL for the listing</li><li>Category, age rating, and the countries you want to launch in</li><li>Existing keystore or Apple certificates, if the app shipped before</li><li>A test account, if the app has a login — Apple rejects without it</li><li>ID or company documents, only when publishing under your own account</li></ul>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <p class="k">The offer</p>
+    <div class="offers">
+      <div class="of">
+        <div class="of__tag">ANDROID</div>
+        <div class="of__n">Google Play — Publish</div>
+        <div class="of__p">$150<s>one-off</s></div>
+        <ul><li>Play Console account and app record set up</li><li>Release signing plus Play App Signing enrolment</li><li>Store listing AR/EN, icon, feature graphic, screenshots</li><li>Data safety form, content rating, target audience</li><li>Internal and closed testing track, then production rollout</li><li>Every rejection answered until the app is live</li></ul>
+        <p class="of__note">Google&#39;s $25 account fee is separate and paid once — see below.</p>
+      </div>
+      <div class="of">
+        <div class="of__tag">iOS</div>
+        <div class="of__n">Apple App Store — Publish</div>
+        <div class="of__p">$200<s>one-off</s></div>
+        <ul><li>Apple Developer enrolment and App Store Connect set up</li><li>Certificates, provisioning profiles, bundle identifiers</li><li>Archive, upload, and a TestFlight build for your team</li><li>Listing AR/EN with screenshots for every required device size</li><li>Privacy nutrition labels and export compliance</li><li>App Review replies and resubmission until approved</li></ul>
+        <p class="of__note">Apple charges $99 a year for the developer program — see below.</p>
+      </div>
+      <div class="of of--pick">
+        <div class="of__tag">BOTH STORES</div>
+        <div class="of__n">One release, everywhere</div>
+        <div class="of__p">$300<s>one-off</s></div>
+        <ul><li>Everything in the Google Play and Apple packages</li><li>One version number, one changelog, one launch date</li><li>Screenshots produced once, adapted to each store&#39;s sizes</li><li>A single point of contact through both reviews</li><li>30 days of post-launch support included</li></ul>
+        <p class="of__note">$50 less than buying the two separately.</p>
+      </div>
+      <div class="of">
+        <div class="of__tag">NO ACCOUNT NEEDED</div>
+        <div class="of__n">Ship on my developer account</div>
+        <div class="of__p">$350<s>one-off</s></div>
+        <ul><li>Published under my Google Play and Apple developer accounts</li><li>No $25 Play fee and no $99 a year Apple fee for you</li><li>Live on both stores under your brand name, icon and assets</li><li>You keep the code, the assets and the store content</li><li>Transfer to your own account later, handled at cost</li></ul>
+        <p class="of__note">The fastest route to live — no company documents, no D-U-N-S number, no waiting on Apple to verify an organisation.</p>
+      </div>
+      <div class="of">
+        <div class="of__tag">ASSETS · ASO</div>
+        <div class="of__n">Store assets and ASO pack</div>
+        <div class="of__p">$120<s>add-on</s></div>
+        <ul><li>Icon polish and a feature graphic</li><li>Six to eight screenshots per store with AR/EN captions</li><li>Keyword research in Arabic and English</li><li>Title, subtitle and description written for store search</li><li>Promo text and a what&#39;s-new template you can reuse</li></ul>
+        <p class="of__note">Skip it if you already have artwork you are happy with.</p>
+      </div>
+      <div class="of">
+        <div class="of__tag">ONGOING</div>
+        <div class="of__n">Support and maintenance</div>
+        <div class="of__p">$40<s>per month</s></div>
+        <ul><li>New version submissions, up to two a month</li><li>Policy and SDK deadlines handled before they block a release</li><li>Target-SDK and iOS version bumps</li><li>Any rejection, takedown or account warning answered</li><li>Listing edits, price changes, new countries</li><li>Crash and review monitoring, with a monthly note</li></ul>
+        <p class="of__note">$400 a year if paid up front. The first 30 days after launch are free with any publishing package.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <p class="k">Initial cost to publish</p>
+    <p class="lead">These are platform charges, not my fee. You pay them directly when the app is published under your own accounts — unless it ships on mine, in which case they are covered.</p>
+    <div class="fee">
+      <div>
+        <div class="n">$25</div>
+        <div class="k">Google Play</div>
+        <div class="s">One time, per developer account, paid to Google.</div>
+      </div>
+      <div>
+        <div class="n">$99</div>
+        <div class="k">Apple Developer</div>
+        <div class="s">Per year, paid to Apple, for as long as the app stays listed.</div>
+      </div>
+      <div>
+        <div class="n free">$0</div>
+        <div class="k">On my account</div>
+        <div class="s">Both fees covered by me for the life of the arrangement.</div>
+      </div>
+      <div>
+        <div class="n">3–7 days</div>
+        <div class="k">Typical time to live</div>
+        <div class="s">From the day the build and assets are complete. Apple reviews slower than Google.</div>
+      </div>
+    </div>
+    
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <p class="k">How it runs</p>
+    <ol class="steps">
+      <li class="st">
+        <span class="st__n">01</span>
+        <div><h3>Handover</h3><p>You send the build or the repo, the copy, and the artwork. I come back within a day with a written list of anything missing — not a drip of questions over a week.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">02</span>
+        <div><h3>Accounts and signing</h3><p>Developer accounts created or accessed, keystore and certificates generated or imported, bundle identifiers reserved. This is the step that quietly breaks future updates if it is done carelessly, so it is documented and handed to you.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">03</span>
+        <div><h3>Listing built</h3><p>Store listing written in Arabic and English, screenshots sized per store, data safety and privacy declarations completed, content rating questionnaires answered.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">04</span>
+        <div><h3>Test track</h3><p>An internal Play track and a TestFlight build go out first. You approve what you see on a real device before anything reaches the public.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">05</span>
+        <div><h3>Submission and review</h3><p>Submitted to both stores. Every rejection is answered by me, with the fix, until the app is approved — that is included, not billed as extra rounds.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">06</span>
+        <div><h3>Live, then handover</h3><p>Production rollout, then you get the credentials, the keystore, the certificates and a short document on how to ship the next version. 30 days of support start here.</p></div>
+      </li>
+    </ol>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <p class="k">Support, after it is live</p>
+    <p class="lead">Publishing is not a one-time event. Stores change policy, deadlines land without warning, and a single rejection can pull a live app down. Every publishing package includes 30 days of post-launch support. After that the retainer keeps someone on the hook for it, so a policy email never becomes your emergency.</p>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <p class="k">Questions people actually ask</p>
+    <details class="qa">
+        <summary>I do not have a company. Can I still publish?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>Yes. Google Play accepts an individual account. Apple accepts an individual developer account too, though it publishes under your personal name rather than a brand. If you want a brand name without a company, the cleanest route is shipping on my developer account.</p>
+      </details>
+    <details class="qa">
+        <summary>What happens if the app is rejected?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>I answer it. Rejections are normal — missing test credentials, an unclear privacy declaration, a permission with no stated purpose. Handling them is part of the package, not an extra round. There is no cap on resubmissions.</p>
+      </details>
+    <details class="qa">
+        <summary>Do you write the app as well?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>This service is publishing only — it assumes a build that already works. If the app still needs building or fixing, that is a separate scope and I will quote it separately rather than fold it in here.</p>
+      </details>
+    <details class="qa">
+        <summary>If it ships on your account, who owns the app?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>You do. You keep the code, the assets and the store content, and the listing carries your brand. The developer account is the only thing that is mine, and the app can be transferred to your own account whenever you want it — I handle the transfer at cost.</p>
+      </details>
+    <details class="qa">
+        <summary>How long does it actually take?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>Three to seven days from the moment the build and assets are complete. Google usually reviews within a day or two; Apple takes longer and is stricter. The delay is almost never the submission — it is waiting on assets and copy.</p>
+      </details>
+    <details class="qa">
+        <summary>Can you publish an app that was already live and got taken down?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>Usually. Tell me the reason given in the notice before we start — a policy strike on an account is a different problem from a rejected build, and it changes which route makes sense.</p>
+      </details>
+  </div></section>
+
+  
+
+  <section class="end"><div class="wrap">
+    <h2>Tell me what you have, and I will tell you what it takes.</h2>
+    <p>A short message with the app, the market and the deadline is enough to get a straight answer on scope, price and timing.</p>
+    <div class="hero__cta">
+      <a class="btn" href="mailto:hello@qassem.site?subject=App%20store%20publishing">Request this service ↗</a>
+      <a class="btn btn--ghost" href="/#contact">Other ways to reach me</a>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;width:100%">
+  <span>© 2026 Qassem</span>
+  <span>/skill/app-store-publishing</span>
+</div></footer>
+
+</body>
+</html>

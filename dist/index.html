@@ -259,7 +259,75 @@
   .bgtint{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .6s ease;background:radial-gradient(70% 60% at 72% 40%,var(--rc,var(--accent)),transparent 62%);mix-blend-mode:screen}
   .bgtint.on{opacity:.1}
 
-  .now{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(24px,5vw,68px);align-items:center;border:1px solid var(--line);border-radius:18px;padding:clamp(28px,4vw,52px);position:relative;overflow:hidden;background:var(--bg-2)}
+/* SKILLS-CSS:BEGIN — ported by deploy/deploy-skills.sh; edit in ourwork */
+  /* services index — skill master / proposal detail.
+     Reuses .wrow from the work index so a skill row hovers, stripes and dims
+     exactly like a project row; only the type scale is dialled back, because a
+     skill sits beside a tall panel rather than a compact card. */
+  .sx{display:grid;grid-template-columns:.78fr 1.22fr;gap:clamp(24px,4vw,56px);align-items:start}
+  @media(max-width:1000px){ .sx{grid-template-columns:1fr;gap:14px} }
+  .sx__list{border-top:1px solid var(--line);margin-top:clamp(14px,3vh,26px)}
+  /* the proposal panel runs long, so the skill list follows it down */
+  .sx__stick{position:sticky;top:96px}
+  @media(max-width:1000px){ .sx__stick{position:static} }
+  .wrow--sm .wrow__nm{font-size:clamp(26px,3.4vw,42px);letter-spacing:-.035em}
+  .wrow--sm .wrow__sub{font-size:clamp(14px,1.3vw,16px);margin-top:9px}
+  .wrow--sm{padding:clamp(16px,2.2vh,26px) 0}
+
+  /* detail: the whole proposal for one skill, not a teaser card */
+  .sk{border:1px solid var(--line);border-radius:16px;background:var(--bg-2);overflow:hidden;transition:opacity .2s ease}
+  .sk.swap{opacity:0}
+  .sk__top{position:relative;padding:clamp(22px,2.6vw,32px);border-bottom:1px solid var(--line);overflow:hidden}
+  .sk__top::before{content:"";position:absolute;inset:-80% -10% auto -10%;height:260%;background:radial-gradient(52% 60% at 18% 0%,var(--rc,var(--accent)),transparent 70%);opacity:.16;pointer-events:none}
+  .sk__topin{position:relative}
+  .sk__meta{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--rc,var(--accent))}
+  .sk__name{font-size:clamp(26px,3vw,40px);font-weight:700;letter-spacing:-.035em;line-height:1;margin-top:11px}
+  .sk__desc{font-size:14.5px;color:var(--ink-soft);line-height:1.6;max-width:56ch;margin-top:14px}
+  .sk__sec{padding:clamp(20px,2.3vw,28px);border-bottom:1px solid var(--line)}
+  .sk__sec:last-child{border-bottom:0}
+  .sk__k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);margin-bottom:15px}
+  .sk__lead{font-size:13.5px;color:var(--ink-soft);line-height:1.6;max-width:60ch;margin-bottom:14px}
+
+  .sk__req{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px}
+  @media(max-width:620px){ .sk__req{grid-template-columns:1fr} }
+  .sk__req li{font-size:13.2px;color:var(--ink-soft);line-height:1.45;padding-left:16px;position:relative}
+  .sk__req li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--rc,var(--accent));opacity:.8}
+
+  /* one proposal = one card */
+  .sk__offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .of{position:relative;display:flex;flex-direction:column;gap:9px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:17px 18px;transition:border-color .35s,transform .35s}
+  .of:hover{border-color:var(--rc,var(--accent));transform:translateY(-2px)}
+  .of--pick{border-color:var(--rc,var(--accent));box-shadow:inset 0 0 0 1px var(--rc,var(--accent))}
+  /* tint the picked card with the skill's own colour, not the site accent */
+  @supports (background:color-mix(in srgb,red 10%,transparent)){
+    .of--pick{background:linear-gradient(180deg,color-mix(in srgb,var(--rc,var(--accent)) 13%,transparent),transparent 62%),var(--bg)}
+  }
+  .of__tag{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--rc,var(--accent))}
+  .of__n{font-size:15.5px;font-weight:600;letter-spacing:-.012em;line-height:1.25}
+  .of__p{font-family:var(--mono);font-size:24px;font-weight:600;letter-spacing:-.025em;font-variant-numeric:tabular-nums;line-height:1}
+  .of__p s{text-decoration:none;font-size:11px;color:var(--ink-faint);margin-left:8px;letter-spacing:.05em;text-transform:uppercase}
+  .of ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:3px}
+  .of li{font-size:12.7px;color:var(--ink-soft);line-height:1.45;padding-left:16px;position:relative}
+  .of li::before{content:"→";position:absolute;left:0;top:0;font-size:11px;color:var(--ink-faint)}
+  .of__note{font-size:12px;color:var(--ink-faint);line-height:1.5;margin-top:auto;padding-top:10px;border-top:1px solid var(--line-2)}
+
+  /* platform fees — the money that never reaches me */
+  .fee{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:11px;overflow:hidden}
+  .fee > div{background:var(--bg);padding:15px 16px}
+  .fee .n{font-family:var(--mono);font-size:19px;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .fee .n.free{color:var(--live)}
+  .fee .k{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-faint);margin-top:7px}
+  .fee .s{font-size:12.3px;color:var(--ink-soft);line-height:1.45;margin-top:7px}
+  .sk__foot{font-size:12.5px;color:var(--ink-faint);line-height:1.55;margin-top:13px}
+
+  .sk__cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+  .sk__ask{font-family:var(--mono);font-size:12.5px;font-weight:600;color:#0A0A0B;background:var(--rc,var(--accent));border-radius:100px;padding:11px 18px;display:inline-flex;align-items:center;gap:8px;transition:transform .3s,filter .3s}
+  .sk__ask:hover{transform:translateY(-2px);filter:brightness(1.12)}
+  .sk__page{font-family:var(--mono);font-size:12px;color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:10px 16px;display:inline-flex;align-items:center;gap:7px;transition:border-color .3s,color .3s}
+  .sk__page:hover{border-color:var(--rc,var(--accent));color:var(--ink)}
+  .sk__cur{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+
+  /* SKILLS-CSS:END */  .now{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(24px,5vw,68px);align-items:center;border:1px solid var(--line);border-radius:18px;padding:clamp(28px,4vw,52px);position:relative;overflow:hidden;background:var(--bg-2)}
   .now::before{content:"";position:absolute;top:0;right:0;width:62%;height:100%;background:radial-gradient(90% 120% at 100% 0%,var(--accent-dim),transparent 62%);pointer-events:none}
   .now__l,.now__r{position:relative}
   .now__role{font-size:clamp(30px,4vw,52px);font-weight:700;letter-spacing:-.03em;line-height:.98}
@@ -330,6 +398,7 @@
   <nav class="nav__links" data-hover>
     <a href="#capabilities">Capabilities</a>
     <a href="#work">Work</a>
+    <a href="#skills">Services</a>
     <a href="#ecosystem">OurInc</a>
     <a href="#now">Now</a>
     <a href="#career">Career</a>
@@ -479,15 +548,64 @@
     </ul></noscript>
   </section>
 
-  <!-- ECOSYSTEM -->
+<!-- SKILLS-SECTION:BEGIN -->
+  <!-- SERVICES / SKILLS -->
+  <section id="skills" class="wrap">
+    <div class="eyebrow reveal"><span class="no">04</span> SERVICES — WHAT YOU CAN BUY TODAY <span class="ln"></span></div>
+    <div class="sx reveal">
+      <div class="sx__stick">
+        <div class="sx__list" id="sxlist"></div>
+      </div>
+      <div>
+        <article class="sk" id="sk">
+          <div class="sk__top">
+            <div class="sk__topin">
+              <div class="sk__meta" id="skMeta"></div>
+              <h3 class="sk__name" id="skName">Select a service</h3>
+              <p class="sk__desc" id="skDesc"></p>
+            </div>
+          </div>
+          <div class="sk__sec" id="skReqWrap">
+            <div class="sk__k">What I need from you</div>
+            <ul class="sk__req" id="skReq"></ul>
+          </div>
+          <div class="sk__sec" id="skOffersWrap">
+            <div class="sk__k">The offer</div>
+            <div class="sk__offers" id="skOffers"></div>
+          </div>
+          <div class="sk__sec" id="skFeesWrap">
+            <div class="sk__k">Initial cost to publish</div>
+            <p class="sk__lead" id="skFeesLead"></p>
+            <div class="fee" id="skFees"></div>
+            <p class="sk__foot" id="skFeesFoot"></p>
+          </div>
+          <div class="sk__sec" id="skSupportWrap">
+            <div class="sk__k">Support, after it is live</div>
+            <p class="sk__lead" id="skSupport"></p>
+            <div class="sk__cta">
+              <a class="sk__ask" id="skAsk" href="#contact" data-hover>Request this service ↗</a>
+              <a class="sk__page" id="skPage" href="#skills" data-hover>Full details ↗</a>
+              <span class="sk__cur" id="skCur"></span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <noscript><p style="font-family:var(--mono);color:var(--ink-soft);line-height:2">
+      App Store Publishing — Google Play and Apple App Store release, store listing, review handling and ongoing support.
+      <a href="mailto:hello@qassem.site?subject=App%20store%20publishing">hello@qassem.site</a>
+    </p></noscript>
+  </section>
+
+  <!-- SKILLS-SECTION:END -->  <!-- ECOSYSTEM -->
   <section id="ecosystem" class="wrap">
-    <div class="eyebrow reveal"><span class="no">04</span> THE OURINC ECOSYSTEM <span class="ln"></span></div>
+    <div class="eyebrow reveal"><span class="no">05</span> THE OURINC ECOSYSTEM <span class="ln"></span></div>
     <p class="statement reveal" style="font-size:clamp(22px,3.4vw,44px);max-width:26ch">One founder. <span class="mut">A studio of</span> <span class="acc">30+ products</span> <span class="mut">building each other.</span></p>
   </section>
 
   <!-- CURRENTLY -->
   <section id="now" class="wrap">
-    <div class="eyebrow reveal"><span class="no">05</span> CURRENTLY <span class="ln"></span></div>
+    <div class="eyebrow reveal"><span class="no">06</span> CURRENTLY <span class="ln"></span></div>
     <div class="now reveal">
       <div class="now__l">
         <div class="now__role">Development Manager</div>
@@ -502,7 +620,7 @@
 
   <!-- TRACK RECORD -->
   <section id="career" class="wrap">
-    <div class="eyebrow reveal"><span class="no">06</span> TRACK RECORD — 8+ YEARS <span class="ln"></span></div>
+    <div class="eyebrow reveal"><span class="no">07</span> TRACK RECORD — 8+ YEARS <span class="ln"></span></div>
     <div class="sectors reveal">
       <div><div class="k">Banking</div><div class="v">Islamic retail banking core</div></div>
       <div><div class="k">Government</div><div class="v">5+ Saudi ministries</div></div>
@@ -546,7 +664,7 @@
 
   <!-- ABOUT -->
   <section id="about" class="wrap">
-    <div class="eyebrow reveal"><span class="no">07</span> ABOUT <span class="ln"></span></div>
+    <div class="eyebrow reveal"><span class="no">08</span> ABOUT <span class="ln"></span></div>
     <div class="about reveal">
       <div>
         <p class="about__big">Software engineer turned founder. <span class="mut">I build the full stack of a modern business — the storefront, the app, the AI, the automations, the logistics, the payments — and I keep it running.</span></p>
@@ -652,7 +770,80 @@ var LOGOS={ourstore:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIcAAAAjCAYAA
     activate(0,false);
   }
 
-  var lnum=document.getElementById('lnum'),t0=null,dur=reduce?200:1100;
+/* SKILLS-JS:BEGIN */
+  /* services index — one skill on the left, its whole proposal on the right.
+     Same master/detail contract as PROJECTS, but the data is NOT written here:
+     one skill is one folder under Skills/, and `node engine/skills.mjs` rebuilds
+     both this array and the standalone page at /skill/<slug>/ from it. Adding a
+     skill means adding a folder, never editing the block below. */
+  /* SKILLS:BEGIN — generated by engine/skills.mjs from Skills/<slug>/skill.json.
+     Do not edit by hand: the next run overwrites it. Change the skill.json. */
+  var SKILLS=[
+    {"slug":"app-store-publishing","n":"App Store Publishing","sub":"Google Play + Apple App Store","cat":"MOBILE · STORE RELEASE","meta":"Publishing · Google Play · App Store","rc":"#4ADE80","live":1,"desc":"You have a finished app. I get it live. Developer accounts, signing, an Arabic and English store listing, privacy and data-safety declarations, submission, and every review rejection answered until it is approved. No developer account? It can ship under mine.","req":["The source code or a release build (AAB / IPA), or repo access","App name plus a short and full description — Arabic and English","App icon at 1024×1024 PNG, no transparency","Brand colours, and any screenshots or artwork you already have","A privacy policy URL — or I write and host one for you","Support email and a website URL for the listing","Category, age rating, and the countries you want to launch in","Existing keystore or Apple certificates, if the app shipped before","A test account, if the app has a login — Apple rejects without it","ID or company documents, only when publishing under your own account"],"offers":[{"tag":"ANDROID","n":"Google Play — Publish","p":"$150","per":"one-off","items":["Play Console account and app record set up","Release signing plus Play App Signing enrolment","Store listing AR/EN, icon, feature graphic, screenshots","Data safety form, content rating, target audience","Internal and closed testing track, then production rollout","Every rejection answered until the app is live"],"note":"Google's $25 account fee is separate and paid once — see below."},{"tag":"iOS","n":"Apple App Store — Publish","p":"$200","per":"one-off","items":["Apple Developer enrolment and App Store Connect set up","Certificates, provisioning profiles, bundle identifiers","Archive, upload, and a TestFlight build for your team","Listing AR/EN with screenshots for every required device size","Privacy nutrition labels and export compliance","App Review replies and resubmission until approved"],"note":"Apple charges $99 a year for the developer program — see below."},{"tag":"BOTH STORES","n":"One release, everywhere","p":"$300","per":"one-off","pick":1,"items":["Everything in the Google Play and Apple packages","One version number, one changelog, one launch date","Screenshots produced once, adapted to each store's sizes","A single point of contact through both reviews","30 days of post-launch support included"],"note":"$50 less than buying the two separately."},{"tag":"NO ACCOUNT NEEDED","n":"Ship on my developer account","p":"$350","per":"one-off","items":["Published under my Google Play and Apple developer accounts","No $25 Play fee and no $99 a year Apple fee for you","Live on both stores under your brand name, icon and assets","You keep the code, the assets and the store content","Transfer to your own account later, handled at cost"],"note":"The fastest route to live — no company documents, no D-U-N-S number, no waiting on Apple to verify an organisation."},{"tag":"ASSETS · ASO","n":"Store assets and ASO pack","p":"$120","per":"add-on","items":["Icon polish and a feature graphic","Six to eight screenshots per store with AR/EN captions","Keyword research in Arabic and English","Title, subtitle and description written for store search","Promo text and a what's-new template you can reuse"],"note":"Skip it if you already have artwork you are happy with."},{"tag":"ONGOING","n":"Support and maintenance","p":"$40","per":"per month","items":["New version submissions, up to two a month","Policy and SDK deadlines handled before they block a release","Target-SDK and iOS version bumps","Any rejection, takedown or account warning answered","Listing edits, price changes, new countries","Crash and review monitoring, with a monthly note"],"note":"$400 a year if paid up front. The first 30 days after launch are free with any publishing package."}],"feesLead":"These are platform charges, not my fee. You pay them directly when the app is published under your own accounts — unless it ships on mine, in which case they are covered.","fees":[{"n":"$25","k":"Google Play","s":"One time, per developer account, paid to Google."},{"n":"$99","k":"Apple Developer","s":"Per year, paid to Apple, for as long as the app stays listed."},{"n":"$0","k":"On my account","s":"Both fees covered by me for the life of the arrangement.","free":1},{"n":"3–7 days","k":"Typical time to live","s":"From the day the build and assets are complete. Apple reviews slower than Google."}],"support":"Publishing is not a one-time event. Stores change policy, deadlines land without warning, and a single rejection can pull a live app down. Every publishing package includes 30 days of post-launch support. After that the retainer keeps someone on the hook for it, so a policy email never becomes your emergency.","ask":"mailto:hello@qassem.site?subject=App%20store%20publishing","cur":"Prices in USD. EGP and SAR on request."}
+  ];
+  /* SKILLS:END */
+  var sxlist=document.getElementById('sxlist'), sk=document.getElementById('sk');
+  if(sxlist && sk){
+    var skMeta=document.getElementById('skMeta'),skName=document.getElementById('skName'),skDesc=document.getElementById('skDesc'),skPage=document.getElementById('skPage'),
+        skReq=document.getElementById('skReq'),skOffers=document.getElementById('skOffers'),
+        skFees=document.getElementById('skFees'),skFeesLead=document.getElementById('skFeesLead'),skFeesFoot=document.getElementById('skFeesFoot'),
+        skSupport=document.getElementById('skSupport'),skAsk=document.getElementById('skAsk'),skCur=document.getElementById('skCur'),
+        skFeesWrap=document.getElementById('skFeesWrap');
+    var srows=[],scur=-1;
+    SKILLS.forEach(function(s,i){
+      var b=document.createElement('button');
+      b.className='wrow wrow--sm dim'; b.type='button'; b.style.setProperty('--rc',s.rc); b.setAttribute('data-hover','');
+      b.innerHTML='<div class="wrow__yr">SERVICE'+(s.live?' <span class="wrow__live"></span>':'')+'</div>'+
+        '<div class="wrow__nm">'+s.n+'</div>'+
+        '<div class="wrow__sub">'+s.sub+'</div>'+
+        '<div class="wrow__cat">'+s.cat+' <span class="arw">→</span></div>';
+      b.addEventListener('mouseenter',function(){sact(i);});
+      b.addEventListener('focus',function(){sact(i);});
+      b.addEventListener('click',function(){
+        if(scur===i && SKILLS[i].slug){ location.href='/skill/'+SKILLS[i].slug+'/'; return; }
+        sact(i);
+      });
+      sxlist.appendChild(b); srows.push(b);
+    });
+    function sfill(s){
+      sk.style.setProperty('--rc',s.rc);
+      skMeta.textContent=s.meta; skName.textContent=s.n; skDesc.textContent=s.desc;
+      skReq.innerHTML=s.req.map(function(r){return '<li>'+r+'</li>';}).join('');
+      skOffers.innerHTML=s.offers.map(function(o){
+        return '<div class="of'+(o.pick?' of--pick':'')+'">'+
+          '<div class="of__tag">'+o.tag+'</div>'+
+          '<div class="of__n">'+o.n+'</div>'+
+          '<div class="of__p">'+o.p+'<s>'+o.per+'</s></div>'+
+          '<ul>'+o.items.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>'+
+          (o.note?'<p class="of__note">'+o.note+'</p>':'')+
+        '</div>';
+      }).join('');
+      // A skill without platform fees hides the band rather than showing an empty one.
+      if(s.fees && s.fees.length){
+        skFeesWrap.style.display='';
+        skFeesLead.textContent=s.feesLead||'';
+        skFees.innerHTML=s.fees.map(function(f){
+          return '<div><div class="n'+(f.free?' free':'')+'">'+f.n+'</div><div class="k">'+f.k+'</div><div class="s">'+f.s+'</div></div>';
+        }).join('');
+        skFeesFoot.textContent=s.feesFoot||'';
+      } else { skFeesWrap.style.display='none'; }
+      skSupport.textContent=s.support||'';
+      skAsk.setAttribute('href',s.ask||'#contact');
+      skPage.setAttribute('href',s.slug?'/skill/'+s.slug+'/':'#skills');
+      skCur.textContent=s.cur||'';
+    }
+    function sact(i){
+      if(i===scur) return;
+      scur=i;
+      srows.forEach(function(r,j){ r.classList.toggle('act',j===i); r.classList.toggle('dim',j!==i); });
+      if(reduce){ sfill(SKILLS[i]); return; }
+      sk.classList.add('swap');
+      setTimeout(function(){ sfill(SKILLS[i]); sk.classList.remove('swap'); },170);
+    }
+    sact(0);
+  }
+
+  /* SKILLS-JS:END */  var lnum=document.getElementById('lnum'),t0=null,dur=reduce?200:1100;
   function tick(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);lnum.textContent=Math.floor(p*100);if(p<1)requestAnimationFrame(tick);else{document.body.classList.add('loaded');setTimeout(function(){var l=document.getElementById('loader');if(l)l.style.display='none';},1100);}}
   requestAnimationFrame(tick);
   var cursor=document.getElementById('cursor');
