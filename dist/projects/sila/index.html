@@ -402,7 +402,18 @@
     .fc,.jt-s,.stg,.oplist,.idb,tr,thead{break-inside:avoid}
     h1,h2,h3,.eyebrow{break-after:avoid}
     a{text-decoration:none;color:inherit}
-    .gal{gap:var(--s4) var(--s3)}
+    /* repeat(auto-fit,…) is the one grid feature WeasyPrint does not implement:
+       every auto-fit track list collapses to a single column, which turns the
+       document into one tall stack. Column counts are stated explicitly here,
+       chosen for the ~711px A4 content box. Chrome computes the same counts, so
+       both engines now agree. */
+    .gal{grid-template-columns:repeat(2,288px)!important;gap:var(--s4) var(--s3)}
+    .idb-grid{grid-template-columns:repeat(3,1fr)!important}
+    .kpis{grid-template-columns:repeat(4,1fr)!important}
+    .nxt,.rivals,.hints,.stages,.grid3,.once-g{grid-template-columns:repeat(2,1fr)!important}
+    .stats{grid-template-columns:repeat(4,1fr)!important}
+    .cost-sum{grid-template-columns:repeat(3,1fr)!important}
+    .af-r,.tr-r{grid-template-columns:repeat(3,1fr)!important}
     /* CSS masks are a browser feature; a print engine that ignores them would
        paint .ryl as a solid currentColor block. On paper the glyph is a plain
        image instead — dark by default, white where it sits on a dark ground. */
@@ -1624,9 +1635,10 @@
   .jt-s.done .jt-n{border-color:var(--have);background:var(--have);color:var(--bg)}
 
   /* arrival */
-  .jt-s,.jt-ph{opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease;
-    transition-delay:calc(var(--i) * 70ms)}
-  .jt.in .jt-s,.jt.in .jt-ph{opacity:1;transform:none}
+  /* The steps used to fade in on scroll, which meant they were missing until
+     you happened to scroll past, and missing entirely in print. They are simply
+     present now; only the rail still draws itself. */
+  .jt-s,.jt-ph{opacity:1;transform:none}
 
   /* the rollback demo */
   .jt-demo{margin-top:var(--s4);max-width:720px;margin-inline:auto}
