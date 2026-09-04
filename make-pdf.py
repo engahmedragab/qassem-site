@@ -20,7 +20,7 @@ CHUNKS = [
     ("02-screens", ["#app"],                                       False),
     ("03-build",   ["#s-flow", "#s-systems"],                      False),
     ("04-market",  ["#s-dash", "#s-rivals", "#s-market"],          False),
-    ("05-close",   ["#fails", ".band"],                            True),   # keeps the footer
+    ("05-close",   ["#fails", ".band"],                            False),
 ]
 
 

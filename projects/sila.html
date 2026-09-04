@@ -379,7 +379,9 @@
       animation:none!important;transition:none!important}
     html,body{background:#fff}
     body::after{display:none}               /* the grain overlay */
-    header,.toc,.toc-bd,.tocb,.ix,.hero .glow{display:none!important}
+    header,.toc,.toc-bd,.tocb,.hero .glow{display:none!important}
+    .ix{transform:none!important}
+    .ix::after{display:none!important}
     section{padding-block:var(--s4)}
     /* nothing that reads as one object may be split down the middle */
     .shot,figure,.gate,.card,.sys,.rv,.nx,.kpi,.once,.cs-c,.win,.phone,
@@ -387,6 +389,15 @@
     h1,h2,h3,.eyebrow{break-after:avoid}
     a{text-decoration:none;color:inherit}
     .gal{gap:var(--s4) var(--s3)}
+    /* Anything revealed by scrolling or clicking is simply absent on paper.
+       The journey steps wait for an observer, the rollback list waits for a
+       button press, and a narrow print viewport drops the third plan card. */
+    .jt-s,.jt-ph{opacity:1!important;transform:none!important}
+    .jt-roll{max-height:none!important;overflow:visible!important}
+    .jt-roll .rl{opacity:1!important;transform:none!important}
+    .wb-grid .wb-p:last-child{display:block!important}
+    .failbtn,footer,.scr-o{display:none!important}
+    .prt-o{display:inline}
   }
 
   @media (prefers-reduced-motion:reduce){.toc,.toc *,.toc-bd{transition:none}}
@@ -929,7 +940,7 @@
 <section id="s-flow" class="wrap">
   <div class="eyebrow"><span class="ar">الرحلة كاملة</span><span class="en">The full journey</span></div>
   <h2><span class="ar">كل خطوة في العملية، وموضع التوقّف عند حدوث خلل.</span><span class="en">Every step in the process, and where it stops when something fails.</span></h2>
-  <p class="lede" style="margin-top:var(--s3)"><span class="ar">ترتيب هذه الخطوات هو جوهر التصميم. يعرض الزر أدناه سلوك النظام عند فشل خطوة بعد الدفع.</span><span class="en">The order of these steps is the core of the design. The button below shows how the system behaves when a step fails after payment.</span></p>
+  <p class="lede" style="margin-top:var(--s3)"><span class="ar">ترتيب هذه الخطوات هو جوهر التصميم. <span class="scr-o">يعرض الزر أدناه</span><span class="prt-o">وفيما يلي</span> سلوك النظام عند فشل خطوة بعد الدفع.</span><span class="en">The order of these steps is the core of the design. <span class="scr-o">The button below shows</span><span class="prt-o">Below is</span> how the system behaves when a step fails after payment.</span></p>
 
   <div class="jt" id="jt">
     <div class="jt-rail"><i></i></div>
@@ -1600,6 +1611,7 @@
   .failbtn{display:inline-flex;align-items:center;gap:9px;font:600 14px/1 var(--ar);cursor:pointer;
     background:var(--bg-2);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:12px 19px;transition:.18s}
   .failbtn:hover{border-color:var(--fail);color:var(--fail)}
+  .prt-o{display:none}
   .failbtn .lbl-b{display:none}
   .failbtn.on .lbl-a{display:none}
   .failbtn.on .lbl-b{display:inline}
