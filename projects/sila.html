@@ -394,6 +394,18 @@
        document into one tall stack. Column counts are stated explicitly here,
        chosen for the ~711px A4 content box. Chrome computes the same counts, so
        both engines now agree. */
+    /* WeasyPrint applies transform when it paints but not when it lays out, so a
+       scaled phone still reserves its unscaled box — every mockup got a gap the
+       size of the scaling. Print the phones at 1:1 instead. */
+    .pscale{--sc:1!important}
+    .pscale .phone{transform:none!important}
+    .herophones{overflow:visible;justify-content:center;flex-wrap:wrap}
+    .herophones .pscale:nth-child(3){display:none}
+    /* margin-top:auto does not push in a WeasyPrint flex column, so the primary
+       action floated in the middle of each screen with dead space beneath it.
+       .scr is already position:relative, so pin the button to the bottom. */
+    .scr .s-btn{position:absolute;inset-inline:11px;bottom:11px;margin-top:0}
+    .scr .body{padding-bottom:56px}
     .gal{grid-template-columns:repeat(2,288px)!important;gap:var(--s4) var(--s3)}
     .idb-grid{grid-template-columns:repeat(3,1fr)!important}
     .kpis{grid-template-columns:repeat(4,1fr)!important}
