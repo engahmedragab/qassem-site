@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
 """Render dist/projects/<page>/ to a single PDF.
 
-Chrome cannot print this page in one pass — it hangs indefinitely past roughly
-twenty A4 pages of this content, while either half prints in under a minute. So
-the document is printed in chunks and merged. Each chunk hides the sections it
-does not own, which also gives every chunk a clean page break for free.
+Rendered with WeasyPrint by default, because Chrome writes Arabic into a PDF as
+presentation-form glyphs: nothing in the document is findable. Same test set of
+eight Arabic terms, Chrome finds 0 of 8, WeasyPrint finds 8 of 8.
 
-    python3 make-pdf.py [--page sila] [--lang ar] [--out FILE]
+Neither engine manages this page in one pass, so it is rendered in chunks and
+merged. Each chunk hides the sections it does not own, which also gives every
+chunk a clean page break for free.
+
+WeasyPrint needs pango (brew install pango) and its own virtualenv; run it as
+
+    DYLD_FALLBACK_LIBRARY_PATH=$(brew --prefix)/lib \
+      /path/to/venv/bin/python make-pdf.py --lang ar
+
+    python3 make-pdf.py [--page sila] [--lang ar] [--engine weasy|chrome] [--out FILE]
 """
 
 import argparse, http.server, os, re, shutil, socketserver, subprocess, tempfile, threading
@@ -45,13 +53,25 @@ def chunk_html(src, keep, footer, lang):
         f"{hide_footer}</style>"
     )
     # Pin the language and theme so a stored preference cannot change the output.
+    # WeasyPrint runs no JavaScript, so what the script would set has to be
+    # written into the markup itself.
     js = (
         "<script>document.documentElement.setAttribute('data-lang','%s');"
         "document.documentElement.setAttribute('dir','%s');"
         "document.documentElement.setAttribute('data-theme','light');</script>"
         % (lang, "rtl" if lang == "ar" else "ltr")
     )
+    src = src.replace('<html lang="ar" dir="rtl">',
+                      '<html lang="ar" data-lang="%s" data-theme="light" dir="%s">'
+                      % (lang, "rtl" if lang == "ar" else "ltr"), 1)
     return src.replace("</head>", css + js + "</head>", 1)
+
+
+def weasy_pdf(path, out):
+    """WeasyPrint lays Arabic out properly, so the text layer is searchable —
+    Chrome writes presentation-form glyphs that no reader can find."""
+    from weasyprint import HTML
+    HTML(filename=path, base_url=os.path.dirname(path) + "/").write_pdf(out)
 
 
 def print_pdf(url, out, timeout=240):
@@ -69,7 +89,10 @@ def print_pdf(url, out, timeout=240):
 
 
 def pages(path):
-    return len(re.findall(rb"/Type\s*/Page[^s]", open(path, "rb").read()))
+    # not a regex over the raw bytes: WeasyPrint packs pages into compressed
+    # object streams, where that pattern never appears and every count reads 0.
+    from pypdf import PdfReader
+    return len(PdfReader(path).pages)
 
 
 def main():
@@ -77,6 +100,8 @@ def main():
     ap.add_argument("--page", default="sila")
     ap.add_argument("--lang", default="ar", choices=["ar", "en"])
     ap.add_argument("--out", default=None)
+    ap.add_argument("--engine", default="weasy", choices=["weasy", "chrome"],
+                    help="weasy gives searchable Arabic (default); chrome matches the site pixel for pixel")
     a = ap.parse_args()
 
     root = os.path.abspath("dist")
@@ -99,7 +124,10 @@ def main():
                 chunk_html(src, keep, footer, a.lang))
             dst = os.path.join(tmp, f"{name}.pdf")
             print(f"  {name} …", end="", flush=True)
-            print_pdf(f"http://127.0.0.1:{PORT}/projects/{a.page}/{fn}", dst)
+            if a.engine == "weasy":
+                weasy_pdf(os.path.join(page_dir, fn), dst)
+            else:
+                print_pdf(f"http://127.0.0.1:{PORT}/projects/{a.page}/{fn}", dst)
             print(f" {pages(dst)} pages")
             written.append(dst)
             os.remove(os.path.join(page_dir, fn))
