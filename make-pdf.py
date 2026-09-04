@@ -67,11 +67,15 @@ def chunk_html(src, keep, footer, lang):
     return src.replace("</head>", css + js + "</head>", 1)
 
 
-def weasy_pdf(path, out):
+def weasy_render(path):
     """WeasyPrint lays Arabic out properly, so the text layer is searchable —
-    Chrome writes presentation-form glyphs that no reader can find."""
+    Chrome writes presentation-form glyphs that no reader can find. Returns a
+    Document rather than a file: WeasyPrint output merged by pypdf produces a
+    PDF that CoreGraphics refuses to open (Preview and Quick Look both fail on
+    it, while pypdf and `file` see nothing wrong). Chunks are joined through
+    WeasyPrint's own page list instead, so one engine writes the whole file."""
     from weasyprint import HTML
-    HTML(filename=path, base_url=os.path.dirname(path) + "/").write_pdf(out)
+    return HTML(filename=path, base_url=os.path.dirname(path) + "/").render()
 
 
 def print_pdf(url, out, timeout=240):
@@ -115,6 +119,7 @@ def main():
     src = open(index, encoding="utf-8").read()
     tmp = tempfile.mkdtemp(prefix="pdf-")
     written = []
+    docs = []
 
     httpd = serve(root)
     try:
@@ -122,24 +127,30 @@ def main():
             fn = f"_pdf-{name}.html"
             open(os.path.join(page_dir, fn), "w", encoding="utf-8").write(
                 chunk_html(src, keep, footer, a.lang))
-            dst = os.path.join(tmp, f"{name}.pdf")
             print(f"  {name} …", end="", flush=True)
             if a.engine == "weasy":
-                weasy_pdf(os.path.join(page_dir, fn), dst)
+                doc = weasy_render(os.path.join(page_dir, fn))
+                docs.append(doc)
+                print(f" {len(doc.pages)} pages")
             else:
+                dst = os.path.join(tmp, f"{name}.pdf")
                 print_pdf(f"http://127.0.0.1:{PORT}/projects/{a.page}/{fn}", dst)
-            print(f" {pages(dst)} pages")
-            written.append(dst)
+                print(f" {pages(dst)} pages")
+                written.append(dst)
             os.remove(os.path.join(page_dir, fn))
     finally:
         httpd.shutdown()
 
-    from pypdf import PdfWriter
-    w = PdfWriter()
-    for f in written:
-        w.append(f)
-    with open(out, "wb") as fh:
-        w.write(fh)
+    if a.engine == "weasy":
+        all_pages = [pg for d in docs for pg in d.pages]
+        docs[0].copy(all_pages).write_pdf(out)
+    else:
+        from pypdf import PdfWriter
+        w = PdfWriter()
+        for f in written:
+            w.append(f)
+        with open(out, "wb") as fh:
+            w.write(fh)
     shutil.rmtree(tmp, ignore_errors=True)
     print(f"\n  {out}\n  {pages(out)} pages · {os.path.getsize(out)//1024} KB")
 
