@@ -1,0 +1,1077 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Qassem">
+<meta name="theme-color" content="#0A0A0B">
+<meta name="robots" content="index,follow">
+<meta name="x-build" content="2c25ecc5e9d3">
+<script>
+(function(){
+  var K='qassem-theme', r=document.documentElement;
+  function set(t){
+    var explicit = t==='dark' || t==='light';
+    var dark = explicit ? t==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+    r.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try{ explicit ? localStorage.setItem(K,t) : localStorage.removeItem(K); }catch(e){}
+    var m=document.querySelector('meta[name=theme-color]');
+    if(m) m.setAttribute('content', dark ? '#0A0A0B' : '#FAF8F3');
+    [].forEach.call(document.querySelectorAll('[data-theme-btn]'),function(b){
+      var on=b.getAttribute('data-theme-btn')===(dark?'dark':'light');
+      b.setAttribute('aria-pressed',on?'true':'false'); b.classList.toggle('on',on);
+    });
+  }
+  function stored(){ try{ return localStorage.getItem(K); }catch(e){ return null; } }
+  function current(){ var v=stored(); return v==='dark'||v==='light' ? v : 'system'; }
+  set(current());
+  // Follow the system live, but only while the visitor has not chosen.
+  var mq=matchMedia('(prefers-color-scheme:dark)');
+  var onmq=function(){ if(current()==='system') set('system'); };
+  mq.addEventListener ? mq.addEventListener('change',onmq) : mq.addListener(onmq);
+  addEventListener('DOMContentLoaded',function(){ set(current()); });
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-theme-btn]');
+    if(!b) return; e.preventDefault(); set(b.getAttribute('data-theme-btn'));
+  });
+})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E">
+<title>Digital Transformation — process to working systems, staged</title>
+<meta name="description" content="Digital transformation delivered as working software rather than slideware: process mapping, automation of the costliest step first, systems and AI staged so each phase pays for the next.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Digital Transformation — process to working systems, staged">
+<meta property="og:description" content="Digital transformation delivered as working software rather than slideware: process mapping, automation of the costliest step first, systems and AI staged so each phase pays for the next.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Digital Transformation — process to working systems, staged">
+<meta name="twitter:description" content="Digital transformation delivered as working software rather than slideware: process mapping, automation of the costliest step first, systems and AI staged so each phase pays for the next.">
+<style>
+/* Same system as the home page, tuned for reading rather than for impact:
+   bigger body text, a shorter measure, and more air between sections.
+   Single-theme on purpose — every colour is painted, nothing is inherited. */
+:root{
+  --rc-d:#F5A524;
+  --rc-l:#9C6206;
+  --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  --ar:"IBM Plex Sans Arabic","SF Arabic","Noto Sans Arabic",Tahoma,var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,"Cascadia Code",monospace;
+  --pad:clamp(20px,5vw,64px); --maxw:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:112px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--rc);color:var(--on-ac)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ic{width:20px;height:20px;flex:none}
+.bd{width:18px;height:18px;flex:none;display:block}
+.bds,.of__bd,.th__bd,.k__bd{display:inline-flex;align-items:center;gap:6px;vertical-align:middle}
+.of__bd .bd{width:20px;height:20px}
+.th__bd,.k__bd{margin-right:7px}
+.hero__bd{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:16px}
+.hero__bd span{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
+  font-size:12.5px;letter-spacing:.02em;color:var(--ink-soft)}
+.hero__bd .bd{width:17px;height:17px}
+
+/* ---------- chrome ---------- */
+.nav{border-bottom:1px solid var(--line);background:var(--bg)}
+.nav__row{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;
+  padding:14px var(--pad);flex-wrap:wrap}
+@media(max-width:520px){
+  .nav__row{gap:8px}
+  .brand{font-size:15.5px}
+  .nav__back{font-size:11px}
+  .thm button{padding:5px 9px}
+}
+.brand{font-weight:700;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:9px;font-size:17px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.nav__r{display:inline-flex;align-items:center;gap:14px}
+.nav__back{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);transition:color .3s}
+.nav__back:hover{color:var(--ink)}
+
+.jump{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.jump__row{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;
+  padding:0 calc(var(--pad) - 14px)}
+.jump__row::-webkit-scrollbar{display:none}
+.jump a{font-family:var(--mono);font-size:12px;letter-spacing:.03em;text-transform:uppercase;
+  color:var(--ink-faint);padding:15px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+.jump a:hover,.jump a.on{color:var(--ink);border-bottom-color:var(--rc)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:-70% -10% auto -10%;height:250%;
+  background:radial-gradient(44% 54% at 14% 0%,var(--rc),transparent 70%);opacity:.18;pointer-events:none}
+.hero__in{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,5vw,64px);
+  align-items:center;padding:clamp(34px,6vh,70px) var(--pad) clamp(30px,5vh,56px)}
+@media(max-width:900px){ .hero__in{grid-template-columns:1fr;gap:34px} }
+.crumb{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px}
+.crumb a{color:var(--ink-soft);transition:color .3s}
+.crumb a:hover{color:var(--ink)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--rc);display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.eyebrow .d{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 0 4px rgba(74,222,128,.16)}
+h1{font-size:clamp(36px,6.2vw,72px);font-weight:700;letter-spacing:-.04em;line-height:.98;margin-top:15px;text-wrap:balance}
+.hero__sub{font-size:clamp(17px,2vw,21px);color:var(--ink-soft);margin-top:14px}
+.hero__desc{font-size:16.5px;color:var(--ink-soft);line-height:1.68;max-width:54ch;margin-top:20px}
+.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
+.btn{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--on-ac);background:var(--rc);
+  border-radius:100px;padding:13px 22px;display:inline-flex;align-items:center;gap:8px;transition:transform .3s,filter .3s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn--ghost{background:none;color:var(--ink-soft);border:1px solid var(--line)}
+.btn--ghost:hover{color:var(--ink);border-color:var(--rc);filter:none}
+.hero__cur{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);width:100%}
+.art{width:100%;max-width:400px;height:auto;display:block;margin-inline:auto}
+@media(max-width:900px){ .art{max-width:320px} }
+
+/* ---------- stat strip ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;
+  background:var(--line);border-bottom:1px solid var(--line)}
+.stats > div{background:var(--bg);padding:22px clamp(16px,2.4vw,26px)}
+.stats .n{font-family:var(--mono);font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-.02em;color:var(--rc)}
+.stats .k{font-size:13.5px;color:var(--ink-soft);margin-top:6px;line-height:1.45}
+
+/* ---------- sections ---------- */
+section.blk{padding:clamp(44px,7vh,88px) 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-height:1.08;text-wrap:balance}
+.k{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--rc);margin-bottom:13px}
+.lead{font-size:16px;color:var(--ink-soft);line-height:1.68;max-width:66ch;margin-top:16px}
+.hd{margin-bottom:clamp(26px,4vh,40px)}
+
+/* ---------- pricing ---------- */
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:14px}
+/* Two up on desktop rather than auto-fit: four packages across three columns
+   orphans the fourth on a row of its own, and these cards carry too many lines
+   to read well at a quarter of the page. */
+@media(min-width:840px){ .offers{grid-template-columns:repeat(2,1fr)} }
+/* Each card carries its own accent (--oc) so four routes read as four choices
+   rather than one block printed four times. The recommended card is not just
+   tinted: it sits higher, keeps a solid header bar, and is the only one whose
+   call to action is filled — so the eye lands on it before the prices. */
+.of{--oc:var(--rc);position:relative;display:flex;flex-direction:column;gap:10px;
+  background:var(--bg-2);border:1px solid var(--line);border-radius:14px;
+  padding:26px 20px 20px;overflow:hidden;
+  transition:border-color .35s,transform .35s,box-shadow .35s}
+.of__bar{position:absolute;inset-inline:0;top:0;height:3px;background:var(--oc);opacity:.5;transition:opacity .35s}
+.of:hover{border-color:var(--oc);transform:translateY(-3px);box-shadow:var(--shadow)}
+.of:hover .of__bar{opacity:1}
+.of--pick{border-color:var(--oc);box-shadow:0 0 0 1px var(--oc),var(--shadow-lg);
+  padding-top:32px}
+.of--pick .of__bar{height:4px;opacity:1}
+@media(min-width:840px){ .of--pick{transform:translateY(-8px)} .of--pick:hover{transform:translateY(-11px)} }
+@supports (background:color-mix(in srgb,red 10%,transparent)){
+  .of{background:linear-gradient(180deg,color-mix(in srgb,var(--oc) 6%,transparent),transparent 40%),var(--bg-2)}
+  .of--pick{background:linear-gradient(180deg,color-mix(in srgb,var(--oc) 18%,transparent),transparent 52%),var(--bg-2)}
+}
+.of__flag{position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--on-ac);background:var(--oc);border-radius:100px;padding:3px 12px;white-space:nowrap}
+.of__top{display:flex;align-items:center;gap:9px;color:var(--oc)}
+.of__ic{width:22px;height:22px;flex:none}
+.of__tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.of__n{font-size:17px;font-weight:600;letter-spacing:-.015em;line-height:1.28}
+.of__p{font-family:var(--mono);font-size:32px;font-weight:600;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;line-height:1}
+.of__p{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 9px}
+.of__p s{text-decoration:none;font-size:11.5px;color:var(--ink-faint);letter-spacing:.05em;text-transform:uppercase}
+.of--pick .of__p{font-size:38px}
+.of__break{font-size:12.4px;color:var(--ink-soft);line-height:1.45;margin-top:-2px}
+
+/* What happens next year, on the card rather than three sections down. It is
+   the difference between the two routes people actually weigh, and it was only
+   visible in the comparison table. */
+.of__yr{display:grid;grid-template-columns:auto 1fr;gap:2px 9px;align-items:start;
+  border:1px solid var(--line-2);border-radius:9px;padding:10px 12px;
+  font-size:12.8px;color:var(--ink-soft);line-height:1.4}
+.of__yr b{font-family:var(--mono);font-size:13.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+.of__yr span:last-child{grid-column:2;color:var(--ink-faint);font-size:11.8px;margin-top:2px}
+.of__yr-i{grid-row:span 2;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;
+  font-size:11px;color:var(--ink-faint);border:1px solid var(--line);margin-top:1px}
+.of__yr[data-free]{border-color:color-mix(in srgb,var(--live) 45%,transparent)}
+.of__yr[data-free] b{color:var(--live)}
+.of__yr[data-free] .of__yr-i{color:var(--live);border-color:color-mix(in srgb,var(--live) 45%,transparent)}
+@supports not (color:color-mix(in srgb,red 10%,transparent)){
+  .of__yr[data-free]{border-color:rgba(74,222,128,.45)}
+  .of__yr[data-free] .of__yr-i{border-color:rgba(74,222,128,.45)}
+}
+.of ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:2px}
+.of li{font-size:13.6px;color:var(--ink-soft);line-height:1.5;padding-left:19px;position:relative}
+.of li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;
+  border:1.5px solid var(--oc);opacity:.8}
+.of__note{font-size:12.6px;color:var(--ink-faint);line-height:1.55;margin-top:auto;padding-top:12px;border-top:1px solid var(--line-2)}
+/* Every card ends in something to press. A price with no action next to it is
+   where a reader stalls and leaves. */
+.of__cta{display:flex;justify-content:center;align-items:center;gap:7px;margin-top:14px;
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.02em;
+  color:var(--oc);border:1px solid var(--oc);border-radius:100px;padding:11px 16px;
+  transition:background .3s,color .3s,transform .3s}
+.of__cta:hover{background:var(--oc);color:var(--on-ac);transform:translateY(-1px)}
+.of--pick .of__cta{background:var(--oc);color:var(--on-ac)}
+.of--pick .of__cta:hover{filter:brightness(1.12)}
+.of--addon{background:var(--bg)}
+.of--addon .of__p{font-size:26px}
+.of--addon .of__bar{opacity:.28}
+.sub-k{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--ink-faint);margin:clamp(30px,4vh,44px) 0 14px;padding-top:clamp(26px,4vh,38px);border-top:1px solid var(--line)}
+
+/* ---------- comparison ---------- */
+/* contain:paint, not just overflow-x — the table's min-content width leaks out
+   to the document and gives the whole page a horizontal scrollbar on a phone,
+   even though the container itself clips correctly. overflow-x alone does not
+   stop the leak; containment does. */
+.cmp__scroll{overflow-x:auto;contain:paint;border:1px solid var(--line);border-radius:14px;background:var(--bg-2)}
+.cmp{border-collapse:collapse;width:100%;min-width:660px;font-size:13.6px}
+.cmp th,.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line-2);vertical-align:top}
+.cmp thead th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink);background:var(--bg-3);border-bottom:1px solid var(--line);white-space:nowrap}
+.cmp thead th:first-child{color:var(--ink-faint)}
+.cmp tbody th{font-weight:400;color:var(--ink-soft);line-height:1.5;min-width:230px}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp tbody tr.hi{background:var(--bg-3)}
+.cmp tbody tr.hi th,.cmp tbody tr.hi .txt{color:var(--ink);font-weight:600}
+.cmp td{text-align:center;color:var(--ink-soft);white-space:nowrap}
+.cmp .yes{color:var(--rc)}
+.cmp .no{color:var(--ink-faint)}
+.tick{width:17px;height:17px;display:inline-block;vertical-align:middle}
+.cmp__note{font-size:13.5px;color:var(--ink-soft);line-height:1.6;max-width:70ch;margin-top:16px}
+
+/* ---------- platform fees ---------- */
+.fee{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.fee > div{background:var(--bg-2);padding:19px 20px}
+.fee .n{font-family:var(--mono);font-size:23px;font-weight:600;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.fee .n.free{color:var(--live)}
+.fee .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--rc);margin-top:9px}
+.fee .s{font-size:13.2px;color:var(--ink-soft);line-height:1.5;margin-top:8px}
+
+/* ---------- prerequisites ---------- */
+.prs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:820px){ .prs{grid-template-columns:1fr} }
+.pr{display:flex;gap:15px;background:var(--bg-2);border:1px solid var(--line);border-radius:13px;padding:18px 19px}
+.pr__ic{color:var(--rc);flex:none;display:grid;place-items:center;width:38px;height:38px;
+  border-radius:10px;border:1px solid var(--line);background:var(--bg)}
+.pr h3{font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.35}
+.pr p{font-size:13.6px;color:var(--ink-soft);line-height:1.58;margin-top:8px}
+.pr__skip{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--live);border:1px solid rgba(74,222,128,.4);border-radius:100px;
+  padding:2px 8px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+.skipnote{font-size:13.2px;color:var(--ink-faint);margin-top:16px}
+
+/* ---------- handover ---------- */
+.req{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 30px}
+@media(max-width:760px){ .req{grid-template-columns:1fr} }
+.req li{font-size:13.6px;color:var(--ink-soft);line-height:1.5;padding-left:26px;position:relative}
+.req li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:5px;
+  border:1.5px solid var(--rc);opacity:.55}
+.req li::after{content:"";position:absolute;left:5px;top:8px;width:5px;height:8px;
+  border:solid var(--rc);border-width:0 1.6px 1.6px 0;transform:rotate(42deg)}
+
+/* ---------- process ---------- */
+/* Asset cards. The mockup column is sized per shape so a banner reads wide and
+   a screenshot reads tall — the whole point is that the proportion is visible
+   at a glance rather than inferred from two numbers. */
+.asx{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:900px){ .asx{grid-template-columns:1fr} }
+.as{--oc:var(--rc);display:flex;gap:18px;align-items:flex-start;background:var(--bg-2);
+  border:1px solid var(--line);border-radius:13px;padding:18px 19px;transition:border-color .3s}
+.as:hover{border-color:var(--oc)}
+.as[data-opt] {--oc:#8A96B0}
+.as__mock{flex:none;display:grid;place-items:center;background:var(--bg);
+  border-radius:9px;padding:9px}
+.as__mock svg{display:block;height:auto}
+.as__mock[data-shape=icon] svg,.as__mock[data-shape=tablet] svg{width:74px}
+.as__mock[data-shape=feature] svg,.as__mock[data-shape=video] svg{width:104px}
+.as__mock[data-shape=phone] svg{width:52px}
+.as__mock[data-shape=dashboard] svg,.as__mock[data-shape=pipeline] svg,
+.as__mock[data-shape=roadmap] svg,.as__mock[data-shape=handover] svg{width:104px}
+.as__mock[data-shape=checkout] svg,.as__mock[data-shape=report] svg{width:58px}
+.as__mock[data-shape=chatflow] svg{width:78px}
+.as__b{min-width:0;flex:1}
+.as__h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.as__h h3{font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+.as__bd{color:var(--ink-soft)}
+.as__bd .bd{width:15px;height:15px}
+.as__d{margin-top:7px;font-family:var(--mono);font-size:12.5px;color:var(--oc)}
+.as__d span{display:block;color:var(--ink-faint);font-size:11.5px;margin-top:4px}
+.as__s{font-size:12.8px;color:var(--ink-soft);line-height:1.5;margin-top:8px}
+.as__need{display:inline-block;margin-top:11px;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--oc);
+  border:1px solid var(--oc);border-radius:100px;padding:3px 9px;opacity:.85}
+.cmp--copy{min-width:520px}
+.cmp--copy td{text-align:start;white-space:normal}
+
+/* Terms, exclusions and fit. A proposal without these reads as optimistic;
+   with them it reads as something someone has actually delivered before. */
+/* Deliberately the quietest block on the page: five one-line commitments, read
+   in a glance and not competing with the pricing above it. */
+.blk--tight{padding:clamp(28px,4vh,44px) 0}
+.hd--tight{margin-bottom:clamp(18px,2.5vh,26px)}
+.h-sm{font-size:clamp(19px,2.2vw,25px);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+.lead--sm{font-size:14px;margin-top:10px}
+.tms{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:10px}
+/* One row on desktop: five terms read as one statement, and auto-fit would
+   otherwise leave the fifth stranded on a line of its own. */
+@media(min-width:1000px){ .tms{grid-template-columns:repeat(5,1fr)} }
+.tm p{text-wrap:pretty}
+.tm{display:flex;flex-direction:column;gap:9px;background:var(--bg-2);border:1px solid var(--line);
+  border-radius:11px;padding:15px 15px 16px}
+.tm__ic{color:var(--rc);flex:none;display:grid;place-items:center;width:30px;height:30px;
+  border-radius:8px;border:1px solid var(--line);background:var(--bg)}
+.tm__ic .ic{width:16px;height:16px}
+.tm h3{font-size:13.6px;font-weight:600;letter-spacing:-.005em;line-height:1.3}
+.tm p{font-size:12.6px;color:var(--ink-soft);line-height:1.5}
+
+.excl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+@media(max-width:760px){ .excl{grid-template-columns:1fr} }
+.excl li{font-size:13.4px;color:var(--ink-soft);line-height:1.5;padding-left:24px;position:relative}
+.excl li::before{content:"";position:absolute;left:0;top:9px;width:13px;height:1.5px;
+  background:var(--ink-faint);border-radius:1px}
+
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:760px){ .fit{grid-template-columns:1fr} }
+.fit__c{background:var(--bg-2);border:1px solid var(--line);border-radius:13px;padding:19px 20px;
+  border-top:2px solid var(--ink-faint)}
+.fit__c[data-yes]{border-top-color:var(--rc)}
+.fit__c h3{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;
+  color:var(--ink-faint)}
+.fit__c[data-yes] h3{color:var(--rc)}
+.fit__c ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.fit__c li{font-size:13.4px;color:var(--ink-soft);line-height:1.5;padding-left:20px;position:relative}
+.fit__c li::before{content:"—";position:absolute;left:0;color:var(--ink-faint);font-size:12px}
+.fit__c[data-yes] li::before{content:"✓";color:var(--rc);font-size:12px}
+[dir=rtl] .excl li,[dir=rtl] .fit__c li{padding-left:0;padding-right:24px}
+[dir=rtl] .excl li::before,[dir=rtl] .fit__c li::before{left:auto;right:0}
+
+.apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:13px}
+.app{display:flex;gap:16px;background:var(--bg-2);border:1px solid var(--line);border-radius:13px;padding:18px 19px}
+.app__ic{width:56px;height:56px;border-radius:13px;flex:none;object-fit:cover;background:var(--bg-3)}
+.app__ic--none{border:1px solid var(--line)}
+.app__b{min-width:0}
+.app__b h3{font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+.app__b p{font-size:13.4px;color:var(--ink-soft);line-height:1.55;margin-top:6px}
+.app__l{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.app__l a{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:7px 13px;
+  transition:border-color .3s,color .3s}
+.app__l a:hover{color:var(--ink);border-color:var(--rc)}
+.app__l .bd{width:14px;height:14px}
+
+.steps{list-style:none;position:relative}
+.st{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+.st:last-child{border-bottom:0}
+.st__n{font-family:var(--mono);font-size:12px;color:var(--rc);font-variant-numeric:tabular-nums;
+  letter-spacing:.05em;flex:none;width:34px;padding-top:5px;position:relative}
+.st:not(:last-child) .st__n::after{content:"";position:absolute;left:7px;top:26px;bottom:-26px;width:1px;background:var(--line)}
+.st h3{font-size:15px;font-weight:600;letter-spacing:-.015em}
+.st p{font-size:13.4px;color:var(--ink-soft);line-height:1.55;margin-top:5px;max-width:74ch}
+
+/* ---------- faq ---------- */
+.qa{border-bottom:1px solid var(--line-2)}
+.qa:last-of-type{border-bottom:0}
+.qa summary{list-style:none;cursor:pointer;padding:14px 0;font-size:14.8px;font-weight:600;
+  letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center;gap:20px;transition:color .3s}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:hover{color:var(--rc)}
+.qa__m{position:relative;width:12px;height:12px;flex:none}
+.qa__m::before,.qa__m::after{content:"";position:absolute;background:var(--ink-faint);transition:transform .3s,background .3s}
+.qa__m::before{left:0;top:5.5px;width:12px;height:1.5px}
+.qa__m::after{left:5.5px;top:0;width:1.5px;height:12px}
+.qa[open] .qa__m::after{transform:scaleY(0)}
+.qa[open] .qa__m::before{background:var(--rc)}
+.qa p{font-size:13.6px;color:var(--ink-soft);line-height:1.6;max-width:72ch;padding:0 0 16px}
+
+/* ---------- footer ---------- */
+.also{display:flex;flex-wrap:wrap;gap:10px}
+.also a{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);border:1px solid var(--line);
+  border-radius:100px;padding:10px 17px;transition:border-color .3s,color .3s}
+.also a:hover{color:var(--ink);border-color:var(--rc)}
+.end{position:relative;overflow:hidden;padding:clamp(48px,8vh,96px) 0}
+.end::before{content:"";position:absolute;inset:auto -10% -60%;height:190%;
+  background:radial-gradient(40% 60% at 76% 100%,var(--rc),transparent 68%);opacity:.14;pointer-events:none}
+.end__in{position:relative}
+.end p{font-size:16px;color:var(--ink-soft);line-height:1.68;max-width:58ch;margin-top:16px}
+footer{border-top:1px solid var(--line);padding:24px 0}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;
+  font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--rc);outline-offset:3px;border-radius:4px}
+
+:root{
+  --bg:#FAF8F3; --bg-2:#FFFFFF; --bg-3:#F1EEE6;
+  --ink:#15150F; --ink-soft:#57544B; --ink-faint:#86816F;
+  --line:rgba(21,21,15,.15); --line-2:rgba(21,21,15,.07);
+  --accent:#2C5BD6; --live:#0B6E39; --on-ac:#FFFFFF;
+  --shadow:0 14px 34px rgba(21,21,15,.10); --shadow-lg:0 18px 44px rgba(21,21,15,.14);
+  --rc:var(--rc-l);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0A0B; --bg-2:#101012; --bg-3:#16161A;
+    --ink:#F1EFE9; --ink-soft:#A8A59C; --ink-faint:#6B6961;
+    --line:rgba(241,239,233,.11); --line-2:rgba(241,239,233,.06);
+    --accent:#4D7CFF; --live:#4ADE80; --on-ac:#0A0A0B;
+    --shadow:0 14px 34px rgba(0,0,0,.4); --shadow-lg:0 18px 44px rgba(0,0,0,.45);
+    --rc:var(--rc-d);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0A0B; --bg-2:#101012; --bg-3:#16161A;
+  --ink:#F1EFE9; --ink-soft:#A8A59C; --ink-faint:#6B6961;
+  --line:rgba(241,239,233,.11); --line-2:rgba(241,239,233,.06);
+  --accent:#4D7CFF; --live:#4ADE80; --on-ac:#0A0A0B;
+  --shadow:0 14px 34px rgba(0,0,0,.4); --shadow-lg:0 18px 44px rgba(0,0,0,.45);
+  --rc:var(--rc-d);
+}
+/* Per-card accents follow the same three-state rule. */
+.of,.as{--oc:var(--ocl,var(--rc))}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .of,
+  :root:not([data-theme="light"]) .as{--oc:var(--ocd,var(--rc))} }
+:root[data-theme="dark"] .of,:root[data-theme="dark"] .as{--oc:var(--ocd,var(--rc))}
+/* The hero wash and the section glows are tuned for a dark ground; on white
+   they turn to mud, so they are dialled back rather than removed. */
+:root:not([data-theme="dark"]) .hero::before,
+:root:not([data-theme="dark"]) .end::before{opacity:.10}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .hero::before{opacity:.18}
+  :root:not([data-theme="light"]) .end::before{opacity:.14}
+}
+:root[data-theme="dark"] .hero::before{opacity:.18}
+:root[data-theme="dark"] .end::before{opacity:.14}
+.thm{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;flex:none}
+.thm button{font:inherit;background:none;border:0;color:var(--ink-faint);padding:5px 10px;
+  cursor:pointer;display:grid;place-items:center;transition:background .25s,color .25s}
+.thm button svg{width:15px;height:15px;display:block}
+.thm button.on{background:var(--ink);color:var(--bg)}
+.thm button:not(.on):hover{color:var(--ink)}
+/* .anim is added by script, so nothing is hidden unless motion is actually on */
+@media (prefers-reduced-motion:no-preference){
+  .anim [data-rise]{opacity:0;transform:translateY(18px);
+    transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);
+    transition-delay:var(--d,0ms)}
+  .anim [data-rise].in{opacity:1;transform:none}
+
+  /* the hero art breathes; slow enough not to pull the eye off the copy */
+  .anim .art{animation:float 9s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  /* the live dot, and the accent bar on a hovered card */
+  .eyebrow .d{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--live) 55%,transparent)}
+    70%{box-shadow:0 0 0 7px transparent}}
+
+  .of__bar{transform-origin:left;animation:none}
+  .of:hover .of__bar,.of--pick .of__bar{animation:sweep .7s cubic-bezier(.22,1,.36,1)}
+  @keyframes sweep{from{transform:scaleX(.2)}to{transform:scaleX(1)}}
+
+  /* icon tiles lift with their card */
+  .pr,.tm,.as,.app{transition:border-color .3s,transform .3s,box-shadow .3s}
+  .pr:hover,.tm:hover,.as:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .pr__ic,.tm__ic,.as__mock{transition:transform .35s,border-color .35s,color .35s}
+  .pr:hover .pr__ic,.tm:hover .tm__ic{transform:scale(1.08) rotate(-4deg);border-color:var(--rc)}
+  .as:hover .as__mock{transform:scale(1.04)}
+
+  /* the process spine draws itself as the steps arrive */
+  .anim .st__n::after{transform:scaleY(0);transform-origin:top;transition:transform .6s ease .15s}
+  .anim .st.in .st__n::after{transform:scaleY(1)}
+
+  .jump a{transition:color .25s,border-color .25s,background .25s}
+  .stats > div{transition:background .3s}
+  .stats > div:hover{background:var(--bg-2)}
+}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;flex:none}
+.lang button{font:inherit;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;
+  background:none;border:0;color:var(--ink-faint);padding:6px 12px;cursor:pointer;
+  transition:background .25s,color .25s;line-height:1.6}
+.lang button.on{background:var(--ink);color:var(--bg)}
+.lang button:not(.on):hover{color:var(--ink)}
+/* Arabic needs a face that actually has the glyphs; the Latin stack does not. */
+[dir=rtl] body,[lang=ar]{font-family:"SF Arabic","Geeza Pro","Segoe UI",Tahoma,"Noto Naskh Arabic",var(--sans)}
+[dir=rtl] .mono,[dir=rtl] code{direction:ltr;unicode-bidi:embed}
+/* Arabic typography. Three faults, all from treating it as Latin:
+   1. negative tracking crushes a connected script and pushed the h1 wider than
+      its box, where the hero's overflow:hidden simply cut the first letter off;
+   2. the mono face has no Arabic glyphs, so every eyebrow, breadcrumb, stat
+      label and nav item fell back to a default and kept the uppercase and the
+      letter-spacing, which is what made them look broken;
+   3. Arabic needs more leading and a touch more size than Latin at the same
+      nominal value, because the glyphs sit smaller in the em and the
+      diacritics need somewhere to go. */
+[dir=rtl] body{font-family:var(--ar);font-size:16.5px;line-height:1.75}
+[dir=rtl] :is(h1,h2,h3,h4,.of__n,.as__h h3,.pr h3,.tm h3,.st h3,.qa summary,.end h2){
+  font-family:var(--ar);letter-spacing:0}
+[dir=rtl] h1{font-size:clamp(26px,6vw,58px);line-height:1.28;text-wrap:balance;padding-block:.08em}
+[dir=rtl] .h-sm,[dir=rtl] h2{line-height:1.3}
+[dir=rtl] :is(.crumb,.eyebrow,.k,.sub-k,.of__tag,.of__p s,.of__yr b,.stats .n,.stats .k,.hero__bd span,
+  .fee .n,.fee .k,.as__need,.jump a,.fit__c h3,.cmp thead th,.hero__cur,.also a,.btn,
+  .of__cta,.nav__back,.foot__row,.lang button,.of__flag,.tm h3,.qa summary){
+  font-family:var(--ar);letter-spacing:normal;text-transform:none}
+/* Digits and prices stay in the mono face — they are Latin either way and the
+   tabular figures are the reason the columns line up. */
+[dir=rtl] :is(.of__p,.as__d,.st__n,.of__fy b){font-family:var(--mono);letter-spacing:0}
+[dir=rtl] :is(.of li,.req li,.excl li,.fit__c li,.as__s,.tm p,.st p,.qa p,.lead,.hero__desc,
+  .pr p,.fee .s,.of__note,.cmp,.stats .k){line-height:1.75}
+[dir=rtl] .jump a{font-size:13px;padding-inline:12px}
+[dir=rtl] .stats .k{font-size:13px}
+[dir=rtl] .of__tag,[dir=rtl] .as__need,[dir=rtl] .of__flag{font-size:11px}
+
+[dir=rtl] .crumb,[dir=rtl] .cmp th,[dir=rtl] .cmp td{text-align:right}
+[dir=rtl] .of li,[dir=rtl] .req li{padding-left:0;padding-right:19px}
+[dir=rtl] .of li::before{left:auto;right:0}
+[dir=rtl] .req li{padding-right:26px}
+[dir=rtl] .req li::before{left:auto;right:0}
+[dir=rtl] .req li::after{left:auto;right:5px;transform:rotate(-42deg) scaleX(-1)}
+[dir=rtl] .st:not(:last-child) .st__n::after{left:auto;right:7px}
+[dir=rtl] .th__bd,[dir=rtl] .k__bd{margin-right:0;margin-left:7px}
+[dir=rtl] .of__p s{margin-left:0;margin-right:9px}
+[dir=rtl] .cmp td{text-align:center}
+[dir=rtl] .hero__desc,[dir=rtl] .lead,[dir=rtl] .st p,[dir=rtl] .qa p{max-width:60ch}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="wrap nav__row">
+  <a class="brand" href="/"><span class="dot"></span>Qassem</a>
+  <span class="nav__r"><div class="thm" role="group" aria-label="Theme">
+  <button type="button" data-theme-btn="light" aria-pressed="false" title="Light">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+  </button>
+  <button type="button" data-theme-btn="dark" aria-pressed="false" title="Dark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
+  </button>
+</div><div class="lang" role="group" aria-label="Language">
+  <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+  <button type="button" data-lang-btn="ar" aria-pressed="false" lang="ar">ع</button>
+</div><a class="nav__back" href="/#skills">← All services</a></span>
+</div></header>
+
+<nav class="jump" aria-label="On this page"><div class="wrap jump__row"><a href="#pricing">Pricing</a><a href="#terms">Terms</a><a href="#prereq">Before we start</a><a href="#showcase">What you get</a><a href="#handover">What you send</a><a href="#process">How it runs</a><a href="#scope">Scope</a><a href="#faq">Questions</a></div></nav>
+
+<main>
+  <section class="hero"><div class="wrap hero__in">
+    <div>
+      <p class="crumb"><a href="/">Home</a> / <a href="/#skills">Services</a> / <span>Digital Transformation</span></p>
+      <p class="eyebrow">Transformation · Process · Systems · AI<span class="d"></span></p>
+      <h1>Digital Transformation</h1>
+      <p class="hero__sub">From paper and spreadsheets to systems that run</p>
+      
+      <p class="hero__desc">Most transformation programmes produce a slide deck and a licence bill. This one produces working software: the process mapped as it really runs, the highest-cost step automated first, and each stage paying for the next.</p>
+      <div class="hero__cta">
+        <a class="btn" href="mailto:hello@qassem.site">Request this service ↗</a>
+        <a class="btn btn--ghost" href="#pricing">See the pricing</a>
+        <span class="hero__cur">Prices in USD. EGP and SAR on request.</span>
+      </div>
+    </div>
+    <svg class="art" viewBox="0 0 400 440" fill="none" aria-hidden="true">
+    <g opacity=".22" stroke="var(--line)"><path d="M0 90h400M0 190h400M0 290h400M0 390h400M60 0v440M160 0v440M260 0v440M360 0v440"/></g>
+    <ellipse cx="200" cy="180" rx="185" ry="150" fill="var(--rc)" opacity=".10"/>
+    
+    <g opacity=".55">
+      <rect x="40" y="140" width="120" height="160" rx="8" fill="var(--bg-2)" stroke="var(--line)" stroke-dasharray="5 5"/>
+      <g fill="var(--ink)" opacity=".18">
+        <rect x="58" y="164" width="70" height="7" rx="3.5"/><rect x="58" y="182" width="84" height="6" rx="3"/>
+        <rect x="58" y="198" width="60" height="6" rx="3"/><rect x="58" y="222" width="84" height="6" rx="3"/>
+        <rect x="58" y="238" width="50" height="6" rx="3"/><rect x="58" y="262" width="76" height="6" rx="3"/>
+      </g>
+    </g>
+    <path d="M182 220h44m0 0-13-13m13 13-13 13" stroke="var(--rc)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="248" y="122" width="122" height="196" rx="16" fill="var(--bg-2)" stroke="var(--rc)" stroke-width="1.5"/>
+    <rect x="268" y="146" width="82" height="10" rx="5" fill="var(--rc)" opacity=".7"/>
+    <rect x="268" y="170" width="82" height="46" rx="9" fill="var(--rc)" opacity=".26"/>
+    <rect x="268" y="228" width="60" height="7" rx="3.5" fill="var(--ink)" opacity=".18"/>
+    <rect x="268" y="244" width="82" height="6" rx="3" fill="var(--ink)" opacity=".10"/>
+    <rect x="268" y="278" width="82" height="22" rx="11" fill="var(--rc)"/>
+    <g transform="translate(310 356)"><circle r="30" fill="var(--bg-2)" stroke="var(--rc)" stroke-width="1.5"/>
+      <path d="m-10 1 7 7 13-14" stroke="var(--rc)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </svg>
+  </div></section>
+
+  <div class="stats"><div><p class="n">Working software</p><p class="k">every stage ends in something in use</p></div><div><p class="n">Staged</p><p class="k">stop after any phase and keep what is running</p></div><div><p class="n">EG + KSA</p><p class="k">built for how business is actually done here</p></div><div><p class="n">Vendor-neutral</p><p class="k">no licence commission, no preferred platform</p></div></div>
+
+  <section class="blk" id="pricing"><div class="wrap">
+    <div class="hd">
+      <p class="k">Pricing</p>
+      <h2>What a programme costs.</h2>
+      <p class="lead">The assessment is fixed and yours to keep. Every stage after it is priced on its own, so you can stop whenever the remaining stages stop being worth it.</p>
+    </div>
+    <div class="offers">
+      <div class="of" style="--ocd:#F5A524;--ocl:#9C6206">
+        <span class="of__bar" aria-hidden="true"></span>
+        
+        <div class="of__top"><svg class="of__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.1"/><path d="m19.4 19.4-4.2-4.2"/><path d="M19 3.2v3.4M17.3 4.9h3.4"/></svg><span class="of__tag">ASSESSMENT</span></div>
+        <h3 class="of__n">Where you actually are</h3>
+        <p class="of__p">On request<s>fixed</s></p>
+        
+        
+        <ul><li>Every process that touches a customer or an order, mapped as it runs</li><li>Where the time and the money go, counted rather than guessed</li><li>What can be automated now, what needs a system, what should be left alone</li><li>A costed roadmap in stages, each one paying back before the next</li><li>Yours to keep, and to take to anyone</li></ul>
+        <p class="of__note">Stands alone and is deliberately portable. A roadmap you can only execute with me is a sales document, not a roadmap.</p>
+        <a class="of__cta" href="mailto:hello@qassem.site?subject=Where%20you%20actually%20are">Request this ↗</a>
+      </div>
+      <div class="of" style="--ocd:#2AB0A0;--ocl:#0E6E63">
+        <span class="of__bar" aria-hidden="true"></span>
+        
+        <div class="of__top"><svg class="of__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M12 7.5v7m0 0 2.6-2.6M12 14.5l-2.6-2.6"/></svg><span class="of__tag">QUICK WINS</span></div>
+        <h3 class="of__n">The first stage, built</h3>
+        <p class="of__p">On request<s>one-off</s></p>
+        
+        
+        <ul><li>The costliest manual step, automated and in use</li><li>Measured against the number from the assessment</li><li>Your team trained on it, not dependent on me</li><li>A written before-and-after somebody can take to a board</li></ul>
+        <p class="of__note">Chosen for payback, not for how impressive it looks. Usually order handling, approvals or reporting.</p>
+        <a class="of__cta" href="mailto:hello@qassem.site?subject=The%20first%20stage%2C%20built">Request this ↗</a>
+      </div>
+      <div class="of of--pick" style="--ocd:#A78BFA;--ocl:#6D3FD4">
+        <span class="of__bar" aria-hidden="true"></span>
+        <span class="of__flag">Most chosen</span>
+        <div class="of__top"><svg class="of__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="11" height="16" rx="2.6"/><path d="M17 6.2h1.9a2.6 2.6 0 0 1 2.6 2.6v8.6a2.6 2.6 0 0 1-2.6 2.6H13"/></svg><span class="of__tag">PROGRAMME</span></div>
+        <h3 class="of__n">The full programme</h3>
+        <p class="of__p">On request<s>staged</s></p>
+        
+        
+        <ul><li>Every stage in the roadmap, in payback order</li><li>Systems, automation and AI where each genuinely fits</li><li>One architecture rather than five disconnected tools</li><li>Change management: the part where people actually adopt it</li><li>Quarterly review against the numbers we started from</li></ul>
+        <p class="of__note">Invoiced per stage. Stop whenever the remaining stages stop being worth it — everything delivered keeps working.</p>
+        <a class="of__cta" href="mailto:hello@qassem.site?subject=The%20full%20programme">Request this ↗</a>
+      </div>
+    </div>
+    <p class="sub-k">Add-ons — buy with any package or on their own</p>
+    <div class="offers">
+      <div class="of of--addon" style="--ocd:#8A96B0;--ocl:#4E5870">
+        <span class="of__bar" aria-hidden="true"></span>
+        
+        <div class="of__top"><svg class="of__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 5 5.6v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.6l-7-2.9Z"/><path d="m9.1 11.9 2.1 2.1 3.8-4"/></svg><span class="of__tag">ADVISORY</span></div>
+        <h3 class="of__n">Fractional CTO</h3>
+        <p class="of__p">On request<s>per month</s></p>
+        
+        
+        <ul><li>A technical decision-maker on call, without the salary</li><li>Vendor and proposal review before you sign anything</li><li>Architecture decisions, hiring input, roadmap ownership</li><li>Present to your board or your investors when needed</li></ul>
+        <p class="of__note">For companies with budget and no senior technical person to spend it well.</p>
+        <a class="of__cta" href="mailto:hello@qassem.site?subject=Fractional%20CTO">Request this ↗</a>
+      </div>
+    </div>
+  </div></section>
+
+  
+
+  
+
+  <section class="blk" id="prereq"><div class="wrap">
+    <div class="hd">
+      <p class="k">Before we start</p>
+      <h2>What your business needs in place.</h2>
+      <p class="lead">Transformation fails for organisational reasons, almost never technical ones. These are the four that decide it.</p>
+    </div>
+    <div class="prs">
+      <div class="pr">
+        <span class="pr__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.6" width="18.8" height="14.8" rx="2.6"/><circle cx="8.5" cy="11" r="2.2"/><path d="M4.9 16.4c.7-1.7 2-2.5 3.6-2.5s2.9.8 3.6 2.5M15 9.8h4.2M15 13.4h3"/></svg></span>
+        <div>
+          <h3>A sponsor who can overrule</h3>
+          <p>Every transformation reaches a point where a department must give something up. Without someone senior enough to settle that, the programme stalls at exactly that step — and no technology fixes it.</p>
+        </div>
+      </div>
+      <div class="pr">
+        <span class="pr__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 6.9V12l3.4 2"/></svg></span>
+        <div>
+          <h3>Access to the people doing the work</h3>
+          <p>A few hours each from the people who actually run the process. Programmes designed from the top get built correctly and used reluctantly.</p>
+        </div>
+      </div>
+      <div class="pr">
+        <span class="pr__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.9H6.9a2.2 2.2 0 0 0-2.2 2.2v13.8a2.2 2.2 0 0 0 2.2 2.2h10.2a2.2 2.2 0 0 0 2.2-2.2V8.7l-5.9-5.8Z"/><path d="M13.2 3v5.6h5.8M8.4 13.4h7.2M8.4 16.8h4.8"/></svg></span>
+        <div>
+          <h3>Honest numbers, or permission to measure them</h3>
+          <p>How long a step takes, how often it is redone, what an error costs. If nobody knows, measuring is the first stage — but pretending the numbers exist is how a roadmap becomes fiction.</p>
+        </div>
+      </div>
+      <div class="pr">
+        <span class="pr__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 5 5.6v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.6l-7-2.9Z"/><path d="M12 8.4v3.9m0 2.9v.1"/></svg></span>
+        <div>
+          <h3>An appetite for the answer being &#39;do less&#39;</h3>
+          <p>Sometimes the finding is that a process should be deleted rather than digitised, or that a tool you already pay for does the job. If that answer is unwelcome, the assessment will not be worth its price.</p>
+        </div>
+      </div>
+    </div>
+    
+  </div></section>
+
+  <section class="blk blk--tight" id="terms"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">Terms</p>
+      <h3 class="h-sm">How the money and the risk are split.</h3>
+      <p class="lead lead--sm">No retainer to start a conversation, and no invoice for work that never got delivered.</p>
+    </div>
+    <div class="tms">
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span>
+        <div><h3>Half to start, half on delivery</h3><p>Balance falls due when the work is done and handed over. Not delivered, not charged.</p></div>
+      </div>
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 5 5.6v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.6l-7-2.9Z"/><path d="M12 8.4v3.9m0 2.9v.1"/></svg></span>
+        <div><h3>Fixed price, not an estimate</h3><p>The number holds unless you change the scope. If I misjudged it, that is mine.</p></div>
+      </div>
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 6.9V12l3.4 2"/></svg></span>
+        <div><h3>The clock starts at handover</h3><p>From the day I have everything on the list, not from the day you pay.</p></div>
+      </div>
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.9H6.9a2.2 2.2 0 0 0-2.2 2.2v13.8a2.2 2.2 0 0 0 2.2 2.2h10.2a2.2 2.2 0 0 0 2.2-2.2V8.7l-5.9-5.8Z"/><path d="M13.2 3v5.6h5.8M8.4 13.4h7.2M8.4 16.8h4.8"/></svg></span>
+        <div><h3>One round of revisions included</h3><p>Then hourly, quoted before anything starts. No surprise invoices.</p></div>
+      </div>
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.2" cy="12" r="3.9"/><path d="M12.1 12H21m-3.4 0v3.1m-2.6-3.1v2.1"/></svg></span>
+        <div><h3>You own everything at the end</h3><p>Code, accounts, assets and credentials. Nothing is held hostage.</p></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="blk blk--tight" id="showcase"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">What you get</p>
+      <h3 class="h-sm">What each stage puts in your hands.</h3>
+      <p class="lead lead--sm">Every one of them is yours to keep, including if you continue with someone else.</p>
+    </div>
+    <div class="asx">
+      <div class="as">
+        <div class="as__mock" data-shape="report"><svg viewBox="0 0 120 150" fill="none" aria-hidden="true">
+    <rect x="1" y="1" width="118" height="148" rx="9" fill="var(--oc)" opacity=".07"/>
+    <rect x="1" y="1" width="118" height="148" rx="9" stroke="var(--oc)" stroke-opacity=".4"/>
+    <rect x="14" y="16" width="60" height="9" rx="4.5" fill="var(--oc)" opacity=".6"/>
+    <rect x="14" y="34" width="92" height="6" rx="3" fill="var(--oc)" opacity=".18"/>
+    <rect x="14" y="46" width="76" height="6" rx="3" fill="var(--oc)" opacity=".18"/>
+    <g><rect x="14" y="70" width="18" height="46" rx="4" fill="var(--oc)" opacity=".4"/>
+       <rect x="38" y="86" width="18" height="30" rx="4" fill="var(--oc)" opacity=".28"/>
+       <rect x="62" y="60" width="18" height="56" rx="4" fill="var(--oc)"/>
+       <rect x="86" y="78" width="18" height="38" rx="4" fill="var(--oc)" opacity=".28"/></g>
+    <rect x="14" y="128" width="92" height="6" rx="3" fill="var(--oc)" opacity=".18"/>
+  </svg></div>
+        <div class="as__b">
+          <div class="as__h"><h3>The numbers you did not have</h3></div>
+          <p class="as__s">What each process actually costs today, counted rather than estimated.</p>
+        </div>
+      </div>
+      <div class="as">
+        <div class="as__mock" data-shape="roadmap"><svg viewBox="0 0 170 100" fill="none" aria-hidden="true">
+    <path d="M10 78h150" stroke="var(--oc)" stroke-opacity=".3"/>
+    <g><circle cx="26" cy="78" r="8" fill="var(--oc)"/><circle cx="72" cy="78" r="8" fill="var(--oc)" opacity=".5"/>
+       <circle cx="118" cy="78" r="8" fill="var(--oc)" opacity=".3"/><circle cx="156" cy="78" r="8" fill="var(--oc)" opacity=".2"/></g>
+    <g fill="var(--oc)" opacity=".3"><rect x="14" y="46" width="24" height="20" rx="4"/>
+       <rect x="60" y="34" width="24" height="32" rx="4"/><rect x="106" y="22" width="24" height="44" rx="4"/></g>
+  </svg></div>
+        <div class="as__b">
+          <div class="as__h"><h3>A costed roadmap in stages</h3></div>
+          <p class="as__s">Ordered by payback, each stage with a price and a way to tell whether it worked.</p>
+        </div>
+      </div>
+      <div class="as">
+        <div class="as__mock" data-shape="pipeline"><svg viewBox="0 0 170 90" fill="none" aria-hidden="true">
+    <g stroke="var(--oc)" stroke-width="2" stroke-dasharray="4 5" opacity=".55"><path d="M42 45h26M100 45h26"/></g>
+    <rect x="4" y="24" width="38" height="42" rx="9" fill="var(--oc)" opacity=".3" stroke="var(--oc)" stroke-opacity=".45"/>
+    <rect x="66" y="24" width="38" height="42" rx="9" fill="var(--oc)" opacity=".16" stroke="var(--oc)" stroke-opacity=".45"/>
+    <rect x="128" y="24" width="38" height="42" rx="9" fill="var(--oc)" opacity=".3" stroke="var(--oc)" stroke-opacity=".45"/>
+    <g fill="var(--oc)" opacity=".55"><rect x="13" y="41" width="20" height="5" rx="2.5"/><rect x="75" y="41" width="20" height="5" rx="2.5"/><rect x="137" y="41" width="20" height="5" rx="2.5"/></g>
+  </svg></div>
+        <div class="as__b">
+          <div class="as__h"><h3>The first stage, running</h3></div>
+          <p class="as__s">The costliest manual step, automated and in use, measured against the number we started from.</p>
+        </div>
+      </div>
+      <div class="as">
+        <div class="as__mock" data-shape="handover"><svg viewBox="0 0 150 110" fill="none" aria-hidden="true">
+    <rect x="6" y="18" width="70" height="84" rx="8" fill="var(--oc)" opacity=".12" stroke="var(--oc)" stroke-opacity=".4"/>
+    <g fill="var(--oc)" opacity=".4"><rect x="18" y="34" width="44" height="6" rx="3"/><rect x="18" y="48" width="34" height="5" rx="2.5"/>
+      <rect x="18" y="60" width="44" height="5" rx="2.5"/><rect x="18" y="72" width="26" height="5" rx="2.5"/></g>
+    <path d="M86 60h26m0 0-8-8m8 8-8 8" stroke="var(--oc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(128 60)"><circle r="17" fill="var(--oc)" opacity=".18" stroke="var(--oc)" stroke-opacity=".5"/>
+      <path d="m-6 1 4 4 8-9" stroke="var(--oc)" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </svg></div>
+        <div class="as__b">
+          <div class="as__h"><h3>Adoption, not just delivery</h3></div>
+          <p class="as__s">Training, documentation and the follow-up week where people actually change how they work.</p>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  
+
+  <section class="blk blk--tight" id="handover"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">What you send</p>
+      <h3 class="h-sm">The handover, in one list.</h3>
+      <p class="lead lead--sm">Send it in one go and the clock starts.</p>
+    </div>
+    <ul class="req"><li>What the business does, and where the money comes from</li><li>The processes that hurt most, in your own words</li><li>The systems and tools you pay for today, with what each is for</li><li>Roughly how many people are involved in each process</li><li>Any regulator or compliance rule that constrains change</li><li>What has already been tried, and why it did not stick</li></ul>
+  </div></section>
+
+  
+
+  <section class="blk blk--tight" id="process"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">How it runs</p>
+      <h3 class="h-sm">Six steps, and you see each one.</h3>
+    </div>
+    <ol class="steps">
+      <li class="st">
+        <span class="st__n">01</span>
+        <div><h3>Measure</h3><p>Map the processes as they run and count what they cost. No recommendation before there is a number.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">02</span>
+        <div><h3>Roadmap</h3><p>Stages ordered by payback, each with a cost, an outcome and a way to tell whether it worked.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">03</span>
+        <div><h3>First stage</h3><p>Build the highest-payback change and put it in use. Proof before commitment.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">04</span>
+        <div><h3>Adoption</h3><p>Training, documentation and the follow-up week where people actually change how they work.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">05</span>
+        <div><h3>Next stages</h3><p>Repeat in order. Each stage funded by the one before it wherever possible.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">06</span>
+        <div><h3>Review</h3><p>Quarterly, against the numbers we started from. Including the stages that should be dropped.</p></div>
+      </li>
+    </ol>
+  </div></section>
+
+  <section class="blk blk--tight" id="scope"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">Scope</p>
+      <h3 class="h-sm">What this is not, and who it is not for.</h3>
+    </div>
+    
+    <p class="lead lead--sm" style="margin-top:0">These are quoted separately, so the price above stays a price.</p>
+    <ul class="excl"><li>Software licences and subscriptions</li><li>Hardware, network and infrastructure procurement</li><li>HR restructuring and redundancy planning</li><li>Financial, legal or regulatory advice</li><li>Certification programmes</li><li>Marketing and brand work</li></ul>
+    <p class="sub-k">Right fit, wrong fit</p>
+    <p class="lead lead--sm" style="margin-top:0">Saves a call that would end in no.</p>
+    <div class="fit">
+      <div class="fit__c" data-yes="1"><h3>A good fit</h3><ul><li>The business runs on spreadsheets, WhatsApp and memory</li><li>You have bought software before and it went unused</li><li>You want proof from a first stage before a large commitment</li><li>You need someone vendor-neutral, with no licence commission</li><li>Someone senior is genuinely willing to own the changes</li></ul></div>
+      <div class="fit__c"><h3>Not a fit</h3><ul><li>You need a deck for a board and not the work behind it</li><li>The decision to buy a specific platform is already made</li><li>Nobody senior can overrule a department</li><li>You want it finished in a quarter</li></ul></div>
+    </div>
+  </div></section>
+
+  <section class="blk blk--tight" id="support"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">After launch</p>
+      <h3 class="h-sm">After the last stage.</h3>
+    </div>
+    <p class="lead lead--sm" style="margin-top:0">A programme is not finished when the last stage ships — that is when drift starts. Quarterly review against the original numbers, or the fractional CTO arrangement if you want the decisions owned continuously.</p>
+  </div></section>
+
+  <section class="blk blk--tight" id="faq"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">Questions</p>
+      <h3 class="h-sm">The ones people actually ask.</h3>
+    </div>
+    <details class="qa">
+        <summary>How is this different from a consultancy?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>A consultancy sells you the roadmap and then sells you the delivery, usually with a licence attached. Here the assessment is fixed-price and portable, I take no vendor commission, and every stage ends in working software rather than a status report.</p>
+      </details>
+    <details class="qa">
+        <summary>What if the assessment says we should do nothing?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>Then it says that, and it has saved you far more than it cost. It has happened: the finding was that two people and a better spreadsheet template beat the platform under consideration.</p>
+      </details>
+    <details class="qa">
+        <summary>How long does a programme take?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>The assessment is weeks. The first stage is usually a month or two. The full programme depends entirely on how many stages you choose to run, and you decide that one stage at a time rather than at the start.</p>
+      </details>
+    <details class="qa">
+        <summary>Do we have to use AI?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>No. AI is one option among several and it is the wrong one more often than the market admits. It goes in the roadmap only where it beats the alternative on cost or quality, and the assessment says which steps those are.</p>
+      </details>
+    <details class="qa">
+        <summary>Our last transformation failed. Why would this be different?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>Usually because it started with a platform decision rather than a measurement, or because nobody senior could make a department give something up. I ask about both before quoting, and if the second one is missing I will say the programme is not ready.</p>
+      </details>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <p class="k">Other services</p>
+    <div class="also">
+      <a href="/skill/app-store-publishing/">App Store Publishing →</a>
+      <a href="/skill/web-mobile-development/">Web &amp; Mobile Development →</a>
+      <a href="/skill/ecommerce-systems/">E-commerce Systems →</a>
+      <a href="/skill/automation-integrations/">Automation and Integrations →</a>
+      <a href="/skill/enterprise-systems/">Enterprise Systems →</a>
+      <a href="/skill/ai-product-development/">AI Product Development →</a>
+      <a href="/skill/ai-consulting/">AI Consulting and Strategy →</a>
+    </div>
+  </div></section>
+
+  <section class="end"><div class="wrap end__in">
+    <h2>Tell me what you have, and I will tell you what it takes.</h2>
+    <p>The app, the market and the deadline is enough to get a straight answer on scope, price and timing — usually the same day.</p>
+    <div class="hero__cta">
+      <a class="btn" href="mailto:hello@qassem.site">Request this service ↗</a>
+      <a class="btn btn--ghost" href="/#contact">Other ways to reach me</a>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap foot__row">
+  <span>© 2026 Qassem</span>
+  <span>/skill/digital-transformation</span>
+</div></footer>
+
+<script>window.__AR__={"text":{"All services":"كل الخدمات","← All services":"← كل الخدمات","Home":"الرئيسية","Services":"الخدمات","Pricing":"الأسعار","Compare":"مقارنة","Platform fees":"رسوم المتاجر","Before we start":"قبل ما نبدأ","What you send":"اللي بتبعته","Published work":"شغل منشور","How it runs":"إزاي بتمشي","Questions":"أسئلة","After launch":"بعد الإطلاق","Other services":"خدمات تانية","What it costs, with nothing left off the bill.":"التكلفة كاملة، من غير أي حاجة مخبّية.","Every package below is a fixed price for a finished job — live on the store, not \"submitted\". The big number is what it costs to be live in year one with the platform's own fees already added, because that is the number you are actually deciding between. Under it sits the part that repeats, and the two routes where nothing repeats at all.":"كل باقة تحت سعرها ثابت مقابل شغل مكتمل — التطبيق نازل على المتجر فعلًا، مش «اترفع للمراجعة». الرقم الكبير هو تكلفة إنك تبقى نازل في السنة الأولى ورسوم المتجر داخلة فيه أصلًا، لأن ده الرقم اللي بتقارن بيه فعلًا. وتحته الجزء اللي بيتكرر، والطريقين اللي مافيهمش حاجة بتتكرر خالص.","to be live, year one":"لتكون نازل، السنة الأولى","Add-ons — buy with any package or on their own":"إضافات — مع أي باقة أو لوحدها","The four routes, side by side.":"الأربع طرق جنب بعض.","What you get":"اللي بتاخده","What Google and Apple charge, separately from me.":"اللي جوجل وآبل بياخدوه، بعيد عن أتعابي.","What your business needs in place.":"اللي لازم يكون جاهز عندك.","The handover, in one list.":"التسليم، في قائمة واحدة.","Live on the stores now.":"نازلة على المتاجر دلوقتي.","Six steps, and you see each one.":"ست خطوات، وبتشوف كل واحدة فيهم.","Support, once it is live.":"الدعم بعد ما ينزل.","The ones people actually ask.":"الأسئلة اللي بتتسأل فعلًا.","Request this service ↗":"اطلب الخدمة دي ↗","See the pricing":"شوف الأسعار","See every service":"شوف كل الخدمات","Other ways to reach me":"طرق تانية للتواصل","Google Play":"جوجل بلاي","Apple App Store":"آبل آب ستور","Recommended":"الأنسب","Best value":"الأفضل قيمة","Terms":"الشروط","Scope":"النطاق","How the money and the risk are split.":"إزاي الفلوس والمخاطرة بتتقسم.","What this is not, and who it is not for.":"إيه اللي مش داخل، ومين مش المناسب ليها.","Right fit, wrong fit":"مناسب، ومش مناسب","A good fit":"مناسب","Not a fit":"مش مناسب","Assets":"الصور والنصوص","Assets and images":"الصور والنصوص المطلوبة","What the stores want, at the size they want it.":"اللي المتاجر بتطلبه، بالمقاس اللي بتطلبه بيه.","The text, and what it has to fit in":"النصوص، والحدود اللي لازم تدخل فيها","Text":"النص","required":"مطلوبة","optional":"اختياري","if the app runs on tablets":"لو التطبيق شغال على تابلت","Request this ↗":"اطلب دي ↗","Included":"داخل الباقة","Not included":"مش داخل الباقة","not needed on my account":"مش مطلوب على حسابي","Tell me what you have, and I will tell you what it takes.":"قول لي عندك إيه، وأقول لك محتاج إيه.","The app, the market and the deadline is enough to get a straight answer on scope, price and timing — usually the same day.":"التطبيق، والسوق، والموعد النهائي — دول كفاية عشان تاخد رد واضح على النطاق والسعر والتوقيت، غالبًا في نفس اليوم.","Prices in USD. EGP and SAR on request.":"الأسعار بالدولار. بالجنيه المصري أو الريال السعودي عند الطلب.","No retainer to start a conversation, and no invoice for work that never got delivered.":"مفيش مقدم عشان نتكلم، ومفيش فاتورة على شغل ماتسلّمش.","Half to start, half on delivery":"نص مقدم ونص عند التسليم","Balance falls due when the work is done and handed over. Not delivered, not charged.":"الباقي مستحق لما الشغل يخلص ويتسلّم. ماتسلّمش، ماتدفعش.","Fixed price, not an estimate":"سعر ثابت مش تقدير","The number holds unless you change the scope. If I misjudged it, that is mine.":"الرقم ثابت إلا لو غيّرت النطاق. ولو أنا اللي قدّرت غلط، دي عليّ.","The clock starts at handover":"العدّاد بيبدأ من التسليم","From the day I have everything on the list, not from the day you pay.":"من يوم ما يبقى عندي كل اللي في القائمة، مش من يوم الدفع.","One round of revisions included":"جولة تعديلات واحدة داخلة","Then hourly, quoted before anything starts. No surprise invoices.":"وبعدها بالساعة، متسعّرة قبل ما حاجة تبدأ. مفيش فواتير مفاجئة.","You own everything at the end":"كل حاجة بتبقى ملكك في الآخر","Code, accounts, assets and credentials. Nothing is held hostage.":"الكود والحسابات والصور وبيانات الدخول. مفيش حاجة محجوزة.","Saves a call that would end in no.":"بيوفّر مكالمة نهايتها «لأ».","These are quoted separately, so the price above stays a price.":"دي بتتسعّر لوحدها، عشان السعر فوق يفضل سعر.","Digital Transformation":"التحوّل الرقمي","From paper and spreadsheets to systems that run":"من الورق والشيتات لأنظمة شغالة","ADVISORY · PROGRAMME":"استشارات · برنامج","Transformation · Process · Systems · AI":"تحوّل · عمليات · أنظمة · ذكاء اصطناعي","Most transformation programmes produce a slide deck and a licence bill. This one produces working software: the process mapped as it really runs, the highest-cost step automated first, and each stage paying for the next.":"أغلب برامج التحوّل بتطلّع عرض شرائح وفاتورة تراخيص. ده بيطلّع برنامج شغال: العملية مرسومة زي ما هي ماشية، وأغلى خطوة متأتمتة الأول، وكل مرحلة بتدفع اللي بعدها.","Digital Transformation — process to working systems, staged":"التحوّل الرقمي — من العمليات لأنظمة شغالة، على مراحل","Digital transformation delivered as working software rather than slideware: process mapping, automation of the costliest step first, systems and AI staged so each phase pays for the next.":"تحوّل رقمي بيتسلّم كبرنامج شغال مش شرائح: رسم العمليات، وأتمتة أغلى خطوة الأول، وأنظمة وذكاء اصطناعي على مراحل كل واحدة بتدفع اللي بعدها.","Working software":"برنامج شغال","every stage ends in something in use":"كل مرحلة بتنتهي بحاجة بتتستخدم","Staged":"على مراحل","stop after any phase and keep what is running":"وقّف بعد أي مرحلة واحتفظ باللي شغال","EG + KSA":"مصر + السعودية","built for how business is actually done here":"مبني على طريقة الشغل هنا فعلًا","Vendor-neutral":"محايد","no licence commission, no preferred platform":"مفيش عمولة تراخيص ولا منصة مفضّلة","ASSESSMENT":"تقييم","Where you actually are":"أنت فين فعلًا","fixed":"ثابت","Every process that touches a customer or an order, mapped as it runs":"كل عملية بتلمس عميل أو طلب، مرسومة زي ما هي ماشية","Where the time and the money go, counted rather than guessed":"فين الوقت والفلوس بيروحوا، معدودين مش متخمّنين","What can be automated now, what needs a system, what should be left alone":"إيه اللي ينفع يتأتمت دلوقتي، وإيه محتاج نظام، وإيه المفروض يتساب","A costed roadmap in stages, each one paying back before the next":"خارطة طريق متكلّفة على مراحل، كل واحدة بتردّ تكلفتها قبل اللي بعدها","Yours to keep, and to take to anyone":"ملكك تحتفظ بيها، وتاخدها لأي حد","Stands alone and is deliberately portable. A roadmap you can only execute with me is a sales document, not a roadmap.":"قايم بذاته وقابل للنقل عن قصد. خارطة طريق ماينفعش تنفّذها غير معايا هي مستند بيع مش خارطة طريق.","QUICK WINS":"مكاسب سريعة","The first stage, built":"أول مرحلة، متبنية","one-off":"دفعة واحدة","The costliest manual step, automated and in use":"أغلى خطوة يدوية، متأتمتة وبتتستخدم","Measured against the number from the assessment":"متقاسة مقابل الرقم اللي طلع من التقييم","Your team trained on it, not dependent on me":"فريقك متدرب عليها، مش معتمد عليّ","A written before-and-after somebody can take to a board":"قبل وبعد مكتوبين حد يقدر ياخدهم لمجلس إدارة","Chosen for payback, not for how impressive it looks. Usually order handling, approvals or reporting.":"متختارة على أساس العائد، مش على أساس شكلها المبهر. غالبًا التعامل مع الطلبات أو الموافقات أو التقارير.","PROGRAMME":"برنامج","The full programme":"البرنامج كامل","staged":"على مراحل","Most chosen":"الأكثر طلبًا","Every stage in the roadmap, in payback order":"كل مرحلة في خارطة الطريق، بترتيب العائد","Systems, automation and AI where each genuinely fits":"أنظمة وأتمتة وذكاء اصطناعي حيث ما كل واحد فيهم يظبط فعلًا","One architecture rather than five disconnected tools":"معمارية واحدة بدل خمس أدوات مش موصولة","Change management: the part where people actually adopt it":"إدارة التغيير: الجزء اللي الناس بتتبنّى فيه الحاجة فعلًا","Quarterly review against the numbers we started from":"مراجعة ربع سنوية مقابل الأرقام اللي بدأنا منها","Invoiced per stage. Stop whenever the remaining stages stop being worth it — everything delivered keeps working.":"بتتفوتر لكل مرحلة. وقّف وقت ما المراحل الباقية تبطّل تستاهل — وكل اللي اتسلّم بيفضل شغال.","ADVISORY":"استشاري","Fractional CTO":"مدير تقني بدوام جزئي","per month":"شهريًا","A technical decision-maker on call, without the salary":"صاحب قرار تقني تحت الطلب، من غير المرتب","Vendor and proposal review before you sign anything":"مراجعة عروض الموردين والعقود قبل ما توقّع","Architecture decisions, hiring input, roadmap ownership":"قرارات المعمارية ومدخلات التوظيف وملكية خارطة الطريق","Present to your board or your investors when needed":"العرض على مجلس إدارتك أو مستثمرينك وقت الحاجة","For companies with budget and no senior technical person to spend it well.":"لشركات عندها ميزانية ومفيش عندها شخص تقني كبير يصرفها صح.","Transformation fails for organisational reasons, almost never technical ones. These are the four that decide it.":"التحوّل بيفشل لأسباب تنظيمية، ونادرًا جدًا لأسباب تقنية. دول الأربعة اللي بيحسموه.","A sponsor who can overrule":"راعٍ يقدر يلغي قرار","Every transformation reaches a point where a department must give something up. Without someone senior enough to settle that, the programme stalls at exactly that step — and no technology fixes it.":"كل تحوّل بيوصل لنقطة لازم فيها إدارة تتنازل عن حاجة. من غير حد كبير كفاية يحسم ده، البرنامج بيقف عند الخطوة دي بالظبط — ومفيش تكنولوجيا بتصلّحها.","Access to the people doing the work":"وصول للناس اللي بتعمل الشغل","A few hours each from the people who actually run the process. Programmes designed from the top get built correctly and used reluctantly.":"كام ساعة من كل واحد من اللي بيشغّلوا العملية فعلًا. البرامج المصممة من فوق بتتبني صح وبتتستخدم على مضض.","Honest numbers, or permission to measure them":"أرقام أمينة، أو إذن بقياسها","How long a step takes, how often it is redone, what an error costs. If nobody knows, measuring is the first stage — but pretending the numbers exist is how a roadmap becomes fiction.":"الخطوة بتاخد قد إيه، وبتتعاد كام مرة، والغلطة بتكلف كام. لو محدش عارف، القياس يبقى أول مرحلة — بس التظاهر إن الأرقام موجودة هو اللي بيحوّل خارطة الطريق لخيال.","An appetite for the answer being 'do less'":"استعداد إن الإجابة تبقى «اعملوا أقل»","Sometimes the finding is that a process should be deleted rather than digitised, or that a tool you already pay for does the job. If that answer is unwelcome, the assessment will not be worth its price.":"أحيانًا النتيجة إن العملية المفروض تتلغي مش تترقمن، أو إن أداة بتدفع فيها أصلًا بتعمل الشغل. لو الإجابة دي مش مرحّب بيها، التقييم مش هيسوى تمنه.","Send it in one go and the clock starts.":"ابعته مرة واحدة والعدّاد يبدأ.","What the business does, and where the money comes from":"الشركة بتعمل إيه، ومن فين الفلوس بتيجي","The processes that hurt most, in your own words":"العمليات اللي بتوجع أكتر، بكلامك أنت","The systems and tools you pay for today, with what each is for":"الأنظمة والأدوات اللي بتدفع فيها النهارده، وكل واحدة لإيه","Roughly how many people are involved in each process":"تقريبًا كام واحد داخل في كل عملية","Any regulator or compliance rule that constrains change":"أي جهة رقابية أو قاعدة امتثال بتقيّد التغيير","What has already been tried, and why it did not stick":"إيه اللي اتجرّب قبل كده، وليه ماكملش","Measure":"القياس","Map the processes as they run and count what they cost. No recommendation before there is a number.":"رسم العمليات زي ما هي ماشية وعدّ تكلفتها. مفيش توصية قبل ما يبقى فيه رقم.","Roadmap":"خارطة الطريق","Stages ordered by payback, each with a cost, an outcome and a way to tell whether it worked.":"مراحل مرتّبة بالعائد، كل واحدة بتكلفة ونتيجة وطريقة تعرف بيها إذا نجحت.","First stage":"أول مرحلة","Build the highest-payback change and put it in use. Proof before commitment.":"بناء أعلى تغيير عائدًا وتشغيله. الدليل قبل الالتزام.","Adoption":"التبنّي","Training, documentation and the follow-up week where people actually change how they work.":"تدريب وتوثيق وأسبوع المتابعة اللي الناس بتغيّر فيه طريقة شغلها فعلًا.","Next stages":"المراحل الجاية","Repeat in order. Each stage funded by the one before it wherever possible.":"نكرّر بالترتيب. وكل مرحلة بتتموّل من اللي قبلها حيث ما ينفع.","Review":"المراجعة","Quarterly, against the numbers we started from. Including the stages that should be dropped.":"ربع سنوية، مقابل الأرقام اللي بدأنا منها. بما فيها المراحل اللي المفروض تتشطب.","A programme is not finished when the last stage ships — that is when drift starts. Quarterly review against the original numbers, or the fractional CTO arrangement if you want the decisions owned continuously.":"البرنامج مش بيخلص لما آخر مرحلة تنزل — دي اللحظة اللي الانحراف بيبدأ فيها. مراجعة ربع سنوية مقابل الأرقام الأصلية، أو ترتيب المدير التقني بدوام جزئي لو عايز القرارات تتملك باستمرار.","Software licences and subscriptions":"تراخيص واشتراكات البرمجيات","Hardware, network and infrastructure procurement":"شراء الأجهزة والشبكات والبنية التحتية","HR restructuring and redundancy planning":"إعادة هيكلة الموارد البشرية وخطط الاستغناء","Financial, legal or regulatory advice":"الاستشارات المالية أو القانونية أو التنظيمية","Certification programmes":"برامج الاعتماد والشهادات","Marketing and brand work":"التسويق وشغل العلامة","The business runs on spreadsheets, WhatsApp and memory":"الشركة ماشية على شيتات وواتساب وذاكرة","You have bought software before and it went unused":"اشتريت برنامج قبل كده وماتستخدمش","You want proof from a first stage before a large commitment":"عايز دليل من مرحلة أولى قبل التزام كبير","You need someone vendor-neutral, with no licence commission":"محتاج حد محايد، من غير عمولة تراخيص","Someone senior is genuinely willing to own the changes":"فيه حد كبير مستعد فعلًا يملك التغييرات","You need a deck for a board and not the work behind it":"محتاج عرض لمجلس إدارة من غير الشغل اللي وراه","The decision to buy a specific platform is already made":"قرار شراء منصة معيّنة اتاخد خلاص","Nobody senior can overrule a department":"مفيش حد كبير يقدر يلغي قرار إدارة","You want it finished in a quarter":"عايزه يخلص في ربع سنة","How is this different from a consultancy?":"إيه الفرق بين ده وبيت خبرة؟","A consultancy sells you the roadmap and then sells you the delivery, usually with a licence attached. Here the assessment is fixed-price and portable, I take no vendor commission, and every stage ends in working software rather than a status report.":"بيت الخبرة بيبيع لك خارطة الطريق وبعدين بيبيع لك التنفيذ، وغالبًا وراه ترخيص. هنا التقييم سعره ثابت وقابل للنقل، وأنا ماباخدش عمولة من مورّد، وكل مرحلة بتنتهي ببرنامج شغال مش بتقرير حالة.","What if the assessment says we should do nothing?":"لو التقييم قال إننا مانعملش حاجة؟","Then it says that, and it has saved you far more than it cost. It has happened: the finding was that two people and a better spreadsheet template beat the platform under consideration.":"يبقى قال كده، ويكون وفّر عليك أضعاف تكلفته. وده حصل: النتيجة كانت إن اتنين موظفين وقالب شيت أحسن بيغلبوا المنصة اللي كانت تحت الدراسة.","How long does a programme take?":"البرنامج بياخد قد إيه؟","The assessment is weeks. The first stage is usually a month or two. The full programme depends entirely on how many stages you choose to run, and you decide that one stage at a time rather than at the start.":"التقييم أسابيع. وأول مرحلة غالبًا شهر أو اتنين. والبرنامج كامل معتمد بالكامل على كام مرحلة تختار تشغّلها، وأنت بتقرر ده مرحلة بمرحلة مش من الأول.","Do we have to use AI?":"لازم نستخدم ذكاء اصطناعي؟","No. AI is one option among several and it is the wrong one more often than the market admits. It goes in the roadmap only where it beats the alternative on cost or quality, and the assessment says which steps those are.":"لأ. الذكاء الاصطناعي خيار من خيارات، وهو الخيار الغلط أكتر مما السوق بيعترف. بيدخل خارطة الطريق بس حيث ما يغلب البديل في التكلفة أو الجودة، والتقييم بيقول أنهي خطوات دي.","Our last transformation failed. Why would this be different?":"آخر تحوّل عندنا فشل. ليه ده هيبقى مختلف؟","Usually because it started with a platform decision rather than a measurement, or because nobody senior could make a department give something up. I ask about both before quoting, and if the second one is missing I will say the programme is not ready.":"غالبًا لأنه بدأ بقرار منصة بدل ما يبدأ بقياس، أو لأن محدش كبير قدر يخلي إدارة تتنازل عن حاجة. بسأل عن الاتنين قبل ما أسعّر، ولو التاني ناقص هقول إن البرنامج مش جاهز.","What each stage puts in your hands.":"اللي كل مرحلة بتحطه في إيدك.","Every one of them is yours to keep, including if you continue with someone else.":"كل واحدة فيهم ملكك تحتفظ بيها، حتى لو كمّلت مع حد تاني.","The numbers you did not have":"الأرقام اللي ماكانتش عندك","What each process actually costs today, counted rather than estimated.":"كل عملية بتكلف كام فعلًا النهارده، معدودة مش متقدّرة.","A costed roadmap in stages":"خارطة طريق متكلّفة على مراحل","Ordered by payback, each stage with a price and a way to tell whether it worked.":"مرتّبة بالعائد، كل مرحلة بسعر وبطريقة تعرف بيها إذا نجحت.","The first stage, running":"أول مرحلة، شغالة","The costliest manual step, automated and in use, measured against the number we started from.":"أغلى خطوة يدوية، متأتمتة وبتتستخدم، متقاسة مقابل الرقم اللي بدأنا منه.","Adoption, not just delivery":"تبنّي، مش تسليم بس","What a programme costs.":"تكلفة البرنامج.","The assessment is fixed and yours to keep. Every stage after it is priced on its own, so you can stop whenever the remaining stages stop being worth it.":"التقييم ثابت وملكك تحتفظ بيه. وكل مرحلة بعده متسعّرة لوحدها، فتقدر توقف وقت ما المراحل الباقية تبطّل تستاهل.","After the last stage.":"بعد آخر مرحلة."},"title":"التحوّل الرقمي — من العمليات لأنظمة شغالة، على مراحل"};
+(function(){
+  var D=window.__AR__; if(!D) return;
+  var TXT=D.text||{}, HTML=D.html||{};
+  var root=document.documentElement, KEY='qassem-lang';
+  var orig=null;   // captured once, so switching back is exact
+
+  function nodes(){
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode, t=p&&p.nodeName;
+        if(t==='SCRIPT'||t==='STYLE'||t==='NOSCRIPT') return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }});
+    var out=[],n; while((n=w.nextNode())) out.push(n); return out;
+  }
+
+  function norm(h){ return h.replace(/\s+/g,' ').trim(); }
+
+  /* Elements whose whole innerHTML is a known English sentence. Outermost wins:
+     once one is claimed, anything inside it is skipped, so a replacement is
+     never applied twice to the same text. */
+  function blocks(){
+    var out=[], claimed=[];
+    var els=document.querySelectorAll('p,li,h1,h2,h3,h4,div,span,summary');
+    for(var i=0;i<els.length;i++){
+      var el=els[i], k=norm(el.innerHTML);
+      if(!HTML[k]) continue;
+      var inside=false;
+      for(var j=0;j<claimed.length;j++){ if(claimed[j].contains(el)){ inside=true; break; } }
+      if(inside) continue;
+      claimed.push(el); out.push([el,k]);
+    }
+    return out;
+  }
+
+  function capture(){
+    if(orig) return;
+    orig={t:[],h:[]};
+    blocks().forEach(function(p){ orig.h.push([p[0],p[0].innerHTML,p[1]]); });
+    // Text nodes are collected after the block list, so a node inside a block
+    // is not restored twice — the block restore already covers it.
+    nodes().forEach(function(n){ orig.t.push([n,n.nodeValue]); });
+    orig.title=document.title;
+  }
+
+  function toAr(){
+    capture();
+    // Blocks first: replacing one drops the text nodes inside it, so the text
+    // pass never sees a fragment of a sentence that has already moved.
+    orig.h.forEach(function(p){ p[0].innerHTML=HTML[p[2]]; });
+    nodes().forEach(function(n){
+      var k=n.nodeValue.trim();
+      if(TXT[k]) n.nodeValue=n.nodeValue.replace(k,TXT[k]);
+    });
+    if(D.title) document.title=D.title;
+    root.setAttribute('lang','ar'); root.setAttribute('dir','rtl');
+  }
+
+  function toEn(){
+    if(orig){
+      orig.h.forEach(function(p){ p[0].innerHTML=p[1]; });
+      orig.t.forEach(function(p){ if(p[0].parentNode) p[0].nodeValue=p[1]; });
+      document.title=orig.title;
+    }
+    root.setAttribute('lang','en'); root.setAttribute('dir','ltr');
+  }
+
+  function apply(l){ l==='ar'?toAr():toEn(); try{localStorage.setItem(KEY,l);}catch(e){}
+    [].forEach.call(document.querySelectorAll('[data-lang-btn]'),function(b){
+      var on=b.getAttribute('data-lang-btn')===l;
+      b.setAttribute('aria-pressed',on?'true':'false'); b.classList.toggle('on',on);
+    });
+  }
+
+  var saved=null; try{saved=localStorage.getItem(KEY);}catch(e){}
+  // No stored choice: follow the browser, because an Arabic speaker landing on
+  // an English page is the common case here, not the exception.
+  if(!saved) saved=(navigator.language||'').toLowerCase().indexOf('ar')===0?'ar':'en';
+  if(saved==='ar') apply('ar'); else apply('en');
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-lang-btn]');
+    if(!b) return; e.preventDefault(); apply(b.getAttribute('data-lang-btn'));
+  });
+})();</script>
+
+<script>
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var root=document.documentElement;
+
+  function arm(){
+    // Marked only now: until this runs, nothing in the page is hidden.
+    root.classList.add('anim');
+
+    var groups=[['.hd',0],['.of',70],['.pr',55],['.tm',45],['.as',60],['.st',50],
+                ['.qa',35],['.fee > div',60],['.stats > div',60],['.app',60],['.fit__c',80],
+                ['.cmp__scroll',0],['.excl li',25],['.req li',22],['.also a',30]];
+    groups.forEach(function(g){
+      [].forEach.call(document.querySelectorAll(g[0]),function(el,i){
+        el.setAttribute('data-rise','');
+        el.style.setProperty('--d',(i%8)*g[1]+'ms');
+      });
+    });
+
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    [].forEach.call(document.querySelectorAll('[data-rise]'),function(el){ io.observe(el); });
+
+    // Stat numbers count up, but only where the value is actually a number —
+    // "AR + EN" and "3–7 days" are left exactly as written.
+    [].forEach.call(document.querySelectorAll('.stats .n'),function(el){
+      var raw=el.textContent.trim(), m=raw.match(/^([^0-9]*)(\d+)(.*)$/);
+      if(!m || raw.indexOf('–')>-1) return;
+      var pre=m[1], end=parseInt(m[2],10), post=m[3];
+      if(end<2||end>100000) return;
+      var seen=false;
+      var so=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(!e.isIntersecting||seen) return; seen=true; so.disconnect();
+          var t0=null, dur=900;
+          function step(ts){ if(!t0)t0=ts;
+            var p=Math.min((ts-t0)/dur,1), v=Math.round((1-Math.pow(1-p,3))*end);
+            el.textContent=pre+v+post; if(p<1)requestAnimationFrame(step); }
+          requestAnimationFrame(step);
+        });
+      },{threshold:.6});
+      so.observe(el);
+    });
+  }
+
+  document.readyState==='loading'
+    ? addEventListener('DOMContentLoaded',arm) : arm();
+})();</script>
+
+<script>
+/* Marks the jump-nav link for whatever section is on screen. Progressive: with
+   no JS the links still work, they just do not light up. */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.jump a'));
+  if(!links.length||!('IntersectionObserver' in window))return;
+  var map={};links.forEach(function(a){var el=document.querySelector(a.getAttribute('href'));if(el)map[el.id]=a;});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      links.forEach(function(a){a.classList.remove('on');});
+      if(map[e.target.id])map[e.target.id].classList.add('on');
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+})();
+</script>
+
+</body>
+</html>

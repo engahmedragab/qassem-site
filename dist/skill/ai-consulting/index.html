@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="author" content="Qassem">
+<meta name="theme-color" content="#0A0A0B">
+<meta name="robots" content="index,follow">
+<meta name="x-build" content="b441d1497f93">
+<script>
+(function(){
+  var K='qassem-theme', r=document.documentElement;
+  function set(t){
+    var explicit = t==='dark' || t==='light';
+    var dark = explicit ? t==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+    r.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try{ explicit ? localStorage.setItem(K,t) : localStorage.removeItem(K); }catch(e){}
+    var m=document.querySelector('meta[name=theme-color]');
+    if(m) m.setAttribute('content', dark ? '#0A0A0B' : '#FAF8F3');
+    [].forEach.call(document.querySelectorAll('[data-theme-btn]'),function(b){
+      var on=b.getAttribute('data-theme-btn')===(dark?'dark':'light');
+      b.setAttribute('aria-pressed',on?'true':'false'); b.classList.toggle('on',on);
+    });
+  }
+  function stored(){ try{ return localStorage.getItem(K); }catch(e){ return null; } }
+  function current(){ var v=stored(); return v==='dark'||v==='light' ? v : 'system'; }
+  set(current());
+  // Follow the system live, but only while the visitor has not chosen.
+  var mq=matchMedia('(prefers-color-scheme:dark)');
+  var onmq=function(){ if(current()==='system') set('system'); };
+  mq.addEventListener ? mq.addEventListener('change',onmq) : mq.addListener(onmq);
+  addEventListener('DOMContentLoaded',function(){ set(current()); });
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-theme-btn]');
+    if(!b) return; e.preventDefault(); set(b.getAttribute('data-theme-btn'));
+  });
+})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E">
+<title>AI Consulting and Strategy — roadmap, architecture and audits</title>
+<meta name="description" content="Fractional CTO, AI architecture review, build-vs-buy calls and model cost tuning, from someone who runs the systems he advises on.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Consulting and Strategy — roadmap, architecture and audits">
+<meta property="og:description" content="Fractional CTO, AI architecture review, build-vs-buy calls and model cost tuning, from someone who runs the systems he advises on.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Consulting and Strategy — roadmap, architecture and audits">
+<meta name="twitter:description" content="Fractional CTO, AI architecture review, build-vs-buy calls and model cost tuning, from someone who runs the systems he advises on.">
+<style>
+/* Same system as the home page, tuned for reading rather than for impact:
+   bigger body text, a shorter measure, and more air between sections.
+   Single-theme on purpose — every colour is painted, nothing is inherited. */
+:root{
+  --rc-d:#00A0FF;
+  --rc-l:#0068C9;
+  --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  --ar:"IBM Plex Sans Arabic","SF Arabic","Noto Sans Arabic",Tahoma,var(--sans);
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,"Cascadia Code",monospace;
+  --pad:clamp(20px,5vw,64px); --maxw:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:112px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--rc);color:var(--on-ac)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ic{width:20px;height:20px;flex:none}
+.bd{width:18px;height:18px;flex:none;display:block}
+.bds,.of__bd,.th__bd,.k__bd{display:inline-flex;align-items:center;gap:6px;vertical-align:middle}
+.of__bd .bd{width:20px;height:20px}
+.th__bd,.k__bd{margin-right:7px}
+.hero__bd{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:16px}
+.hero__bd span{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
+  font-size:12.5px;letter-spacing:.02em;color:var(--ink-soft)}
+.hero__bd .bd{width:17px;height:17px}
+
+/* ---------- chrome ---------- */
+.nav{border-bottom:1px solid var(--line);background:var(--bg)}
+.nav__row{display:flex;align-items:center;justify-content:space-between;gap:10px 14px;
+  padding:14px var(--pad);flex-wrap:wrap}
+@media(max-width:520px){
+  .nav__row{gap:8px}
+  .brand{font-size:15.5px}
+  .nav__back{font-size:11px}
+  .thm button{padding:5px 9px}
+}
+.brand{font-weight:700;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:9px;font-size:17px}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.nav__r{display:inline-flex;align-items:center;gap:14px}
+.nav__back{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);transition:color .3s}
+.nav__back:hover{color:var(--ink)}
+
+.jump{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.jump__row{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;
+  padding:0 calc(var(--pad) - 14px)}
+.jump__row::-webkit-scrollbar{display:none}
+.jump a{font-family:var(--mono);font-size:12px;letter-spacing:.03em;text-transform:uppercase;
+  color:var(--ink-faint);padding:15px 14px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+.jump a:hover,.jump a.on{color:var(--ink);border-bottom-color:var(--rc)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:-70% -10% auto -10%;height:250%;
+  background:radial-gradient(44% 54% at 14% 0%,var(--rc),transparent 70%);opacity:.18;pointer-events:none}
+.hero__in{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(28px,5vw,64px);
+  align-items:center;padding:clamp(34px,6vh,70px) var(--pad) clamp(30px,5vh,56px)}
+@media(max-width:900px){ .hero__in{grid-template-columns:1fr;gap:34px} }
+.crumb{font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px}
+.crumb a{color:var(--ink-soft);transition:color .3s}
+.crumb a:hover{color:var(--ink)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--rc);display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.eyebrow .d{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 0 4px rgba(74,222,128,.16)}
+h1{font-size:clamp(36px,6.2vw,72px);font-weight:700;letter-spacing:-.04em;line-height:.98;margin-top:15px;text-wrap:balance}
+.hero__sub{font-size:clamp(17px,2vw,21px);color:var(--ink-soft);margin-top:14px}
+.hero__desc{font-size:16.5px;color:var(--ink-soft);line-height:1.68;max-width:54ch;margin-top:20px}
+.hero__cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:28px}
+.btn{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--on-ac);background:var(--rc);
+  border-radius:100px;padding:13px 22px;display:inline-flex;align-items:center;gap:8px;transition:transform .3s,filter .3s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.btn--ghost{background:none;color:var(--ink-soft);border:1px solid var(--line)}
+.btn--ghost:hover{color:var(--ink);border-color:var(--rc);filter:none}
+.hero__cur{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);width:100%}
+.art{width:100%;max-width:400px;height:auto;display:block;margin-inline:auto}
+@media(max-width:900px){ .art{max-width:320px} }
+
+/* ---------- stat strip ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;
+  background:var(--line);border-bottom:1px solid var(--line)}
+.stats > div{background:var(--bg);padding:22px clamp(16px,2.4vw,26px)}
+.stats .n{font-family:var(--mono);font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-.02em;color:var(--rc)}
+.stats .k{font-size:13.5px;color:var(--ink-soft);margin-top:6px;line-height:1.45}
+
+/* ---------- sections ---------- */
+section.blk{padding:clamp(44px,7vh,88px) 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-height:1.08;text-wrap:balance}
+.k{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--rc);margin-bottom:13px}
+.lead{font-size:16px;color:var(--ink-soft);line-height:1.68;max-width:66ch;margin-top:16px}
+.hd{margin-bottom:clamp(26px,4vh,40px)}
+
+/* ---------- pricing ---------- */
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:14px}
+/* Two up on desktop rather than auto-fit: four packages across three columns
+   orphans the fourth on a row of its own, and these cards carry too many lines
+   to read well at a quarter of the page. */
+@media(min-width:840px){ .offers{grid-template-columns:repeat(2,1fr)} }
+/* Each card carries its own accent (--oc) so four routes read as four choices
+   rather than one block printed four times. The recommended card is not just
+   tinted: it sits higher, keeps a solid header bar, and is the only one whose
+   call to action is filled — so the eye lands on it before the prices. */
+.of{--oc:var(--rc);position:relative;display:flex;flex-direction:column;gap:10px;
+  background:var(--bg-2);border:1px solid var(--line);border-radius:14px;
+  padding:26px 20px 20px;overflow:hidden;
+  transition:border-color .35s,transform .35s,box-shadow .35s}
+.of__bar{position:absolute;inset-inline:0;top:0;height:3px;background:var(--oc);opacity:.5;transition:opacity .35s}
+.of:hover{border-color:var(--oc);transform:translateY(-3px);box-shadow:var(--shadow)}
+.of:hover .of__bar{opacity:1}
+.of--pick{border-color:var(--oc);box-shadow:0 0 0 1px var(--oc),var(--shadow-lg);
+  padding-top:32px}
+.of--pick .of__bar{height:4px;opacity:1}
+@media(min-width:840px){ .of--pick{transform:translateY(-8px)} .of--pick:hover{transform:translateY(-11px)} }
+@supports (background:color-mix(in srgb,red 10%,transparent)){
+  .of{background:linear-gradient(180deg,color-mix(in srgb,var(--oc) 6%,transparent),transparent 40%),var(--bg-2)}
+  .of--pick{background:linear-gradient(180deg,color-mix(in srgb,var(--oc) 18%,transparent),transparent 52%),var(--bg-2)}
+}
+.of__flag{position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--on-ac);background:var(--oc);border-radius:100px;padding:3px 12px;white-space:nowrap}
+.of__top{display:flex;align-items:center;gap:9px;color:var(--oc)}
+.of__ic{width:22px;height:22px;flex:none}
+.of__tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.of__n{font-size:17px;font-weight:600;letter-spacing:-.015em;line-height:1.28}
+.of__p{font-family:var(--mono);font-size:32px;font-weight:600;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;line-height:1}
+.of__p{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 9px}
+.of__p s{text-decoration:none;font-size:11.5px;color:var(--ink-faint);letter-spacing:.05em;text-transform:uppercase}
+.of--pick .of__p{font-size:38px}
+.of__break{font-size:12.4px;color:var(--ink-soft);line-height:1.45;margin-top:-2px}
+
+/* What happens next year, on the card rather than three sections down. It is
+   the difference between the two routes people actually weigh, and it was only
+   visible in the comparison table. */
+.of__yr{display:grid;grid-template-columns:auto 1fr;gap:2px 9px;align-items:start;
+  border:1px solid var(--line-2);border-radius:9px;padding:10px 12px;
+  font-size:12.8px;color:var(--ink-soft);line-height:1.4}
+.of__yr b{font-family:var(--mono);font-size:13.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+.of__yr span:last-child{grid-column:2;color:var(--ink-faint);font-size:11.8px;margin-top:2px}
+.of__yr-i{grid-row:span 2;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;
+  font-size:11px;color:var(--ink-faint);border:1px solid var(--line);margin-top:1px}
+.of__yr[data-free]{border-color:color-mix(in srgb,var(--live) 45%,transparent)}
+.of__yr[data-free] b{color:var(--live)}
+.of__yr[data-free] .of__yr-i{color:var(--live);border-color:color-mix(in srgb,var(--live) 45%,transparent)}
+@supports not (color:color-mix(in srgb,red 10%,transparent)){
+  .of__yr[data-free]{border-color:rgba(74,222,128,.45)}
+  .of__yr[data-free] .of__yr-i{border-color:rgba(74,222,128,.45)}
+}
+.of ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:2px}
+.of li{font-size:13.6px;color:var(--ink-soft);line-height:1.5;padding-left:19px;position:relative}
+.of li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;
+  border:1.5px solid var(--oc);opacity:.8}
+.of__note{font-size:12.6px;color:var(--ink-faint);line-height:1.55;margin-top:auto;padding-top:12px;border-top:1px solid var(--line-2)}
+/* Every card ends in something to press. A price with no action next to it is
+   where a reader stalls and leaves. */
+.of__cta{display:flex;justify-content:center;align-items:center;gap:7px;margin-top:14px;
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.02em;
+  color:var(--oc);border:1px solid var(--oc);border-radius:100px;padding:11px 16px;
+  transition:background .3s,color .3s,transform .3s}
+.of__cta:hover{background:var(--oc);color:var(--on-ac);transform:translateY(-1px)}
+.of--pick .of__cta{background:var(--oc);color:var(--on-ac)}
+.of--pick .of__cta:hover{filter:brightness(1.12)}
+.of--addon{background:var(--bg)}
+.of--addon .of__p{font-size:26px}
+.of--addon .of__bar{opacity:.28}
+.sub-k{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.08em;
+  color:var(--ink-faint);margin:clamp(30px,4vh,44px) 0 14px;padding-top:clamp(26px,4vh,38px);border-top:1px solid var(--line)}
+
+/* ---------- comparison ---------- */
+/* contain:paint, not just overflow-x — the table's min-content width leaks out
+   to the document and gives the whole page a horizontal scrollbar on a phone,
+   even though the container itself clips correctly. overflow-x alone does not
+   stop the leak; containment does. */
+.cmp__scroll{overflow-x:auto;contain:paint;border:1px solid var(--line);border-radius:14px;background:var(--bg-2)}
+.cmp{border-collapse:collapse;width:100%;min-width:660px;font-size:13.6px}
+.cmp th,.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line-2);vertical-align:top}
+.cmp thead th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink);background:var(--bg-3);border-bottom:1px solid var(--line);white-space:nowrap}
+.cmp thead th:first-child{color:var(--ink-faint)}
+.cmp tbody th{font-weight:400;color:var(--ink-soft);line-height:1.5;min-width:230px}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp tbody tr.hi{background:var(--bg-3)}
+.cmp tbody tr.hi th,.cmp tbody tr.hi .txt{color:var(--ink);font-weight:600}
+.cmp td{text-align:center;color:var(--ink-soft);white-space:nowrap}
+.cmp .yes{color:var(--rc)}
+.cmp .no{color:var(--ink-faint)}
+.tick{width:17px;height:17px;display:inline-block;vertical-align:middle}
+.cmp__note{font-size:13.5px;color:var(--ink-soft);line-height:1.6;max-width:70ch;margin-top:16px}
+
+/* ---------- platform fees ---------- */
+.fee{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.fee > div{background:var(--bg-2);padding:19px 20px}
+.fee .n{font-family:var(--mono);font-size:23px;font-weight:600;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.fee .n.free{color:var(--live)}
+.fee .k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--rc);margin-top:9px}
+.fee .s{font-size:13.2px;color:var(--ink-soft);line-height:1.5;margin-top:8px}
+
+/* ---------- prerequisites ---------- */
+.prs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:820px){ .prs{grid-template-columns:1fr} }
+.pr{display:flex;gap:15px;background:var(--bg-2);border:1px solid var(--line);border-radius:13px;padding:18px 19px}
+.pr__ic{color:var(--rc);flex:none;display:grid;place-items:center;width:38px;height:38px;
+  border-radius:10px;border:1px solid var(--line);background:var(--bg)}
+.pr h3{font-size:15px;font-weight:600;letter-spacing:-.01em;line-height:1.35}
+.pr p{font-size:13.6px;color:var(--ink-soft);line-height:1.58;margin-top:8px}
+.pr__skip{display:inline-block;font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--live);border:1px solid rgba(74,222,128,.4);border-radius:100px;
+  padding:2px 8px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+.skipnote{font-size:13.2px;color:var(--ink-faint);margin-top:16px}
+
+/* ---------- handover ---------- */
+.req{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 30px}
+@media(max-width:760px){ .req{grid-template-columns:1fr} }
+.req li{font-size:13.6px;color:var(--ink-soft);line-height:1.5;padding-left:26px;position:relative}
+.req li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:5px;
+  border:1.5px solid var(--rc);opacity:.55}
+.req li::after{content:"";position:absolute;left:5px;top:8px;width:5px;height:8px;
+  border:solid var(--rc);border-width:0 1.6px 1.6px 0;transform:rotate(42deg)}
+
+/* ---------- process ---------- */
+/* Asset cards. The mockup column is sized per shape so a banner reads wide and
+   a screenshot reads tall — the whole point is that the proportion is visible
+   at a glance rather than inferred from two numbers. */
+.asx{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:900px){ .asx{grid-template-columns:1fr} }
+.as{--oc:var(--rc);display:flex;gap:18px;align-items:flex-start;background:var(--bg-2);
+  border:1px solid var(--line);border-radius:13px;padding:18px 19px;transition:border-color .3s}
+.as:hover{border-color:var(--oc)}
+.as[data-opt] {--oc:#8A96B0}
+.as__mock{flex:none;display:grid;place-items:center;background:var(--bg);
+  border-radius:9px;padding:9px}
+.as__mock svg{display:block;height:auto}
+.as__mock[data-shape=icon] svg,.as__mock[data-shape=tablet] svg{width:74px}
+.as__mock[data-shape=feature] svg,.as__mock[data-shape=video] svg{width:104px}
+.as__mock[data-shape=phone] svg{width:52px}
+.as__mock[data-shape=dashboard] svg,.as__mock[data-shape=pipeline] svg,
+.as__mock[data-shape=roadmap] svg,.as__mock[data-shape=handover] svg{width:104px}
+.as__mock[data-shape=checkout] svg,.as__mock[data-shape=report] svg{width:58px}
+.as__mock[data-shape=chatflow] svg{width:78px}
+.as__b{min-width:0;flex:1}
+.as__h{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.as__h h3{font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+.as__bd{color:var(--ink-soft)}
+.as__bd .bd{width:15px;height:15px}
+.as__d{margin-top:7px;font-family:var(--mono);font-size:12.5px;color:var(--oc)}
+.as__d span{display:block;color:var(--ink-faint);font-size:11.5px;margin-top:4px}
+.as__s{font-size:12.8px;color:var(--ink-soft);line-height:1.5;margin-top:8px}
+.as__need{display:inline-block;margin-top:11px;font-family:var(--mono);font-size:9.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--oc);
+  border:1px solid var(--oc);border-radius:100px;padding:3px 9px;opacity:.85}
+.cmp--copy{min-width:520px}
+.cmp--copy td{text-align:start;white-space:normal}
+
+/* Terms, exclusions and fit. A proposal without these reads as optimistic;
+   with them it reads as something someone has actually delivered before. */
+/* Deliberately the quietest block on the page: five one-line commitments, read
+   in a glance and not competing with the pricing above it. */
+.blk--tight{padding:clamp(28px,4vh,44px) 0}
+.hd--tight{margin-bottom:clamp(18px,2.5vh,26px)}
+.h-sm{font-size:clamp(19px,2.2vw,25px);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+.lead--sm{font-size:14px;margin-top:10px}
+.tms{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:10px}
+/* One row on desktop: five terms read as one statement, and auto-fit would
+   otherwise leave the fifth stranded on a line of its own. */
+@media(min-width:1000px){ .tms{grid-template-columns:repeat(5,1fr)} }
+.tm p{text-wrap:pretty}
+.tm{display:flex;flex-direction:column;gap:9px;background:var(--bg-2);border:1px solid var(--line);
+  border-radius:11px;padding:15px 15px 16px}
+.tm__ic{color:var(--rc);flex:none;display:grid;place-items:center;width:30px;height:30px;
+  border-radius:8px;border:1px solid var(--line);background:var(--bg)}
+.tm__ic .ic{width:16px;height:16px}
+.tm h3{font-size:13.6px;font-weight:600;letter-spacing:-.005em;line-height:1.3}
+.tm p{font-size:12.6px;color:var(--ink-soft);line-height:1.5}
+
+.excl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+@media(max-width:760px){ .excl{grid-template-columns:1fr} }
+.excl li{font-size:13.4px;color:var(--ink-soft);line-height:1.5;padding-left:24px;position:relative}
+.excl li::before{content:"";position:absolute;left:0;top:9px;width:13px;height:1.5px;
+  background:var(--ink-faint);border-radius:1px}
+
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:760px){ .fit{grid-template-columns:1fr} }
+.fit__c{background:var(--bg-2);border:1px solid var(--line);border-radius:13px;padding:19px 20px;
+  border-top:2px solid var(--ink-faint)}
+.fit__c[data-yes]{border-top-color:var(--rc)}
+.fit__c h3{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;
+  color:var(--ink-faint)}
+.fit__c[data-yes] h3{color:var(--rc)}
+.fit__c ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:14px}
+.fit__c li{font-size:13.4px;color:var(--ink-soft);line-height:1.5;padding-left:20px;position:relative}
+.fit__c li::before{content:"—";position:absolute;left:0;color:var(--ink-faint);font-size:12px}
+.fit__c[data-yes] li::before{content:"✓";color:var(--rc);font-size:12px}
+[dir=rtl] .excl li,[dir=rtl] .fit__c li{padding-left:0;padding-right:24px}
+[dir=rtl] .excl li::before,[dir=rtl] .fit__c li::before{left:auto;right:0}
+
+.apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:13px}
+.app{display:flex;gap:16px;background:var(--bg-2);border:1px solid var(--line);border-radius:13px;padding:18px 19px}
+.app__ic{width:56px;height:56px;border-radius:13px;flex:none;object-fit:cover;background:var(--bg-3)}
+.app__ic--none{border:1px solid var(--line)}
+.app__b{min-width:0}
+.app__b h3{font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+.app__b p{font-size:13.4px;color:var(--ink-soft);line-height:1.55;margin-top:6px}
+.app__l{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.app__l a{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;
+  color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:7px 13px;
+  transition:border-color .3s,color .3s}
+.app__l a:hover{color:var(--ink);border-color:var(--rc)}
+.app__l .bd{width:14px;height:14px}
+
+.steps{list-style:none;position:relative}
+.st{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+.st:last-child{border-bottom:0}
+.st__n{font-family:var(--mono);font-size:12px;color:var(--rc);font-variant-numeric:tabular-nums;
+  letter-spacing:.05em;flex:none;width:34px;padding-top:5px;position:relative}
+.st:not(:last-child) .st__n::after{content:"";position:absolute;left:7px;top:26px;bottom:-26px;width:1px;background:var(--line)}
+.st h3{font-size:15px;font-weight:600;letter-spacing:-.015em}
+.st p{font-size:13.4px;color:var(--ink-soft);line-height:1.55;margin-top:5px;max-width:74ch}
+
+/* ---------- faq ---------- */
+.qa{border-bottom:1px solid var(--line-2)}
+.qa:last-of-type{border-bottom:0}
+.qa summary{list-style:none;cursor:pointer;padding:14px 0;font-size:14.8px;font-weight:600;
+  letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center;gap:20px;transition:color .3s}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:hover{color:var(--rc)}
+.qa__m{position:relative;width:12px;height:12px;flex:none}
+.qa__m::before,.qa__m::after{content:"";position:absolute;background:var(--ink-faint);transition:transform .3s,background .3s}
+.qa__m::before{left:0;top:5.5px;width:12px;height:1.5px}
+.qa__m::after{left:5.5px;top:0;width:1.5px;height:12px}
+.qa[open] .qa__m::after{transform:scaleY(0)}
+.qa[open] .qa__m::before{background:var(--rc)}
+.qa p{font-size:13.6px;color:var(--ink-soft);line-height:1.6;max-width:72ch;padding:0 0 16px}
+
+/* ---------- footer ---------- */
+.also{display:flex;flex-wrap:wrap;gap:10px}
+.also a{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);border:1px solid var(--line);
+  border-radius:100px;padding:10px 17px;transition:border-color .3s,color .3s}
+.also a:hover{color:var(--ink);border-color:var(--rc)}
+.end{position:relative;overflow:hidden;padding:clamp(48px,8vh,96px) 0}
+.end::before{content:"";position:absolute;inset:auto -10% -60%;height:190%;
+  background:radial-gradient(40% 60% at 76% 100%,var(--rc),transparent 68%);opacity:.14;pointer-events:none}
+.end__in{position:relative}
+.end p{font-size:16px;color:var(--ink-soft);line-height:1.68;max-width:58ch;margin-top:16px}
+footer{border-top:1px solid var(--line);padding:24px 0}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;
+  font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--rc);outline-offset:3px;border-radius:4px}
+
+:root{
+  --bg:#FAF8F3; --bg-2:#FFFFFF; --bg-3:#F1EEE6;
+  --ink:#15150F; --ink-soft:#57544B; --ink-faint:#86816F;
+  --line:rgba(21,21,15,.15); --line-2:rgba(21,21,15,.07);
+  --accent:#2C5BD6; --live:#0B6E39; --on-ac:#FFFFFF;
+  --shadow:0 14px 34px rgba(21,21,15,.10); --shadow-lg:0 18px 44px rgba(21,21,15,.14);
+  --rc:var(--rc-l);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0A0B; --bg-2:#101012; --bg-3:#16161A;
+    --ink:#F1EFE9; --ink-soft:#A8A59C; --ink-faint:#6B6961;
+    --line:rgba(241,239,233,.11); --line-2:rgba(241,239,233,.06);
+    --accent:#4D7CFF; --live:#4ADE80; --on-ac:#0A0A0B;
+    --shadow:0 14px 34px rgba(0,0,0,.4); --shadow-lg:0 18px 44px rgba(0,0,0,.45);
+    --rc:var(--rc-d);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0A0B; --bg-2:#101012; --bg-3:#16161A;
+  --ink:#F1EFE9; --ink-soft:#A8A59C; --ink-faint:#6B6961;
+  --line:rgba(241,239,233,.11); --line-2:rgba(241,239,233,.06);
+  --accent:#4D7CFF; --live:#4ADE80; --on-ac:#0A0A0B;
+  --shadow:0 14px 34px rgba(0,0,0,.4); --shadow-lg:0 18px 44px rgba(0,0,0,.45);
+  --rc:var(--rc-d);
+}
+/* Per-card accents follow the same three-state rule. */
+.of,.as{--oc:var(--ocl,var(--rc))}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .of,
+  :root:not([data-theme="light"]) .as{--oc:var(--ocd,var(--rc))} }
+:root[data-theme="dark"] .of,:root[data-theme="dark"] .as{--oc:var(--ocd,var(--rc))}
+/* The hero wash and the section glows are tuned for a dark ground; on white
+   they turn to mud, so they are dialled back rather than removed. */
+:root:not([data-theme="dark"]) .hero::before,
+:root:not([data-theme="dark"]) .end::before{opacity:.10}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .hero::before{opacity:.18}
+  :root:not([data-theme="light"]) .end::before{opacity:.14}
+}
+:root[data-theme="dark"] .hero::before{opacity:.18}
+:root[data-theme="dark"] .end::before{opacity:.14}
+.thm{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;flex:none}
+.thm button{font:inherit;background:none;border:0;color:var(--ink-faint);padding:5px 10px;
+  cursor:pointer;display:grid;place-items:center;transition:background .25s,color .25s}
+.thm button svg{width:15px;height:15px;display:block}
+.thm button.on{background:var(--ink);color:var(--bg)}
+.thm button:not(.on):hover{color:var(--ink)}
+/* .anim is added by script, so nothing is hidden unless motion is actually on */
+@media (prefers-reduced-motion:no-preference){
+  .anim [data-rise]{opacity:0;transform:translateY(18px);
+    transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);
+    transition-delay:var(--d,0ms)}
+  .anim [data-rise].in{opacity:1;transform:none}
+
+  /* the hero art breathes; slow enough not to pull the eye off the copy */
+  .anim .art{animation:float 9s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  /* the live dot, and the accent bar on a hovered card */
+  .eyebrow .d{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--live) 55%,transparent)}
+    70%{box-shadow:0 0 0 7px transparent}}
+
+  .of__bar{transform-origin:left;animation:none}
+  .of:hover .of__bar,.of--pick .of__bar{animation:sweep .7s cubic-bezier(.22,1,.36,1)}
+  @keyframes sweep{from{transform:scaleX(.2)}to{transform:scaleX(1)}}
+
+  /* icon tiles lift with their card */
+  .pr,.tm,.as,.app{transition:border-color .3s,transform .3s,box-shadow .3s}
+  .pr:hover,.tm:hover,.as:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .pr__ic,.tm__ic,.as__mock{transition:transform .35s,border-color .35s,color .35s}
+  .pr:hover .pr__ic,.tm:hover .tm__ic{transform:scale(1.08) rotate(-4deg);border-color:var(--rc)}
+  .as:hover .as__mock{transform:scale(1.04)}
+
+  /* the process spine draws itself as the steps arrive */
+  .anim .st__n::after{transform:scaleY(0);transform-origin:top;transition:transform .6s ease .15s}
+  .anim .st.in .st__n::after{transform:scaleY(1)}
+
+  .jump a{transition:color .25s,border-color .25s,background .25s}
+  .stats > div{transition:background .3s}
+  .stats > div:hover{background:var(--bg-2)}
+}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;flex:none}
+.lang button{font:inherit;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;
+  background:none;border:0;color:var(--ink-faint);padding:6px 12px;cursor:pointer;
+  transition:background .25s,color .25s;line-height:1.6}
+.lang button.on{background:var(--ink);color:var(--bg)}
+.lang button:not(.on):hover{color:var(--ink)}
+/* Arabic needs a face that actually has the glyphs; the Latin stack does not. */
+[dir=rtl] body,[lang=ar]{font-family:"SF Arabic","Geeza Pro","Segoe UI",Tahoma,"Noto Naskh Arabic",var(--sans)}
+[dir=rtl] .mono,[dir=rtl] code{direction:ltr;unicode-bidi:embed}
+/* Arabic typography. Three faults, all from treating it as Latin:
+   1. negative tracking crushes a connected script and pushed the h1 wider than
+      its box, where the hero's overflow:hidden simply cut the first letter off;
+   2. the mono face has no Arabic glyphs, so every eyebrow, breadcrumb, stat
+      label and nav item fell back to a default and kept the uppercase and the
+      letter-spacing, which is what made them look broken;
+   3. Arabic needs more leading and a touch more size than Latin at the same
+      nominal value, because the glyphs sit smaller in the em and the
+      diacritics need somewhere to go. */
+[dir=rtl] body{font-family:var(--ar);font-size:16.5px;line-height:1.75}
+[dir=rtl] :is(h1,h2,h3,h4,.of__n,.as__h h3,.pr h3,.tm h3,.st h3,.qa summary,.end h2){
+  font-family:var(--ar);letter-spacing:0}
+[dir=rtl] h1{font-size:clamp(26px,6vw,58px);line-height:1.28;text-wrap:balance;padding-block:.08em}
+[dir=rtl] .h-sm,[dir=rtl] h2{line-height:1.3}
+[dir=rtl] :is(.crumb,.eyebrow,.k,.sub-k,.of__tag,.of__p s,.of__yr b,.stats .n,.stats .k,.hero__bd span,
+  .fee .n,.fee .k,.as__need,.jump a,.fit__c h3,.cmp thead th,.hero__cur,.also a,.btn,
+  .of__cta,.nav__back,.foot__row,.lang button,.of__flag,.tm h3,.qa summary){
+  font-family:var(--ar);letter-spacing:normal;text-transform:none}
+/* Digits and prices stay in the mono face — they are Latin either way and the
+   tabular figures are the reason the columns line up. */
+[dir=rtl] :is(.of__p,.as__d,.st__n,.of__fy b){font-family:var(--mono);letter-spacing:0}
+[dir=rtl] :is(.of li,.req li,.excl li,.fit__c li,.as__s,.tm p,.st p,.qa p,.lead,.hero__desc,
+  .pr p,.fee .s,.of__note,.cmp,.stats .k){line-height:1.75}
+[dir=rtl] .jump a{font-size:13px;padding-inline:12px}
+[dir=rtl] .stats .k{font-size:13px}
+[dir=rtl] .of__tag,[dir=rtl] .as__need,[dir=rtl] .of__flag{font-size:11px}
+
+[dir=rtl] .crumb,[dir=rtl] .cmp th,[dir=rtl] .cmp td{text-align:right}
+[dir=rtl] .of li,[dir=rtl] .req li{padding-left:0;padding-right:19px}
+[dir=rtl] .of li::before{left:auto;right:0}
+[dir=rtl] .req li{padding-right:26px}
+[dir=rtl] .req li::before{left:auto;right:0}
+[dir=rtl] .req li::after{left:auto;right:5px;transform:rotate(-42deg) scaleX(-1)}
+[dir=rtl] .st:not(:last-child) .st__n::after{left:auto;right:7px}
+[dir=rtl] .th__bd,[dir=rtl] .k__bd{margin-right:0;margin-left:7px}
+[dir=rtl] .of__p s{margin-left:0;margin-right:9px}
+[dir=rtl] .cmp td{text-align:center}
+[dir=rtl] .hero__desc,[dir=rtl] .lead,[dir=rtl] .st p,[dir=rtl] .qa p{max-width:60ch}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="wrap nav__row">
+  <a class="brand" href="/"><span class="dot"></span>Qassem</a>
+  <span class="nav__r"><div class="thm" role="group" aria-label="Theme">
+  <button type="button" data-theme-btn="light" aria-pressed="false" title="Light">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+  </button>
+  <button type="button" data-theme-btn="dark" aria-pressed="false" title="Dark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
+  </button>
+</div><div class="lang" role="group" aria-label="Language">
+  <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+  <button type="button" data-lang-btn="ar" aria-pressed="false" lang="ar">ع</button>
+</div><a class="nav__back" href="/#skills">← All services</a></span>
+</div></header>
+
+<nav class="jump" aria-label="On this page"><div class="wrap jump__row"><a href="#pricing">Pricing</a><a href="#terms">Terms</a><a href="#prereq">Before we start</a><a href="#showcase">What you get</a><a href="#handover">What you send</a><a href="#process">How it runs</a><a href="#scope">Scope</a><a href="#faq">Questions</a></div></nav>
+
+<main>
+  <section class="hero"><div class="wrap hero__in">
+    <div>
+      <p class="crumb"><a href="/">Home</a> / <a href="/#skills">Services</a> / <span>AI Consulting and Strategy</span></p>
+      <p class="eyebrow">Consulting · Architecture · Fractional CTO<span class="d"></span></p>
+      <h1>AI Consulting and Strategy</h1>
+      <p class="hero__sub">Decisions, before the money is spent</p>
+      
+      <p class="hero__desc">Architecture, technical audits and a roadmap for teams adopting AI. I advise on the exact systems I have already built and run, not on a survey of the field.</p>
+      <div class="hero__cta">
+        <a class="btn" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy">Request this service ↗</a>
+        <a class="btn btn--ghost" href="#pricing">See the pricing</a>
+        <span class="hero__cur">Prices in USD. EGP and SAR on request.</span>
+      </div>
+    </div>
+    <svg class="art" viewBox="0 0 400 440" fill="none" aria-hidden="true">
+    <g opacity=".22" stroke="var(--line)"><path d="M0 90h400M0 190h400M0 290h400M0 390h400M60 0v440M160 0v440M260 0v440M360 0v440"/></g>
+    <ellipse cx="200" cy="180" rx="185" ry="150" fill="var(--rc)" opacity=".10"/>
+    
+    <path d="M56 320 C 130 320, 150 210, 216 190 S 320 150, 350 96" stroke="var(--rc)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M56 320 C 130 320, 150 210, 216 190 S 320 150, 350 96 L350 340 L56 340 Z" fill="var(--rc)" opacity=".12"/>
+    <g stroke="var(--line)"><path d="M56 340h300M56 340V96"/></g>
+    <g fill="var(--bg-2)" stroke="var(--rc)" stroke-width="2">
+      <circle cx="126" cy="298" r="9"/><circle cx="216" cy="190" r="9"/><circle cx="292" cy="150" r="9"/><circle cx="350" cy="96" r="11"/>
+    </g>
+    <g fill="var(--ink)" opacity=".18">
+      <rect x="104" y="356" width="44" height="7" rx="3.5"/><rect x="194" y="356" width="44" height="7" rx="3.5"/>
+      <rect x="270" y="356" width="44" height="7" rx="3.5"/><rect x="330" y="356" width="44" height="7" rx="3.5"/>
+    </g>
+  </svg>
+  </div></section>
+
+  <div class="stats"><div><p class="n">Vendor-neutral</p><p class="k">no commission from anyone I recommend</p></div><div><p class="n">Operator</p><p class="k">I run the systems I advise on</p></div><div><p class="n">Written</p><p class="k">you keep the document, whatever you decide</p></div><div><p class="n">Days</p><p class="k">not a six-week engagement to say what fits</p></div></div>
+
+  <section class="blk" id="pricing"><div class="wrap">
+    <div class="hd">
+      <p class="k">Pricing</p>
+      <h2>What advice costs.</h2>
+      <p class="lead">Fixed per engagement. I take no commission from any vendor I recommend, which is the whole basis on which this is worth paying for.</p>
+    </div>
+    <div class="offers">
+      <div class="of" style="--ocd:#00A0FF;--ocl:#0068C9">
+        <span class="of__bar" aria-hidden="true"></span>
+        
+        <div class="of__top"><svg class="of__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.1"/><path d="m19.4 19.4-4.2-4.2"/><path d="M19 3.2v3.4M17.3 4.9h3.4"/></svg><span class="of__tag">AUDIT</span></div>
+        <h3 class="of__n">Architecture review</h3>
+        <p class="of__p">On request<s>fixed</s></p>
+        
+        
+        <ul><li>Your AI system reviewed: architecture, prompts, retrieval, evaluation</li><li>Where it will break, and where it is quietly wasting money</li><li>Cost per request modelled and compared against alternatives</li><li>Findings ranked by impact, with the fix for each</li><li>A written report you own</li></ul>
+        <p class="of__note">Usually pays for itself on the inference bill alone.</p>
+        <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy%20%E2%80%94%20Architecture%20review">Request this ↗</a>
+      </div>
+      <div class="of" style="--ocd:#2AB0A0;--ocl:#0E6E63">
+        <span class="of__bar" aria-hidden="true"></span>
+        
+        <div class="of__top"><svg class="of__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.9H6.9a2.2 2.2 0 0 0-2.2 2.2v13.8a2.2 2.2 0 0 0 2.2 2.2h10.2a2.2 2.2 0 0 0 2.2-2.2V8.7l-5.9-5.8Z"/><path d="M13.2 3v5.6h5.8M8.4 13.4h7.2M8.4 16.8h4.8"/></svg><span class="of__tag">STRATEGY</span></div>
+        <h3 class="of__n">AI roadmap</h3>
+        <p class="of__p">On request<s>fixed</s></p>
+        
+        
+        <ul><li>Every process that could use AI, assessed honestly</li><li>What to build, what to buy, and what to leave alone</li><li>Sequenced by payback, with costs against each</li><li>Build-versus-buy on the specific tools you are considering</li><li>Presented to your team or your board</li></ul>
+        <p class="of__note">Portable by design. If you execute it with someone else, the roadmap still did its job.</p>
+        <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy%20%E2%80%94%20AI%20roadmap">Request this ↗</a>
+      </div>
+      <div class="of of--pick" style="--ocd:#A78BFA;--ocl:#6D3FD4">
+        <span class="of__bar" aria-hidden="true"></span>
+        <span class="of__flag">Most chosen</span>
+        <div class="of__top"><svg class="of__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 5 5.6v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.6l-7-2.9Z"/><path d="m9.1 11.9 2.1 2.1 3.8-4"/></svg><span class="of__tag">ONGOING</span></div>
+        <h3 class="of__n">Fractional CTO</h3>
+        <p class="of__p">On request<s>per month</s></p>
+        
+        
+        <ul><li>A technical decision-maker on call, without the salary</li><li>Vendor proposals and contracts reviewed before you sign</li><li>Architecture decisions and hiring input</li><li>Your team&#39;s technical questions answered</li><li>Board and investor sessions when they are needed</li></ul>
+        <p class="of__note">For a company with budget and no senior technical person to spend it well.</p>
+        <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy%20%E2%80%94%20Fractional%20CTO">Request this ↗</a>
+      </div>
+    </div>
+    <p class="sub-k">Add-ons — buy with any package or on their own</p>
+    <div class="offers">
+      <div class="of of--addon" style="--ocd:#8A96B0;--ocl:#4E5870">
+        <span class="of__bar" aria-hidden="true"></span>
+        
+        <div class="of__top"><svg class="of__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.3"/><path d="m6.1 6.1 3.5 3.5m4.8 4.8 3.5 3.5m0-11.8-3.5 3.5m-4.8 4.8-3.5 3.5"/></svg><span class="of__tag">TEAM</span></div>
+        <h3 class="of__n">Team enablement</h3>
+        <p class="of__p">On request<s>fixed</s></p>
+        
+        
+        <ul><li>Workshops for your developers on the tools you have chosen</li><li>Working code against your own systems, not slide examples</li><li>Review of what they build in the weeks after</li><li>A written reference they keep</li></ul>
+        <p class="of__note">So the capability stays after I leave, which is the point.</p>
+        <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy%20%E2%80%94%20Team%20enablement">Request this ↗</a>
+      </div>
+    </div>
+  </div></section>
+
+  
+
+  
+
+  <section class="blk" id="prereq"><div class="wrap">
+    <div class="hd">
+      <p class="k">Before we start</p>
+      <h2>What your business needs in place.</h2>
+      <p class="lead">Advice is only worth its price when these are true.</p>
+    </div>
+    <div class="prs">
+      <div class="pr">
+        <span class="pr__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.6" width="18.8" height="14.8" rx="2.6"/><circle cx="8.5" cy="11" r="2.2"/><path d="M4.9 16.4c.7-1.7 2-2.5 3.6-2.5s2.9.8 3.6 2.5M15 9.8h4.2M15 13.4h3"/></svg></span>
+        <div>
+          <h3>The decision-maker in the room</h3>
+          <p>Advice relayed second-hand arrives without its reasoning and gets overruled by whoever spoke last. If the person who signs cannot attend, the engagement is worth less than it costs.</p>
+        </div>
+      </div>
+      <div class="pr">
+        <span class="pr__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.9H6.9a2.2 2.2 0 0 0-2.2 2.2v13.8a2.2 2.2 0 0 0 2.2 2.2h10.2a2.2 2.2 0 0 0 2.2-2.2V8.7l-5.9-5.8Z"/><path d="M13.2 3v5.6h5.8M8.4 13.4h7.2M8.4 16.8h4.8"/></svg></span>
+        <div>
+          <h3>Honesty about what has already been decided</h3>
+          <p>If a platform has been chosen and the review is for cover, say so — I will decline rather than write it. Where the decision is genuinely open, that is where this is worth the money.</p>
+        </div>
+      </div>
+      <div class="pr">
+        <span class="pr__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 5 5.6v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.6l-7-2.9Z"/><path d="M12 8.4v3.9m0 2.9v.1"/></svg></span>
+        <div>
+          <h3>Access to what is being reviewed</h3>
+          <p>Code, architecture docs, the actual bill, or the proposal on the table. A review conducted on descriptions is a conversation, not an audit, and should not be priced as one.</p>
+        </div>
+      </div>
+      <div class="pr">
+        <span class="pr__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 6.9V12l3.4 2"/></svg></span>
+        <div>
+          <h3>Willingness to hear &#39;do not build this&#39;</h3>
+          <p>It is the most common recommendation and the most valuable one. If it is unwelcome, the report will be worth exactly nothing to you.</p>
+        </div>
+      </div>
+    </div>
+    
+  </div></section>
+
+  <section class="blk blk--tight" id="terms"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">Terms</p>
+      <h3 class="h-sm">How the money and the risk are split.</h3>
+      <p class="lead lead--sm">No retainer to start a conversation, and no invoice for work that never got delivered.</p>
+    </div>
+    <div class="tms">
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span>
+        <div><h3>Half to start, half on delivery</h3><p>Balance falls due when the work is done and handed over. Not delivered, not charged.</p></div>
+      </div>
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 5 5.6v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.6l-7-2.9Z"/><path d="M12 8.4v3.9m0 2.9v.1"/></svg></span>
+        <div><h3>Fixed price, not an estimate</h3><p>The number holds unless you change the scope. If I misjudged it, that is mine.</p></div>
+      </div>
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M12 6.9V12l3.4 2"/></svg></span>
+        <div><h3>The clock starts at handover</h3><p>From the day I have everything on the list, not from the day you pay.</p></div>
+      </div>
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.9H6.9a2.2 2.2 0 0 0-2.2 2.2v13.8a2.2 2.2 0 0 0 2.2 2.2h10.2a2.2 2.2 0 0 0 2.2-2.2V8.7l-5.9-5.8Z"/><path d="M13.2 3v5.6h5.8M8.4 13.4h7.2M8.4 16.8h4.8"/></svg></span>
+        <div><h3>One round of revisions included</h3><p>Then hourly, quoted before anything starts. No surprise invoices.</p></div>
+      </div>
+      <div class="tm">
+        <span class="tm__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.2" cy="12" r="3.9"/><path d="M12.1 12H21m-3.4 0v3.1m-2.6-3.1v2.1"/></svg></span>
+        <div><h3>You own everything at the end</h3><p>Code, accounts, assets and credentials. Nothing is held hostage.</p></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="blk blk--tight" id="showcase"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">What you get</p>
+      <h3 class="h-sm">What you are left holding.</h3>
+      <p class="lead lead--sm">Written to be useful even if you execute it with someone else.</p>
+    </div>
+    <div class="asx">
+      <div class="as">
+        <div class="as__mock" data-shape="report"><svg viewBox="0 0 120 150" fill="none" aria-hidden="true">
+    <rect x="1" y="1" width="118" height="148" rx="9" fill="var(--oc)" opacity=".07"/>
+    <rect x="1" y="1" width="118" height="148" rx="9" stroke="var(--oc)" stroke-opacity=".4"/>
+    <rect x="14" y="16" width="60" height="9" rx="4.5" fill="var(--oc)" opacity=".6"/>
+    <rect x="14" y="34" width="92" height="6" rx="3" fill="var(--oc)" opacity=".18"/>
+    <rect x="14" y="46" width="76" height="6" rx="3" fill="var(--oc)" opacity=".18"/>
+    <g><rect x="14" y="70" width="18" height="46" rx="4" fill="var(--oc)" opacity=".4"/>
+       <rect x="38" y="86" width="18" height="30" rx="4" fill="var(--oc)" opacity=".28"/>
+       <rect x="62" y="60" width="18" height="56" rx="4" fill="var(--oc)"/>
+       <rect x="86" y="78" width="18" height="38" rx="4" fill="var(--oc)" opacity=".28"/></g>
+    <rect x="14" y="128" width="92" height="6" rx="3" fill="var(--oc)" opacity=".18"/>
+  </svg></div>
+        <div class="as__b">
+          <div class="as__h"><h3>A written findings report</h3></div>
+          <p class="as__s">Ranked by impact, each with the fix and what it costs to act on. Yours to keep.</p>
+        </div>
+      </div>
+      <div class="as">
+        <div class="as__mock" data-shape="roadmap"><svg viewBox="0 0 170 100" fill="none" aria-hidden="true">
+    <path d="M10 78h150" stroke="var(--oc)" stroke-opacity=".3"/>
+    <g><circle cx="26" cy="78" r="8" fill="var(--oc)"/><circle cx="72" cy="78" r="8" fill="var(--oc)" opacity=".5"/>
+       <circle cx="118" cy="78" r="8" fill="var(--oc)" opacity=".3"/><circle cx="156" cy="78" r="8" fill="var(--oc)" opacity=".2"/></g>
+    <g fill="var(--oc)" opacity=".3"><rect x="14" y="46" width="24" height="20" rx="4"/>
+       <rect x="60" y="34" width="24" height="32" rx="4"/><rect x="106" y="22" width="24" height="44" rx="4"/></g>
+  </svg></div>
+        <div class="as__b">
+          <div class="as__h"><h3>Build, buy or leave alone</h3></div>
+          <p class="as__s">Answered per option with numbers, not adjectives — including the options that are not mine.</p>
+        </div>
+      </div>
+      <div class="as">
+        <div class="as__mock" data-shape="dashboard"><svg viewBox="0 0 160 110" fill="none" aria-hidden="true">
+    <rect x="1" y="1" width="158" height="108" rx="8" fill="var(--oc)" opacity=".07"/>
+    <rect x="1" y="1" width="158" height="108" rx="8" stroke="var(--oc)" stroke-opacity=".4"/>
+    <rect x="12" y="12" width="40" height="26" rx="5" fill="var(--oc)" opacity=".45"/>
+    <rect x="60" y="12" width="40" height="26" rx="5" fill="var(--oc)" opacity=".22"/>
+    <rect x="108" y="12" width="40" height="26" rx="5" fill="var(--oc)" opacity=".22"/>
+    <g stroke="var(--oc)" stroke-width="2" opacity=".7" fill="none"><path d="M14 88c14 0 20-24 34-30s24 8 38-10 22-4 34-12"/></g>
+    <g stroke="var(--oc)" stroke-opacity=".22"><path d="M12 96h136M12 74h136M12 52h136"/></g>
+  </svg></div>
+        <div class="as__b">
+          <div class="as__h"><h3>Your costs, modelled</h3></div>
+          <p class="as__s">Per request at your real volume, compared against the alternatives on the table.</p>
+        </div>
+      </div>
+      <div class="as">
+        <div class="as__mock" data-shape="handover"><svg viewBox="0 0 150 110" fill="none" aria-hidden="true">
+    <rect x="6" y="18" width="70" height="84" rx="8" fill="var(--oc)" opacity=".12" stroke="var(--oc)" stroke-opacity=".4"/>
+    <g fill="var(--oc)" opacity=".4"><rect x="18" y="34" width="44" height="6" rx="3"/><rect x="18" y="48" width="34" height="5" rx="2.5"/>
+      <rect x="18" y="60" width="44" height="5" rx="2.5"/><rect x="18" y="72" width="26" height="5" rx="2.5"/></g>
+    <path d="M86 60h26m0 0-8-8m8 8-8 8" stroke="var(--oc)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(128 60)"><circle r="17" fill="var(--oc)" opacity=".18" stroke="var(--oc)" stroke-opacity=".5"/>
+      <path d="m-6 1 4 4 8-9" stroke="var(--oc)" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </svg></div>
+        <div class="as__b">
+          <div class="as__h"><h3>Your team, further along</h3></div>
+          <p class="as__s">Workshops on your own systems and review of what they build after, so the capability stays.</p>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  
+
+  <section class="blk blk--tight" id="handover"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">What you send</p>
+      <h3 class="h-sm">The handover, in one list.</h3>
+      <p class="lead lead--sm">Send it in one go and the clock starts.</p>
+    </div>
+    <ul class="req"><li>What you are trying to change, in business terms</li><li>The current stack and where AI is meant to sit in it</li><li>The proposal, vendor quote or plan under consideration</li><li>Access to the codebase or architecture docs for a review</li><li>Your current inference or licence spend, if any</li><li>Who owns the work after I leave</li></ul>
+  </div></section>
+
+  
+
+  <section class="blk blk--tight" id="process"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">How it runs</p>
+      <h3 class="h-sm">Six steps, and you see each one.</h3>
+    </div>
+    <ol class="steps">
+      <li class="st">
+        <span class="st__n">01</span>
+        <div><h3>Brief</h3><p>An hour on what you are actually trying to change, and what has already been decided.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">02</span>
+        <div><h3>Look</h3><p>Code, architecture, bills and proposals. No opinion before evidence.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">03</span>
+        <div><h3>Model</h3><p>Costs and alternatives compared with numbers rather than adjectives.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">04</span>
+        <div><h3>Write</h3><p>Findings, ranked, each with a recommendation and what it costs to act on.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">05</span>
+        <div><h3>Present</h3><p>To the team, the board, or both. Questions answered in the room.</p></div>
+      </li>
+      <li class="st">
+        <span class="st__n">06</span>
+        <div><h3>Follow up</h3><p>One session a month later, when the decisions have met reality.</p></div>
+      </li>
+    </ol>
+  </div></section>
+
+  <section class="blk blk--tight" id="scope"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">Scope</p>
+      <h3 class="h-sm">What this is not, and who it is not for.</h3>
+    </div>
+    
+    <p class="lead lead--sm" style="margin-top:0">These are quoted separately, so the price above stays a price.</p>
+    <ul class="excl"><li>Building anything — that is a separate service, quoted separately</li><li>Vendor licences and subscriptions</li><li>Recruitment and placement fees</li><li>Legal or regulatory sign-off</li><li>Training data or dataset acquisition</li><li>Acting as your named technical officer for regulatory purposes</li></ul>
+    <p class="sub-k">Right fit, wrong fit</p>
+    <p class="lead lead--sm" style="margin-top:0">Saves a call that would end in no.</p>
+    <div class="fit">
+      <div class="fit__c" data-yes="1"><h3>A good fit</h3><ul><li>You are about to spend real money and want a second opinion</li><li>You have an AI system and the bill is climbing</li><li>You need build-versus-buy answered with numbers</li><li>You have budget and no senior technical person</li><li>The decision is genuinely still open</li></ul></div>
+      <div class="fit__c"><h3>Not a fit</h3><ul><li>You want a report supporting a decision already made</li><li>Nobody senior can attend</li><li>You want the deck rather than the thinking</li><li>You need someone to build it — ask for the build instead</li></ul></div>
+    </div>
+  </div></section>
+
+  <section class="blk blk--tight" id="support"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">After launch</p>
+      <h3 class="h-sm">After the report.</h3>
+    </div>
+    <p class="lead lead--sm" style="margin-top:0">A roadmap ages. Providers ship, prices fall, and the build-versus-buy answer that was right in March is wrong by September. The fractional arrangement is for companies that would rather have that tracked than rediscovered.</p>
+  </div></section>
+
+  <section class="blk blk--tight" id="faq"><div class="wrap">
+    <div class="hd hd--tight">
+      <p class="k">Questions</p>
+      <h3 class="h-sm">The ones people actually ask.</h3>
+    </div>
+    <details class="qa">
+        <summary>Do you take commission from vendors?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>No, from anyone, ever. It is the whole basis on which this advice is worth paying for, and the moment it were not true the advice would be worthless.</p>
+      </details>
+    <details class="qa">
+        <summary>What if you recommend we do nothing?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>Then that is the finding, and it is usually the most valuable one. Most AI spending in this market goes on things that a database query or a better process would have solved for a fraction of the price.</p>
+      </details>
+    <details class="qa">
+        <summary>How is this different from a big consultancy?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>I run the systems I advise on and I write the code. That means the recommendation comes with an implementation cost I would have to honour myself, which is a strong discipline against recommending things that sound good.</p>
+      </details>
+    <details class="qa">
+        <summary>Can you also build what you recommend?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>Yes, and it is quoted separately and later, so the advice is never a sales route. If you would rather someone else builds it, the roadmap is written to be handed over.</p>
+      </details>
+    <details class="qa">
+        <summary>How quickly can you start?<span class="qa__m" aria-hidden="true"></span></summary>
+        <p>A review is usually days rather than weeks — the value is in answering before the money is committed, and an answer that arrives after the contract is signed is just an expensive opinion.</p>
+      </details>
+  </div></section>
+
+  <section class="blk"><div class="wrap">
+    <p class="k">Other services</p>
+    <div class="also">
+      <a href="/skill/app-store-publishing/">App Store Publishing →</a>
+      <a href="/skill/web-mobile-development/">Web &amp; Mobile Development →</a>
+      <a href="/skill/ecommerce-systems/">E-commerce Systems →</a>
+      <a href="/skill/automation-integrations/">Automation and Integrations →</a>
+      <a href="/skill/enterprise-systems/">Enterprise Systems →</a>
+      <a href="/skill/ai-product-development/">AI Product Development →</a>
+      <a href="/skill/digital-transformation/">Digital Transformation →</a>
+    </div>
+  </div></section>
+
+  <section class="end"><div class="wrap end__in">
+    <h2>Tell me what you have, and I will tell you what it takes.</h2>
+    <p>The app, the market and the deadline is enough to get a straight answer on scope, price and timing — usually the same day.</p>
+    <div class="hero__cta">
+      <a class="btn" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy">Request this service ↗</a>
+      <a class="btn btn--ghost" href="/#contact">Other ways to reach me</a>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap foot__row">
+  <span>© 2026 Qassem</span>
+  <span>/skill/ai-consulting</span>
+</div></footer>
+
+<script>window.__AR__={"text":{"All services":"كل الخدمات","← All services":"← كل الخدمات","Home":"الرئيسية","Services":"الخدمات","Pricing":"الأسعار","Compare":"مقارنة","Platform fees":"رسوم المتاجر","Before we start":"قبل ما نبدأ","What you send":"اللي بتبعته","Published work":"شغل منشور","How it runs":"إزاي بتمشي","Questions":"أسئلة","After launch":"بعد الإطلاق","Other services":"خدمات تانية","What it costs, with nothing left off the bill.":"التكلفة كاملة، من غير أي حاجة مخبّية.","Every package below is a fixed price for a finished job — live on the store, not \"submitted\". The big number is what it costs to be live in year one with the platform's own fees already added, because that is the number you are actually deciding between. Under it sits the part that repeats, and the two routes where nothing repeats at all.":"كل باقة تحت سعرها ثابت مقابل شغل مكتمل — التطبيق نازل على المتجر فعلًا، مش «اترفع للمراجعة». الرقم الكبير هو تكلفة إنك تبقى نازل في السنة الأولى ورسوم المتجر داخلة فيه أصلًا، لأن ده الرقم اللي بتقارن بيه فعلًا. وتحته الجزء اللي بيتكرر، والطريقين اللي مافيهمش حاجة بتتكرر خالص.","to be live, year one":"لتكون نازل، السنة الأولى","Add-ons — buy with any package or on their own":"إضافات — مع أي باقة أو لوحدها","The four routes, side by side.":"الأربع طرق جنب بعض.","What you get":"اللي بتاخده","What Google and Apple charge, separately from me.":"اللي جوجل وآبل بياخدوه، بعيد عن أتعابي.","What your business needs in place.":"اللي لازم يكون جاهز عندك.","The handover, in one list.":"التسليم، في قائمة واحدة.","Live on the stores now.":"نازلة على المتاجر دلوقتي.","Six steps, and you see each one.":"ست خطوات، وبتشوف كل واحدة فيهم.","Support, once it is live.":"الدعم بعد ما ينزل.","The ones people actually ask.":"الأسئلة اللي بتتسأل فعلًا.","Request this service ↗":"اطلب الخدمة دي ↗","See the pricing":"شوف الأسعار","See every service":"شوف كل الخدمات","Other ways to reach me":"طرق تانية للتواصل","Google Play":"جوجل بلاي","Apple App Store":"آبل آب ستور","Recommended":"الأنسب","Best value":"الأفضل قيمة","Terms":"الشروط","Scope":"النطاق","How the money and the risk are split.":"إزاي الفلوس والمخاطرة بتتقسم.","What this is not, and who it is not for.":"إيه اللي مش داخل، ومين مش المناسب ليها.","Right fit, wrong fit":"مناسب، ومش مناسب","A good fit":"مناسب","Not a fit":"مش مناسب","Assets":"الصور والنصوص","Assets and images":"الصور والنصوص المطلوبة","What the stores want, at the size they want it.":"اللي المتاجر بتطلبه، بالمقاس اللي بتطلبه بيه.","The text, and what it has to fit in":"النصوص، والحدود اللي لازم تدخل فيها","Text":"النص","required":"مطلوبة","optional":"اختياري","if the app runs on tablets":"لو التطبيق شغال على تابلت","Request this ↗":"اطلب دي ↗","Included":"داخل الباقة","Not included":"مش داخل الباقة","not needed on my account":"مش مطلوب على حسابي","Tell me what you have, and I will tell you what it takes.":"قول لي عندك إيه، وأقول لك محتاج إيه.","The app, the market and the deadline is enough to get a straight answer on scope, price and timing — usually the same day.":"التطبيق، والسوق، والموعد النهائي — دول كفاية عشان تاخد رد واضح على النطاق والسعر والتوقيت، غالبًا في نفس اليوم.","Prices in USD. EGP and SAR on request.":"الأسعار بالدولار. بالجنيه المصري أو الريال السعودي عند الطلب.","No retainer to start a conversation, and no invoice for work that never got delivered.":"مفيش مقدم عشان نتكلم، ومفيش فاتورة على شغل ماتسلّمش.","Half to start, half on delivery":"نص مقدم ونص عند التسليم","Balance falls due when the work is done and handed over. Not delivered, not charged.":"الباقي مستحق لما الشغل يخلص ويتسلّم. ماتسلّمش، ماتدفعش.","Fixed price, not an estimate":"سعر ثابت مش تقدير","The number holds unless you change the scope. If I misjudged it, that is mine.":"الرقم ثابت إلا لو غيّرت النطاق. ولو أنا اللي قدّرت غلط، دي عليّ.","The clock starts at handover":"العدّاد بيبدأ من التسليم","From the day I have everything on the list, not from the day you pay.":"من يوم ما يبقى عندي كل اللي في القائمة، مش من يوم الدفع.","One round of revisions included":"جولة تعديلات واحدة داخلة","Then hourly, quoted before anything starts. No surprise invoices.":"وبعدها بالساعة، متسعّرة قبل ما حاجة تبدأ. مفيش فواتير مفاجئة.","You own everything at the end":"كل حاجة بتبقى ملكك في الآخر","Code, accounts, assets and credentials. Nothing is held hostage.":"الكود والحسابات والصور وبيانات الدخول. مفيش حاجة محجوزة.","Saves a call that would end in no.":"بيوفّر مكالمة نهايتها «لأ».","These are quoted separately, so the price above stays a price.":"دي بتتسعّر لوحدها، عشان السعر فوق يفضل سعر.","AI Consulting and Strategy":"استشارات الذكاء الاصطناعي","Decisions, before the money is spent":"القرارات، قبل ما الفلوس تتصرف","ADVISORY · AI STRATEGY":"استشارات · استراتيجية","Consulting · Architecture · Fractional CTO":"استشارات · معمارية · مدير تقني بدوام جزئي","Architecture, technical audits and a roadmap for teams adopting AI. I advise on the exact systems I have already built and run, not on a survey of the field.":"معمارية وتدقيق تقني وخارطة طريق للفرق اللي بتتبنى الذكاء الاصطناعي. بستشير على نفس الأنظمة اللي بنيتها وبشغّلها، مش على مسح للسوق.","AI Consulting and Strategy — roadmap, architecture and audits":"استشارات واستراتيجية الذكاء الاصطناعي — خارطة طريق ومعمارية وتدقيق","Fractional CTO, AI architecture review, build-vs-buy calls and model cost tuning, from someone who runs the systems he advises on.":"مدير تقني بدوام جزئي، ومراجعة معمارية الذكاء الاصطناعي، وقرارات نبني ولا نشتري، وضبط تكلفة النماذج، من حد بيشغّل الأنظمة اللي بيستشير عليها.","What you are trying to change, in business terms":"اللي بتحاول تغيّره، بلغة الأعمال","The current stack and where AI is meant to sit in it":"الأنظمة الحالية وفين المفروض الذكاء الاصطناعي يقعد فيها","The proposal, vendor quote or plan under consideration":"العرض أو التسعيرة أو الخطة اللي تحت الدراسة","Access to the codebase or architecture docs for a review":"صلاحية على الكود أو مستندات المعمارية للمراجعة","Your current inference or licence spend, if any":"صرفك الحالي على الاستدلال أو التراخيص، لو فيه","Who owns the work after I leave":"مين بيملك الشغل بعد ما أمشي","AUDIT":"تدقيق","Architecture review":"مراجعة المعمارية","fixed":"ثابت","Your AI system reviewed: architecture, prompts, retrieval, evaluation":"مراجعة نظام الذكاء الاصطناعي بتاعك: المعمارية والأوامر والاسترجاع والتقييم","Where it will break, and where it is quietly wasting money":"فين هيقع، وفين بيضيّع فلوس في صمت","Cost per request modelled and compared against alternatives":"التكلفة لكل طلب محسوبة ومقارنة بالبدائل","Findings ranked by impact, with the fix for each":"النتايج مرتّبة بالأثر، ومع كل واحدة الحل","A written report you own":"تقرير مكتوب بتملكه","Usually pays for itself on the inference bill alone.":"غالبًا بيردّ تكلفته من فاتورة الاستدلال لوحدها.","STRATEGY":"استراتيجية","AI roadmap":"خارطة طريق الذكاء الاصطناعي","Every process that could use AI, assessed honestly":"كل عملية ممكن تستخدم ذكاء اصطناعي، متقيّمة بأمانة","What to build, what to buy, and what to leave alone":"إيه اللي يتبني، وإيه اللي يتشترى، وإيه اللي يتساب","Sequenced by payback, with costs against each":"مرتّبة بالعائد، وبتكاليف مقابل كل واحدة","Build-versus-buy on the specific tools you are considering":"نبني ولا نشتري على الأدوات المحددة اللي بتفكّر فيها","Presented to your team or your board":"بتتعرض على فريقك أو مجلس إدارتك","Portable by design. If you execute it with someone else, the roadmap still did its job.":"قابلة للنقل عن قصد. لو نفّذتها مع حد تاني، تبقى برضه عملت شغلها.","ONGOING":"مستمر","Fractional CTO":"مدير تقني بدوام جزئي","per month":"شهريًا","Most chosen":"الأكثر طلبًا","A technical decision-maker on call, without the salary":"صاحب قرار تقني تحت الطلب، من غير المرتب","Vendor proposals and contracts reviewed before you sign":"مراجعة عروض الموردين والعقود قبل ما توقّع","Architecture decisions and hiring input":"قرارات المعمارية ومدخلات التوظيف","Your team's technical questions answered":"الرد على أسئلة فريقك التقنية","Board and investor sessions when they are needed":"جلسات مجلس الإدارة والمستثمرين وقت الحاجة","For a company with budget and no senior technical person to spend it well.":"لشركة عندها ميزانية ومفيش عندها شخص تقني كبير يصرفها صح.","TEAM":"الفريق","Team enablement":"تمكين الفريق","Workshops for your developers on the tools you have chosen":"ورش لمطوّرينك على الأدوات اللي اخترتوها","Working code against your own systems, not slide examples":"كود شغال على أنظمتكم أنتم، مش أمثلة شرائح","Review of what they build in the weeks after":"مراجعة اللي بيبنوه في الأسابيع اللي بعدها","A written reference they keep":"مرجع مكتوب بيفضل معاهم","So the capability stays after I leave, which is the point.":"عشان القدرة تفضل بعد ما أمشي، وده المقصود.","A roadmap ages. Providers ship, prices fall, and the build-versus-buy answer that was right in March is wrong by September. The fractional arrangement is for companies that would rather have that tracked than rediscovered.":"خارطة الطريق بتقدم. المزوّدين بينزّلوا، والأسعار بتقل، وإجابة نبني ولا نشتري اللي كانت صح في مارس بتبقى غلط في سبتمبر. ترتيب الدوام الجزئي للشركات اللي تفضّل ده يتتابع بدل ما يتكتشف تاني.","Brief":"التمهيد","An hour on what you are actually trying to change, and what has already been decided.":"ساعة على اللي بتحاول تغيّره فعلًا، واللي اتقرّر خلاص.","Look":"النظر","Code, architecture, bills and proposals. No opinion before evidence.":"الكود والمعمارية والفواتير والعروض. مفيش رأي قبل الدليل.","Model":"النمذجة","Costs and alternatives compared with numbers rather than adjectives.":"التكاليف والبدائل متقارنة بأرقام مش بصفات.","Write":"الكتابة","Findings, ranked, each with a recommendation and what it costs to act on.":"النتايج، مرتّبة، وكل واحدة معاها توصية وتكلفة التنفيذ.","Present":"العرض","To the team, the board, or both. Questions answered in the room.":"على الفريق، أو مجلس الإدارة، أو الاتنين. والأسئلة بتترد في القاعة.","Follow up":"المتابعة","One session a month later, when the decisions have met reality.":"جلسة واحدة بعد شهر، لما القرارات تكون قابلت الواقع.","Do you take commission from vendors?":"بتاخد عمولة من الموردين؟","No, from anyone, ever. It is the whole basis on which this advice is worth paying for, and the moment it were not true the advice would be worthless.":"لأ، من أي حد، أبدًا. ده الأساس كله اللي بيخلي الاستشارة دي تستاهل تتدفع، ولحظة ما يبقى مش صح تبقى الاستشارة ماتسواش حاجة.","What if you recommend we do nothing?":"لو وصّيت إننا مانعملش حاجة؟","Then that is the finding, and it is usually the most valuable one. Most AI spending in this market goes on things that a database query or a better process would have solved for a fraction of the price.":"يبقى دي النتيجة، وغالبًا أكترهم قيمة. أغلب الصرف على الذكاء الاصطناعي في السوق ده بيروح على حاجات كان استعلام قاعدة بيانات أو عملية أحسن هيحلّها بجزء بسيط من التمن.","How is this different from a big consultancy?":"إيه الفرق بين ده وبيت خبرة كبير؟","I run the systems I advise on and I write the code. That means the recommendation comes with an implementation cost I would have to honour myself, which is a strong discipline against recommending things that sound good.":"أنا بشغّل الأنظمة اللي بستشير عليها وبكتب الكود. يعني التوصية بتيجي ومعاها تكلفة تنفيذ أنا نفسي هضطر أحترمها، وده انضباط قوي ضد التوصية باللي شكله حلو بس.","Can you also build what you recommend?":"تقدر تبني اللي بتوصّي بيه؟","Yes, and it is quoted separately and later, so the advice is never a sales route. If you would rather someone else builds it, the roadmap is written to be handed over.":"أيوه، وبيتسعّر منفصل وبعدين، عشان الاستشارة عمرها ما تبقى طريق بيع. ولو تفضّل حد تاني يبنيه، خارطة الطريق مكتوبة عشان تتسلّم.","How quickly can you start?":"تقدر تبدأ بسرعة قد إيه؟","A review is usually days rather than weeks — the value is in answering before the money is committed, and an answer that arrives after the contract is signed is just an expensive opinion.":"المراجعة غالبًا أيام مش أسابيع — القيمة في إنها ترد قبل ما الفلوس تتلزم، والإجابة اللي بتوصل بعد توقيع العقد هي مجرد رأي غالي.","Vendor-neutral":"محايد","no commission from anyone I recommend":"مفيش عمولة من أي حد بوصّي بيه","Operator":"مشغّل","I run the systems I advise on":"بشغّل الأنظمة اللي بستشير عليها","Written":"مكتوب","you keep the document, whatever you decide":"بتحتفظ بالمستند، مهما قرّرت","Days":"أيام","not a six-week engagement to say what fits":"مش ارتباط ست أسابيع عشان نقول إيه اللي يظبط","Advice is only worth its price when these are true.":"الاستشارة بتسوى تمنها بس لما دول يكونوا صح.","The decision-maker in the room":"صاحب القرار في القاعة","Advice relayed second-hand arrives without its reasoning and gets overruled by whoever spoke last. If the person who signs cannot attend, the engagement is worth less than it costs.":"الاستشارة اللي بتتنقل بالواسطة بتوصل من غير أسبابها وبيلغيها آخر واحد اتكلم. لو الشخص اللي بيوقّع مش قادر يحضر، الارتباط بيسوى أقل من تمنه.","Honesty about what has already been decided":"أمانة في اللي اتقرّر خلاص","If a platform has been chosen and the review is for cover, say so — I will decline rather than write it. Where the decision is genuinely open, that is where this is worth the money.":"لو فيه منصة اتختارت والمراجعة للتغطية بس، قول — هرفض أكتبها بدل ما أكتبها. وحيث ما القرار مفتوح فعلًا، ده المكان اللي ده بيسوى فيه فلوسه.","Access to what is being reviewed":"صلاحية على اللي بيتراجع","Code, architecture docs, the actual bill, or the proposal on the table. A review conducted on descriptions is a conversation, not an audit, and should not be priced as one.":"الكود، أو مستندات المعمارية، أو الفاتورة الحقيقية، أو العرض اللي على الترابيزة. المراجعة المبنية على أوصاف هي مكالمة مش تدقيق، ومايصحش تتسعّر كتدقيق.","Willingness to hear 'do not build this'":"استعداد تسمع «ماتبنوش ده»","It is the most common recommendation and the most valuable one. If it is unwelcome, the report will be worth exactly nothing to you.":"دي أكتر توصية بتتقال وأكترهم قيمة. لو مش مرحّب بيها، التقرير مش هيسوى ولا حاجة عندك.","Building anything — that is a separate service, quoted separately":"بناء أي حاجة — دي خدمة منفصلة وبتتسعّر لوحدها","Vendor licences and subscriptions":"تراخيص واشتراكات الموردين","Recruitment and placement fees":"رسوم التوظيف والتعيين","Legal or regulatory sign-off":"الموافقات القانونية أو التنظيمية","Training data or dataset acquisition":"بيانات التدريب أو شراء مجموعات البيانات","Acting as your named technical officer for regulatory purposes":"الظهور كمسؤول تقني معتمد لأغراض تنظيمية","You are about to spend real money and want a second opinion":"على وشك تصرف فلوس حقيقية وعايز رأي تاني","You have an AI system and the bill is climbing":"عندك نظام ذكاء اصطناعي والفاتورة بتعلى","You need build-versus-buy answered with numbers":"محتاج إجابة نبني ولا نشتري بالأرقام","You have budget and no senior technical person":"عندك ميزانية ومفيش شخص تقني كبير","The decision is genuinely still open":"القرار لسه مفتوح فعلًا","You want a report supporting a decision already made":"عايز تقرير بيدعم قرار اتاخد خلاص","Nobody senior can attend":"مفيش حد كبير يقدر يحضر","You want the deck rather than the thinking":"عايز العرض مش التفكير اللي وراه","You need someone to build it — ask for the build instead":"محتاج حد يبنيه — اطلب البناء بدل كده","Send it in one go and the clock starts.":"ابعته مرة واحدة والعدّاد يبدأ.","What you are left holding.":"اللي بيفضل في إيدك.","Written to be useful even if you execute it with someone else.":"مكتوب عشان يبقى مفيد حتى لو نفّذته مع حد تاني.","What advice costs.":"تكلفة الاستشارة.","Fixed per engagement. I take no commission from any vendor I recommend, which is the whole basis on which this is worth paying for.":"ثابت لكل ارتباط. وماباخدش عمولة من أي مورّد بوصّي بيه، وده الأساس اللي بيخلي الاستشارة دي تستاهل تتدفع.","After the report.":"بعد التقرير."},"title":"استشارات واستراتيجية الذكاء الاصطناعي — خارطة طريق ومعمارية وتدقيق"};
+(function(){
+  var D=window.__AR__; if(!D) return;
+  var TXT=D.text||{}, HTML=D.html||{};
+  var root=document.documentElement, KEY='qassem-lang';
+  var orig=null;   // captured once, so switching back is exact
+
+  function nodes(){
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode, t=p&&p.nodeName;
+        if(t==='SCRIPT'||t==='STYLE'||t==='NOSCRIPT') return NodeFilter.FILTER_REJECT;
+        return n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }});
+    var out=[],n; while((n=w.nextNode())) out.push(n); return out;
+  }
+
+  function norm(h){ return h.replace(/\s+/g,' ').trim(); }
+
+  /* Elements whose whole innerHTML is a known English sentence. Outermost wins:
+     once one is claimed, anything inside it is skipped, so a replacement is
+     never applied twice to the same text. */
+  function blocks(){
+    var out=[], claimed=[];
+    var els=document.querySelectorAll('p,li,h1,h2,h3,h4,div,span,summary');
+    for(var i=0;i<els.length;i++){
+      var el=els[i], k=norm(el.innerHTML);
+      if(!HTML[k]) continue;
+      var inside=false;
+      for(var j=0;j<claimed.length;j++){ if(claimed[j].contains(el)){ inside=true; break; } }
+      if(inside) continue;
+      claimed.push(el); out.push([el,k]);
+    }
+    return out;
+  }
+
+  function capture(){
+    if(orig) return;
+    orig={t:[],h:[]};
+    blocks().forEach(function(p){ orig.h.push([p[0],p[0].innerHTML,p[1]]); });
+    // Text nodes are collected after the block list, so a node inside a block
+    // is not restored twice — the block restore already covers it.
+    nodes().forEach(function(n){ orig.t.push([n,n.nodeValue]); });
+    orig.title=document.title;
+  }
+
+  function toAr(){
+    capture();
+    // Blocks first: replacing one drops the text nodes inside it, so the text
+    // pass never sees a fragment of a sentence that has already moved.
+    orig.h.forEach(function(p){ p[0].innerHTML=HTML[p[2]]; });
+    nodes().forEach(function(n){
+      var k=n.nodeValue.trim();
+      if(TXT[k]) n.nodeValue=n.nodeValue.replace(k,TXT[k]);
+    });
+    if(D.title) document.title=D.title;
+    root.setAttribute('lang','ar'); root.setAttribute('dir','rtl');
+  }
+
+  function toEn(){
+    if(orig){
+      orig.h.forEach(function(p){ p[0].innerHTML=p[1]; });
+      orig.t.forEach(function(p){ if(p[0].parentNode) p[0].nodeValue=p[1]; });
+      document.title=orig.title;
+    }
+    root.setAttribute('lang','en'); root.setAttribute('dir','ltr');
+  }
+
+  function apply(l){ l==='ar'?toAr():toEn(); try{localStorage.setItem(KEY,l);}catch(e){}
+    [].forEach.call(document.querySelectorAll('[data-lang-btn]'),function(b){
+      var on=b.getAttribute('data-lang-btn')===l;
+      b.setAttribute('aria-pressed',on?'true':'false'); b.classList.toggle('on',on);
+    });
+  }
+
+  var saved=null; try{saved=localStorage.getItem(KEY);}catch(e){}
+  // No stored choice: follow the browser, because an Arabic speaker landing on
+  // an English page is the common case here, not the exception.
+  if(!saved) saved=(navigator.language||'').toLowerCase().indexOf('ar')===0?'ar':'en';
+  if(saved==='ar') apply('ar'); else apply('en');
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-lang-btn]');
+    if(!b) return; e.preventDefault(); apply(b.getAttribute('data-lang-btn'));
+  });
+})();</script>
+
+<script>
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var root=document.documentElement;
+
+  function arm(){
+    // Marked only now: until this runs, nothing in the page is hidden.
+    root.classList.add('anim');
+
+    var groups=[['.hd',0],['.of',70],['.pr',55],['.tm',45],['.as',60],['.st',50],
+                ['.qa',35],['.fee > div',60],['.stats > div',60],['.app',60],['.fit__c',80],
+                ['.cmp__scroll',0],['.excl li',25],['.req li',22],['.also a',30]];
+    groups.forEach(function(g){
+      [].forEach.call(document.querySelectorAll(g[0]),function(el,i){
+        el.setAttribute('data-rise','');
+        el.style.setProperty('--d',(i%8)*g[1]+'ms');
+      });
+    });
+
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    [].forEach.call(document.querySelectorAll('[data-rise]'),function(el){ io.observe(el); });
+
+    // Stat numbers count up, but only where the value is actually a number —
+    // "AR + EN" and "3–7 days" are left exactly as written.
+    [].forEach.call(document.querySelectorAll('.stats .n'),function(el){
+      var raw=el.textContent.trim(), m=raw.match(/^([^0-9]*)(\d+)(.*)$/);
+      if(!m || raw.indexOf('–')>-1) return;
+      var pre=m[1], end=parseInt(m[2],10), post=m[3];
+      if(end<2||end>100000) return;
+      var seen=false;
+      var so=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(!e.isIntersecting||seen) return; seen=true; so.disconnect();
+          var t0=null, dur=900;
+          function step(ts){ if(!t0)t0=ts;
+            var p=Math.min((ts-t0)/dur,1), v=Math.round((1-Math.pow(1-p,3))*end);
+            el.textContent=pre+v+post; if(p<1)requestAnimationFrame(step); }
+          requestAnimationFrame(step);
+        });
+      },{threshold:.6});
+      so.observe(el);
+    });
+  }
+
+  document.readyState==='loading'
+    ? addEventListener('DOMContentLoaded',arm) : arm();
+})();</script>
+
+<script>
+/* Marks the jump-nav link for whatever section is on screen. Progressive: with
+   no JS the links still work, they just do not light up. */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.jump a'));
+  if(!links.length||!('IntersectionObserver' in window))return;
+  var map={};links.forEach(function(a){var el=document.querySelector(a.getAttribute('href'));if(el)map[el.id]=a;});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      links.forEach(function(a){a.classList.remove('on');});
+      if(map[e.target.id])map[e.target.id].classList.add('on');
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+})();
+</script>
+
+</body>
+</html>
