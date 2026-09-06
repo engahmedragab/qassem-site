@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="x-build" content="60dec683b8cf">
+<meta name="x-build" content="3a7d028676bb">
 <title>Shaaml — The operating system for service providers.</title>
 <meta name="description" content="A marketplace, a storefront builder and an embedded growth engine — for the 90% of MENA service businesses running on WhatsApp and Excel.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -264,8 +264,8 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
 
   <section><div class="wrap">
     <p class="eyebrow">How it works</p>
-    <h2>The Growth Engine is the moat.</h2>
-    <p class="lead">Every marketplace can list providers. This runs their marketing for them, and step one is free — which is how a provider becomes a subscriber.</p>
+    <h2>Seven steps, and step one is free.</h2>
+    <p class="lead">The free step is the acquisition strategy. A provider gets real market research for their own city before paying anything, and the gap between knowing and acting is what the other six steps sell.</p>
     <ol class="steps"><li class="s">
         <span class="s__n">01</span>
         <div><h3>Market research</h3><p>Real demand in the provider&#39;s city: what sells, at what price, against whom. Free, and included in the base plan — the hook.</p></div>
@@ -291,26 +291,75 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
   </div></section>
 
   <section><div class="wrap">
-    <p class="eyebrow">The model</p>
-    <h2>Subscription first, wallet second.</h2>
-    <p class="lead">The engine is not sold separately. It is quota inside a plan, and overflow draws on a wallet the provider already funds.</p>
+    <p class="eyebrow">Already built</p>
+    <h2>Most of this already exists.</h2>
+    <p class="lead">The Growth Engine is not a new platform. It is a module on foundations that are already in production — which is why the build risk sits closer to zero than a pre-revenue company usually gets.</p>
+    <div class="cards"><div class="c"><h3>Guider platform</h3><p>33 entities and 300+ endpoints covering influencer, affiliate, commission, UGC and loyalty. Production ready.</p></div><div class="c"><h3>Wallets and settlement</h3><p>Provider wallet with 20+ transaction types and reserve-hold, guide wallet with cash and points, and a commission ledger running Pending to Approved to Paid.</p></div><div class="c"><h3>Attribution</h3><p>Affiliate links with UTM tracking and fraud detection; eight attribution event types with geographic and device data.</p></div><div class="c"><h3>Queue and job infrastructure</h3><p>RabbitMQ with seven queues, dead-letter handling and auto-recovery; a job system with retries and SHA256 idempotency; n8n already dispatching.</p></div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The mechanism</p>
+    <h2>Automation with a hand on it.</h2>
+    <p class="lead">Three execution modes, and a rule engine that learns which interventions actually worked.</p>
     <div class="cards"><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span>
-        <h3>Three plans</h3><p>Starter is influencer campaigns only. Pro adds a lead pipeline. Premium unlocks paid ads, AI creative and squad management.</p>
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12a8.4 8.4 0 1 1-2.5-6"/><path d="M20.6 4.4v5.4h-5.4"/></svg></span>
+        <h3>Hybrid is the default</h3><p>AI drafts, humans approve, influencers execute, ads run partly automated. Full auto and fully human-managed both exist for the ends of the risk range.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span>
-        <h3>Quota, then wallet</h3><p>Exceed the plan and the system reserves against the provider wallet, executes, then settles — so usage above plan is revenue, not friction.</p>
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span>
+        <h3>Risk-based approval</h3><p>An automation policy sets the budget above which a human must approve. Small decisions run themselves; expensive ones do not.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span>
+        <h3>Five layers, one loop</h3><p>Events, metrics, rule evaluation, action execution, then learning — action history stores before-and-after metrics so the engine can tell which rules earn their place.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4"/></svg></span>
-        <h3>Hybrid commission</h3><p>Influencers earn a base milestone per deliverable plus performance commission, multiplied by tier and reputation.</p>
+        <h3>Reputation that compounds</h3><p>Two scores per squad member: project performance and a global reputation across every provider. Elite tier earns a 15% commission multiplier and priority matching — a reason for good operators to stay on the platform.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The model</p>
+    <h2>Six ways it earns, not one.</h2>
+    <p class="lead">The subscription is the floor. Everything above it is usage the provider chooses, which is why the revenue per provider grows without a new sale.</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span>
+        <h3>Subscription</h3><p>Base plan per month. Growth Engine capability is gated by tier — Starter is influencer campaigns only, Premium unlocks paid ads, AI creative and squad management.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span>
+        <h3>Wallet overage</h3><p>Extra AI generations, campaigns and creatives beyond plan quota reserve against the provider wallet, execute, then settle. Usage above plan is revenue, not friction.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span>
+        <h3>Ad management fee</h3><p>25% on ad budget, charged to the provider and deducted from their wallet. It scales with their spend rather than with our headcount.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4"/></svg></span>
+        <h3>Marketplace commission</h3><p>A percentage of every influencer commission the platform settles — earned on transactions the platform already processes end to end.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/></svg></span>
+        <h3>AI usage</h3><p>Deducted per job from the provider AI wallet, on the metering that already runs: job creation cost and an interaction multiplier.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 9.6 12 4.4l8.6 5.2M5.4 9.6v8.2m4.4-8.2v8.2m4.4-8.2v8.2m4.4-8.2v8.2M3 20.4h18"/></svg></span>
-        <h3>Real settlement</h3><p>Attribution to commission ledger to wallet to payout, via InstaPay, Vodafone Cash or bank.</p>
+        <h3>Performance margin</h3><p>Where ROI passes a threshold, a bonus on net revenue generated. The only stream that pays more when the provider wins more.</p>
       </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Roadmap</p>
+    <h2>Where this goes.</h2>
+    <p class="lead">Each phase is sellable on its own, which is what makes the sequence financeable rather than speculative.</p>
+    <ol class="steps"><li class="s"><span class="s__n">P1</span>
+      <div><h3>Marketing engine inside Shaaml</h3><p>A SaaS module providers subscribe to. This is the phase that is built.</p></div></li><li class="s"><span class="s__n">P2</span>
+      <div><h3>Performance marketplace</h3><p>Providers find and hire verified influencer squads, scored and ranked by the reputation system.</p></div></li><li class="s"><span class="s__n">P3</span>
+      <div><h3>AI growth partner</h3><p>Predictive ROAS, auto-scaling and smart budget allocation — the engine deciding rather than suggesting.</p></div></li><li class="s"><span class="s__n">P4</span>
+      <div><h3>Cross-provider intelligence</h3><p>Industry benchmarks, niche leaders and talent scoring across every provider on the platform. The data advantage nobody entering later can buy.</p></div></li></ol>
   </div></section>
 
   <section><div class="wrap">
@@ -323,6 +372,9 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
       </div><div class="st" data-tone="hold">
         <span class="st__t">BUILT</span>
         <h3>iOS app</h3><p>Built and signed — the Apple provisioning profile for com.shaaml.app is current to February 2027. Not yet submitted to the App Store.</p>
+      </div><div class="st" data-tone="hold">
+        <span class="st__t">SPECIFIED</span>
+        <h3>What is left to build</h3><p>The Growth Engine bounded context itself: ten queue job types, the scoring services and the automation rule engine. Specified to entity and API-contract level, with a phase order and a risk register.</p>
       </div><div class="st" data-tone="up">
         <span class="st__t">DOCUMENTED</span>
         <h3>Growth Engine</h3><p>Full architecture and implementation spec written: entities, API contracts, execution modes, wallet flows. Build, not research.</p>
