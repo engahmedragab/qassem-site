@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="x-build" content="17624a982f00">
+<meta name="x-build" content="ce68a7c04fad">
 <title>Shaaml — The infrastructure behind multiple marketplaces.</title>
 <meta name="description" content="Providers manage their business once and appear on every consumer platform at the same time. One dashboard, unlimited distribution, real bookings — Shopify plus Booking.com for local services.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E">
@@ -147,6 +147,41 @@ h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-h
 .m__g{font-family:var(--mono);font-size:11.5px;color:var(--rc);letter-spacing:.03em}
 .note{font-size:13.5px;color:var(--ink-2);margin-top:16px;max-width:74ch;line-height:1.6}
 
+.cov{margin:30px 0 0}
+.cov__scroll{overflow-x:auto;contain:paint;border:1px solid var(--line);border-radius:12px;
+  background:var(--bg-2);box-shadow:var(--shadow);padding:18px 20px}
+.cov__grid{display:grid;grid-template-columns:minmax(150px,1.1fr) repeat(var(--n),minmax(72px,1fr));
+  gap:8px 6px;align-items:center;min-width:600px}
+.cov__st{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);text-align:center;line-height:1.35;padding-bottom:8px;
+  border-bottom:1px solid var(--line-2)}
+.cov__corner{border-bottom:1px solid var(--line-2);padding-bottom:8px}
+.cov__who{font-size:13.5px;color:var(--ink-2);padding-right:12px;line-height:1.3}
+.cov__who[data-us]{color:var(--ink);font-weight:600}
+.cov__c{height:11px;border-radius:6px;background:transparent;
+  border:1px dashed color-mix(in srgb,var(--ink-3) 45%,transparent)}
+.cov__c.on{background:color-mix(in srgb,var(--rc) 30%,transparent);border:1px solid transparent}
+.cov__c.on.us{background:var(--rc)}
+.cov figcaption{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-size:12.5px;color:var(--ink-3)}
+.cov__key{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px}
+.cov__key i{width:20px;height:9px;border-radius:5px;
+  border:1px dashed color-mix(in srgb,var(--ink-3) 45%,transparent)}
+.cov__key i.on{background:var(--rc);border:1px solid transparent}
+
+.rv{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}
+.rv th,.rv td{padding:15px 18px;border-bottom:1px solid var(--line-2);text-align:left;vertical-align:top}
+.rv thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--bg-3);border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
+.rv tbody th{font-weight:400;min-width:190px}
+.rv tbody th b{display:block;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.rv tbody th span{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:5px}
+.rv td{color:var(--ink-2);line-height:1.55;min-width:210px}
+.rv td.stop{color:var(--ink);border-left:2px solid var(--rc)}
+.rv tbody tr:last-child th,.rv tbody tr:last-child td{border-bottom:0}
+.sub-k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--ink-3);margin:clamp(28px,4vh,40px) 0 0;padding-top:clamp(24px,3.5vh,34px);
+  border-top:1px solid var(--line)}
 .tw{overflow-x:auto;contain:paint;border:1px solid var(--line);border-radius:12px;
   background:var(--bg-2);margin-top:30px;box-shadow:var(--shadow)}
 .pj{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px}
@@ -385,6 +420,80 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span>
         <h3>Built before the money</h3><p>Providers onboarded, bookings processed and three platforms live pre-funding. The capital buys growth, not construction.</p>
       </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The field</p>
+    <h2>Everyone picks a side. We are the only one that does not.</h2>
+    <p class="lead">The category splits cleanly in two: software that helps a provider run the business, and marketplaces that bring the provider customers. A provider currently has to buy both and join them by hand.</p>
+    <figure class="cov">
+      <div class="cov__scroll"><div class="cov__grid" style="--n:6">
+        <span class="cov__corner" aria-hidden="true"></span>
+        <span class="cov__st">Provider profile</span><span class="cov__st">Booking + calendar</span><span class="cov__st">Staff + payments</span><span class="cov__st">Consumer demand</span><span class="cov__st">Many storefronts</span><span class="cov__st">Marketing engine</span>
+        <span class="cov__who">Fresha, Booksy, Mindbody</span><span class="cov__c on"
+            role="img" aria-label="Fresha, Booksy, Mindbody — Provider profile: covered"></span><span class="cov__c on"
+            role="img" aria-label="Fresha, Booksy, Mindbody — Booking + calendar: covered"></span><span class="cov__c on"
+            role="img" aria-label="Fresha, Booksy, Mindbody — Staff + payments: covered"></span><span class="cov__c"
+            role="img" aria-label="Fresha, Booksy, Mindbody — Consumer demand: not covered"></span><span class="cov__c"
+            role="img" aria-label="Fresha, Booksy, Mindbody — Many storefronts: not covered"></span><span class="cov__c"
+            role="img" aria-label="Fresha, Booksy, Mindbody — Marketing engine: not covered"></span><span class="cov__who">Regional marketplaces</span><span class="cov__c on"
+            role="img" aria-label="Regional marketplaces — Provider profile: covered"></span><span class="cov__c on"
+            role="img" aria-label="Regional marketplaces — Booking + calendar: covered"></span><span class="cov__c"
+            role="img" aria-label="Regional marketplaces — Staff + payments: not covered"></span><span class="cov__c on"
+            role="img" aria-label="Regional marketplaces — Consumer demand: covered"></span><span class="cov__c"
+            role="img" aria-label="Regional marketplaces — Many storefronts: not covered"></span><span class="cov__c"
+            role="img" aria-label="Regional marketplaces — Marketing engine: not covered"></span><span class="cov__who">Instagram and WhatsApp</span><span class="cov__c on"
+            role="img" aria-label="Instagram and WhatsApp — Provider profile: covered"></span><span class="cov__c"
+            role="img" aria-label="Instagram and WhatsApp — Booking + calendar: not covered"></span><span class="cov__c"
+            role="img" aria-label="Instagram and WhatsApp — Staff + payments: not covered"></span><span class="cov__c on"
+            role="img" aria-label="Instagram and WhatsApp — Consumer demand: covered"></span><span class="cov__c"
+            role="img" aria-label="Instagram and WhatsApp — Many storefronts: not covered"></span><span class="cov__c"
+            role="img" aria-label="Instagram and WhatsApp — Marketing engine: not covered"></span><span class="cov__who">Custom build or agency</span><span class="cov__c on"
+            role="img" aria-label="Custom build or agency — Provider profile: covered"></span><span class="cov__c on"
+            role="img" aria-label="Custom build or agency — Booking + calendar: covered"></span><span class="cov__c"
+            role="img" aria-label="Custom build or agency — Staff + payments: not covered"></span><span class="cov__c"
+            role="img" aria-label="Custom build or agency — Consumer demand: not covered"></span><span class="cov__c"
+            role="img" aria-label="Custom build or agency — Many storefronts: not covered"></span><span class="cov__c"
+            role="img" aria-label="Custom build or agency — Marketing engine: not covered"></span><span class="cov__who" data-us>Shaaml</span><span class="cov__c on us"
+            role="img" aria-label="Shaaml — Provider profile: covered"></span><span class="cov__c on us"
+            role="img" aria-label="Shaaml — Booking + calendar: covered"></span><span class="cov__c on us"
+            role="img" aria-label="Shaaml — Staff + payments: covered"></span><span class="cov__c on us"
+            role="img" aria-label="Shaaml — Consumer demand: covered"></span><span class="cov__c on us"
+            role="img" aria-label="Shaaml — Many storefronts: covered"></span><span class="cov__c on us"
+            role="img" aria-label="Shaaml — Marketing engine: covered"></span>
+      </div></div>
+      <figcaption><span class="cov__key"><i class="on"></i>covers it</span>
+        <span class="cov__key"><i></i>does not</span>
+        Shaaml is the only row that runs end to end.</figcaption>
+    </figure>
+    <div class="tw"><table class="rv">
+      <thead><tr><th scope="col">Who they are</th><th scope="col">What they do well</th>
+        <th scope="col">Where they stop</th></tr></thead>
+      <tbody><tr><th scope="row"><b>Fresha, Booksy, Mindbody</b><span>Management software</span></th>
+        <td>Excellent booking, calendar, staff and payment tools. Mature products with years of refinement behind them, and they own the operational layer.</td><td class="stop">Demand is not their job. A provider using them is still responsible for finding every customer — and where a consumer marketplace does exist, it is that vendor&#39;s single marketplace, on their terms.</td></tr><tr><th scope="row"><b>Regional booking marketplaces</b><span>Demand only</span></th>
+        <td>Put a provider in front of customers who are already looking, with no software to learn and nothing to install.</td><td class="stop">The provider is a listing inside somebody else&#39;s storefront, with no control over pricing, availability or presence — and no way to be anywhere else without doing it all again.</td></tr><tr><th scope="row"><b>Instagram and WhatsApp</b><span>What most providers actually use</span></th>
+        <td>Free, familiar, and where customers already are. This is the real incumbent in Egypt and the Gulf, not a software vendor.</td><td class="stop">No availability, no record, no reminders, no reach beyond the followers already there. Bookings lost to a missed message are invisible, so nobody counts them.</td></tr><tr><th scope="row"><b>Custom builds and web agencies</b><span>For the larger providers</span></th>
+        <td>A site and a booking flow shaped exactly to one business, owned outright.</td><td class="stop">One channel, built once, ageing from the day it ships — and no distribution at all unless the provider markets it themselves.</td></tr></tbody>
+    </table></div>
+    <p class="sub-k">Where we are different</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span>
+        <h3>One record, many storefronts</h3><p>A provider maintains services, staff and availability once and appears on every connected platform at the same time. No competitor distributes to more than their own marketplace.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8.4 7.6-5 4.6 5 4.6M15.6 7.6l5 4.6-5 4.6M13.6 4.4l-3.2 15.2"/></svg></span>
+        <h3>The API is the product</h3><p>Any consumer frontend can consume providers, availability and booking flows. That turns each new storefront into a customer of ours rather than a competitor to build against.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/></svg></span>
+        <h3>Marketing is inside the platform</h3><p>The Growth Engine gives a provider market research free, then sells the six steps that act on it. Management tools do not do this and marketplaces cannot.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.2 2.3 3.4 5.4 3.4 8.6s-1.2 6.3-3.4 8.6c-2.2-2.3-3.4-5.4-3.4-8.6S9.8 5.7 12 3.4Z"/></svg></span>
+        <h3>Built Arabic-first for how MENA buys</h3><p>Full RTL, Arabic reply scripts and WhatsApp-first flows. The global tools are translated into this market; this one starts in it.</p>
+      </div></div>
+    <p class="note">Stated fairly: the management tools are better at management than we are today, and they have a years-long head start on that surface. The bet is not that we out-build them at booking — it is that a provider who gets demand from us tolerates a younger calendar, and a provider who only has a calendar eventually needs demand.</p>
   </div></section>
 
   <section><div class="wrap">
