@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="x-build" content="ad5c78caf3ed">
+<meta name="x-build" content="10a4da59fc42">
 <title>OurGrowth — Get the orders. Deliver the orders.</title>
 <meta name="description" content="An AI marketing and operations platform for merchants — one screen that finds the demand, confirms the order, ships it and collects the money.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,6 +114,46 @@ h2{font-family:var(--display);font-size:clamp(25px,3.6vw,40px);font-weight:500;l
 .c h3{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
 .c p{font-size:14px;color:var(--ink-2);line-height:1.58;margin-top:9px}
 
+/* Screenshots in a browser chrome, so a reader reads them as software rather
+   than as decoration. Wide shots take two columns; the phone shot takes one. */
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+@media(max-width:760px){.shots{grid-template-columns:1fr}}
+.sh{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s;margin:0}
+.sh:hover{transform:translateY(-3px);border-color:var(--rc)}
+.sh__bar{display:flex;align-items:center;gap:6px;padding:10px 13px;background:var(--sunk);
+  border-bottom:1px solid var(--line)}
+.sh__bar i{width:8px;height:8px;border-radius:50%;background:var(--line);display:block}
+.sh__bar i:first-child{background:var(--rc);opacity:.7}
+.sh img{display:block;width:100%;height:auto;background:var(--sunk)}
+.sh[data-w=tall] img{max-height:520px;object-fit:cover;object-position:top}
+.sh figcaption{padding:15px 17px 17px;border-top:1px solid var(--line-2)}
+.sh figcaption b{display:block;font-size:14.6px;font-weight:600;letter-spacing:-.01em}
+.sh figcaption span{display:block;font-size:13.2px;color:var(--ink-2);line-height:1.5;margin-top:6px}
+
+.brand__l{width:22px;height:22px;border-radius:5px;object-fit:contain;display:block}
+.mkt{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:12px;margin-top:30px}
+.m{background:var(--card);border:1px solid var(--line);border-left:2px solid var(--rc);
+  border-radius:0 6px 6px 0;padding:17px 19px;display:flex;flex-direction:column;gap:7px}
+.m__k{font-size:13.5px;color:var(--ink-2)}
+.m__v{font-family:var(--display);font-size:23px;font-weight:500;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums}
+.m__v i{font-style:normal;color:var(--rc);margin:0 4px}
+.m__g{font-family:var(--mono);font-size:11.5px;color:var(--rc);letter-spacing:.03em}
+.note{font-size:13.5px;color:var(--ink-2);margin-top:16px;max-width:74ch;line-height:1.6}
+
+.tw{overflow-x:auto;contain:paint;border:1px solid var(--line);border-radius:6px;
+  background:var(--card);margin-top:30px;box-shadow:var(--shadow)}
+.pj{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px}
+.pj th,.pj td{padding:14px 18px;border-bottom:1px solid var(--line-2);text-align:right;
+  font-variant-numeric:tabular-nums}
+.pj thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--sunk);border-bottom:1px solid var(--line);font-weight:500}
+.pj tbody th{text-align:left;font-weight:400;color:var(--ink-2)}
+.pj tbody tr:last-child th,.pj tbody tr:last-child td{border-bottom:0}
+.pj tr.hi{background:var(--sunk)}
+.pj tr.hi th,.pj tr.hi td{color:var(--ink);font-weight:600}
+
 ol.steps{list-style:none;margin-top:30px}
 .s{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line-2)}
 .s:last-child{border-bottom:0}
@@ -201,7 +241,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
 <body>
 
 <header class="nav"><div class="nav__r">
-  <a class="brand" href="https://qassem.online"><i></i>OurGrowth</a>
+  <a class="brand" href="https://qassem.online"><img class="brand__l" src="logos/ourgrowth.png" alt="OurGrowth">OurGrowth</a>
   <span style="display:inline-flex;align-items:center;gap:14px">
     <div class="thm" role="group" aria-label="Theme">
   <button type="button" data-theme-btn="light" aria-pressed="false" title="Light">
@@ -290,6 +330,37 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
         <div><h3>Watch one screen</h3><p>Revenue, orders, spend, returns and delivery state in a single view instead of six tabs.</p></div>
       </li></ol>
   </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Screens</p>
+    <h2>The platform, as it looks today.</h2>
+    <p class="lead">Captured from the live product this week — every screen below is reachable now.</p>
+    <div class="shots">
+      <figure class="sh" data-w="wide">
+        <span class="sh__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img src="shots/growth-home.jpg" alt="The promise — OurGrowth" loading="lazy" decoding="async">
+        <figcaption><b>The promise</b><span>Get the orders, deliver the orders. One platform across every channel.</span></figcaption>
+      </figure><figure class="sh" data-w="wide">
+        <span class="sh__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img src="shots/growth-mid.jpg" alt="One intelligent screen — OurGrowth" loading="lazy" decoding="async">
+        <figcaption><b>One intelligent screen</b><span>Revenue, orders, spend and delivery state in a single view instead of six tabs.</span></figcaption>
+      </figure><figure class="sh" data-w="wide">
+        <span class="sh__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img src="shots/growth-pricing.jpg" alt="Flat-rate pricing — OurGrowth" loading="lazy" decoding="async">
+        <figcaption><b>Flat-rate pricing</b><span>Priced per month rather than as a share of spend — the opposite of the agency model.</span></figcaption>
+      </figure><figure class="sh" data-w="tall">
+        <span class="sh__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img src="shots/growth-mobile.jpg" alt="On a phone — OurGrowth" loading="lazy" decoding="async">
+        <figcaption><b>On a phone</b><span>Merchants run their day from a phone. The dashboard is built for it.</span></figcaption>
+      </figure>
+    </div>
+  </div></section>
+
+  
+
+  
+
+  
 
   <section><div class="wrap">
     <p class="eyebrow">Already built</p>

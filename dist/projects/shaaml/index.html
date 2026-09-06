@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="x-build" content="3a7d028676bb">
-<title>Shaaml — The operating system for service providers.</title>
-<meta name="description" content="A marketplace, a storefront builder and an embedded growth engine — for the 90% of MENA service businesses running on WhatsApp and Excel.">
+<meta name="x-build" content="bc6234671b97">
+<title>Shaaml — The infrastructure behind multiple marketplaces.</title>
+<meta name="description" content="Providers manage their business once and appear on every consumer platform at the same time. One dashboard, unlimited distribution, real bookings — Shopify plus Booking.com for local services.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -44,7 +44,7 @@
   --paper:#FAF9F6; --card:#FFFFFF; --sunk:#F0EFEA;
   --ink:#15150F; --ink-2:#57544B; --ink-3:#86816F;
   --line:rgba(21,21,15,.13); --line-2:rgba(21,21,15,.06);
-  --rc:#0E6E63; --on-rc:#FFFFFF;
+  --rc:#B32B1F; --on-rc:#FFFFFF;
   --up:#0B6E39; --up-b:rgba(11,110,57,.11);
   --hold:#9C6206; --hold-b:rgba(156,98,6,.12);
   --shadow:0 1px 2px rgba(21,21,15,.05),0 10px 26px rgba(21,21,15,.05);
@@ -55,14 +55,14 @@
   --paper:#0D0F0E; --card:#151817; --sunk:#1B1F1E;
   --ink:#EAEDEB; --ink-2:#A5ACA9; --ink-3:#767D7A;
   --line:rgba(234,237,235,.14); --line-2:rgba(234,237,235,.07);
-  --rc:#2AB0A0; --on-rc:#0A0A0B;
+  --rc:#F14739; --on-rc:#0A0A0B;
   --up:#5FC08A; --up-b:rgba(95,192,138,.13); --hold:#D69A48; --hold-b:rgba(214,154,72,.14);
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.34);}}
 :root[data-theme="dark"]{
   --paper:#0D0F0E; --card:#151817; --sunk:#1B1F1E;
   --ink:#EAEDEB; --ink-2:#A5ACA9; --ink-3:#767D7A;
   --line:rgba(234,237,235,.14); --line-2:rgba(234,237,235,.07);
-  --rc:#2AB0A0; --on-rc:#0A0A0B;
+  --rc:#F14739; --on-rc:#0A0A0B;
   --up:#5FC08A; --up-b:rgba(95,192,138,.13); --hold:#D69A48; --hold-b:rgba(214,154,72,.14);
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.34);}
 
@@ -113,6 +113,46 @@ h2{font-family:var(--display);font-size:clamp(25px,3.6vw,40px);font-weight:500;l
 .c__i svg{width:19px;height:19px}
 .c h3{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
 .c p{font-size:14px;color:var(--ink-2);line-height:1.58;margin-top:9px}
+
+/* Screenshots in a browser chrome, so a reader reads them as software rather
+   than as decoration. Wide shots take two columns; the phone shot takes one. */
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+@media(max-width:760px){.shots{grid-template-columns:1fr}}
+.sh{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s;margin:0}
+.sh:hover{transform:translateY(-3px);border-color:var(--rc)}
+.sh__bar{display:flex;align-items:center;gap:6px;padding:10px 13px;background:var(--sunk);
+  border-bottom:1px solid var(--line)}
+.sh__bar i{width:8px;height:8px;border-radius:50%;background:var(--line);display:block}
+.sh__bar i:first-child{background:var(--rc);opacity:.7}
+.sh img{display:block;width:100%;height:auto;background:var(--sunk)}
+.sh[data-w=tall] img{max-height:520px;object-fit:cover;object-position:top}
+.sh figcaption{padding:15px 17px 17px;border-top:1px solid var(--line-2)}
+.sh figcaption b{display:block;font-size:14.6px;font-weight:600;letter-spacing:-.01em}
+.sh figcaption span{display:block;font-size:13.2px;color:var(--ink-2);line-height:1.5;margin-top:6px}
+
+.brand__l{width:22px;height:22px;border-radius:5px;object-fit:contain;display:block}
+.mkt{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:12px;margin-top:30px}
+.m{background:var(--card);border:1px solid var(--line);border-left:2px solid var(--rc);
+  border-radius:0 6px 6px 0;padding:17px 19px;display:flex;flex-direction:column;gap:7px}
+.m__k{font-size:13.5px;color:var(--ink-2)}
+.m__v{font-family:var(--display);font-size:23px;font-weight:500;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums}
+.m__v i{font-style:normal;color:var(--rc);margin:0 4px}
+.m__g{font-family:var(--mono);font-size:11.5px;color:var(--rc);letter-spacing:.03em}
+.note{font-size:13.5px;color:var(--ink-2);margin-top:16px;max-width:74ch;line-height:1.6}
+
+.tw{overflow-x:auto;contain:paint;border:1px solid var(--line);border-radius:6px;
+  background:var(--card);margin-top:30px;box-shadow:var(--shadow)}
+.pj{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px}
+.pj th,.pj td{padding:14px 18px;border-bottom:1px solid var(--line-2);text-align:right;
+  font-variant-numeric:tabular-nums}
+.pj thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--sunk);border-bottom:1px solid var(--line);font-weight:500}
+.pj tbody th{text-align:left;font-weight:400;color:var(--ink-2)}
+.pj tbody tr:last-child th,.pj tbody tr:last-child td{border-bottom:0}
+.pj tr.hi{background:var(--sunk)}
+.pj tr.hi th,.pj tr.hi td{color:var(--ink);font-weight:600}
 
 ol.steps{list-style:none;margin-top:30px}
 .s{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line-2)}
@@ -201,7 +241,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
 <body>
 
 <header class="nav"><div class="nav__r">
-  <a class="brand" href="https://qassem.online"><i></i>Shaaml</a>
+  <a class="brand" href="https://qassem.online"><img class="brand__l" src="logos/shaaml.svg" alt="Shaaml">Shaaml</a>
   <span style="display:inline-flex;align-items:center;gap:14px">
     <div class="thm" role="group" aria-label="Theme">
   <button type="button" data-theme-btn="light" aria-pressed="false" title="Light">
@@ -216,49 +256,49 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
 
 <main>
   <section class="hero" style="border-bottom:0"><div class="wrap">
-    <span class="pill">Service commerce · MENA</span>
-    <h1>The operating system for service providers.</h1>
-    <p class="sub">A marketplace, a storefront builder and an embedded growth engine — for the 90% of MENA service businesses running on WhatsApp and Excel.</p>
-    <p class="stage">Built and live · pre-revenue</p>
+    <span class="pill">Vertical SaaS + distribution network · Seed 2026</span>
+    <h1>The infrastructure behind multiple marketplaces.</h1>
+    <p class="sub">Providers manage their business once and appear on every consumer platform at the same time. One dashboard, unlimited distribution, real bookings — Shopify plus Booking.com for local services.</p>
+    <p class="stage">Live platform · seed round</p>
   </div></section>
 
-  <div class="stats"><div><p class="n">Live</p><p class="k">web platform in production, EN and AR</p></div><div><p class="n">7 steps</p><p class="k">the growth journey, step one free</p></div><div><p class="n">.NET 8</p><p class="k">EF Core, RabbitMQ, Redis, n8n, PostgreSQL</p></div><div><p class="n">3 tiers</p><p class="k">Starter, Pro, Premium — quota-based</p></div></div>
+  <div class="stats"><div><p class="n">800+</p><p class="k">service providers onboarded</p></div><div><p class="n">5,200+</p><p class="k">bookings processed</p></div><div><p class="n">3</p><p class="k">live consumer platforms on the same APIs</p></div><div><p class="n">$28B+</p><p class="k">MENA service sector, largely uninfrastructured</p></div></div>
 
   <section><div class="wrap">
     <p class="eyebrow">The problem</p>
-    <h2>Service providers are running blind.</h2>
+    <h2>MENA&#39;s service providers are running blind.</h2>
     <p class="lead">Not a guess — it is what the market looks like across Egypt and the Gulf.</p>
     <div class="cards"><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12.6c0 3.9-3.8 7-8.4 7a9.6 9.6 0 0 1-3-.5l-5 1.6 1.6-4.1a6.6 6.6 0 0 1-1.4-4c0-3.9 3.8-7 8.4-7s7.8 3.1 7.8 7Z"/></svg></span>
-        <h3>They run on WhatsApp and spreadsheets</h3><p>Bookings in chat threads, prices in a notebook, no record of what a customer asked for last time.</p>
+        <h3>90% run on WhatsApp and Excel</h3><p>They lose more than 40% of potential bookings with no availability tracking, and carry no-show rates above 25% with no automated reminders.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.4 12S6.2 5.6 12 5.6 21.6 12 21.6 12 17.8 18.4 12 18.4 2.4 12 2.4 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></span>
-        <h3>They have no online discoverability</h3><p>A salon or a photographer with no page, no listing and no search presence exists only to people who already know them.</p>
+        <h3>Discovered on social, booked offline</h3><p>80% of consumers find services on social media and then book in a chat. There is no structured way to appear where people actually search and book.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.2 2.3 3.4 5.4 3.4 8.6s-1.2 6.3-3.4 8.6c-2.2-2.3-3.4-5.4-3.4-8.6S9.8 5.7 12 3.4Z"/></svg></span>
-        <h3>They cannot distribute across channels</h3><p>No way to be in a marketplace, on social, and in a booking flow at once — so they pick one and lose the rest.</p>
+        <h3>Every platform is a silo</h3><p>Even when listed, a provider cannot control pricing, availability or presence across channels. Update one, update the rest by hand.</p>
       </div></div>
   </div></section>
 
   <section><div class="wrap">
     <p class="eyebrow">The product</p>
-    <h2>A platform, not a directory.</h2>
-    <p class="lead">Three layers, each one useful alone and worth more together.</p>
+    <h2>Three steps. Instant distribution.</h2>
+    <p class="lead">A provider signs up, adds services and availability, and appears on every connected platform at once.</p>
     <div class="cards"><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 3.6h2.6l2.4 11.2h9.6l2.2-8H6.4"/><circle cx="9.4" cy="19" r="1.7"/><circle cx="17" cy="19" r="1.7"/></svg></span>
-        <h3>Marketplace</h3><p>Customers find, compare and book services. Providers get demand they did not have to chase.</p>
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8.4 7.6-5 4.6 5 4.6M15.6 7.6l5 4.6-5 4.6M13.6 4.4l-3.2 15.2"/></svg></span>
+        <h3>One provider dashboard</h3><p>Services, staff, branches, calendar, CRM, payments, visibility and analytics — the business managed in one place.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8.4 7.6-5 4.6 5 4.6M15.6 7.6l5 4.6-5 4.6M13.6 4.4l-3.2 15.2"/></svg></span>
-        <h3>Provider storefront</h3><p>Each provider gets a real online presence, a booking flow and a catalogue — set up in minutes, not a web project.</p>
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span>
+        <h3>Many consumer storefronts</h3><p>shaaml.online, OurBride and our-bazaar.com today, with beauty and lifestyle platforms next. One provider record, every shopfront.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/></svg></span>
-        <h3>Growth Engine</h3><p>A full marketing operation embedded in the platform: research, offer design, creative, paid traffic, lead qualification and an optimisation loop.</p>
+        <h3>Verticals that widen</h3><p>Wedding, beauty, photography and events are live. Home services and healthcare are year two; automotive and food year three.</p>
       </div></div>
   </div></section>
 
@@ -288,6 +328,89 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
         <span class="s__n">07</span>
         <div><h3>Optimisation loop</h3><p>Weekly: scale what worked, kill what did not, drive cost per lead down. This is the part that compounds.</p></div>
       </li></ol>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Screens</p>
+    <h2>The product, as it looks today.</h2>
+    <p class="lead">Captured from the live platform this week — not a mockup, not a design file.</p>
+    <div class="shots">
+      <figure class="sh" data-w="wide">
+        <span class="sh__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img src="shots/shaaml-home.jpg" alt="Marketplace — Shaaml" loading="lazy" decoding="async">
+        <figcaption><b>Marketplace</b><span>Search by service, location and date. Live booking counter, category shortcuts, Arabic and English.</span></figcaption>
+      </figure><figure class="sh" data-w="wide">
+        <span class="sh__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img src="shots/shaaml-selling.jpg" alt="Provider onboarding — Shaaml" loading="lazy" decoding="async">
+        <figcaption><b>Provider onboarding</b><span>Where a service business signs up, lists what it does and goes online.</span></figcaption>
+      </figure><figure class="sh" data-w="wide">
+        <span class="sh__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img src="shots/shaaml-plans.jpg" alt="Plans and quota — Shaaml" loading="lazy" decoding="async">
+        <figcaption><b>Plans and quota</b><span>The tiers that gate the Growth Engine — Starter, Pro and Premium.</span></figcaption>
+      </figure><figure class="sh" data-w="tall">
+        <span class="sh__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img src="shots/shaaml-mobile.jpg" alt="On a phone — Shaaml" loading="lazy" decoding="async">
+        <figcaption><b>On a phone</b><span>The market is mobile-first and WhatsApp-first. So is the product.</span></figcaption>
+      </figure>
+    </div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Why this wins</p>
+    <h2>They manage or they distribute. We do both.</h2>
+    <p class="lead">This is the whole argument, and it is a structural one rather than a feature comparison.</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4"/></svg></span>
+        <h3>Fresha, Mindbody and Booksy help a provider manage</h3><p>Excellent tools for running the business. They do not put the provider in front of new customers.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 3.6h2.6l2.4 11.2h9.6l2.2-8H6.4"/><circle cx="9.4" cy="19" r="1.7"/><circle cx="17" cy="19" r="1.7"/></svg></span>
+        <h3>Marketplace apps help a provider get found</h3><p>Demand, but no control — the provider is a listing inside somebody else&#39;s storefront, with no say over pricing or presence.</p>
+      </div><div class="c">
+        <span class="c__i"></span>
+        <h3>Nobody does both</h3><p>Shaaml is the only platform where a provider manages the business and is distributed to multiple consumer storefronts from the same record.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span>
+        <h3>Built before the money</h3><p>Providers onboarded, bookings processed and three platforms live pre-funding. The capital buys growth, not construction.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Market</p>
+    <h2>A horizontal platform, not a wedding startup.</h2>
+    <p class="lead">Sized on the service economy rather than on one occasion — which is what makes the vertical expansion credible.</p>
+    <div class="mkt"><div class="m">
+      <span class="m__k">Egypt beauty</span>
+      <span class="m__v">$1.8B <i>→</i> $3.0B</span>
+      <span class="m__g">+8.8% CAGR</span></div><div class="m">
+      <span class="m__k">Egypt events and lifestyle</span>
+      <span class="m__v">$2.5B <i>→</i> $4.1B</span>
+      <span class="m__g">+8.6% CAGR</span></div><div class="m">
+      <span class="m__k">Egypt e-commerce</span>
+      <span class="m__v">$9.1B <i>→</i> $29B</span>
+      <span class="m__g">+13.9% CAGR</span></div><div class="m">
+      <span class="m__k">MENA beauty</span>
+      <span class="m__v">$28B <i>→</i> $44B</span>
+      <span class="m__g">+9.4% CAGR</span></div><div class="m">
+      <span class="m__k">MENA service commerce</span>
+      <span class="m__v">$48B <i>→</i> $88B</span>
+      <span class="m__g">+10.7% CAGR</span></div><div class="m">
+      <span class="m__k">MENA total expansion</span>
+      <span class="m__v">$63B <i>→</i> $112B</span>
+      <span class="m__g">+10.2% CAGR</span></div></div>
+    <p class="note">TAM $4.3B+ addressable in Egypt · SAM $620M digitizable layer · SOM $65M realistic year-three capture.</p>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Projections</p>
+    <h2>Built to compound.</h2>
+    <p class="lead">Providers drive subscription; platforms drive distribution; bookings drive commission. The three multiply rather than add.</p>
+    <div class="tw"><table class="pj">
+      <thead><tr><th scope="col"></th><th scope="col">Year 1</th><th scope="col">Year 2</th><th scope="col">Year 3</th></tr></thead>
+      <tbody><tr><th scope="row">Providers</th><td>1,500</td><td>6,000</td><td>18,000</td></tr><tr><th scope="row">Live platforms</th><td>3</td><td>8</td><td>15+</td></tr><tr><th scope="row">Bookings per month</th><td>15K</td><td>60K</td><td>200K</td></tr><tr class="hi"><th scope="row">Revenue (ARR)</th><td>EGP 12M</td><td>EGP 55M</td><td>EGP 180M</td></tr></tbody>
+    </table></div>
   </div></section>
 
   <section><div class="wrap">
@@ -322,44 +445,36 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
 
   <section><div class="wrap">
     <p class="eyebrow">The model</p>
-    <h2>Six ways it earns, not one.</h2>
-    <p class="lead">The subscription is the floor. Everything above it is usage the provider chooses, which is why the revenue per provider grows without a new sale.</p>
+    <h2>Simple model. Compounding revenue.</h2>
+    <p class="lead">Subscription is the floor; commission grows with the provider; licensing is the layer that arrives once the network has value of its own.</p>
     <div class="cards"><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span>
-        <h3>Subscription</h3><p>Base plan per month. Growth Engine capability is gated by tier — Starter is influencer campaigns only, Premium unlocks paid ads, AI creative and squad management.</p>
+        <h3>Provider subscription</h3><p>Starter EGP 299, Growth EGP 599, Pro EGP 999 a month, plus featured placement at EGP 500–2,000. Blended ARPU EGP 550.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span>
-        <h3>Wallet overage</h3><p>Extra AI generations, campaigns and creatives beyond plan quota reserve against the provider wallet, execute, then settle. Usage above plan is revenue, not friction.</p>
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 3.6h2.6l2.4 11.2h9.6l2.2-8H6.4"/><circle cx="9.4" cy="19" r="1.7"/><circle cx="17" cy="19" r="1.7"/></svg></span>
+        <h3>Commission per booking</h3><p>8–12% of the booking. An average event is EGP 3,500 and an average beauty booking EGP 450, so platform take runs EGP 36–420 per booking.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span>
-        <h3>Ad management fee</h3><p>25% on ad budget, charged to the provider and deducted from their wallet. It scales with their spend rather than with our headcount.</p>
+        <h3>Revenue per provider</h3><p>EGP 800–4,200 a month once subscription and commission are combined — the reason ARPU rises without a new sale.</p>
       </div><div class="c">
         <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4"/></svg></span>
-        <h3>Marketplace commission</h3><p>A percentage of every influencer commission the platform settles — earned on transactions the platform already processes end to end.</p>
-      </div><div class="c">
-        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/></svg></span>
-        <h3>AI usage</h3><p>Deducted per job from the provider AI wallet, on the metering that already runs: job creation cost and an interaction multiplier.</p>
-      </div><div class="c">
-        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 9.6 12 4.4l8.6 5.2M5.4 9.6v8.2m4.4-8.2v8.2m4.4-8.2v8.2m4.4-8.2v8.2M3 20.4h18"/></svg></span>
-        <h3>Performance margin</h3><p>Where ROI passes a threshold, a bonus on net revenue generated. The only stream that pays more when the provider wins more.</p>
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.2 2.3 3.4 5.4 3.4 8.6s-1.2 6.3-3.4 8.6c-2.2-2.3-3.4-5.4-3.4-8.6S9.8 5.7 12 3.4Z"/></svg></span>
+        <h3>Platform licensing</h3><p>EGP 50K setup and EGP 8K a month for API access per consumer frontend. Payback in 12–18 months at 90%+ gross margin.</p>
       </div></div>
   </div></section>
 
   <section><div class="wrap">
     <p class="eyebrow">Roadmap</p>
     <h2>Where this goes.</h2>
-    <p class="lead">Each phase is sellable on its own, which is what makes the sequence financeable rather than speculative.</p>
+    <p class="lead">Dated, because a roadmap without dates is a wish.</p>
     <ol class="steps"><li class="s"><span class="s__n">P1</span>
-      <div><h3>Marketing engine inside Shaaml</h3><p>A SaaS module providers subscribe to. This is the phase that is built.</p></div></li><li class="s"><span class="s__n">P2</span>
-      <div><h3>Performance marketplace</h3><p>Providers find and hire verified influencer squads, scored and ranked by the reputation system.</p></div></li><li class="s"><span class="s__n">P3</span>
-      <div><h3>AI growth partner</h3><p>Predictive ROAS, auto-scaling and smart budget allocation — the engine deciding rather than suggesting.</p></div></li><li class="s"><span class="s__n">P4</span>
-      <div><h3>Cross-provider intelligence</h3><p>Industry benchmarks, niche leaders and talent scoring across every provider on the platform. The data advantage nobody entering later can buy.</p></div></li></ol>
+      <div><h3>Q3 2026 — seed close</h3><p>Scale to 2,500 providers and launch the beauty-focused consumer platform.</p></div></li><li class="s"><span class="s__n">P2</span>
+      <div><h3>Q1 2027 — five platforms</h3><p>5,000 providers across five storefronts, and Series A preparation.</p></div></li><li class="s"><span class="s__n">P3</span>
+      <div><h3>Q4 2027 — Gulf expansion</h3><p>UAE and Saudi, past 10,000 providers.</p></div></li><li class="s"><span class="s__n">P4</span>
+      <div><h3>2028 — Series A</h3><p>Horizontal expansion into home services and healthcare.</p></div></li></ol>
   </div></section>
 
   <section><div class="wrap">
@@ -368,27 +483,27 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
     <p class="lead">Stated plainly, because an investor will check.</p>
     <div class="states"><div class="st" data-tone="up">
         <span class="st__t">LIVE</span>
-        <h3>Web platform</h3><p>In production and taking traffic. Provider onboarding, marketplace, plans and the AI marketplace section are all reachable today.</p>
-      </div><div class="st" data-tone="hold">
-        <span class="st__t">BUILT</span>
-        <h3>iOS app</h3><p>Built and signed — the Apple provisioning profile for com.shaaml.app is current to February 2027. Not yet submitted to the App Store.</p>
-      </div><div class="st" data-tone="hold">
-        <span class="st__t">SPECIFIED</span>
-        <h3>What is left to build</h3><p>The Growth Engine bounded context itself: ten queue job types, the scoring services and the automation rule engine. Specified to entity and API-contract level, with a phase order and a risk register.</p>
+        <h3>Web platform</h3><p>Full provider dashboard — onboarding, services, calendar, CRM, payments and analytics, running at shaaml.online in Arabic and English.</p>
       </div><div class="st" data-tone="up">
-        <span class="st__t">DOCUMENTED</span>
-        <h3>Growth Engine</h3><p>Full architecture and implementation spec written: entities, API contracts, execution modes, wallet flows. Build, not research.</p>
+        <span class="st__t">LIVE</span>
+        <h3>API-first distribution</h3><p>.NET Core backend with documented APIs. OurBride is already a consumer frontend consuming provider data, availability and booking flows.</p>
+      </div><div class="st" data-tone="up">
+        <span class="st__t">LIVE</span>
+        <h3>Payments and settlement</h3><p>Payment rails integrated, providers settled, transaction commission collected automatically.</p>
+      </div><div class="st" data-tone="hold">
+        <span class="st__t">BUILT, NOT PUBLISHED</span>
+        <h3>Mobile app</h3><p>The Flutter app is built and signed — the Apple provisioning profile for com.shaaml.app runs to February 2027. It is not on the App Store or Google Play today. Publishing it is days of work, and it is the fastest credibility win available.</p>
       </div><div class="st" data-tone="hold">
         <span class="st__t">NOT YET</span>
-        <h3>Revenue</h3><p>Pre-revenue. The platform is built and the model is designed; what has not been proven is a provider paying month after month.</p>
+        <h3>Revenue at scale</h3><p>Providers are onboarded and bookings are processed. What is unproven is a provider paying month after month at the ARPU the model assumes.</p>
       </div></div>
   </div></section>
 
   <section><div class="wrap">
     <p class="eyebrow">The ask</p>
-    <h2>What the money is for.</h2>
-    <p class="lead">Not engineering. The engineering is done and paid for.</p>
-    <ul class="ask"><li><b>Provider acquisition</b><span>The first hundred paying providers in one city, so the funnel is measured rather than modelled.</span></li><li><b>Ad float for the engine</b><span>The Growth Engine spends on behalf of providers before they scale. That float is working capital, not cost.</span></li><li><b>A second operator</b><span>Today one person carries the product, the platform and the roadmap. That is the constraint, and it is not a technical one.</span></li><li><b>The iOS launch</b><span>The app is signed and ready. Publishing it is days of work — what it needs is the decision and the store presence to point at.</span></li></ul>
+    <h2>What the seed is for.</h2>
+    <p class="lead">Growth, not construction. The platform, the app and the APIs already exist.</p>
+    <ul class="ask"><li><b>Provider acquisition</b><span>From 800 to 2,500 in one market, so cost per paying provider is measured rather than modelled.</span></li><li><b>The next consumer platforms</b><span>Each new storefront multiplies the value of every provider record already on the system. Beauty first, then lifestyle.</span></li><li><b>Gulf entry</b><span>UAE and Saudi — a commercial vehicle, local payment rails and the first hundred providers on the ground.</span></li><li><b>A second operator</b><span>One person currently carries the platform, the roadmap and the go-to-market. That is the real ceiling, and it is not a technical one.</span></li></ul>
   </div></section>
 
   <section class="end" style="border-bottom:0"><div class="wrap">
