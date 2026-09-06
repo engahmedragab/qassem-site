@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="x-build" content="50589e36e53f">
+<title>OurGrowth — Get the orders. Deliver the orders.</title>
+<meta name="description" content="An AI marketing and operations platform for merchants — one screen that finds the demand, confirms the order, ships it and collects the money.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E">
+<script>
+(function(){
+  var K='qassem-theme', r=document.documentElement;
+  function set(t){
+    var explicit = t==='dark' || t==='light';
+    var dark = explicit ? t==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+    r.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try{ explicit ? localStorage.setItem(K,t) : localStorage.removeItem(K); }catch(e){}
+    var m=document.querySelector('meta[name=theme-color]');
+    if(m) m.setAttribute('content', dark ? '#0A0A0B' : '#FAF8F3');
+    [].forEach.call(document.querySelectorAll('[data-theme-btn]'),function(b){
+      var on=b.getAttribute('data-theme-btn')===(dark?'dark':'light');
+      b.setAttribute('aria-pressed',on?'true':'false'); b.classList.toggle('on',on);
+    });
+  }
+  function stored(){ try{ return localStorage.getItem(K); }catch(e){ return null; } }
+  function current(){ var v=stored(); return v==='dark'||v==='light' ? v : 'system'; }
+  set(current());
+  // Follow the system live, but only while the visitor has not chosen.
+  var mq=matchMedia('(prefers-color-scheme:dark)');
+  var onmq=function(){ if(current()==='system') set('system'); };
+  mq.addEventListener ? mq.addEventListener('change',onmq) : mq.addListener(onmq);
+  addEventListener('DOMContentLoaded',function(){ set(current()); });
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-theme-btn]');
+    if(!b) return; e.preventDefault(); set(b.getAttribute('data-theme-btn'));
+  });
+})();</script>
+<style>
+:root{
+  --paper:#FAF9F6; --card:#FFFFFF; --sunk:#F0EFEA;
+  --ink:#15150F; --ink-2:#57544B; --ink-3:#86816F;
+  --line:rgba(21,21,15,.13); --line-2:rgba(21,21,15,.06);
+  --rc:#8A6206; --on-rc:#FFFFFF;
+  --up:#0B6E39; --up-b:rgba(11,110,57,.11);
+  --hold:#9C6206; --hold-b:rgba(156,98,6,.12);
+  --shadow:0 1px 2px rgba(21,21,15,.05),0 10px 26px rgba(21,21,15,.05);
+  --display:"Newsreader",Georgia,serif; --body:"Archivo",-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --pad:clamp(20px,4vw,44px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0D0F0E; --card:#151817; --sunk:#1B1F1E;
+  --ink:#EAEDEB; --ink-2:#A5ACA9; --ink-3:#767D7A;
+  --line:rgba(234,237,235,.14); --line-2:rgba(234,237,235,.07);
+  --rc:#C9980D; --on-rc:#0A0A0B;
+  --up:#5FC08A; --up-b:rgba(95,192,138,.13); --hold:#D69A48; --hold-b:rgba(214,154,72,.14);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.34);}}
+:root[data-theme="dark"]{
+  --paper:#0D0F0E; --card:#151817; --sunk:#1B1F1E;
+  --ink:#EAEDEB; --ink-2:#A5ACA9; --ink-3:#767D7A;
+  --line:rgba(234,237,235,.14); --line-2:rgba(234,237,235,.07);
+  --rc:#C9980D; --on-rc:#0A0A0B;
+  --up:#5FC08A; --up-b:rgba(95,192,138,.13); --hold:#D69A48; --hold-b:rgba(214,154,72,.14);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.34);}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;
+  line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+:focus-visible{outline:2px solid var(--rc);outline-offset:3px;border-radius:3px}
+
+.nav{border-bottom:1px solid var(--line);background:var(--paper)}
+.nav__r{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px var(--pad);flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.brand{font-weight:700;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:9px}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--rc);display:block}
+.nav__b{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+
+.hero{padding:clamp(40px,8vh,84px) 0 clamp(30px,5vh,52px);border-bottom:1px solid var(--line)}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--rc);
+  border:1px solid var(--line);border-radius:100px;padding:6px 13px}
+h1{font-family:var(--display);font-size:clamp(34px,6vw,64px);font-weight:500;line-height:1.02;
+  letter-spacing:-.025em;margin-top:20px;text-wrap:balance;max-width:18ch}
+.sub{font-size:clamp(16.5px,1.8vw,20px);color:var(--ink-2);max-width:60ch;margin-top:20px;line-height:1.58}
+.stage{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:20px;letter-spacing:.03em}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:1px;
+  background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats>div{background:var(--paper);padding:22px var(--pad)}
+.stats .n{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-weight:500;
+  letter-spacing:-.02em;color:var(--rc);line-height:1}
+.stats .k{font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.45}
+
+section{padding:clamp(38px,6vh,70px) 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rc);margin-bottom:13px}
+h2{font-family:var(--display);font-size:clamp(25px,3.6vw,40px);font-weight:500;line-height:1.1;
+  letter-spacing:-.02em;text-wrap:balance;max-width:20ch}
+.lead{font-size:16.5px;color:var(--ink-2);max-width:64ch;margin-top:15px;line-height:1.6}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:13px;margin-top:30px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:22px;
+  box-shadow:var(--shadow);transition:border-color .3s,transform .3s}
+.c:hover{border-color:var(--rc);transform:translateY(-2px)}
+.c__i{display:grid;place-items:center;width:38px;height:38px;border-radius:9px;
+  border:1px solid var(--line);color:var(--rc);margin-bottom:15px}
+.c__i svg{width:19px;height:19px}
+.c h3{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.c p{font-size:14px;color:var(--ink-2);line-height:1.58;margin-top:9px}
+
+ol.steps{list-style:none;margin-top:30px}
+.s{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line-2)}
+.s:last-child{border-bottom:0}
+.s__n{font-family:var(--mono);font-size:12px;color:var(--rc);letter-spacing:.05em;padding-top:4px}
+.s h3{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.s p{font-size:14.4px;color:var(--ink-2);line-height:1.58;margin-top:6px;max-width:70ch}
+
+.states{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:13px;margin-top:30px}
+.st{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--t);
+  border-radius:0 5px 5px 0;padding:20px;box-shadow:var(--shadow)}
+.st[data-tone=up]{--t:var(--up);--tb:var(--up-b)}
+.st[data-tone=hold]{--t:var(--hold);--tb:var(--hold-b)}
+.st__t{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--t);background:var(--tb);border-radius:3px;padding:3px 8px}
+.st h3{font-size:15.5px;font-weight:600;margin-top:11px;letter-spacing:-.01em}
+.st p{font-size:13.8px;color:var(--ink-2);line-height:1.55;margin-top:8px}
+
+ul.ask{list-style:none;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:740px){ul.ask{grid-template-columns:1fr}}
+ul.ask li{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:20px;
+  box-shadow:var(--shadow)}
+ul.ask b{display:block;font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+ul.ask span{display:block;font-size:14px;color:var(--ink-2);line-height:1.55;margin-top:8px}
+
+.end{padding:clamp(40px,7vh,80px) 0}
+.end p{font-size:16px;color:var(--ink-2);max-width:62ch;margin-top:15px;line-height:1.6}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--on-rc);background:var(--rc);
+  border-radius:100px;padding:13px 22px;display:inline-flex;align-items:center;gap:8px;
+  text-decoration:none;transition:transform .3s,filter .3s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.btn--g{background:none;color:var(--ink-2);border:1px solid var(--line)}
+.btn--g:hover{color:var(--ink);border-color:var(--rc);filter:none}
+.links{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.links a{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);border:1px solid var(--line);
+  border-radius:100px;padding:9px 15px;text-decoration:none;transition:border-color .3s,color .3s}
+.links a:hover{color:var(--ink);border-color:var(--rc)}
+footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mono);
+  font-size:11.5px;color:var(--ink-3);line-height:1.8}
+
+.thm{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;flex:none}
+.thm button{font:inherit;background:none;border:0;color:var(--ink-faint);padding:5px 10px;
+  cursor:pointer;display:grid;place-items:center;transition:background .25s,color .25s}
+.thm button svg{width:15px;height:15px;display:block}
+.thm button.on{background:var(--ink);color:var(--bg)}
+.thm button:not(.on):hover{color:var(--ink)}
+/* .anim is added by script, so nothing is hidden unless motion is actually on */
+@media (prefers-reduced-motion:no-preference){
+  .anim [data-rise]{opacity:0;transform:translateY(18px);
+    transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);
+    transition-delay:var(--d,0ms)}
+  .anim [data-rise].in{opacity:1;transform:none}
+
+  /* the hero art breathes; slow enough not to pull the eye off the copy */
+  .anim .art{animation:float 9s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  /* the live dot, and the accent bar on a hovered card */
+  .eyebrow .d{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--live) 55%,transparent)}
+    70%{box-shadow:0 0 0 7px transparent}}
+
+  .of__bar{transform-origin:left;animation:none}
+  .of:hover .of__bar,.of--pick .of__bar{animation:sweep .7s cubic-bezier(.22,1,.36,1)}
+  @keyframes sweep{from{transform:scaleX(.2)}to{transform:scaleX(1)}}
+
+  /* icon tiles lift with their card */
+  .pr,.tm,.as,.app{transition:border-color .3s,transform .3s,box-shadow .3s}
+  .pr:hover,.tm:hover,.as:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .pr__ic,.tm__ic,.as__mock{transition:transform .35s,border-color .35s,color .35s}
+  .pr:hover .pr__ic,.tm:hover .tm__ic{transform:scale(1.08) rotate(-4deg);border-color:var(--rc)}
+  .as:hover .as__mock{transform:scale(1.04)}
+
+  /* the process spine draws itself as the steps arrive */
+  .anim .st__n::after{transform:scaleY(0);transform-origin:top;transition:transform .6s ease .15s}
+  .anim .st.in .st__n::after{transform:scaleY(1)}
+
+  .jump a{transition:color .25s,border-color .25s,background .25s}
+  .stats > div{transition:background .3s}
+  .stats > div:hover{background:var(--bg-2)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="nav__r">
+  <a class="brand" href="https://qassem.online"><i></i>OurGrowth</a>
+  <span style="display:inline-flex;align-items:center;gap:14px">
+    <div class="thm" role="group" aria-label="Theme">
+  <button type="button" data-theme-btn="light" aria-pressed="false" title="Light">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+  </button>
+  <button type="button" data-theme-btn="dark" aria-pressed="false" title="Dark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
+  </button>
+</div><span class="nav__b">Private · shared by link</span>
+  </span>
+</div></header>
+
+<main>
+  <section class="hero" style="border-bottom:0"><div class="wrap">
+    <span class="pill">AI commerce operations · Egypt &amp; KSA</span>
+    <h1>Get the orders. Deliver the orders.</h1>
+    <p class="sub">An AI marketing and operations platform for merchants — one screen that finds the demand, confirms the order, ships it and collects the money.</p>
+    <p class="stage">Live · flat-rate SaaS</p>
+  </div></section>
+
+  <div class="stats"><div><p class="n">Live</p><p class="k">multi-tenant platform in production</p></div><div><p class="n">Shopify</p><p class="k">a carrier app approved and listed in their store</p></div><div><p class="n">EG + KSA</p><p class="k">shipping, messaging and collection in both</p></div><div><p class="n">Flat rate</p><p class="k">priced per month, not per outcome</p></div></div>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <h2>Growth takes more than scattered tools.</h2>
+    <p class="lead">The merchants this is built for are not short of software. They are short of software that talks to itself.</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span>
+        <h3>Six tools that do not connect</h3><p>A store here, an ads account there, a courier portal, a spreadsheet for returns. The joins are a person, and that person is the founder.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 6.4h10.4v10H2.8zM13.2 9.6h4l3 3.4v3.4h-7z"/><circle cx="7" cy="18.4" r="1.8"/><circle cx="17.2" cy="18.4" r="1.8"/></svg></span>
+        <h3>Cash on delivery leaks margin</h3><p>In Egypt and Saudi, a refused parcel costs the shipping both ways. Confirmation before dispatch is the difference between a good month and a flat one.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span>
+        <h3>Agencies bill whether it works or not</h3><p>A monthly retainer detached from the outcome, and no visibility into what the spend actually bought.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The product</p>
+    <h2>One platform. Every channel.</h2>
+    <p class="lead">Set it up once, and the parts that used to need a person run themselves.</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/></svg></span>
+        <h3>AI that finds the demand</h3><p>Product and customer recommendations, campaign generation, and a set of skills that optimise against what actually sold rather than against impressions.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12.6c0 3.9-3.8 7-8.4 7a9.6 9.6 0 0 1-3-.5l-5 1.6 1.6-4.1a6.6 6.6 0 0 1-1.4-4c0-3.9 3.8-7 8.4-7s7.8 3.1 7.8 7Z"/></svg></span>
+        <h3>Confirmation before dispatch</h3><p>Every cash-on-delivery order confirmed on WhatsApp, follow-ups automatic, the silent ones surfaced as a call list. The single clearest margin win in the region.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 6.4h10.4v10H2.8zM13.2 9.6h4l3 3.4v3.4h-7z"/><circle cx="7" cy="18.4" r="1.8"/><circle cx="17.2" cy="18.4" r="1.8"/></svg></span>
+        <h3>Shipping that is wired in</h3><p>Egypt Post and Bosta integrated for labels, pickups and tracking — plus a carrier app approved and listed in the Shopify App Store.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 9.6 12 4.4l8.6 5.2M5.4 9.6v8.2m4.4-8.2v8.2m4.4-8.2v8.2m4.4-8.2v8.2M3 20.4h18"/></svg></span>
+        <h3>Collection that closes the loop</h3><p>InstaPay payment links and reconciliation, so the money arriving is matched to the order that earned it.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Why this is a platform and not an agency.</h2>
+    <p class="lead">An agency sells hours. This sells a system that keeps working when nobody is watching it.</p>
+    <ol class="steps"><li class="s">
+        <span class="s__n">01</span>
+        <div><h3>Connect the store</h3><p>Shopify today, with the integration surface built to take the next platform without a rewrite.</p></div>
+      </li><li class="s">
+        <span class="s__n">02</span>
+        <div><h3>Import the catalogue</h3><p>Products, variants and the weights that make shipping accurate rather than approximate.</p></div>
+      </li><li class="s">
+        <span class="s__n">03</span>
+        <div><h3>Turn on confirmation</h3><p>WhatsApp flows go live before the first order, not bolted on after the returns start.</p></div>
+      </li><li class="s">
+        <span class="s__n">04</span>
+        <div><h3>Wire the carriers</h3><p>Labels, pickups and tracking from inside the order, so nobody opens a courier portal.</p></div>
+      </li><li class="s">
+        <span class="s__n">05</span>
+        <div><h3>Let the AI run</h3><p>Recommendations, campaigns and creative generated against the catalogue and the sales history.</p></div>
+      </li><li class="s">
+        <span class="s__n">06</span>
+        <div><h3>Watch one screen</h3><p>Revenue, orders, spend, returns and delivery state in a single view instead of six tabs.</p></div>
+      </li></ol>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The model</p>
+    <h2>Flat rate. No surprises.</h2>
+    <p class="lead">Priced so a merchant can predict it, and so the incentive is retention rather than billable hours.</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span>
+        <h3>Monthly subscription</h3><p>A flat fee per merchant. No percentage of spend, no percentage of revenue, no line item that grows when they succeed.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4"/></svg></span>
+        <h3>Multi-tenant from the start</h3><p>Every merchant is an isolated tenant on shared infrastructure — the reason the marginal cost of the next customer is small.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.2 2.3 3.4 5.4 3.4 8.6s-1.2 6.3-3.4 8.6c-2.2-2.3-3.4-5.4-3.4-8.6S9.8 5.7 12 3.4Z"/></svg></span>
+        <h3>Two markets, one engine</h3><p>Egypt and Saudi differ in carrier, currency and payment rail, not in product. The same platform serves both.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12a8.4 8.4 0 1 1-2.5-6"/><path d="M20.6 4.4v5.4h-5.4"/></svg></span>
+        <h3>Managed tier on top</h3><p>For merchants who want it done rather than run: the same platform with an operator behind it, at a higher monthly rate.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Honest state</p>
+    <h2>Where it actually is.</h2>
+    <p class="lead">Stated plainly, because an investor will check.</p>
+    <div class="states"><div class="st" data-tone="up">
+        <span class="st__t">LIVE</span>
+        <h3>The platform</h3><p>In production, multi-tenant, with the marketing site, onboarding and dashboards reachable today.</p>
+      </div><div class="st" data-tone="up">
+        <span class="st__t">APPROVED</span>
+        <h3>Shopify carrier app</h3><p>Built, submitted and approved on the Shopify App Store — a real third-party review survived, not a claim about one.</p>
+      </div><div class="st" data-tone="up">
+        <span class="st__t">INTEGRATED</span>
+        <h3>Shipping and payments</h3><p>Egypt Post and Bosta for delivery; InstaPay for collection; WhatsApp for confirmation. All running against real settlement.</p>
+      </div><div class="st" data-tone="hold">
+        <span class="st__t">BUILT</span>
+        <h3>Android app</h3><p>A signed Android bundle exists and is not published. Publishing is days, not months — the build is done.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The ask</p>
+    <h2>What the money is for.</h2>
+    <p class="lead">The build is behind us. What is missing is distribution.</p>
+    <ul class="ask"><li><b>Merchant acquisition</b><span>A repeatable way to reach cash-on-delivery merchants in Egypt and Saudi, measured on cost per paying merchant.</span></li><li><b>Carrier and gateway coverage</b><span>Each new carrier or payment rail widens the addressable market. They are integrations, and integrations are schedulable.</span></li><li><b>A commercial vehicle in Saudi</b><span>A registration and a bank account a Saudi gateway will settle into. It is the gate in front of the second market.</span></li><li><b>An operator, not an engineer</b><span>Someone to run merchant success while the platform keeps being built. The scarce resource here has never been code.</span></li></ul>
+  </div></section>
+
+  <section class="end" style="border-bottom:0"><div class="wrap">
+    <p class="eyebrow">Who is building it</p>
+    <h2>Ahmed Ragab Qassem</h2>
+    <p>Software Development Manager in Riyadh, running delivery and architecture at a telecom operator. OurGrowth is built on eight years across banking, government and telecom, and on running the commerce businesses it was designed for.</p>
+    <div class="cta">
+      <a class="btn" href="mailto:hello@qassem.site?subject=OurGrowth%20%E2%80%94%20investor%20enquiry">Start a conversation ↗</a>
+      <a class="btn btn--g" href="https://our-growth.com" target="_blank" rel="noopener">See it running</a>
+    </div>
+    <div class="links"><a href="https://our-growth.com" target="_blank" rel="noopener">The live platform ↗</a><a href="https://our-store.store" target="_blank" rel="noopener">Store EG, running on it ↗</a><a href="https://sa.our-store.store" target="_blank" rel="noopener">Store KSA, running on it ↗</a><a href="https://qassem.online" target="_blank" rel="noopener">Portfolio ↗</a></div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  Private page · noindex, not linked publicly · /projects/ourgrowth<br>
+  Figures describe what is built and running; anything not yet true is marked as such above.
+</div></footer>
+
+<script>
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var root=document.documentElement;
+
+  function arm(){
+    // Marked only now: until this runs, nothing in the page is hidden.
+    root.classList.add('anim');
+
+    var groups=[['.hd',0],['.of',70],['.pr',55],['.tm',45],['.as',60],['.st',50],
+                ['.qa',35],['.fee > div',60],['.stats > div',60],['.app',60],['.fit__c',80],
+                ['.cmp__scroll',0],['.excl li',25],['.req li',22],['.also a',30]];
+    groups.forEach(function(g){
+      [].forEach.call(document.querySelectorAll(g[0]),function(el,i){
+        el.setAttribute('data-rise','');
+        el.style.setProperty('--d',(i%8)*g[1]+'ms');
+      });
+    });
+
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    [].forEach.call(document.querySelectorAll('[data-rise]'),function(el){ io.observe(el); });
+
+    // Stat numbers count up, but only where the value is actually a number —
+    // "AR + EN" and "3–7 days" are left exactly as written.
+    [].forEach.call(document.querySelectorAll('.stats .n'),function(el){
+      var raw=el.textContent.trim(), m=raw.match(/^([^0-9]*)(\d+)(.*)$/);
+      if(!m || raw.indexOf('–')>-1) return;
+      var pre=m[1], end=parseInt(m[2],10), post=m[3];
+      if(end<2||end>100000) return;
+      var seen=false;
+      var so=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(!e.isIntersecting||seen) return; seen=true; so.disconnect();
+          var t0=null, dur=900;
+          function step(ts){ if(!t0)t0=ts;
+            var p=Math.min((ts-t0)/dur,1), v=Math.round((1-Math.pow(1-p,3))*end);
+            el.textContent=pre+v+post; if(p<1)requestAnimationFrame(step); }
+          requestAnimationFrame(step);
+        });
+      },{threshold:.6});
+      so.observe(el);
+    });
+  }
+
+  document.readyState==='loading'
+    ? addEventListener('DOMContentLoaded',arm) : arm();
+})();</script>
+</body>
+</html>
