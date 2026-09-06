@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="x-build" content="ce68a7c04fad">
+<meta name="x-build" content="dfadf35aba43">
 <title>Shaaml — The infrastructure behind multiple marketplaces.</title>
 <meta name="description" content="Providers manage their business once and appear on every consumer platform at the same time. One dashboard, unlimited distribution, real bookings — Shopify plus Booking.com for local services.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E">
@@ -146,6 +146,24 @@ h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-h
 .m__v i{font-style:normal;color:var(--rc);margin:0 4px}
 .m__g{font-family:var(--mono);font-size:11.5px;color:var(--rc);letter-spacing:.03em}
 .note{font-size:13.5px;color:var(--ink-2);margin-top:16px;max-width:74ch;line-height:1.6}
+
+.pfs{display:grid;gap:22px;margin-top:34px}
+.pfg{border-top:1px solid var(--line);padding-top:16px}
+.pfg__k{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--ink-3);margin:0 0 14px}
+.pfg__r{display:flex;flex-wrap:wrap;gap:10px}
+.pf{display:flex;align-items:center;gap:10px;padding:9px 14px 9px 10px;border:1px solid var(--line);
+  border-radius:11px;background:var(--bg-2);transition:border-color .25s,transform .25s,box-shadow .25s}
+.pf:hover{border-color:var(--rc);transform:translateY(-2px);box-shadow:var(--shadow)}
+.pf--soon{opacity:.62}
+.pf__m{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border-radius:8px;
+  background:var(--bg-3);color:var(--ink);overflow:hidden}
+.pf__m svg{width:19px;height:19px;display:block}
+.pf__m b{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.02em;
+  color:var(--pc,var(--rc))}
+.pf__t{font-size:13.5px;color:var(--ink);white-space:nowrap;display:flex;align-items:baseline;gap:7px}
+.pf__t i{font-family:var(--mono);font-style:normal;font-size:9.5px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--ink-3);border:1px solid var(--line-2);border-radius:4px;padding:1px 5px}
 
 .cov{margin:30px 0 0}
 .cov__scroll{overflow-x:auto;contain:paint;border:1px solid var(--line);border-radius:12px;
@@ -373,6 +391,78 @@ footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mo
         <span class="s__n">07</span>
         <div><h3>Optimisation loop</h3><p>Weekly: scale what worked, kill what did not, drive cost per lead down. This is the part that compounds.</p></div>
       </li></ol>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Connects to</p>
+    <h2>One provider record, everywhere the customer already is.</h2>
+    <p class="lead">A provider fills in services, staff and availability once. From that single record Shaaml publishes to its own consumer storefronts, to the mobile apps, and to the channels the booking actually arrives through.</p>
+    <div class="pfs"><div class="pfg">
+      <p class="pfg__k">Consumer storefronts on the same APIs</p>
+      <div class="pfg__r"><span class="pf">
+        <span class="pf__m"><b>SH</b></span>
+        <span class="pf__t">shaaml.online</span>
+      </span><span class="pf">
+        <span class="pf__m"><b>OB</b></span>
+        <span class="pf__t">OurBride</span>
+      </span><span class="pf">
+        <span class="pf__m"><b>BZ</b></span>
+        <span class="pf__t">our-bazaar.com</span>
+      </span><span class="pf pf--soon">
+        <span class="pf__m"><b>BL</b></span>
+        <span class="pf__t">Beauty and lifestyle<i>next</i></span>
+      </span><span class="pf pf--soon">
+        <span class="pf__m"><b>API</b></span>
+        <span class="pf__t">Partner storefronts<i>next</i></span>
+      </span></div>
+    </div><div class="pfg">
+      <p class="pfg__k">Mobile</p>
+      <div class="pfg__r"><span class="pf">
+        <span class="pf__m"><svg viewBox="0 0 512 512" aria-hidden="true">
+    <path fill="#00A0FF" d="M47 0c-13 6.8-21.7 19.2-21.7 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0z"/>
+    <path fill="#00E676" d="M104.6 13l280.8 161.2-60.1 60.1L104.6 13z"/>
+    <path fill="#FFC400" d="M472.2 225.6l-88.6-51.3-65.2 65.3 65.2 65.3 90.4-51.3c27.1-21.4 27.1-56.6-1.8-77.9z"/>
+    <path fill="#FF3A44" d="M104.6 499l220.7-221.2 60.1 60.1L104.6 499z"/></svg></span>
+        <span class="pf__t">Google Play</span>
+      </span><span class="pf">
+        <span class="pf__m"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></span>
+        <span class="pf__t">Apple App Store</span>
+      </span></div>
+    </div><div class="pfg">
+      <p class="pfg__k">Where the booking arrives</p>
+      <div class="pfg__r"><span class="pf">
+        <span class="pf__m"><svg viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="#25D366" d="M12 1.8a10.2 10.2 0 0 0-8.7 15.5L1.8 22.2l5-1.5A10.2 10.2 0 1 0 12 1.8Z"/>
+    <path fill="#fff" d="M8.5 6.9h.7c.25 0 .5.05.7.6l.85 2c.1.28.05.5-.1.68l-.5.6c-.2.24-.3.44-.12.74a7.2 7.2 0 0 0 3.3 2.86c.3.12.52.08.72-.14l.66-.75c.2-.22.42-.24.68-.12l1.95 1c.28.14.38.3.38.58 0 .95-.65 1.85-1.62 2.1-1.02.26-2.55.1-5.05-1.5a11.2 11.2 0 0 1-4-4.62c-.6-1.5-.42-2.9.1-3.6.3-.4.6-.43.75-.43Z"/></svg></span>
+        <span class="pf__t">WhatsApp</span>
+      </span><span class="pf">
+        <span class="pf__m"><svg viewBox="0 0 24 24" aria-hidden="true">
+    <defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#FEDA75"/><stop offset=".35" stop-color="#FA7E1E"/>
+      <stop offset=".65" stop-color="#D62976"/><stop offset="1" stop-color="#962FBF"/></linearGradient></defs>
+    <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#ig)"/>
+    <circle cx="12" cy="12" r="4.6" fill="none" stroke="#fff" stroke-width="1.8"/>
+    <circle cx="17.4" cy="6.6" r="1.25" fill="#fff"/></svg></span>
+        <span class="pf__t">Instagram</span>
+      </span><span class="pf">
+        <span class="pf__m"><svg viewBox="0 0 24 24" fill="none" stroke="#0081FB" stroke-width="2" aria-hidden="true">
+    <path d="M3.2 14.7c0-3.7 1.9-7.4 4.3-7.4 1.5 0 2.6 1.2 4.5 4.3 1.9 3.1 2.6 4.3 4 4.3 1.4 0 2.3-1.7 2.3-4 0-2.7-1.2-5-3-5-1.7 0-3.2 1.5-5 4.4-1.9 3-3 4.6-4.6 4.6-1.5 0-2.5-1.2-2.5-1.2" stroke-linecap="round"/></svg></span>
+        <span class="pf__t">Meta Ads</span>
+      </span></div>
+    </div><div class="pfg">
+      <p class="pfg__k">Under it</p>
+      <div class="pfg__r"><span class="pf">
+        <span class="pf__m"><b>MQ</b></span>
+        <span class="pf__t">RabbitMQ</span>
+      </span><span class="pf">
+        <span class="pf__m"><b>N8</b></span>
+        <span class="pf__t">n8n</span>
+      </span><span class="pf">
+        <span class="pf__m"><b>API</b></span>
+        <span class="pf__t">REST API</span>
+      </span></div>
+    </div></div>
+    <p class="note">OurBride is live on Google Play today. The Shaaml build is signed and provisioned but not yet submitted — an honest “built, not shipped” rather than a store badge that does not resolve.</p>
   </div></section>
 
   <section><div class="wrap">
