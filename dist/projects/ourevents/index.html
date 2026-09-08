@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="x-build" content="96924c606af5">
+<title>OurEvents — Egypt&#39;s biggest retail channel packs up every Sunday night.</title>
+<meta name="description" content="OurEvents is the operating system for the physical layer of Egypt&#39;s local-brand economy — bazaars and events, concept stores, showrooms. One platform runs the floor plan, the vendor, the orders, the commission and the settlement, so a two-day event becomes a permanent distribution network instead of a WhatsApp group that goes quiet on Monday.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E">
+<script>
+(function(){
+  var K='qassem-theme', r=document.documentElement;
+  function set(t){
+    var explicit = t==='dark' || t==='light';
+    var dark = explicit ? t==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+    r.setAttribute('data-theme', dark ? 'dark' : 'light');
+    try{ explicit ? localStorage.setItem(K,t) : localStorage.removeItem(K); }catch(e){}
+    var m=document.querySelector('meta[name=theme-color]');
+    if(m) m.setAttribute('content', dark ? '#0A0A0B' : '#FAF8F3');
+    [].forEach.call(document.querySelectorAll('[data-theme-btn]'),function(b){
+      var on=b.getAttribute('data-theme-btn')===(dark?'dark':'light');
+      b.setAttribute('aria-pressed',on?'true':'false'); b.classList.toggle('on',on);
+    });
+  }
+  function stored(){ try{ return localStorage.getItem(K); }catch(e){ return null; } }
+  function current(){ var v=stored(); return v==='dark'||v==='light' ? v : 'system'; }
+  set(current());
+  // Follow the system live, but only while the visitor has not chosen.
+  var mq=matchMedia('(prefers-color-scheme:dark)');
+  var onmq=function(){ if(current()==='system') set('system'); };
+  mq.addEventListener ? mq.addEventListener('change',onmq) : mq.addListener(onmq);
+  addEventListener('DOMContentLoaded',function(){ set(current()); });
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('[data-theme-btn]');
+    if(!b) return; e.preventDefault(); set(b.getAttribute('data-theme-btn'));
+  });
+})();</script>
+<style>
+:root{
+  --bg:#FAF8F3; --bg-2:#FFFFFF; --bg-3:#F1EEE6;
+  --ink:#15150F; --ink-2:#57544B; --ink-3:#86816F;
+  --line:rgba(21,21,15,.15); --line-2:rgba(21,21,15,.07);
+  --rc:#A8480A; --on-ac:#FFFFFF;
+  --up:#0B6E39; --up-b:rgba(11,110,57,.11);
+  --hold:#9C6206; --hold-b:rgba(156,98,6,.12);
+  --shadow:0 14px 34px rgba(21,21,15,.10); --shadow-lg:0 18px 44px rgba(21,21,15,.14);
+  --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,"Cascadia Code",monospace;
+  --pad:clamp(20px,5vw,64px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0A0A0B; --bg-2:#101012; --bg-3:#16161A;
+  --ink:#F1EFE9; --ink-2:#A8A59C; --ink-3:#6B6961;
+  --line:rgba(241,239,233,.11); --line-2:rgba(241,239,233,.06);
+  --rc:#FF8A3D; --on-ac:#0A0A0B;
+  --up:#4ADE80; --up-b:rgba(74,222,128,.13); --hold:#F5A524; --hold-b:rgba(245,165,36,.14);
+  --shadow:0 14px 34px rgba(0,0,0,.4); --shadow-lg:0 18px 44px rgba(0,0,0,.45);}}
+:root[data-theme="dark"]{
+  --bg:#0A0A0B; --bg-2:#101012; --bg-3:#16161A;
+  --ink:#F1EFE9; --ink-2:#A8A59C; --ink-3:#6B6961;
+  --line:rgba(241,239,233,.11); --line-2:rgba(241,239,233,.06);
+  --rc:#FF8A3D; --on-ac:#0A0A0B;
+  --up:#4ADE80; --up-b:rgba(74,222,128,.13); --hold:#F5A524; --hold-b:rgba(245,165,36,.14);
+  --shadow:0 14px 34px rgba(0,0,0,.4); --shadow-lg:0 18px 44px rgba(0,0,0,.45);}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;
+  line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+:focus-visible{outline:2px solid var(--rc);outline-offset:3px;border-radius:3px}
+
+.nav{border-bottom:1px solid var(--line);background:var(--bg)}
+.nav__r{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:16px var(--pad);flex-wrap:wrap;max-width:1000px;margin:0 auto}
+.brand{font-weight:700;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:9px}
+.brand i{width:9px;height:9px;border-radius:50%;background:var(--rc);display:block}
+.nav__b{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+
+.hero{padding:clamp(40px,8vh,84px) 0 clamp(30px,5vh,52px);border-bottom:1px solid var(--line)}
+.pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--rc);
+  border:1px solid var(--line);border-radius:100px;padding:6px 13px}
+h1{font-size:clamp(36px,6.2vw,72px);font-weight:700;letter-spacing:-.04em;line-height:.98;
+  margin-top:18px;text-wrap:balance;max-width:17ch}
+.sub{font-size:clamp(16.5px,1.8vw,20px);color:var(--ink-2);max-width:60ch;margin-top:20px;line-height:1.58}
+.stage{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:20px;letter-spacing:.03em}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:1px;
+  background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats>div{background:var(--bg);padding:22px var(--pad)}
+.stats .n{font-family:var(--mono);font-size:clamp(20px,2.4vw,27px);font-weight:600;
+  letter-spacing:-.02em;color:var(--rc);line-height:1;font-variant-numeric:tabular-nums}
+.stats .k{font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.45}
+
+section{padding:clamp(38px,6vh,70px) 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--rc);margin-bottom:13px}
+h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-height:1.08;
+  text-wrap:balance;max-width:22ch}
+.lead{font-size:16.5px;color:var(--ink-2);max-width:64ch;margin-top:15px;line-height:1.6}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:13px;margin-top:30px}
+.c{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:22px;
+  box-shadow:var(--shadow);transition:border-color .3s,transform .3s}
+.c:hover{border-color:var(--rc);transform:translateY(-2px)}
+.c__i{display:grid;place-items:center;width:38px;height:38px;border-radius:9px;
+  border:1px solid var(--line);color:var(--rc);margin-bottom:15px}
+.c__i svg{width:19px;height:19px}
+.c h3{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.3}
+.c p{font-size:14px;color:var(--ink-2);line-height:1.58;margin-top:9px}
+
+/* Screenshots in a browser chrome, so a reader reads them as software rather
+   than as decoration. Wide shots take two columns; the phone shot takes one. */
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:30px}
+@media(max-width:760px){.shots{grid-template-columns:1fr}}
+.sh{background:var(--bg-2);border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s;margin:0}
+.sh:hover{transform:translateY(-3px);border-color:var(--rc)}
+.sh__bar{display:flex;align-items:center;gap:6px;padding:10px 13px;background:var(--bg-3);
+  border-bottom:1px solid var(--line)}
+.sh__bar i{width:8px;height:8px;border-radius:50%;background:var(--line);display:block}
+.sh__bar i:first-child{background:var(--rc);opacity:.7}
+.sh img{display:block;width:100%;height:auto;background:var(--bg-3)}
+.sh[data-w=tall] img{max-height:520px;object-fit:cover;object-position:top}
+.sh figcaption{padding:15px 17px 17px;border-top:1px solid var(--line-2)}
+.sh figcaption b{display:block;font-size:14.6px;font-weight:600;letter-spacing:-.01em}
+.sh figcaption span{display:block;font-size:13.2px;color:var(--ink-2);line-height:1.5;margin-top:6px}
+
+.mk{border-bottom:1px solid var(--line);background:var(--bg-2)}
+.mk__r{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;padding:18px var(--pad)}
+.mk__l{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.mk__i{display:inline-flex;align-items:center;gap:11px}
+.mk__i b{font-size:24px;line-height:1;filter:saturate(1.05)}
+.mk__i > span{display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--ink-2);line-height:1.35}
+.mk__i i{font-style:normal;font-weight:600;color:var(--ink);font-size:13.5px}
+.brand__l{width:26px;height:26px;border-radius:7px;object-fit:contain;display:block;background:#FFF;padding:3px;box-shadow:0 0 0 1px var(--line)}
+.mkt{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:12px;margin-top:30px}
+.m{background:var(--bg-2);border:1px solid var(--line);border-left:2px solid var(--rc);
+  border-radius:0 12px 12px 0;padding:18px 20px;display:flex;flex-direction:column;gap:7px}
+.m__k{font-size:13.5px;color:var(--ink-2)}
+.m__v{font-family:var(--mono);font-size:21px;font-weight:600;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums}
+.m__v i{font-style:normal;color:var(--rc);margin:0 4px}
+.m__g{font-family:var(--mono);font-size:11.5px;color:var(--rc);letter-spacing:.03em}
+.note{font-size:13.5px;color:var(--ink-2);margin-top:16px;max-width:74ch;line-height:1.6}
+
+.pfs{display:grid;gap:22px;margin-top:34px}
+.pfg{border-top:1px solid var(--line);padding-top:16px}
+.pfg__k{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--ink-3);margin:0 0 14px}
+.pfg__r{display:flex;flex-wrap:wrap;gap:10px}
+.pf{display:flex;align-items:center;gap:10px;padding:9px 14px 9px 10px;border:1px solid var(--line);
+  border-radius:11px;background:var(--bg-2);transition:border-color .25s,transform .25s,box-shadow .25s}
+.pf:hover{border-color:var(--rc);transform:translateY(-2px);box-shadow:var(--shadow)}
+.pf--soon{opacity:.62}
+.pf__m{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border-radius:8px;
+  background:var(--bg-3);color:var(--ink);overflow:hidden}
+.pf__m svg{width:19px;height:19px;display:block}
+.pf__m b{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.02em;
+  color:var(--pc,var(--rc))}
+.pf__t{font-size:13.5px;color:var(--ink);white-space:nowrap;display:flex;align-items:baseline;gap:7px}
+.pf__t i{font-family:var(--mono);font-style:normal;font-size:9.5px;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--ink-3);border:1px solid var(--line-2);border-radius:4px;padding:1px 5px}
+
+.cov{margin:30px 0 0}
+.cov__scroll{overflow-x:auto;contain:paint;border:1px solid var(--line);border-radius:12px;
+  background:var(--bg-2);box-shadow:var(--shadow);padding:18px 20px}
+.cov__grid{display:grid;grid-template-columns:minmax(150px,1.1fr) repeat(var(--n),minmax(72px,1fr));
+  gap:8px 6px;align-items:center;min-width:600px}
+.cov__st{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);text-align:center;line-height:1.35;padding-bottom:8px;
+  border-bottom:1px solid var(--line-2)}
+.cov__corner{border-bottom:1px solid var(--line-2);padding-bottom:8px}
+.cov__who{font-size:13.5px;color:var(--ink-2);padding-right:12px;line-height:1.3}
+.cov__who[data-us]{color:var(--ink);font-weight:600}
+.cov__c{height:11px;border-radius:6px;background:transparent;
+  border:1px dashed color-mix(in srgb,var(--ink-3) 45%,transparent)}
+.cov__c.on{background:color-mix(in srgb,var(--rc) 30%,transparent);border:1px solid transparent}
+.cov__c.on.us{background:var(--rc)}
+.cov figcaption{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-size:12.5px;color:var(--ink-3)}
+.cov__key{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px}
+.cov__key i{width:20px;height:9px;border-radius:5px;
+  border:1px dashed color-mix(in srgb,var(--ink-3) 45%,transparent)}
+.cov__key i.on{background:var(--rc);border:1px solid transparent}
+
+.rv{border-collapse:collapse;width:100%;min-width:680px;font-size:14px}
+.rv th,.rv td{padding:15px 18px;border-bottom:1px solid var(--line-2);text-align:left;vertical-align:top}
+.rv thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--bg-3);border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
+.rv tbody th{font-weight:400;min-width:190px}
+.rv tbody th b{display:block;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.rv tbody th span{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-top:5px}
+.rv td{color:var(--ink-2);line-height:1.55;min-width:210px}
+.rv td.stop{color:var(--ink);border-left:2px solid var(--rc)}
+.rv tbody tr:last-child th,.rv tbody tr:last-child td{border-bottom:0}
+.sub-k{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.09em;
+  color:var(--ink-3);margin:clamp(28px,4vh,40px) 0 0;padding-top:clamp(24px,3.5vh,34px);
+  border-top:1px solid var(--line)}
+.tw{overflow-x:auto;contain:paint;border:1px solid var(--line);border-radius:12px;
+  background:var(--bg-2);margin-top:30px;box-shadow:var(--shadow)}
+.pj{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px}
+.pj th,.pj td{padding:14px 18px;border-bottom:1px solid var(--line-2);text-align:right;
+  font-variant-numeric:tabular-nums}
+.pj thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--bg-3);border-bottom:1px solid var(--line);font-weight:500}
+.pj tbody th{text-align:left;font-weight:400;color:var(--ink-2)}
+.pj tbody tr:last-child th,.pj tbody tr:last-child td{border-bottom:0}
+.pj tr.hi{background:var(--bg-3)}
+.pj tr.hi th,.pj tr.hi td{color:var(--ink);font-weight:600}
+
+ol.steps{list-style:none;margin-top:30px}
+.s{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:16px 0;border-bottom:1px solid var(--line-2)}
+.s:last-child{border-bottom:0}
+.s__n{font-family:var(--mono);font-size:12px;color:var(--rc);letter-spacing:.05em;padding-top:4px}
+.s h3{font-size:16px;font-weight:600;letter-spacing:-.01em}
+.s p{font-size:14.4px;color:var(--ink-2);line-height:1.58;margin-top:6px;max-width:70ch}
+
+.states{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:13px;margin-top:30px}
+.st{background:var(--bg-2);border:1px solid var(--line);border-left:3px solid var(--t);
+  border-radius:0 5px 5px 0;padding:20px;box-shadow:var(--shadow)}
+.st[data-tone=up]{--t:var(--up);--tb:var(--up-b)}
+.st[data-tone=hold]{--t:var(--hold);--tb:var(--hold-b)}
+.st__t{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--t);background:var(--tb);border-radius:3px;padding:3px 8px}
+.st h3{font-size:15.5px;font-weight:600;margin-top:11px;letter-spacing:-.01em}
+.st p{font-size:13.8px;color:var(--ink-2);line-height:1.55;margin-top:8px}
+
+ul.ask{list-style:none;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:740px){ul.ask{grid-template-columns:1fr}}
+ul.ask li{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:20px;
+  box-shadow:var(--shadow)}
+ul.ask b{display:block;font-size:15.5px;font-weight:600;letter-spacing:-.01em}
+ul.ask span{display:block;font-size:14px;color:var(--ink-2);line-height:1.55;margin-top:8px}
+
+.end{padding:clamp(40px,7vh,80px) 0}
+.end p{font-size:16px;color:var(--ink-2);max-width:62ch;margin-top:15px;line-height:1.6}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--on-ac);background:var(--rc);
+  border-radius:100px;padding:13px 22px;display:inline-flex;align-items:center;gap:8px;
+  text-decoration:none;transition:transform .3s,filter .3s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.btn--g{background:none;color:var(--ink-2);border:1px solid var(--line)}
+.btn--g:hover{color:var(--ink);border-color:var(--rc);filter:none}
+.links{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.links a{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);border:1px solid var(--line);
+  border-radius:100px;padding:9px 15px;text-decoration:none;transition:border-color .3s,color .3s}
+.links a:hover{color:var(--ink);border-color:var(--rc)}
+footer{border-top:1px solid var(--line);padding:24px 0 44px;font-family:var(--mono);
+  font-size:11.5px;color:var(--ink-3);line-height:1.8}
+
+.thm{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;flex:none}
+.thm button{font:inherit;background:none;border:0;color:var(--ink-faint);padding:5px 10px;
+  cursor:pointer;display:grid;place-items:center;transition:background .25s,color .25s}
+.thm button svg{width:15px;height:15px;display:block}
+.thm button.on{background:var(--ink);color:var(--bg)}
+.thm button:not(.on):hover{color:var(--ink)}
+/* .anim is added by script, so nothing is hidden unless motion is actually on */
+@media (prefers-reduced-motion:no-preference){
+  .anim [data-rise]{opacity:0;transform:translateY(18px);
+    transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);
+    transition-delay:var(--d,0ms)}
+  .anim [data-rise].in{opacity:1;transform:none}
+
+  /* the hero art breathes; slow enough not to pull the eye off the copy */
+  .anim .art{animation:float 9s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  /* the live dot, and the accent bar on a hovered card */
+  .eyebrow .d{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--live) 55%,transparent)}
+    70%{box-shadow:0 0 0 7px transparent}}
+
+  .of__bar{transform-origin:left;animation:none}
+  .of:hover .of__bar,.of--pick .of__bar{animation:sweep .7s cubic-bezier(.22,1,.36,1)}
+  @keyframes sweep{from{transform:scaleX(.2)}to{transform:scaleX(1)}}
+
+  /* icon tiles lift with their card */
+  .pr,.tm,.as,.app{transition:border-color .3s,transform .3s,box-shadow .3s}
+  .pr:hover,.tm:hover,.as:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .pr__ic,.tm__ic,.as__mock{transition:transform .35s,border-color .35s,color .35s}
+  .pr:hover .pr__ic,.tm:hover .tm__ic{transform:scale(1.08) rotate(-4deg);border-color:var(--rc)}
+  .as:hover .as__mock{transform:scale(1.04)}
+
+  /* the process spine draws itself as the steps arrive */
+  .anim .st__n::after{transform:scaleY(0);transform-origin:top;transition:transform .6s ease .15s}
+  .anim .st.in .st__n::after{transform:scaleY(1)}
+
+  .jump a{transition:color .25s,border-color .25s,background .25s}
+  .stats > div{transition:background .3s}
+  .stats > div:hover{background:var(--bg-2)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="nav__r">
+  <a class="brand" href="https://qassem.online"><i></i>OurEvents</a>
+  <span style="display:inline-flex;align-items:center;gap:14px">
+    <div class="thm" role="group" aria-label="Theme">
+  <button type="button" data-theme-btn="light" aria-pressed="false" title="Light">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+  </button>
+  <button type="button" data-theme-btn="dark" aria-pressed="false" title="Dark">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"/></svg>
+  </button>
+</div><span class="nav__b">Private · shared by link</span>
+  </span>
+</div></header>
+
+<main>
+  <section class="hero" style="border-bottom:0"><div class="wrap">
+    <span class="pill">Commerce infrastructure for local brands · Seed 2026</span>
+    <h1>Egypt&#39;s biggest retail channel packs up every Sunday night.</h1>
+    <p class="sub">OurEvents is the operating system for the physical layer of Egypt&#39;s local-brand economy — bazaars and events, concept stores, showrooms. One platform runs the floor plan, the vendor, the orders, the commission and the settlement, so a two-day event becomes a permanent distribution network instead of a WhatsApp group that goes quiet on Monday.</p>
+    <p class="stage">Live platform · seed round · every figure checked 8 September 2026</p>
+  </div></section>
+
+  <div class="stats"><div><p class="n">840</p><p class="k">vendors onboarded before any funding — none of them paying yet</p></div><div><p class="n">29</p><p class="k">events run on the platform, across three cities</p></div><div><p class="n">EGP 0</p><p class="k">revenue today — the network exists, the monetisation has not started</p></div><div><p class="n">EGP 3–5M</p><p class="k">seed round, roughly $60K to $100K — the ask, stated up front</p></div></div>
+
+  <div class="mk"><div class="wrap mk__r">
+    <span class="mk__l">Live in, and next</span>
+    <span class="mk__i"><b>🇪🇬</b><span><i>Egypt</i>29 events across three cities · 840 vendors · EGP pricing</span></span><span class="mk__i"><b>🇸🇦</b><span><i>Saudi Arabia</i>the month-24 pilot — no presence, no entity, no claim today</span></span>
+  </div></div>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The problem</p>
+    <h2>A market this size should not be running on WhatsApp and a cash box.</h2>
+    <p class="lead">Egypt&#39;s local-brand economy is large and growing, and almost none of it is recorded. On our own count across the events we have run, nearly every transaction is informal. Three failures, one missing layer.</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12.6c0 3.9-3.8 7-8.4 7a9.6 9.6 0 0 1-3-.5l-5 1.6 1.6-4.1a6.6 6.6 0 0 1-1.4-4c0-3.9 3.8-7 8.4-7s7.8 3.1 7.8 7Z"/></svg></span>
+        <h3>Events are run entirely by hand</h3><p>Booths allocated over WhatsApp, vendor lists in Excel, payment in cash at the door. No floor plan anyone can query, no record of who sold what, and nothing that survives to the next event — so every organiser starts from zero, every time.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.2 2.3 3.4 5.4 3.4 8.6s-1.2 6.3-3.4 8.6c-2.2-2.3-3.4-5.4-3.4-8.6S9.8 5.7 12 3.4Z"/></svg></span>
+        <h3>Local brands have no route to market</h3><p>For tens of thousands of small Egyptian brands the entire distribution strategy is Instagram and word of mouth. The weekend event is the one place real customers appear in volume, and when it ends the channel closes and the customer goes with it.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 9.6 12 4.4l8.6 5.2M5.4 9.6v8.2m4.4-8.2v8.2m4.4-8.2v8.2m4.4-8.2v8.2M3 20.4h18"/></svg></span>
+        <h3>Permanent retail has no system either</h3><p>Concept stores and showrooms carrying dozens of brands run without POS, vendor management, consignment tracking or settlement. The stock is on the shelves and the accounting is in a notebook, which is why the format almost never scales past one location.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The product</p>
+    <h2>One platform from the floor plan to the settlement.</h2>
+    <p class="lead">Six things the platform does that currently need three tools, a spreadsheet and an argument at the end of the weekend.</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span>
+        <h3>The floor plan is the product</h3><p>Halls, floor plans, booth inventory and vendor rotation, live and queryable. An organiser assigns a booth and it is reserved, priced and invoiced in the same action — which is the whole job that currently takes a week of messages.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span>
+        <h3>Orders, commission, wallet, settlement</h3><p>A vendor sells at a booth, the platform takes its commission, and the money settles through a wallet rather than through the organiser&#39;s pocket. This is the part that turns an event from a rental business into a transaction business.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.4 12S6.2 5.6 12 5.6 21.6 12 21.6 12 17.8 18.4 12 18.4 2.4 12 2.4 12Z"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+        <h3>QR lead capture at the booth</h3><p>A visitor scans and the vendor keeps the lead. The relationship survives past Sunday night, which is the single thing every vendor at every event asks for and the reason vendors adopt the platform without being sold to.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 3.6h2.6l2.4 11.2h9.6l2.2-8H6.4"/><circle cx="9.4" cy="19" r="1.7"/><circle cx="17" cy="19" r="1.7"/></svg></span>
+        <h3>The same system runs permanent retail</h3><p>Concept stores and showrooms use the identical vendor, inventory, commission and settlement model. A brand that proves itself across a few events moves onto a shelf without leaving the platform or renegotiating anything.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4"/></svg></span>
+        <h3>Every side has its own surface</h3><p>Organiser portal, vendor portal, owner portfolio, public event pages, ticketing, check-in, reservations, polls, contests, rankings and a community feed — 103 pages across 112 routes, all against one API.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.2 2.3 3.4 5.4 3.4 8.6s-1.2 6.3-3.4 8.6c-2.2-2.3-3.4-5.4-3.4-8.6S9.8 5.7 12 3.4Z"/></svg></span>
+        <h3>Arabic first, three languages</h3><p>Roughly 2,400 translated strings in Arabic, English and French with right-to-left throughout. Arabic is the default rather than a setting, because the vendors and organisers this serves do not run their businesses in English.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">How it works</p>
+    <h2>Event first, shelf second, franchise third.</h2>
+    <p class="lead">The wedge is a thing that already happens every weekend. Everything after it is the same system left running.</p>
+    <ol class="steps"><li class="s">
+        <span class="s__n">01</span>
+        <div><h3>An organiser runs an event on the platform</h3><p>Floor plan, booths, vendor invitations, ticketing, check-in, reporting and settlement. The organiser pays a SaaS fee for the event and the platform takes a commission on booth GMV. This is the product that gets adopted first, because it replaces work rather than adding it.</p></div>
+      </li><li class="s">
+        <span class="s__n">02</span>
+        <div><h3>The vendors stay after the event ends</h3><p>Every vendor onboarded for one weekend stays in the network permanently, with a profile, a lead list and a sales history. 840 of them are in already — assembled by running real events, before any money was raised, which is why acquisition is not the risk here.</p></div>
+      </li><li class="s">
+        <span class="s__n">03</span>
+        <div><h3>The best vendors move onto a permanent shelf</h3><p>Concept stores and showrooms run on the same vendor and commission model, on a monthly subscription instead of a per-event fee. The event becomes the qualifying round for permanent retail, and the sales history is the underwriting.</p></div>
+      </li><li class="s">
+        <span class="s__n">04</span>
+        <div><h3>The store format is licensed, not owned</h3><p>The franchisee funds the fit-out and the stock. We supply the format, the system and the vendor network, and take a fee plus the continuing subscription and commission. The footprint grows without the balance sheet growing with it.</p></div>
+      </li></ol>
+  </div></section>
+
+  
+
+  
+
+  
+
+  <section><div class="wrap">
+    <p class="eyebrow">The field</p>
+    <h2>Nobody is competing for this. That is the opportunity and the warning.</h2>
+    <p class="lead">An organiser is not choosing between event platforms — there are none here. They are choosing between a spreadsheet that works badly and free tools that solve one slice each.</p>
+    <figure class="cov">
+      <div class="cov__scroll"><div class="cov__grid" style="--n:6">
+        <span class="cov__corner" aria-hidden="true"></span>
+        <span class="cov__st">Event operations</span><span class="cov__st">Vendor network</span><span class="cov__st">Payments and commission</span><span class="cov__st">Lead capture</span><span class="cov__st">Permanent retail</span><span class="cov__st">Franchise layer</span>
+        <span class="cov__who">WhatsApp, Excel and cash</span><span class="cov__c on"
+            role="img" aria-label="WhatsApp, Excel and cash — Event operations: covered"></span><span class="cov__c on"
+            role="img" aria-label="WhatsApp, Excel and cash — Vendor network: covered"></span><span class="cov__c"
+            role="img" aria-label="WhatsApp, Excel and cash — Payments and commission: not covered"></span><span class="cov__c"
+            role="img" aria-label="WhatsApp, Excel and cash — Lead capture: not covered"></span><span class="cov__c"
+            role="img" aria-label="WhatsApp, Excel and cash — Permanent retail: not covered"></span><span class="cov__c"
+            role="img" aria-label="WhatsApp, Excel and cash — Franchise layer: not covered"></span><span class="cov__who">Eventbrite and ticketing tools</span><span class="cov__c on"
+            role="img" aria-label="Eventbrite and ticketing tools — Event operations: covered"></span><span class="cov__c"
+            role="img" aria-label="Eventbrite and ticketing tools — Vendor network: not covered"></span><span class="cov__c on"
+            role="img" aria-label="Eventbrite and ticketing tools — Payments and commission: covered"></span><span class="cov__c"
+            role="img" aria-label="Eventbrite and ticketing tools — Lead capture: not covered"></span><span class="cov__c"
+            role="img" aria-label="Eventbrite and ticketing tools — Permanent retail: not covered"></span><span class="cov__c"
+            role="img" aria-label="Eventbrite and ticketing tools — Franchise layer: not covered"></span><span class="cov__who">Instagram and TikTok</span><span class="cov__c"
+            role="img" aria-label="Instagram and TikTok — Event operations: not covered"></span><span class="cov__c on"
+            role="img" aria-label="Instagram and TikTok — Vendor network: covered"></span><span class="cov__c"
+            role="img" aria-label="Instagram and TikTok — Payments and commission: not covered"></span><span class="cov__c on"
+            role="img" aria-label="Instagram and TikTok — Lead capture: covered"></span><span class="cov__c"
+            role="img" aria-label="Instagram and TikTok — Permanent retail: not covered"></span><span class="cov__c"
+            role="img" aria-label="Instagram and TikTok — Franchise layer: not covered"></span><span class="cov__who">Malls and retail landlords</span><span class="cov__c"
+            role="img" aria-label="Malls and retail landlords — Event operations: not covered"></span><span class="cov__c"
+            role="img" aria-label="Malls and retail landlords — Vendor network: not covered"></span><span class="cov__c"
+            role="img" aria-label="Malls and retail landlords — Payments and commission: not covered"></span><span class="cov__c"
+            role="img" aria-label="Malls and retail landlords — Lead capture: not covered"></span><span class="cov__c on"
+            role="img" aria-label="Malls and retail landlords — Permanent retail: covered"></span><span class="cov__c on"
+            role="img" aria-label="Malls and retail landlords — Franchise layer: covered"></span><span class="cov__who" data-us>OurEvents</span><span class="cov__c on us"
+            role="img" aria-label="OurEvents — Event operations: covered"></span><span class="cov__c on us"
+            role="img" aria-label="OurEvents — Vendor network: covered"></span><span class="cov__c on us"
+            role="img" aria-label="OurEvents — Payments and commission: covered"></span><span class="cov__c on us"
+            role="img" aria-label="OurEvents — Lead capture: covered"></span><span class="cov__c on us"
+            role="img" aria-label="OurEvents — Permanent retail: covered"></span><span class="cov__c on us"
+            role="img" aria-label="OurEvents — Franchise layer: covered"></span>
+      </div></div>
+      <figcaption><span class="cov__key"><i class="on"></i>covers it</span>
+        <span class="cov__key"><i></i>does not</span>
+        OurEvents is the only row that runs end to end.</figcaption>
+    </figure>
+    <div class="tw"><table class="rv">
+      <thead><tr><th scope="col">Who they are</th><th scope="col">What they do well</th>
+        <th scope="col">Where they stop</th></tr></thead>
+      <tbody><tr><th scope="row"><b>WhatsApp, Excel and a cash box</b><span>The real incumbent</span></th>
+        <td>Free, universally understood, and it genuinely works for a twenty-booth event. Every organiser already knows how to use it and nobody has to be trained or convinced.</td><td class="stop">Nothing is recorded, so nothing compounds. No sales history, no vendor data, no way to prove to a sponsor what the event delivered, and a settlement argument at the end of every weekend. It fails at exactly the size where an organiser starts making real money.</td></tr><tr><th scope="row"><b>Eventbrite and ticketing platforms</b><span>The tool that solves the gate</span></th>
+        <td>Ticketing, registration and attendee payments, done well and at global scale. If the problem were selling entry tickets, this would already be solved.</td><td class="stop">They stop at the door. No booth inventory, no floor plan, no vendor accounts, no commission on what is sold inside, and no concept of permanent retail. The gate is the smallest part of the money at one of these events.</td></tr><tr><th scope="row"><b>Instagram and TikTok</b><span>Where the brands actually live</span></th>
+        <td>Discovery, audience and a direct line to customers, free. Every one of the 840 vendors is there already and none of them will stop.</td><td class="stop">No structure underneath it. A brand cannot take payment reliably, cannot be found by category, cannot prove sales history to a store buyer, and cannot turn a follower into a footfall number a sponsor will pay for.</td></tr><tr><th scope="row"><b>Malls and retail landlords</b><span>The permanent alternative</span></th>
+        <td>Real permanent space, real footfall and a franchising model that has worked for decades. They own the format this platform is trying to digitise.</td><td class="stop">They sell leases, not consignment. A local brand with EGP 40,000 of stock cannot sign a mall lease, and the landlord has no system for hosting forty brands on one floor with per-brand settlement — which is exactly the gap the concept-store format fills.</td></tr></tbody>
+    </table></div>
+    
+    <p class="note">Said plainly, the absence of a direct competitor cuts both ways. It means no incumbent to displace and no procurement cycle to lose. It also means nobody has proved a buyer will pay for this, and the first honest test of that is the flagship events the raise funds. That test is the milestone, and it is deliberately early.</p>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Market</p>
+    <h2>The market is not the question. The take rate is.</h2>
+    <p class="lead">Sized on the categories local brands actually sell in, rather than on Egyptian retail as a whole.</p>
+    <div class="mkt"><div class="m">
+      <span class="m__k">Egypt e-commerce</span>
+      <span class="m__v">$9.1B <i>→</i> $29B</span>
+      <span class="m__g">+13.9% CAGR · to 2033</span></div><div class="m">
+      <span class="m__k">Egypt fashion and apparel</span>
+      <span class="m__v">$17.5B <i>→</i> $23.1B</span>
+      <span class="m__g">+5.7% CAGR · 2024 to 2029</span></div><div class="m">
+      <span class="m__k">Egypt handicrafts</span>
+      <span class="m__v">$2.72B <i>→</i> $6.39B</span>
+      <span class="m__g">+8.9% CAGR · 2023 to 2033</span></div><div class="m">
+      <span class="m__k">GMV across our platform</span>
+      <span class="m__v">$0 <i>→</i> $5–12M</span>
+      <span class="m__g">under 1.5% of the serviceable layer</span></div></div>
+    <p class="note">Method, so it can be checked rather than taken. TAM is local-brand commerce in Egypt across apparel, handicrafts and beauty, roughly $4.5B. SAM is the physical layer this platform actually operates — events, concept stores and showrooms — at roughly $800M. SOM is derived rather than asserted: at the take rates in the model section, year-three revenue of EGP 38M implies roughly EGP 250–600M of GMV crossing the platform, which is $5–12M and under 1.5% of that serviceable layer. Market sizes are third-party; the GMV and revenue figures are ours and are built up from the per-event and per-store arithmetic below. EGP converted at 50 to the dollar throughout.</p>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Projections</p>
+    <h2>Conservative on purpose, and it adds up.</h2>
+    <p class="lead">Point estimates from the lower half of the ranges the unit economics support, so the columns sum rather than span. Each revenue row is the count above it multiplied by the per-unit take stated in the model section.</p>
+    <div class="tw"><table class="pj">
+      <thead><tr><th scope="col"></th><th scope="col">Year 1</th><th scope="col">Year 2</th><th scope="col">Year 3</th></tr></thead>
+      <tbody><tr><th scope="row">Active events</th><td>30</td><td>100</td><td>250</td></tr><tr><th scope="row">Active vendors</th><td>750</td><td>4,500</td><td>12,000</td></tr><tr><th scope="row">Concept stores and showrooms</th><td>7</td><td>25</td><td>80</td></tr><tr><th scope="row">Event revenue</th><td>EGP 0.6M</td><td>EGP 3.5M</td><td>EGP 12.5M</td></tr><tr><th scope="row">Store revenue</th><td>EGP 1.5M</td><td>EGP 6.0M</td><td>EGP 21.1M</td></tr><tr><th scope="row">Franchise fees</th><td>—</td><td>EGP 0.5M</td><td>EGP 5.0M</td></tr><tr class="hi"><th scope="row">Revenue (EGP)</th><td>EGP 2.1M</td><td>EGP 10.0M</td><td>EGP 38.6M</td></tr><tr class="hi"><th scope="row">Revenue (USD, at 50)</th><td>$42K</td><td>$200K</td><td>$772K</td></tr></tbody>
+    </table></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Already built</p>
+    <h2>Built before the raise, not after it.</h2>
+    <p class="lead">The reason this is a commercial risk rather than a technical one.</p>
+    <div class="cards"><div class="c"><h3>The web platform — 103 pages, 112 routes</h3><p>A React and TypeScript application of roughly 237,000 lines across 203 components and 54 API services, covering events, vendors, booths, floor plans, halls, tickets, reservations, check-in, contests, polls, rankings, community, and separate organiser and owner portals.</p></div><div class="c"><h3>Three languages, right-to-left throughout</h3><p>About 2,400 translated strings each in Arabic, English and French. Arabic is the default rather than a toggle, which is a structural choice that shows up in every layout in the product and is not something a translation pass can retrofit.</p></div><div class="c"><h3>The event module on the shared API</h3><p>Event, vendor, booth-reservation, wallet, payment-method, guest-invitation and provider-invitation controllers on the .NET backend, with SignalR for live updates during an event — the floor filling up in real time is a thing an organiser can watch.</p></div><div class="c"><h3>Fifteen shared OurInc packages underneath</h3><p>Auth, payments, invoicing, subscriptions, notifications, chat, media, locale and analytics come from internal packages already running under sibling products. That reuse is the reason a platform this size exists at this cost and with this headcount.</p></div><div class="c"><h3>840 vendors and 29 events, before funding</h3><p>The network was assembled by actually running events, not by buying a list or scraping one. It is the single asset the raise is designed to convert, and it is the reason customer acquisition is not the first risk in this business.</p></div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The mechanism</p>
+    <h2>Each layer recruits the next one at no cost.</h2>
+    <p class="lead">This is the part that is genuinely structural rather than a feature list, and it is the reason the third year is cheaper to grow than the first.</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12a8.4 8.4 0 1 1-2.5-6"/><path d="M20.6 4.4v5.4h-5.4"/></svg></span>
+        <h3>The event recruits the vendor</h3><p>Every event onboards vendors the platform keeps afterwards. Acquisition for the SaaS product is a by-product of the organiser&#39;s own marketing spend, which we do not pay for and do not control — but which happens every weekend regardless.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span>
+        <h3>The vendor qualifies for the shelf</h3><p>Sales history across events is the underwriting for permanent retail. We know which brands actually sell before we give one a shelf — which is data no landlord and no mall has, and cannot get without running the events.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 9.6 12 4.4l8.6 5.2M5.4 9.6v8.2m4.4-8.2v8.2m4.4-8.2v8.2m4.4-8.2v8.2M3 20.4h18"/></svg></span>
+        <h3>The shelf is franchised, not bought</h3><p>The franchisee funds the fit-out and the stock. We supply the format, the system and the vendor network, and take a fee plus the ongoing subscription and commission. Eighty stores is a footprint without eighty leases.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span>
+        <h3>One transaction model, several formats</h3><p>Events, concept stores, showrooms and the mobile shell all run on the same vendor, order, commission and settlement model. The next format is a configuration rather than a new product, which is what makes the roadmap cheap.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The model</p>
+    <h2>Four takes on the same transaction stack.</h2>
+    <p class="lead">Total platform take is about EGP 38,000 to 78,000 per event and EGP 13,000 to 37,000 per store per month. Those two numbers are what the projection above is built from — nothing else is needed to rebuild it.</p>
+    <div class="cards"><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span>
+        <h3>Organiser SaaS · EGP 2,500–25,000 per event</h3><p>Charged per event for the floor plan, booth inventory, invitations, ticketing, check-in and reporting. It is the entry product and the reason an organiser adopts at all, long before any conversation about commission happens.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span>
+        <h3>Commission · 5% at events, 8–12% in stores</h3><p>About EGP 20,000 on a EGP 400,000 event, and 8 to 12 per cent on sales in concept stores, where the take is higher because the platform is also doing the retail operations rather than just hosting them.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 3.6h2.6l2.4 11.2h9.6l2.2-8H6.4"/><circle cx="9.4" cy="19" r="1.7"/><circle cx="17" cy="19" r="1.7"/></svg></span>
+        <h3>Booth upgrades and sponsorship · EGP 15,000–50,000 per event</h3><p>Premium positions on the floor plan sold to vendors who want the corner by the entrance, and one sponsor slot per event. Margin on inventory that already exists and costs nothing extra to sell.</p>
+      </div><div class="c">
+        <span class="c__i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 9.6 12 4.4l8.6 5.2M5.4 9.6v8.2m4.4-8.2v8.2m4.4-8.2v8.2m4.4-8.2v8.2M3 20.4h18"/></svg></span>
+        <h3>Franchise fee · EGP 100,000–150,000 per store</h3><p>The concept-store format licensed to an operator who funds the build-out themselves. Capital-light by design: eighty stores is EGP 8 to 12M of fees without a single store on our own balance sheet.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Roadmap</p>
+    <h2>Eighteen months, four checkpoints.</h2>
+    <p class="lead">Dated against the money below. The first item is embarrassing and cheap, which is why it is first.</p>
+    <ol class="steps"><li class="s"><span class="s__n">P1</span>
+      <div><h3>Fix the front door — months 0 to 1</h3><p>The platform is live on our-bazaar.com under the old Bazaars brand, our-events.com serves an unrelated placeholder page, and ourevents.com is parked. The rename is finished in the code and unfinished in public. Also on this line: moving production off the preprod API it currently points at.</p></div></li><li class="s"><span class="s__n">P2</span>
+      <div><h3>Five flagship events — months 1 to 12</h3><p>Run with established organisers in Cairo and Giza to prove the unit economics with real GMV and real settlement, and to convert the first tranche of the 840 vendors onto paid accounts. This produces the first MRR and the first honest CAC number.</p></div></li><li class="s"><span class="s__n">P3</span>
+      <div><h3>Ten concept stores — months 12 to 18</h3><p>Permanent retail on the same platform, at least one of them operated by us. This is what proves the format is franchisable rather than a one-off, and it is the gate in front of the franchise revenue line.</p></div></li><li class="s"><span class="s__n">P4</span>
+      <div><h3>Franchise nationally, then pilot the Gulf — months 24 to 36</h3><p>License the store format across Egypt, then a Saudi pilot where the same concept-store model already has a proven local operator and ARPU is several times Egypt&#39;s. Not funded by this round, and listed so the direction is not a surprise.</p></div></li></ol>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">Honest state</p>
+    <h2>What an investor will find on checking, listed before they check.</h2>
+    <p class="lead">The first three items below cost nothing to find and would cost a meeting to be caught on.</p>
+    <div class="states"><div class="st" data-tone="up">
+        <span class="st__t">LIVE</span>
+        <h3>The platform is real and running</h3><p>our-bazaar.com serves the production application today: 103 pages, 112 routes, three languages, and a backend that has carried 29 real events across three cities. This is a product, not a prototype or a design file.</p>
+      </div><div class="st" data-tone="hold">
+        <span class="st__t">WRONG DOOR</span>
+        <h3>It is still branded Bazaars in public</h3><p>The rename to OurEvents is complete in the code and invisible outside it. The live site is our-bazaar.com under the old name, our-events.com currently serves an unrelated placeholder page, and ourevents.com is parked. Anyone following a link will see this immediately.</p>
+      </div><div class="st" data-tone="hold">
+        <span class="st__t">PREPROD</span>
+        <h3>Production points at a preprod API</h3><p>The deployed JavaScript bundle calls preprod.our-bride.com. It works, and it is not where a platform that handles booth settlement should be pointed. Moving it is days rather than months, and it is stated here because it is visible in the bundle to anyone who looks.</p>
+      </div><div class="st" data-tone="hold">
+        <span class="st__t">ZERO</span>
+        <h3>840 vendors, none of them paying</h3><p>The network exists and no vendor, organiser or store is on a paid plan. There is no MRR, no churn figure and no acquisition cost, because nothing has been sold yet. Converting that network into customers is the entire purpose of this round.</p>
+      </div><div class="st" data-tone="hold">
+        <span class="st__t">NOT SHIPPED</span>
+        <h3>There is no mobile app in either store</h3><p>The Flutter application is written and heavily documented, and it is not published. No listing exists under com.ourevents.app on Google Play, and the similarly named app on the App Store belongs to an unrelated British company. The OurInc shell it ships inside is live on Google Play under a sibling product.</p>
+      </div><div class="st" data-tone="hold">
+        <span class="st__t">ONE PERSON</span>
+        <h3>One operator, on shared infrastructure</h3><p>A platform this size exists at this cost because fifteen internal packages are reused across several products and because one person built it. Both halves of that sentence are true, and the second one is the ceiling this round is meant to lift.</p>
+      </div></div>
+  </div></section>
+
+  <section><div class="wrap">
+    <p class="eyebrow">The ask</p>
+    <h2>EGP 3–5M seed. Roughly $60,000 to $100,000.</h2>
+    <p class="lead">Not to build the product — it is built and live. To convert 840 vendors into paying customers and prove the store format. The five lines below total EGP 2.7M to 4.3M; the balance is contingency and the two extra events if the first three work. Eighteen months of runway against one milestone: unit economics validated on real events with real settlement.</p>
+    <ul class="ask"><li><b>Flagship events — EGP 600K to 1M</b><span>Three to five events produced end to end: venue, production and marketing. The output is real GMV and real vendor behaviour, which is the one thing no amount of further platform work can substitute for. It is also the fastest way to prove this wrong cheaply.</span></li><li><b>Product completion — EGP 400K to 700K</b><span>Concept-store features, showroom tooling and the franchise system, plus the two items of housekeeping named above: moving production off the preprod API and finishing the rename where the public can see it.</span></li><li><b>Sales and vendor conversion — EGP 500K to 800K</b><span>Ten organisers signed and the vendor base grown past 2,000 active, with the existing 840 as the first and cheapest target. This is the line that produces the first MRR and the first real acquisition-cost number.</span></li><li><b>The first flagship store — EGP 800K to 1.2M</b><span>Fit-out, inventory and operations for one concept store run by us, so the format is proven on our own money before it is licensed to a franchisee on theirs. The franchise revenue line does not exist until this works.</span></li><li><b>Operations, legal and two to three hires — EGP 400K to 600K</b><span>The franchise structure drawn up properly rather than improvised, and the second and third pair of hands against the key-person risk stated above. This is what makes it eighteen months of runway rather than twelve.</span></li></ul>
+  </div></section>
+
+  <section class="end" style="border-bottom:0"><div class="wrap">
+    <p class="eyebrow">Next step</p>
+    <h2>What would you want to see first?</h2>
+    <p>Available on request: the event-level economics from the 29 events already run, the vendor list and how it was assembled, the franchise structure as drafted, and a walkthrough of the platform against a live event rather than a demo account. There is a deck, though the numbers above are more current than it is. Twenty minutes is enough for a first pass, and the fastest way to test any of this is to pick a claim and check it.</p>
+    <div class="cta">
+      <a class="btn" href="mailto:elec.eng.ahmedragab@gmail.com?subject=OurEvents%20%E2%80%94%20investor%20enquiry">Start a conversation ↗</a>
+      <a class="btn btn--g" href="https://our-bazaar.com" target="_blank" rel="noopener">See it running</a>
+    </div>
+    <div class="links"><a href="https://our-bazaar.com" target="_blank" rel="noopener">The live platform ↗</a><a href="https://our-bazaar.com/investors" target="_blank" rel="noopener">The investor view inside the product ↗</a><a href="https://play.google.com/store/apps/details?id=com.ourbride.app" target="_blank" rel="noopener">OurBride — the app shell, live on Google Play ↗</a><a href="https://qassem.online" target="_blank" rel="noopener">The operator&#39;s other platforms ↗</a></div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  Private page · noindex, not linked publicly · /projects/ourevents<br>
+  Figures describe what is built and running; anything not yet true is marked as such above.
+</div></footer>
+
+<script>
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var root=document.documentElement;
+
+  function arm(){
+    // Marked only now: until this runs, nothing in the page is hidden.
+    root.classList.add('anim');
+
+    var groups=[['.hd',0],['.of',70],['.pr',55],['.tm',45],['.as',60],['.st',50],
+                ['.qa',35],['.fee > div',60],['.stats > div',60],['.app',60],['.fit__c',80],
+                ['.cmp__scroll',0],['.excl li',25],['.req li',22],['.also a',30]];
+    groups.forEach(function(g){
+      [].forEach.call(document.querySelectorAll(g[0]),function(el,i){
+        el.setAttribute('data-rise','');
+        el.style.setProperty('--d',(i%8)*g[1]+'ms');
+      });
+    });
+
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    [].forEach.call(document.querySelectorAll('[data-rise]'),function(el){ io.observe(el); });
+
+    // Stat numbers count up, but only where the value is actually a number —
+    // "AR + EN" and "3–7 days" are left exactly as written.
+    [].forEach.call(document.querySelectorAll('.stats .n'),function(el){
+      var raw=el.textContent.trim(), m=raw.match(/^([^0-9]*)(\d+)(.*)$/);
+      if(!m || raw.indexOf('–')>-1) return;
+      var pre=m[1], end=parseInt(m[2],10), post=m[3];
+      if(end<2||end>100000) return;
+      var seen=false;
+      var so=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(!e.isIntersecting||seen) return; seen=true; so.disconnect();
+          var t0=null, dur=900;
+          function step(ts){ if(!t0)t0=ts;
+            var p=Math.min((ts-t0)/dur,1), v=Math.round((1-Math.pow(1-p,3))*end);
+            el.textContent=pre+v+post; if(p<1)requestAnimationFrame(step); }
+          requestAnimationFrame(step);
+        });
+      },{threshold:.6});
+      so.observe(el);
+    });
+  }
+
+  document.readyState==='loading'
+    ? addEventListener('DOMContentLoaded',arm) : arm();
+})();</script>
+</body>
+</html>
