@@ -6,7 +6,7 @@
 <meta name="author" content="Qassem">
 <meta name="theme-color" content="#0A0A0B">
 <meta name="robots" content="index,follow">
-<meta name="x-build" content="64515d113b36">
+<meta name="x-build" content="95deea495dc1">
 <script>
 (function(){
   var K='qassem-theme', r=document.documentElement;
@@ -201,10 +201,17 @@ h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-h
   .of__yr[data-free]{border-color:rgba(74,222,128,.45)}
   .of__yr[data-free] .of__yr-i{border-color:rgba(74,222,128,.45)}
 }
-.of ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:2px}
-.of li{font-size:13.6px;color:var(--ink-soft);line-height:1.5;padding-left:19px;position:relative}
-.of li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;
-  border:1.5px solid var(--oc);opacity:.8}
+.of ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
+/* Icon in its own tinted square, then the line: the left edge becomes a column
+   of shapes the eye can run down, and the text sits at full ink so it reads. */
+.of li{display:grid;grid-template-columns:26px 1fr;gap:11px;align-items:start;
+  font-size:14px;color:var(--ink);line-height:1.5}
+.of__ii{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;color:var(--oc);
+  background:color-mix(in srgb,var(--oc) 13%,transparent);margin-top:-1px}
+@supports not (color:color-mix(in srgb,red 10%,transparent)){.of__ii{background:var(--bg-3)}}
+.of__iis{width:15px;height:15px;display:block}
+.of li.inc{font-weight:600;padding-bottom:9px;border-bottom:1px dashed var(--line-2)}
+.of li.inc .of__ii{background:var(--oc);color:var(--on-ac)}
 .of__note{font-size:12.6px;color:var(--ink-faint);line-height:1.55;margin-top:auto;padding-top:12px;border-top:1px solid var(--line-2)}
 /* Every card ends in something to press. A price with no action next to it is
    where a reader stalls and leaves. */
@@ -536,8 +543,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
 [dir=rtl] .of__tag,[dir=rtl] .as__need,[dir=rtl] .of__flag{font-size:11px}
 
 [dir=rtl] .crumb,[dir=rtl] .cmp th,[dir=rtl] .cmp td{text-align:right}
-[dir=rtl] .of li,[dir=rtl] .req li{padding-left:0;padding-right:19px}
-[dir=rtl] .of li::before{left:auto;right:0}
+[dir=rtl] .req li{padding-left:0;padding-right:19px}
 [dir=rtl] .req li{padding-right:26px}
 [dir=rtl] .req li::before{left:auto;right:0}
 [dir=rtl] .req li::after{left:auto;right:5px;transform:rotate(-42deg) scaleX(-1)}
@@ -620,7 +626,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$1,500<s>one-off</s></p>
         
         
-        <ul><li>React or Next.js front end, responsive to phone</li><li>API and database designed and built, or wired to yours</li><li>Authentication, roles and an admin view</li><li>Arabic and English with real RTL layout</li><li>Deployed to your hosting, with the pipeline that redeploys it</li><li>Repo, credentials and a handover doc</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2M12 3.4c2.2 2.3 3.4 5.4 3.4 8.6s-1.2 6.3-3.4 8.6c-2.2-2.3-3.4-5.4-3.4-8.6S9.8 5.7 12 3.4Z"/></svg></span><span>React or Next.js front end, responsive to phone</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8.4 7.6-5 4.6 5 4.6M15.6 7.6l5 4.6-5 4.6M13.6 4.4l-3.2 15.2"/></svg></span><span>API and database designed and built, or wired to yours</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.4" y="10.4" width="15.2" height="10.2" rx="2.6"/><path d="M7.8 10.4V7.6a4.2 4.2 0 0 1 8.4 0v2.8M12 14.6v2.4"/></svg></span><span>Authentication, roles and an admin view</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 18.4 8 6.6l4.4 11.8M5.2 14.4h5.6"/><path d="M14.2 7.4h6.2M17.3 5.6v1.8c0 4-1.8 7.2-4.1 8.8M15.4 11.2c1 2.3 2.8 4 5 4.8"/></svg></span><span>Arabic and English with real RTL layout</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.8 18.6a4.4 4.4 0 0 1-.5-8.8 6 6 0 0 1 11.5 1.5 3.8 3.8 0 0 1-.7 7.3z"/><path d="M12 12v5.4m0 0 2.2-2.2M12 17.4l-2.2-2.2"/></svg></span><span>Deployed to your hosting, with the pipeline that redeploys it</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.2" cy="12" r="3.9"/><path d="M12.1 12H21m-3.4 0v3.1m-2.6-3.1v2.1"/></svg></span><span>Repo, credentials and a handover doc</span></li></ul>
         <p class="of__note">Priced per scope. A dashboard and a marketplace are not the same job, so the number follows a written feature list.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=Web%20app">Request this ↗</a>
       </div>
@@ -632,7 +638,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$2,500<s>one-off</s></p>
         
         
-        <ul><li>Flutter, so iOS and Android come from one codebase</li><li>Designs built to the screen list agreed up front</li><li>Offline behaviour, push notifications, deep links</li><li>Store-ready build and signing — publishing sold separately</li><li>Repo, keystore and certificates handed over</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="2.6" width="11.6" height="18.8" rx="2.6"/><path d="M10.6 18h2.8"/></svg></span><span>Flutter, so iOS and Android come from one codebase</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 3.6c-3.3 1.6-7.6 5.3-9.8 8.2l1.6 1.6c2.9-2.2 6.6-6.5 8.2-9.8Z"/><path d="M10.6 11.8c-2.2-.2-4 1.4-4 3.6 0 1.4-.8 2.6-2.4 3.2 3.8 1.8 8.4.6 8-5.2"/></svg></span><span>Designs built to the screen list agreed up front</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="2.6" width="11.6" height="18.8" rx="2.6"/><path d="M10.6 18h2.8"/></svg></span><span>Offline behaviour, push notifications, deep links</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.2" cy="12" r="3.9"/><path d="M12.1 12H21m-3.4 0v3.1m-2.6-3.1v2.1"/></svg></span><span>Store-ready build and signing — publishing sold separately</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.2" cy="12" r="3.9"/><path d="M12.1 12H21m-3.4 0v3.1m-2.6-3.1v2.1"/></svg></span><span>Repo, keystore and certificates handed over</span></li></ul>
         <p class="of__note">Publishing to the stores is its own service; this ends at a signed, installable build.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=Mobile%20app">Request this ↗</a>
       </div>
@@ -644,7 +650,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$3,800<s>one-off</s></p>
         
         
-        <ul><li>Everything in both, on one shared API</li><li>One data model, one login, one admin</li><li>Built once, so the mobile app and the site never disagree</li><li>One team and one timeline instead of two</li><li>30 days of Care plan after launch</li></ul>
+        <ul><li class="inc"><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span><span>Everything in both, on one shared API</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7.6" ry="3.2"/><path d="M4.4 6v12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2V6M4.4 12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2"/></svg></span><span>One data model, one login, one admin</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.2" y="2.6" width="11.6" height="18.8" rx="2.6"/><path d="M10.6 18h2.8"/></svg></span><span>Built once, so the mobile app and the site never disagree</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>One team and one timeline instead of two</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.3"/><path d="m6.1 6.1 3.5 3.5m4.8 4.8 3.5 3.5m0-11.8-3.5 3.5m-4.8 4.8-3.5 3.5"/></svg></span><span>30 days of Care plan after launch</span></li></ul>
         <p class="of__note">Cheaper and faster than the two separately, because the backend is built once.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=The%20full%20product">Request this ↗</a>
       </div>
@@ -659,7 +665,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$600<s>one-off</s></p>
         
         
-        <ul><li>Written audit of what is there and what it will cost to finish</li><li>The critical bugs fixed first, in priority order</li><li>Documented so it stops depending on whoever left</li><li>Then continued on the same terms as a new build</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.1"/><path d="m19.4 19.4-4.2-4.2"/><path d="M19 3.2v3.4M17.3 4.9h3.4"/></svg></span><span>Written audit of what is there and what it will cost to finish</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.6 8.4a4.6 4.6 0 0 1-6-6l2.9 2.9 3.1-.2.2-3.1-2.9-2.9a4.6 4.6 0 0 1 6 6z" transform="translate(2 4)"/><path d="m11.4 12.6-6.6 6.6a2.1 2.1 0 0 1-3-3l6.6-6.6"/></svg></span><span>The critical bugs fixed first, in priority order</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.9H6.9a2.2 2.2 0 0 0-2.2 2.2v13.8a2.2 2.2 0 0 0 2.2 2.2h10.2a2.2 2.2 0 0 0 2.2-2.2V8.7l-5.9-5.8Z"/><path d="M13.2 3v5.6h5.8M8.4 13.4h7.2M8.4 16.8h4.8"/></svg></span><span>Documented so it stops depending on whoever left</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8.4 7.6-5 4.6 5 4.6M15.6 7.6l5 4.6-5 4.6M13.6 4.4l-3.2 15.2"/></svg></span><span>Then continued on the same terms as a new build</span></li></ul>
         <p class="of__note">Half of this work is inherited codebases. The audit is a fixed price and stands alone — you are not obliged to continue with me.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=Take%20over%20an%20existing%20build">Request this ↗</a>
       </div>
@@ -671,7 +677,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$150<s>per month</s></p>
         
         
-        <ul><li>Fixes, small changes and dependency updates</li><li>Uptime and error monitoring with a monthly note</li><li>A named person when something breaks</li><li>Priority over new enquiries</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12a8.4 8.4 0 1 1-2.5-6"/><path d="M20.6 4.4v5.4h-5.4"/></svg></span><span>Fixes, small changes and dependency updates</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span><span>Uptime and error monitoring with a monthly note</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>A named person when something breaks</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.4 21V3.6M5.4 4.6h11.2l-2.2 4 2.2 4H5.4"/></svg></span><span>Priority over new enquiries</span></li></ul>
         <p class="of__note">Most clients keep it. The alternative is finding someone new the week something breaks.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=Care%20plan">Request this ↗</a>
       </div>

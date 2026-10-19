@@ -6,7 +6,7 @@
 <meta name="author" content="Qassem">
 <meta name="theme-color" content="#0A0A0B">
 <meta name="robots" content="index,follow">
-<meta name="x-build" content="933d1f0c550d">
+<meta name="x-build" content="3097712ecf81">
 <script>
 (function(){
   var K='qassem-theme', r=document.documentElement;
@@ -201,10 +201,17 @@ h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-h
   .of__yr[data-free]{border-color:rgba(74,222,128,.45)}
   .of__yr[data-free] .of__yr-i{border-color:rgba(74,222,128,.45)}
 }
-.of ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:2px}
-.of li{font-size:13.6px;color:var(--ink-soft);line-height:1.5;padding-left:19px;position:relative}
-.of li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;
-  border:1.5px solid var(--oc);opacity:.8}
+.of ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
+/* Icon in its own tinted square, then the line: the left edge becomes a column
+   of shapes the eye can run down, and the text sits at full ink so it reads. */
+.of li{display:grid;grid-template-columns:26px 1fr;gap:11px;align-items:start;
+  font-size:14px;color:var(--ink);line-height:1.5}
+.of__ii{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;color:var(--oc);
+  background:color-mix(in srgb,var(--oc) 13%,transparent);margin-top:-1px}
+@supports not (color:color-mix(in srgb,red 10%,transparent)){.of__ii{background:var(--bg-3)}}
+.of__iis{width:15px;height:15px;display:block}
+.of li.inc{font-weight:600;padding-bottom:9px;border-bottom:1px dashed var(--line-2)}
+.of li.inc .of__ii{background:var(--oc);color:var(--on-ac)}
 .of__note{font-size:12.6px;color:var(--ink-faint);line-height:1.55;margin-top:auto;padding-top:12px;border-top:1px solid var(--line-2)}
 /* Every card ends in something to press. A price with no action next to it is
    where a reader stalls and leaves. */
@@ -536,8 +543,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
 [dir=rtl] .of__tag,[dir=rtl] .as__need,[dir=rtl] .of__flag{font-size:11px}
 
 [dir=rtl] .crumb,[dir=rtl] .cmp th,[dir=rtl] .cmp td{text-align:right}
-[dir=rtl] .of li,[dir=rtl] .req li{padding-left:0;padding-right:19px}
-[dir=rtl] .of li::before{left:auto;right:0}
+[dir=rtl] .req li{padding-left:0;padding-right:19px}
 [dir=rtl] .req li{padding-right:26px}
 [dir=rtl] .req li::before{left:auto;right:0}
 [dir=rtl] .req li::after{left:auto;right:5px;transform:rotate(-42deg) scaleX(-1)}
@@ -616,7 +622,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$600<s>fixed</s></p>
         
         
-        <ul><li>Your AI system reviewed: architecture, prompts, retrieval, evaluation</li><li>Where it will break, and where it is quietly wasting money</li><li>Cost per request modelled and compared against alternatives</li><li>Findings ranked by impact, with the fix for each</li><li>A written report you own</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>Your AI system reviewed: architecture, prompts, retrieval, evaluation</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Where it will break, and where it is quietly wasting money</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Cost per request modelled and compared against alternatives</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.1"/><path d="m19.4 19.4-4.2-4.2"/><path d="M19 3.2v3.4M17.3 4.9h3.4"/></svg></span><span>Findings ranked by impact, with the fix for each</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.9H6.9a2.2 2.2 0 0 0-2.2 2.2v13.8a2.2 2.2 0 0 0 2.2 2.2h10.2a2.2 2.2 0 0 0 2.2-2.2V8.7l-5.9-5.8Z"/><path d="M13.2 3v5.6h5.8M8.4 13.4h7.2M8.4 16.8h4.8"/></svg></span><span>A written report you own</span></li></ul>
         <p class="of__note">Usually pays for itself on the inference bill alone.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy%20%E2%80%94%20Architecture%20review">Request this ↗</a>
       </div>
@@ -628,7 +634,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$1,200<s>fixed</s></p>
         
         
-        <ul><li>Every process that could use AI, assessed honestly</li><li>What to build, what to buy, and what to leave alone</li><li>Sequenced by payback, with costs against each</li><li>Build-versus-buy on the specific tools you are considering</li><li>Presented to your team or your board</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>Every process that could use AI, assessed honestly</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r=".9" fill="currentColor"/></svg></span><span>What to build, what to buy, and what to leave alone</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Sequenced by payback, with costs against each</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r=".9" fill="currentColor"/></svg></span><span>Build-versus-buy on the specific tools you are considering</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>Presented to your team or your board</span></li></ul>
         <p class="of__note">Portable by design. If you execute it with someone else, the roadmap still did its job.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy%20%E2%80%94%20AI%20roadmap">Request this ↗</a>
       </div>
@@ -640,7 +646,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$1,500<s>per month</s></p>
         
         
-        <ul><li>A technical decision-maker on call, without the salary</li><li>Vendor proposals and contracts reviewed before you sign</li><li>Architecture decisions and hiring input</li><li>Your team&#39;s technical questions answered</li><li>Board and investor sessions when they are needed</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>A technical decision-maker on call, without the salary</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 5 5.6v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.6l-7-2.9Z"/><path d="m9.1 11.9 2.1 2.1 3.8-4"/></svg></span><span>Vendor proposals and contracts reviewed before you sign</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>Architecture decisions and hiring input</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>Your team&#39;s technical questions answered</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>Board and investor sessions when they are needed</span></li></ul>
         <p class="of__note">For a company with budget and no senior technical person to spend it well.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy%20%E2%80%94%20Fractional%20CTO">Request this ↗</a>
       </div>
@@ -655,7 +661,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$700<s>fixed</s></p>
         
         
-        <ul><li>Workshops for your developers on the tools you have chosen</li><li>Working code against your own systems, not slide examples</li><li>Review of what they build in the weeks after</li><li>A written reference they keep</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>Workshops for your developers on the tools you have chosen</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8.4 7.6-5 4.6 5 4.6M15.6 7.6l5 4.6-5 4.6M13.6 4.4l-3.2 15.2"/></svg></span><span>Working code against your own systems, not slide examples</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 5 5.6v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.6l-7-2.9Z"/><path d="m9.1 11.9 2.1 2.1 3.8-4"/></svg></span><span>Review of what they build in the weeks after</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.9H6.9a2.2 2.2 0 0 0-2.2 2.2v13.8a2.2 2.2 0 0 0 2.2 2.2h10.2a2.2 2.2 0 0 0 2.2-2.2V8.7l-5.9-5.8Z"/><path d="M13.2 3v5.6h5.8M8.4 13.4h7.2M8.4 16.8h4.8"/></svg></span><span>A written reference they keep</span></li></ul>
         <p class="of__note">So the capability stays after I leave, which is the point.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Consulting%20and%20Strategy%20%E2%80%94%20Team%20enablement">Request this ↗</a>
       </div>

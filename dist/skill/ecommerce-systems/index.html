@@ -6,7 +6,7 @@
 <meta name="author" content="Qassem">
 <meta name="theme-color" content="#0A0A0B">
 <meta name="robots" content="index,follow">
-<meta name="x-build" content="46e4370c8109">
+<meta name="x-build" content="a30f5e09b532">
 <script>
 (function(){
   var K='qassem-theme', r=document.documentElement;
@@ -201,10 +201,17 @@ h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-h
   .of__yr[data-free]{border-color:rgba(74,222,128,.45)}
   .of__yr[data-free] .of__yr-i{border-color:rgba(74,222,128,.45)}
 }
-.of ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:2px}
-.of li{font-size:13.6px;color:var(--ink-soft);line-height:1.5;padding-left:19px;position:relative}
-.of li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;
-  border:1.5px solid var(--oc);opacity:.8}
+.of ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
+/* Icon in its own tinted square, then the line: the left edge becomes a column
+   of shapes the eye can run down, and the text sits at full ink so it reads. */
+.of li{display:grid;grid-template-columns:26px 1fr;gap:11px;align-items:start;
+  font-size:14px;color:var(--ink);line-height:1.5}
+.of__ii{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;color:var(--oc);
+  background:color-mix(in srgb,var(--oc) 13%,transparent);margin-top:-1px}
+@supports not (color:color-mix(in srgb,red 10%,transparent)){.of__ii{background:var(--bg-3)}}
+.of__iis{width:15px;height:15px;display:block}
+.of li.inc{font-weight:600;padding-bottom:9px;border-bottom:1px dashed var(--line-2)}
+.of li.inc .of__ii{background:var(--oc);color:var(--on-ac)}
 .of__note{font-size:12.6px;color:var(--ink-faint);line-height:1.55;margin-top:auto;padding-top:12px;border-top:1px solid var(--line-2)}
 /* Every card ends in something to press. A price with no action next to it is
    where a reader stalls and leaves. */
@@ -536,8 +543,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
 [dir=rtl] .of__tag,[dir=rtl] .as__need,[dir=rtl] .of__flag{font-size:11px}
 
 [dir=rtl] .crumb,[dir=rtl] .cmp th,[dir=rtl] .cmp td{text-align:right}
-[dir=rtl] .of li,[dir=rtl] .req li{padding-left:0;padding-right:19px}
-[dir=rtl] .of li::before{left:auto;right:0}
+[dir=rtl] .req li{padding-left:0;padding-right:19px}
 [dir=rtl] .req li{padding-right:26px}
 [dir=rtl] .req li::before{left:auto;right:0}
 [dir=rtl] .req li::after{left:auto;right:5px;transform:rotate(-42deg) scaleX(-1)}
@@ -624,7 +630,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$1,000<s>one-off</s></p>
         
         
-        <ul><li>Shopify store built on a theme customised to your brand</li><li>Arabic-first storefront with real RTL, English alongside</li><li>Products, collections and navigation set up</li><li>Payment gateway and shipping rates connected</li><li>Checkout tested end to end with a real order</li><li>Trained on how to run it yourself</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 3.6h2.6l2.4 11.2h9.6l2.2-8H6.4"/><circle cx="9.4" cy="19" r="1.7"/><circle cx="17" cy="19" r="1.7"/></svg></span><span>Shopify store built on a theme customised to your brand</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 18.4 8 6.6l4.4 11.8M5.2 14.4h5.6"/><path d="M14.2 7.4h6.2M17.3 5.6v1.8c0 4-1.8 7.2-4.1 8.8M15.4 11.2c1 2.3 2.8 4 5 4.8"/></svg></span><span>Arabic-first storefront with real RTL, English alongside</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 3.6h2.6l2.4 11.2h9.6l2.2-8H6.4"/><circle cx="9.4" cy="19" r="1.7"/><circle cx="17" cy="19" r="1.7"/></svg></span><span>Products, collections and navigation set up</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span><span>Payment gateway and shipping rates connected</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span><span>Checkout tested end to end with a real order</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>Trained on how to run it yourself</span></li></ul>
         <p class="of__note">For a brand that has products and no store, or a store that never really worked.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=E-commerce%20Systems%20%E2%80%94%20Store%20launch">Request this ↗</a>
       </div>
@@ -636,7 +642,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$500<s>one-off</s></p>
         
         
-        <ul><li>WhatsApp confirmation on every COD order before it ships</li><li>Automatic follow-up on unanswered orders, then a call list</li><li>Carrier integration so labels and tracking are one click</li><li>Return-rate reporting, measured against where you started</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12.6c0 3.9-3.8 7-8.4 7a9.6 9.6 0 0 1-3-.5l-5 1.6 1.6-4.1a6.6 6.6 0 0 1-1.4-4c0-3.9 3.8-7 8.4-7s7.8 3.1 7.8 7Z"/><path d="M8.6 12.4h.02M12 12.4h.02M15.4 12.4h.02"/></svg></span><span>WhatsApp confirmation on every COD order before it ships</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.6 4.6 13.4h6.2l-1 8 8.8-10.8h-6.2z"/></svg></span><span>Automatic follow-up on unanswered orders, then a call list</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 6.4h10.4v10H2.8zM13.2 9.6h4l3 3.4v3.4h-7z"/><circle cx="7" cy="18.4" r="1.8"/><circle cx="17.2" cy="18.4" r="1.8"/></svg></span><span>Carrier integration so labels and tracking are one click</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span><span>Return-rate reporting, measured against where you started</span></li></ul>
         <p class="of__note">COD returns are the single biggest leak in Egyptian and Saudi e-commerce. This closes it before the parcel moves.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=E-commerce%20Systems%20%E2%80%94%20Cash-on-delivery%20engine">Request this ↗</a>
       </div>
@@ -648,7 +654,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$1,400<s>one-off</s></p>
         
         
-        <ul><li>Everything in both packages, built together</li><li>One catalogue, one checkout, one operations view</li><li>COD confirmation live from the first order, not bolted on later</li><li>Shipping, payments and inventory connected</li><li>30 days of Care plan after launch</li></ul>
+        <ul><li class="inc"><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3.2 8.6 4.6L12 12.4 3.4 7.8z"/><path d="m3.4 12.4 8.6 4.6 8.6-4.6M3.4 16.8l8.6 4.6 8.6-4.6"/></svg></span><span>Everything in both packages, built together</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span><span>One catalogue, one checkout, one operations view</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span><span>COD confirmation live from the first order, not bolted on later</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span><span>Shipping, payments and inventory connected</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.3"/><path d="m6.1 6.1 3.5 3.5m4.8 4.8 3.5 3.5m0-11.8-3.5 3.5m-4.8 4.8-3.5 3.5"/></svg></span><span>30 days of Care plan after launch</span></li></ul>
         <p class="of__note">The order most people should buy in: a store that already confirms and ships properly from day one.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=E-commerce%20Systems%20%E2%80%94%20Store%20plus%20engine">Request this ↗</a>
       </div>
@@ -663,7 +669,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$250<s>fixed</s></p>
         
         
-        <ul><li>Fifteen-point review of an existing store, written up</li><li>Checkout, speed, mobile, Arabic layout and trust signals</li><li>Findings ranked by what they cost you per month</li><li>The critical fixes applied</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.1"/><path d="m19.4 19.4-4.2-4.2"/><path d="M19 3.2v3.4M17.3 4.9h3.4"/></svg></span><span>Fifteen-point review of an existing store, written up</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span><span>Checkout, speed, mobile, Arabic layout and trust signals</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Findings ranked by what they cost you per month</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.6 8.4a4.6 4.6 0 0 1-6-6l2.9 2.9 3.1-.2.2-3.1-2.9-2.9a4.6 4.6 0 0 1 6 6z" transform="translate(2 4)"/><path d="m11.4 12.6-6.6 6.6a2.1 2.1 0 0 1-3-3l6.6-6.6"/></svg></span><span>The critical fixes applied</span></li></ul>
         <p class="of__note">Fixed price, and worth having before spending anything on ads.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=E-commerce%20Systems%20%E2%80%94%20Store%20audit%20and%20fixes">Request this ↗</a>
       </div>
@@ -675,7 +681,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$120<s>per month</s></p>
         
         
-        <ul><li>Product and collection updates</li><li>Theme fixes, app updates and speed monitoring</li><li>COD flow tuned as return patterns change</li><li>Monthly note with the numbers that matter</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 3.6h2.6l2.4 11.2h9.6l2.2-8H6.4"/><circle cx="9.4" cy="19" r="1.7"/><circle cx="17" cy="19" r="1.7"/></svg></span><span>Product and collection updates</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span><span>Theme fixes, app updates and speed monitoring</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="5" width="18.8" height="14" rx="2.6"/><path d="M2.6 9.8h18.8M6.2 14.8h3.4"/></svg></span><span>COD flow tuned as return patterns change</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span><span>Monthly note with the numbers that matter</span></li></ul>
         <p class="of__note">A store is a shop; it needs someone in it.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=E-commerce%20Systems%20%E2%80%94%20Care%20plan">Request this ↗</a>
       </div>

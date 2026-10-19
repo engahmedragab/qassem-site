@@ -6,7 +6,7 @@
 <meta name="author" content="Qassem">
 <meta name="theme-color" content="#0A0A0B">
 <meta name="robots" content="index,follow">
-<meta name="x-build" content="c889a3f75176">
+<meta name="x-build" content="791418870594">
 <script>
 (function(){
   var K='qassem-theme', r=document.documentElement;
@@ -201,10 +201,17 @@ h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-h
   .of__yr[data-free]{border-color:rgba(74,222,128,.45)}
   .of__yr[data-free] .of__yr-i{border-color:rgba(74,222,128,.45)}
 }
-.of ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:2px}
-.of li{font-size:13.6px;color:var(--ink-soft);line-height:1.5;padding-left:19px;position:relative}
-.of li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;
-  border:1.5px solid var(--oc);opacity:.8}
+.of ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
+/* Icon in its own tinted square, then the line: the left edge becomes a column
+   of shapes the eye can run down, and the text sits at full ink so it reads. */
+.of li{display:grid;grid-template-columns:26px 1fr;gap:11px;align-items:start;
+  font-size:14px;color:var(--ink);line-height:1.5}
+.of__ii{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;color:var(--oc);
+  background:color-mix(in srgb,var(--oc) 13%,transparent);margin-top:-1px}
+@supports not (color:color-mix(in srgb,red 10%,transparent)){.of__ii{background:var(--bg-3)}}
+.of__iis{width:15px;height:15px;display:block}
+.of li.inc{font-weight:600;padding-bottom:9px;border-bottom:1px dashed var(--line-2)}
+.of li.inc .of__ii{background:var(--oc);color:var(--on-ac)}
 .of__note{font-size:12.6px;color:var(--ink-faint);line-height:1.55;margin-top:auto;padding-top:12px;border-top:1px solid var(--line-2)}
 /* Every card ends in something to press. A price with no action next to it is
    where a reader stalls and leaves. */
@@ -536,8 +543,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
 [dir=rtl] .of__tag,[dir=rtl] .as__need,[dir=rtl] .of__flag{font-size:11px}
 
 [dir=rtl] .crumb,[dir=rtl] .cmp th,[dir=rtl] .cmp td{text-align:right}
-[dir=rtl] .of li,[dir=rtl] .req li{padding-left:0;padding-right:19px}
-[dir=rtl] .of li::before{left:auto;right:0}
+[dir=rtl] .req li{padding-left:0;padding-right:19px}
 [dir=rtl] .req li{padding-right:26px}
 [dir=rtl] .req li::before{left:auto;right:0}
 [dir=rtl] .req li::after{left:auto;right:5px;transform:rotate(-42deg) scaleX(-1)}
@@ -621,7 +627,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$800<s>fixed</s></p>
         
         
-        <ul><li>Is this an AI problem at all — answered honestly, in writing</li><li>A working prototype on your real data, not a slide</li><li>Cost per request modelled at your expected volume</li><li>The evaluation set: how we will know it is good enough</li><li>A costed build plan you can take anywhere</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>Is this an AI problem at all — answered honestly, in writing</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8.4 7.6-5 4.6 5 4.6M15.6 7.6l5 4.6-5 4.6M13.6 4.4l-3.2 15.2"/></svg></span><span>A working prototype on your real data, not a slide</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Cost per request modelled at your expected volume</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>The evaluation set: how we will know it is good enough</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>A costed build plan you can take anywhere</span></li></ul>
         <p class="of__note">Deliberately portable. Roughly a third of these end with a recommendation not to build, and that is the sprint doing its job.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Product%20Development%20%E2%80%94%20Discovery%20sprint">Request this ↗</a>
       </div>
@@ -633,7 +639,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$2,000<s>one-off</s></p>
         
         
-        <ul><li>One capability built into what you already run</li><li>Retrieval over your own content where it is needed</li><li>Evaluation suite, so quality is measured not asserted</li><li>Guardrails, fallbacks and a path when the model is wrong</li><li>Cost monitoring per request and per user</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>One capability built into what you already run</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>Retrieval over your own content where it is needed</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>Evaluation suite, so quality is measured not asserted</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>Guardrails, fallbacks and a path when the model is wrong</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Cost monitoring per request and per user</span></li></ul>
         <p class="of__note">For a product that exists and needs one thing it cannot do today.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Product%20Development%20%E2%80%94%20AI%20feature%20in%20your%20product">Request this ↗</a>
       </div>
@@ -645,7 +651,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$6,000<s>staged</s></p>
         
         
-        <ul><li>The application, the model layer and the data pipeline</li><li>Agents and tool use where they earn their place</li><li>MCP server, if it should plug into other tools</li><li>Admin, monitoring and cost controls from day one</li><li>Staged delivery, usable at each stage</li><li>30 days of Care plan after launch</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>The application, the model layer and the data pipeline</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>Agents and tool use where they earn their place</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>MCP server, if it should plug into other tools</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Admin, monitoring and cost controls from day one</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.4 21V3.6M5.4 4.6h11.2l-2.2 4 2.2 4H5.4"/></svg></span><span>Staged delivery, usable at each stage</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.4"/><circle cx="12" cy="12" r="3.3"/><path d="m6.1 6.1 3.5 3.5m4.8 4.8 3.5 3.5m0-11.8-3.5 3.5m-4.8 4.8-3.5 3.5"/></svg></span><span>30 days of Care plan after launch</span></li></ul>
         <p class="of__note">Priced per stage against the discovery plan, so it never becomes one open-ended commitment.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Product%20Development%20%E2%80%94%20The%20full%20AI%20product">Request this ↗</a>
       </div>
@@ -660,7 +666,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$250<s>per month</s></p>
         
         
-        <ul><li>Model and SDK updates as providers deprecate versions</li><li>Prompt and retrieval tuning against the evaluation set</li><li>Cost review — provider pricing moves, and usually downward</li><li>Monthly note on quality and spend</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12a8.4 8.4 0 1 1-2.5-6"/><path d="M20.6 4.4v5.4h-5.4"/></svg></span><span>Model and SDK updates as providers deprecate versions</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2.8 2.3 6 6 2.3-6 2.3-2.3 6-2.3-6-6-2.3 6-2.3z"/><path d="M19 3.2v2.8M20.4 4.6h-2.8"/></svg></span><span>Prompt and retrieval tuning against the evaluation set</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Cost review — provider pricing moves, and usually downward</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Monthly note on quality and spend</span></li></ul>
         <p class="of__note">Model providers deprecate on their schedule, not yours. This is who handles that.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=AI%20Product%20Development%20%E2%80%94%20Care%20plan">Request this ↗</a>
       </div>

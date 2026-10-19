@@ -6,7 +6,7 @@
 <meta name="author" content="Qassem">
 <meta name="theme-color" content="#0A0A0B">
 <meta name="robots" content="index,follow">
-<meta name="x-build" content="0af8e170c515">
+<meta name="x-build" content="0f7588a55d37">
 <script>
 (function(){
   var K='qassem-theme', r=document.documentElement;
@@ -201,10 +201,17 @@ h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-h
   .of__yr[data-free]{border-color:rgba(74,222,128,.45)}
   .of__yr[data-free] .of__yr-i{border-color:rgba(74,222,128,.45)}
 }
-.of ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:2px}
-.of li{font-size:13.6px;color:var(--ink-soft);line-height:1.5;padding-left:19px;position:relative}
-.of li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;border-radius:2px;
-  border:1.5px solid var(--oc);opacity:.8}
+.of ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
+/* Icon in its own tinted square, then the line: the left edge becomes a column
+   of shapes the eye can run down, and the text sits at full ink so it reads. */
+.of li{display:grid;grid-template-columns:26px 1fr;gap:11px;align-items:start;
+  font-size:14px;color:var(--ink);line-height:1.5}
+.of__ii{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;color:var(--oc);
+  background:color-mix(in srgb,var(--oc) 13%,transparent);margin-top:-1px}
+@supports not (color:color-mix(in srgb,red 10%,transparent)){.of__ii{background:var(--bg-3)}}
+.of__iis{width:15px;height:15px;display:block}
+.of li.inc{font-weight:600;padding-bottom:9px;border-bottom:1px dashed var(--line-2)}
+.of li.inc .of__ii{background:var(--oc);color:var(--on-ac)}
 .of__note{font-size:12.6px;color:var(--ink-faint);line-height:1.55;margin-top:auto;padding-top:12px;border-top:1px solid var(--line-2)}
 /* Every card ends in something to press. A price with no action next to it is
    where a reader stalls and leaves. */
@@ -536,8 +543,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
 [dir=rtl] .of__tag,[dir=rtl] .as__need,[dir=rtl] .of__flag{font-size:11px}
 
 [dir=rtl] .crumb,[dir=rtl] .cmp th,[dir=rtl] .cmp td{text-align:right}
-[dir=rtl] .of li,[dir=rtl] .req li{padding-left:0;padding-right:19px}
-[dir=rtl] .of li::before{left:auto;right:0}
+[dir=rtl] .req li{padding-left:0;padding-right:19px}
 [dir=rtl] .req li{padding-right:26px}
 [dir=rtl] .req li::before{left:auto;right:0}
 [dir=rtl] .req li::after{left:auto;right:5px;transform:rotate(-42deg) scaleX(-1)}
@@ -625,7 +631,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$450<s>one-off</s></p>
         
         
-        <ul><li>Every order confirmed on WhatsApp before it ships</li><li>Automatic follow-up, then a call list for the silent ones</li><li>Replies routed to whoever handles them</li><li>Connected to your store and your carrier</li><li>Return-rate reporting from day one</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12.6c0 3.9-3.8 7-8.4 7a9.6 9.6 0 0 1-3-.5l-5 1.6 1.6-4.1a6.6 6.6 0 0 1-1.4-4c0-3.9 3.8-7 8.4-7s7.8 3.1 7.8 7Z"/><path d="M8.6 12.4h.02M12 12.4h.02M15.4 12.4h.02"/></svg></span><span>Every order confirmed on WhatsApp before it ships</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.6 4.6 13.4h6.2l-1 8 8.8-10.8h-6.2z"/></svg></span><span>Automatic follow-up, then a call list for the silent ones</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12.6c0 3.9-3.8 7-8.4 7a9.6 9.6 0 0 1-3-.5l-5 1.6 1.6-4.1a6.6 6.6 0 0 1-1.4-4c0-3.9 3.8-7 8.4-7s7.8 3.1 7.8 7Z"/><path d="M8.6 12.4h.02M12 12.4h.02M15.4 12.4h.02"/></svg></span><span>Replies routed to whoever handles them</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.8 6.4h10.4v10H2.8zM13.2 9.6h4l3 3.4v3.4h-7z"/><circle cx="7" cy="18.4" r="1.8"/><circle cx="17.2" cy="18.4" r="1.8"/></svg></span><span>Connected to your store and your carrier</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span><span>Return-rate reporting from day one</span></li></ul>
         <p class="of__note">The single automation with the clearest payback in Egyptian and Saudi commerce.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=Automation%20and%20Integrations%20%E2%80%94%20Order%20confirmation%20flow">Request this ↗</a>
       </div>
@@ -637,7 +643,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$600<s>one-off</s></p>
         
         
-        <ul><li>One end-to-end flow: the trigger, the steps, the exceptions</li><li>Connected to the tools you already pay for</li><li>Exceptions routed to a person with the context attached</li><li>A dashboard showing what ran and what did not</li><li>Documented so your team can change the simple parts</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.6 4.6 13.4h6.2l-1 8 8.8-10.8h-6.2z"/></svg></span><span>One end-to-end flow: the trigger, the steps, the exceptions</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.2 4.2 0 0 0 6 0l3-3a4.2 4.2 0 0 0-6-6l-1.2 1.2"/><path d="M14 10a4.2 4.2 0 0 0-6 0l-3 3a4.2 4.2 0 0 0 6 6l1.2-1.2"/></svg></span><span>Connected to the tools you already pay for</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>Exceptions routed to a person with the context attached</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span><span>A dashboard showing what ran and what did not</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.4" cy="8.4" r="3.6"/><path d="M2.8 19.6c.9-3.3 3.4-5 6.6-5s5.7 1.7 6.6 5"/><path d="M16.6 5.2a3.4 3.4 0 0 1 0 6.4M18 14.9c2 .6 3.3 2.2 3.9 4.7"/></svg></span><span>Documented so your team can change the simple parts</span></li></ul>
         <p class="of__note">Priced per process. Costed against the hours it replaces, and if the maths does not work I will tell you.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=Automation%20and%20Integrations%20%E2%80%94%20One%20process%2C%20automated">Request this ↗</a>
       </div>
@@ -649,7 +655,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$1,200<s>one-off</s></p>
         
         
-        <ul><li>Two or more systems connected: store, ERP, CRM, accounting, carrier</li><li>Field mapping agreed in writing before a line of code</li><li>Retries, failure alerts and a manual override</li><li>Backfill of existing data where it makes sense</li><li>Monitoring, so a silent failure is not discovered a month later</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.2 4.2 0 0 0 6 0l3-3a4.2 4.2 0 0 0-6-6l-1.2 1.2"/><path d="M14 10a4.2 4.2 0 0 0-6 0l-3 3a4.2 4.2 0 0 0 6 6l1.2-1.2"/></svg></span><span>Two or more systems connected: store, ERP, CRM, accounting, carrier</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4.2 4.2 0 0 0 6 0l3-3a4.2 4.2 0 0 0-6-6l-1.2 1.2"/><path d="M14 10a4.2 4.2 0 0 0-6 0l-3 3a4.2 4.2 0 0 0 6 6l1.2-1.2"/></svg></span><span>Field mapping agreed in writing before a line of code</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7 5 5.6v5.1c0 4.3 2.9 8.3 7 9.6 4.1-1.3 7-5.3 7-9.6V5.6l-7-2.9Z"/><path d="M12 8.4v3.9m0 2.9v.1"/></svg></span><span>Retries, failure alerts and a manual override</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="7.6" ry="3.2"/><path d="M4.4 6v12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2V6M4.4 12c0 1.8 3.4 3.2 7.6 3.2s7.6-1.4 7.6-3.2"/></svg></span><span>Backfill of existing data where it makes sense</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span><span>Monitoring, so a silent failure is not discovered a month later</span></li></ul>
         <p class="of__note">The right answer when the same data is typed into two systems by a person.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=Automation%20and%20Integrations%20%E2%80%94%20Systems%20talking%20to%20each%20other">Request this ↗</a>
       </div>
@@ -664,7 +670,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$200<s>fixed</s></p>
         
         
-        <ul><li>Every repetitive process in the business, listed and costed</li><li>What to automate, what to simplify first, what to leave</li><li>Ranked by hours returned per pound spent</li><li>A plan you can execute in any order</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Every repetitive process in the business, listed and costed</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.6 4.6 13.4h6.2l-1 8 8.8-10.8h-6.2z"/></svg></span><span>What to automate, what to simplify first, what to leave</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.6"/><path d="M14.8 8.8c-.5-1-1.6-1.6-2.8-1.6-1.6 0-2.8.9-2.8 2.2 0 3 5.8 1.6 5.8 4.6 0 1.3-1.3 2.3-3 2.3-1.3 0-2.5-.7-3-1.8M12 5.6v1.6m0 9.6v1.6"/></svg></span><span>Ranked by hours returned per pound spent</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.9H6.9a2.2 2.2 0 0 0-2.2 2.2v13.8a2.2 2.2 0 0 0 2.2 2.2h10.2a2.2 2.2 0 0 0 2.2-2.2V8.7l-5.9-5.8Z"/><path d="M13.2 3v5.6h5.8M8.4 13.4h7.2M8.4 16.8h4.8"/></svg></span><span>A plan you can execute in any order</span></li></ul>
         <p class="of__note">Cheaper than automating the wrong thing, which is the usual outcome without it.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=Automation%20and%20Integrations%20%E2%80%94%20Automation%20audit">Request this ↗</a>
       </div>
@@ -676,7 +682,7 @@ footer{border-top:1px solid var(--line);padding:24px 0}
         <p class="of__p"><i class="of__from">From</i>$100<s>per month</s></p>
         
         
-        <ul><li>Monitoring, with alerts when a flow stops</li><li>Changes as your process changes</li><li>New flows at a reduced rate</li><li>Monthly note: what ran, what failed, what it saved</li></ul>
+        <ul><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span><span>Monitoring, with alerts when a flow stops</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.6 4.6 13.4h6.2l-1 8 8.8-10.8h-6.2z"/></svg></span><span>Changes as your process changes</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.4 2.6 4.6 13.4h6.2l-1 8 8.8-10.8h-6.2z"/></svg></span><span>New flows at a reduced rate</span></li><li><span class="of__ii"><svg class="of__iis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.4 20.6h17.2M6.8 20.6v-6.4m4.6 6.4V7.4m4.6 13.2v-9"/></svg></span><span>Monthly note: what ran, what failed, what it saved</span></li></ul>
         <p class="of__note">Automation breaks quietly. That is the argument for someone watching it.</p>
         <a class="of__cta" href="mailto:hello@qassem.site?subject=Automation%20and%20Integrations%20%E2%80%94%20Care%20plan">Request this ↗</a>
       </div>
