@@ -297,6 +297,24 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 .tr .px-im{display:block;width:100%;aspect-ratio:1.25;border-radius:11px;background:#ECE8E3 center/cover no-repeat}
 .tr .px-row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;gap:6px}
 .tr .px-buy{background:var(--brand);color:#fff;border-radius:99px;padding:3px 11px;font-size:11px;font-weight:600}
+.tr .pc-rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:6px calc(50% - 110px) 10px;flex:none}
+.tr .pc-rail::-webkit-scrollbar{display:none}
+.tr .pc-card{font:inherit;cursor:pointer;flex:none;width:220px;height:262px;border:0;padding:0;border-radius:26px;overflow:hidden;position:relative;scroll-snap-align:center;background:#1a1616;color:#fff;text-align:start;transform:scale(.86);opacity:.55;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s,box-shadow .35s}
+.tr .pc-card.on{transform:none;opacity:1;box-shadow:0 22px 34px -18px rgba(172,12,17,.75)}
+.tr .pc-im{position:absolute;inset:0;background:#ECE8E3 center/cover no-repeat;transition:transform .6s}
+.tr .pc-card.on .pc-im{transform:scale(1.06)}
+.tr .pc-ov{position:absolute;inset:auto 0 0 0;padding:44px 16px 14px;background:linear-gradient(0deg,rgba(13,10,10,.94) 30%,rgba(13,10,10,0));display:flex;flex-direction:column;gap:2px}
+.tr .pc-ov b{font-family:var(--disp);font-weight:900;font-size:22px;line-height:1.2}
+.tr .pc-ov span{font-size:11.5px;opacity:.8}
+.tr .pc-ov i{font-style:normal;align-self:flex-start;margin-top:8px;background:var(--red);border-radius:99px;padding:4px 14px;font-size:11.5px;font-weight:600}
+.tr .pc-no{position:absolute;top:12px;inset-inline-start:14px;font-family:var(--mono);font-size:11px;background:rgba(13,10,10,.6);backdrop-filter:blur(6px);border-radius:99px;padding:2px 9px;direction:ltr}
+.tr .pc-dots{display:flex;gap:5px;justify-content:center;flex:none;direction:ltr}
+.tr .pc-dots i{width:6px;height:6px;border-radius:9px;background:rgba(25,21,21,.18);transition:all .3s}
+.tr .pc-dots i.on{width:20px;background:var(--brand)}
+.tr .pc-list{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:7px;padding:0 14px 6px;scrollbar-width:none}
+.tr .pc-list::-webkit-scrollbar{display:none}
+.tr .pc-list button{font:inherit;text-align:start;cursor:pointer;color:var(--pink);animation:tr-in .35s both}
+.tr .tb span[data-t]{cursor:pointer}
 .tr .px-bk{position:absolute;inset:0;background:rgba(15,10,10,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:6}
 .tr .px-sheet{position:absolute;inset-inline:0;bottom:0;z-index:7;background:var(--pbg);border-radius:26px 26px 34px 34px;padding:10px 16px 16px;display:flex;flex-direction:column;gap:9px;transform:translateY(104%);transition:transform .42s cubic-bezier(.2,.9,.25,1);box-shadow:0 -18px 40px -18px rgba(0,0,0,.5)}
 .tr .scr.sh .px-bk{opacity:1;pointer-events:auto}.tr .scr.sh .px-sheet{transform:none}
@@ -528,7 +546,17 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
             <div class="p-row" style="justify-content:space-between;flex:none"><span class="p-h" id="px-title"></span><span class="p-s">اسحب ←</span></div>
             <div class="px-rail" id="px-rail"></div>
           </div>
-          <div class="tb"><span class="on"><b></b>الرئيسية</span><span><b></b>القطع</span><span><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
+          <div class="tb"><span class="on" data-t="home"><b></b>الرئيسية</span><span data-t="cats"><b></b>القطع</span><span><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
+        </div>
+        <div class="pv" data-v="cats">
+          <div class="nv"><span>الأقسام</span><small id="pc-car"></small></div>
+          <div class="bd" style="padding-inline:0;gap:8px">
+            <div class="pc-rail" id="pc-rail"></div>
+            <div class="pc-dots" id="pc-dots"></div>
+            <div class="p-row" style="padding-inline:14px;justify-content:space-between;flex:none"><span class="p-h" id="pc-title"></span><span class="p-s" id="pc-n"></span></div>
+            <div class="pc-list" id="pc-list"></div>
+          </div>
+          <div class="tb"><span data-t="home"><b></b>الرئيسية</span><span class="on" data-t="cats"><b></b>القطع</span><span><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
         </div>
         <div class="pv" data-v="pay">
           <div class="nv"><button class="px-go" id="px-back" style="width:auto;background:none;font-family:var(--disp);font-weight:800;font-size:15px;color:var(--pink)">→ الدفع</button><img src="/projects/time-race/assets/salla.svg" alt="Salla" style="height:20px;width:auto" /></div>
@@ -558,6 +586,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
       <div class="side rv">
         <h3>عدّاد الضغطات</h3>
         <ol class="px-steps" id="px-steps"><li><b>1</b><span>اختر القطعة</span></li><li><b>2</b><span>اشترِ الآن</span></li><li><b>3</b><span>ادفع</span></li></ol>
+        <p style="margin-top:14px">اضغط تبويب <b style="color:var(--ink)">«القطع»</b> أسفل الشاشة: شاشة الأقسام كاروسيل كبير بصورة حقيقية لكل قسم، والقطع تتبدل تحته وأنت تسحب.</p>
         <h3>لماذا عدّاد سرعة؟</h3>
         <p>قائمة الأقسام العادية تشبه كل متجر. العدّاد يشبه السيارة نفسها، ويحمل معلومة: الرقم في المنتصف هو عدد القطع المتوفرة لسيارته في ذلك القسم، والأقسام مرتبة من الأكثر إلى الأقل.</p>
         <h3>ما الذي يجعل الشراء سريعاً</h3>
@@ -973,7 +1002,7 @@ function build(){
   $("#px-cars").innerHTML=CARS.slice(0,5).map(([k,v])=>'<button data-k="'+k+'" class="'+(k===pc?"on":"")+'">'+v+'</button>').join("");
   const n=cats.length;
   lab.innerHTML=cats.map((c,i)=>{const a=Math.PI-(n>1?i/(n-1):.5)*Math.PI,co=Math.cos(a),si=Math.sin(a);return '<line class="mj" x1="'+(CX+(R-3)*co)+'" y1="'+(CY-(R-3)*si)+'" x2="'+(CX+(R-13)*co)+'" y2="'+(CY-(R-13)*si)+'"/><text x="'+(CX+(R-31)*co)+'" y="'+(CY-(R-31)*si+4)+'" data-i="'+i+'">'+SYS[c.k]+'</text>'}).join("");
-  sel(0);
+  sel(0);buildCats();
 }
 function sel(i){
   const n=cats.length;ci=(i%n+n)%n;const c=cats[ci],f=n>1?ci/(n-1):.5;
@@ -1024,6 +1053,29 @@ $("#px-m").addEventListener("click",e=>{const b=e.target.closest("button");if(b)
 $("#px-back").addEventListener("click",()=>{view("home");step(0)});
 $("#px-pay").addEventListener("click",()=>{view("done");step(3)});
 $("#px-home").addEventListener("click",()=>{view("home");step(0)});
+
+/* categories carousel */
+const pcR=$("#pc-rail"),pcL=$("#pc-list");let all=[],ai=-1,tick=0;
+function buildCats(){
+  const by={};PARTS.forEach(p=>{if(p.m.includes(pc))(by[p.s]=by[p.s]||[]).push(p)});
+  all=Object.keys(by).filter(k=>k!=="other").sort((a,b)=>by[b].length-by[a].length).map(k=>({k,list:by[k],top:by[k].reduce((a,b)=>b.p>a.p?b:a)}));
+  $("#pc-car").textContent=CN[pc];
+  pcR.innerHTML=all.map((c,i)=>'<button class="pc-card" data-i="'+i+'"><span class="pc-im" style="background-image:url(\''+c.top.i+'\')"></span><span class="pc-no">'+String(i+1).padStart(2,"0")+' / '+String(all.length).padStart(2,"0")+'</span><span class="pc-ov"><b>'+SYS[c.k]+'</b><span><span class="n">'+c.list.length+'</span> قطعة تناسب سيارتك</span><i>تصفّح القسم</i></span></button>').join("");
+  $("#pc-dots").innerHTML=all.map(()=>"<i></i>").join("");
+  ai=-1;pcR.scrollLeft=0;pick(0);
+}
+function pick(i){
+  if(i===ai||!all[i])return;ai=i;const c=all[i];
+  pcR.querySelectorAll(".pc-card").forEach((e,k)=>e.classList.toggle("on",k===i));
+  $("#pc-dots").querySelectorAll("i").forEach((e,k)=>e.classList.toggle("on",k===i));
+  $("#pc-title").textContent="قطع "+SYS[c.k];$("#pc-n").innerHTML='<span class="n">'+c.list.length+'</span> قطعة';
+  pcL.innerHTML=c.list.slice(0,12).map((p,k)=>'<button class="p-card p-row" data-id="'+PARTS.indexOf(p)+'" style="padding:7px 10px;animation-delay:'+k*35+'ms"><span class="p-img" style="background-image:url(\''+p.i+'\')"></span><span style="flex:1;min-width:0"><span class="p-t" style="-webkit-line-clamp:1">'+esc(p.n)+'</span>'+(p.o?'<span class="p-o">'+esc(p.o)+'</span>':'')+'</span><span style="text-align:left;flex:none"><span class="p-pr" style="display:block">'+fmt(p.p)+'</span><span class="px-buy">اشترِ</span></span></button>').join("");
+  pcL.scrollTop=0;
+}
+pcR.addEventListener("scroll",()=>{cancelAnimationFrame(tick);tick=requestAnimationFrame(()=>{const r=pcR.getBoundingClientRect(),mid=r.left+r.width/2;let best=0,bd=1e9;pcR.querySelectorAll(".pc-card").forEach((e,k)=>{const b=e.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-mid);if(d<bd){bd=d;best=k}});pick(best)})},{passive:true});
+pcR.addEventListener("click",e=>{const b=e.target.closest(".pc-card");if(b)b.scrollIntoView({behavior:reduce?"auto":"smooth",inline:"center",block:"nearest"})});
+pcL.addEventListener("click",e=>{const b=e.target.closest("button");if(b)open(PARTS[+b.dataset.id])});
+px.addEventListener("click",e=>{const s=e.target.closest(".tb span[data-t]");if(s){stop();view(s.dataset.t);step(0)}});
 build();
 if(!reduce){const pio=new IntersectionObserver(es=>{if(es[0].isIntersecting){pio.disconnect();auto=setInterval(()=>sel(ci+1),2300)}},{threshold:.5});pio.observe(px)}
 })();
