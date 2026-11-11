@@ -253,6 +253,27 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 .tr footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 
+/* page-level car filter */
+.tr .c2{display:grid;grid-template-columns:1.55fr 1fr;gap:22px;margin-top:22px;align-items:start}
+.tr .c2 .cf-stage{border-radius:22px;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(229,41,47,.45)}
+.tr .c2 .cf-stage::after{display:none}
+.tr .c2 .cf-dot{width:40px;height:40px;border-width:3px}
+.tr .c2 .cf-dot span{font-size:14px}
+.tr .c2 .cf-lab{top:16px;right:16px;font-size:17px;padding:8px 16px;border-radius:14px}
+.tr .c2 .cf-lab small{font-size:12.5px}
+.tr .c2 .cf-back{top:16px;left:16px;font-size:13.5px;padding:8px 16px}
+.tr .c2-side{display:flex;flex-direction:column;gap:10px;min-width:0}
+.tr .c2-list{display:flex;flex-direction:column;gap:8px;max-height:420px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--red) transparent;padding-inline-end:4px}
+.tr .c2-row{font:inherit;color:var(--ink);text-align:start;display:flex;gap:12px;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:9px 12px;animation:tr-in .35s both;width:100%}
+.tr button.c2-row{cursor:pointer;transition:border-color .2s,transform .2s}
+.tr button.c2-row:hover{border-color:var(--red);transform:translateX(-3px)}
+.tr .c2-row i{flex:none;width:48px;height:48px;border-radius:11px;background:#ECE8E3 center/cover no-repeat}
+.tr .c2-row b.k{flex:none;width:40px;height:40px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-family:var(--mono);font-weight:500;font-size:14px}
+.tr .c2-row .t{flex:1;min-width:0}
+.tr .c2-row .t b{display:block;font-weight:600;font-size:14.5px;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tr .c2-row .t span{font-size:12.5px;color:var(--faint)}
+.tr .c2-row .pr{font-family:var(--mono);direction:ltr;font-size:14.5px;flex:none}
+
 /* prototype */
 .tr .proto{display:grid;grid-template-columns:340px 1fr;gap:44px;align-items:start;margin-top:40px}
 .tr .proto .ph{width:340px;position:sticky;top:78px}
@@ -356,6 +377,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 .tr .map ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px;font-size:13.5px;color:var(--soft)}
 .tr .map small{font-family:var(--mono);font-size:10.5px;color:var(--faint);letter-spacing:.1em}
 @media(max-width:920px){
+  .tr .c2{grid-template-columns:1fr}
   .tr .proto{grid-template-columns:1fr}.tr .proto .ph{position:relative;top:0;margin-inline:auto;width:min(340px,100%)}
   .tr .map{grid-template-columns:repeat(2,minmax(0,1fr))}
   .tr .hero .wrap,.tr .demo{grid-template-columns:1fr}
@@ -389,7 +411,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   <div class="wrap">
     <a class="wm" href="#s-top" aria-label="Time Race"><img src="/projects/time-race/assets/logo-dark.webp" alt="Time Race" width="400" height="120" /></a>
     <nav class="topnav">
-      <a href="#s-issues">الموقع</a><a href="#s-demo">جرّب</a><a href="#s-app">التطبيق</a><a href="#s-sell">يبيع أكثر</a><a href="#s-how">سلة</a><a href="#s-tiers">الأساسي والإضافة</a><a href="#s-plan">الخطة</a>
+      <a href="#s-issues">الموقع</a><a href="#s-demo">جرّب</a><a href="#s-car">على السيارة</a><a href="#s-app">التطبيق</a><a href="#s-sell">يبيع أكثر</a><a href="#s-how">سلة</a><a href="#s-tiers">الأساسي والإضافة</a><a href="#s-plan">الخطة</a>
     </nav>
     <span class="ver">v0.1 · 11.11.2026</span>
   </div>
@@ -526,6 +548,28 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         <p>القطعة الخطأ تعني استرجاعاً وشحناً مرتين وعميلاً متضايقاً. التطبيق يمنعها قبل الدفع، لا بعد الوصول.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CAR FILTER -->
+<section id="s-car">
+  <div class="wrap">
+    <div class="eyebrow rv">جديد · الفلتر على السيارة</div>
+    <h2 class="rv">اضغط على مكان المشكلة في السيارة.</h2>
+    <p class="lead rv">العميل لا يعرف اسم القطعة دائماً، لكنه يعرف أين المشكلة. يختار سيارته، يضغط على المكان، فتقترب الصورة منه وتظهر قطع ذلك المكان فقط. الصور من متجرك، والأرقام على النقاط عدد قطعك الحالية لكل مكان.</p>
+    <div class="seg rv" id="c2-cars" style="margin-top:28px"></div>
+    <div class="c2 rv">
+      <div class="cf-stage" id="c2-stage">
+        <div class="cf-move" id="c2-move"><img id="c2-img" alt="" /><div id="c2-hs"></div></div>
+        <div class="cf-lab" id="c2-lab"></div>
+        <button class="cf-back" id="c2-back">↺ كل السيارة</button>
+      </div>
+      <div class="c2-side">
+        <div class="seg" id="c2-sys"></div>
+        <div class="c2-list" id="c2-list"></div>
+      </div>
+    </div>
+    <p class="note rv">توزيع القطع على الأماكن استخرجناه آلياً من الأسماء، ويُضبط بالوسوم التي تضيفها في سلة. هذه الشاشة نفسها موجودة داخل نموذج التطبيق في القسم التالي، تحت تبويب «القطع».</p>
   </div>
 </section>
 
@@ -1042,6 +1086,40 @@ oR.addEventListener("input",odo);
 $("#o-cars").addEventListener("click",e=>{const b=e.target.closest("button");if(b){ocar=b.dataset.k;odo()}});
 odo();
 
+
+/* page-level car filter */
+(function(){
+const AP='/projects/time-race/assets/',A=[["engine","المحرك",30,37],["front","التبريد والمكيف",17,52],["lights","الأنوار والبدن",38,46],["fwheel","العجلة الأمامية",53,74],["cabin","الكهرباء والحساسات",55,27],["under","القير والوقود",70,68],["rwheel","العجلة الخلفية",88,67]];
+const C5=CARS.slice(0,5),st=$("#c2-stage"),mv=$("#c2-move"),L=$("#c2-list"),S=$("#c2-sys");if(!st)return;
+let c="h6-3",a=null,s="all",by={};
+function ao(p){const r=/خلف/.test(p.n);if(p.s==="brakes"||p.s==="suspension")return r?"rwheel":"fwheel";if(p.s==="filters")return /مكيف/.test(p.n)?"cabin":/قير|بنزين|وقود/.test(p.n)?"under":"engine";return {engine:"engine",turbo:"engine",belts:"engine",cooling:"front",ac:"front",body:"lights",ignition:"cabin",transmission:"under",fuel:"under"}[p.s]||null}
+function build(){
+  by={};PARTS.forEach(p=>{if(p.m.includes(c)){const k=ao(p);if(k)(by[k]=by[k]||[]).push(p)}});
+  $("#c2-cars").innerHTML=C5.map(([k,v])=>'<button data-k="'+k+'" class="'+(k===c?"on":"")+'">'+v+'</button>').join("");
+  $("#c2-img").src=AP+"car-"+c+".webp";$("#c2-img").alt=CN[c];
+  $("#c2-hs").innerHTML=A.filter(x=>by[x[0]]).map(x=>'<button class="cf-dot" data-a="'+x[0]+'" style="left:'+x[2]+'%;top:'+x[3]+'%" aria-label="'+x[1]+'"><span>'+by[x[0]].length+'</span></button>').join("");
+  area(null);
+}
+function area(k){
+  a=k;s="all";st.classList.toggle("zoom",!!k);st.querySelectorAll(".cf-dot").forEach(d=>d.classList.toggle("on",d.dataset.a===k));
+  if(k){const x=A.find(y=>y[0]===k),z=2.2;mv.style.transform="translate("+Math.max(100-100*z,Math.min(0,50-x[2]*z))+"%,"+Math.max(100-100*z,Math.min(0,50-x[3]*z))+"%) scale("+z+")";
+    $("#c2-lab").innerHTML=x[1]+'<small><span class="n">'+by[k].length+'</span> قطعة تناسب '+CN[c]+'</small>'}
+  else{mv.style.transform="none";$("#c2-lab").innerHTML=CN[c]+'<small>اضغط على أي نقطة حمراء</small>'}
+  draw();
+}
+function draw(){
+  if(!a){S.innerHTML="";L.innerHTML=A.filter(x=>by[x[0]]).sort((x,y)=>by[y[0]].length-by[x[0]].length).map((x,i)=>'<button class="c2-row" data-a="'+x[0]+'" style="animation-delay:'+i*40+'ms"><b class="k">'+by[x[0]].length+'</b><span class="t"><b>'+x[1]+'</b><span>'+[...new Set(by[x[0]].map(p=>SYS[p.s]))].join(" · ")+'</span></span><span class="pr">←</span></button>').join("");return}
+  const list=by[a],cnt={};list.forEach(p=>cnt[p.s]=(cnt[p.s]||0)+1);const ks=Object.keys(cnt).sort((x,y)=>cnt[y]-cnt[x]);
+  S.innerHTML=ks.length>1?'<button data-k="all" class="'+(s==="all"?"on":"")+'">الكل '+list.length+'</button>'+ks.map(k=>'<button data-k="'+k+'" class="'+(k===s?"on":"")+'">'+SYS[k]+' '+cnt[k]+'</button>').join(""):"";
+  L.innerHTML=list.filter(p=>s==="all"||p.s===s).map((p,i)=>'<div class="c2-row" style="animation-delay:'+Math.min(i,10)*35+'ms"><i style="background-image:url(\''+p.i+'\')"></i><span class="t"><b>'+esc(p.n)+'</b><span class="n">'+esc(p.o)+'</span></span><span class="pr">'+fmt(p.p)+'</span></div>').join("");L.scrollTop=0;
+}
+$("#c2-cars").addEventListener("click",e=>{const b=e.target.closest("button");if(b){c=b.dataset.k;build()}});
+$("#c2-hs").addEventListener("click",e=>{const b=e.target.closest(".cf-dot");if(b)area(b.dataset.a)});
+$("#c2-back").addEventListener("click",()=>area(null));
+S.addEventListener("click",e=>{const b=e.target.closest("button");if(b){s=b.dataset.k;draw()}});
+L.addEventListener("click",e=>{const b=e.target.closest("button[data-a]");if(b)area(b.dataset.a)});
+build();
+})();
 
 /* prototype */
 (function(){
