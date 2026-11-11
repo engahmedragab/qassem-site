@@ -395,7 +395,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   <div class="wrap">
     <a class="wm" href="#s-top" aria-label="Time Race"><img src="/projects/time-race/assets/logo-dark.webp" alt="Time Race" width="400" height="120" /></a>
     <nav class="topnav">
-      <a href="#s-issues">الموقع</a><a href="#s-demo">جرّب</a><a href="#s-app">التطبيق</a><a href="#s-sell">يبيع أكثر</a><a href="#s-how">سلة</a><a href="#s-plan">الخطة</a>
+      <a href="#s-issues">الموقع</a><a href="#s-demo">جرّب</a><a href="#s-app">التطبيق</a><a href="#s-sell">يبيع أكثر</a><a href="#s-how">سلة</a><a href="#s-tiers">الأساسي والإضافة</a><a href="#s-plan">الخطة</a>
     </nav>
     <span class="ver">v0.1 · 11.11.2026</span>
   </div>
@@ -413,6 +413,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         <li><span><b>ماذا:</b> تطبيق iOS وأندرويد لمالك هافال: كراجه، القطع التي تناسب سيارته فقط، وجدول صيانتها.</span></li>
         <li><span><b>على ماذا:</b> متجرك على سلة يبقى كما هو: المنتجات، المخزون، الطلبات، والدفع بتابي وتمارا ومدى.</span></li>
         <li><span><b>لماذا:</b> راجعنا <span class="n">12</span> متجراً سعودياً لقطع السيارات الصينية؛ واحد فقط عنده تطبيق، ولا واحد يحفظ سيارة العميل.</span></li>
+        <li><span><b>جزآن:</b> تطبيق أساسي يبيع وحده، وإضافة مقترحة بتكلفة مستقلة لملف العميل (سيارته، ممشاه، مواعيد صيانته) والخادم الوسيط.</span></li>
         <li><span><b>المطلوب منك:</b> تأكيد بيانات التوافق وجداول الصيانة. هذه معرفتك أنت، وهي ما يميّز التطبيق.</span></li>
       </ul>
     </div>
@@ -638,7 +639,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
     <div class="map rv">
       <div><small>01</small><h4>الرئيسية</h4><ul><li>الكراج وتبديل السيارة</li><li>عدّاد الأقسام</li><li>تذكير الصيانة القريبة</li><li>أعد الطلب</li></ul></div>
       <div><small>02</small><h4>القطع</h4><ul><li>تصفّح بالنظام والجهة</li><li>بحث بالاسم أو الرقم أو الكاميرا</li><li>من العَرَض إلى القطعة</li><li>صفحة القطعة وتنبيه عدم التوافق</li></ul></div>
-      <div><small>03</small><h4>الصيانة</h4><ul><li>جدول السيارة بالكيلومتر</li><li>أطقم الصيانة</li><li>سجل ما تم تركيبه</li><li>تحديث الممشى</li></ul></div>
+      <div><small>03 · إضافة</small><h4>الصيانة</h4><ul><li>جدول السيارة بالكيلومتر</li><li>أطقم الصيانة</li><li>سجل ما تم تركيبه</li><li>تحديث الممشى</li></ul></div>
       <div><small>04</small><h4>طلباتي</h4><ul><li>السلة والدفع عبر سلة</li><li>تتبع الشحنة</li><li>التقييم بعد التركيب</li><li>الاستبدال والاسترجاع</li></ul></div>
       <div><small>05</small><h4>حسابي</h4><ul><li>سياراتي والعناوين</li><li>«ما لقيت قطعتك؟» وواتساب</li><li>حساب الورشة وكود الفني</li><li>الإشعارات واللغة</li></ul></div>
     </div>
@@ -751,26 +752,26 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   <div class="wrap">
     <div class="eyebrow rv">05 · يبيع أكثر</div>
     <h2 class="rv">اثنا عشر سبباً ليرجع العميل ويشتري أكثر.</h2>
-    <p class="lead rv">الموقع يبيع لمن جاء يبحث. التطبيق يعرف السيارة والممشى، فيعرف ما ستحتاجه قبل صاحبها. كل بطاقة هنا آلية محددة، وليست وعداً بنسبة.</p>
+    <p class="lead rv">الموقع يبيع لمن جاء يبحث. التطبيق يعرف السيارة والممشى، فيعرف ما ستحتاجه قبل صاحبها. كل بطاقة هنا آلية محددة، وليست وعداً بنسبة. البطاقات المعلّمة «ضمن الإضافة» تحتاج ملف العميل والخادم الوسيط.</p>
     <div class="grid g3 sell" style="margin-top:36px">
       <div class="card rv"><span class="tag r">سلة أكبر</span><h3>طقم الصيانة بضغطة</h3><p>بدل فلتر واحد، طقم الصيانة كاملاً لسيارته وممشاها، بسعر واحد وزر واحد.</p></div>
-      <div class="card rv"><span class="tag g">طلب متكرر</span><h3>تذكير بالكيلومتر</h3><p>إشعار قبل موعد الصيانة بمسافة تحددها أنت، ومعه الطقم جاهز في السلة.</p></div>
+      <div class="card rv"><span class="tag g">طلب متكرر</span><h3>تذكير بالكيلومتر</h3><p>إشعار قبل موعد الصيانة بمسافة تحددها أنت، ومعه الطقم جاهز في السلة.</p><span class="tag w" style="position:static;margin-top:12px">ضمن الإضافة</span></div>
       <div class="card rv"><span class="tag r">سلة أكبر</span><h3>«تحتاج معها»</h3><p>من يشتري طرمبة الماء يحتاج الوجه وسائل التبريد. الفني يعرف ذلك، والتطبيق يقوله للعميل.</p></div>
       <div class="card rv"><span class="tag g">طلب متكرر</span><h3>أعد الطلب</h3><p>الفلاتر والفحمات تُشترى كل بضعة أشهر. آخر طلب يظهر في الرئيسية، وإعادته ضغطة.</p></div>
-      <div class="card rv"><span class="tag w">بيع لا يضيع</span><h3>السلة المتروكة</h3><p>إشعار بعد ساعات لمن أضاف ولم يدفع، ثم رسالة واتساب إن أردت. الموقع لا يستطيع إشعار أحد.</p><div class="lgs"><span class="lg"><img src="/projects/time-race/assets/whatsapp.svg" alt="whatsapp" loading="lazy" /></span></div></div>
+      <div class="card rv"><span class="tag w">بيع لا يضيع</span><h3>السلة المتروكة</h3><p>إشعار بعد ساعات لمن أضاف ولم يدفع، ثم رسالة واتساب إن أردت. الموقع لا يستطيع إشعار أحد.</p><span class="tag w" style="position:static;margin-top:12px">ضمن الإضافة</span><div class="lgs"><span class="lg"><img src="/projects/time-race/assets/whatsapp.svg" alt="whatsapp" loading="lazy" /></span></div></div>
       <div class="card rv"><span class="tag w">بيع لا يضيع</span><h3>«ما لقيت قطعتك؟»</h3><p>كل بحث بلا نتيجة يتحول إلى طلب بصورة ورقم هيكل. وأنت ترى قائمة بما يطلبه الناس وليس عندك، فتعرف ماذا تستورد.</p></div>
-      <div class="card rv"><span class="tag w">بيع لا يضيع</span><h3>تنبيه التوفر</h3><p>قطعة غير متوفرة؟ العميل يضغط «نبّهني»، ويصله إشعار يوم وصولها بدل أن يشتريها من غيرك.</p></div>
+      <div class="card rv"><span class="tag w">بيع لا يضيع</span><h3>تنبيه التوفر</h3><p>قطعة غير متوفرة؟ العميل يضغط «نبّهني»، ويصله إشعار يوم وصولها بدل أن يشتريها من غيرك.</p><span class="tag w" style="position:static;margin-top:12px">ضمن الإضافة</span></div>
       <div class="card rv"><span class="tag r">سلة أكبر</span><h3>التقسيط على الطقم</h3><p>سعر تابي وتمارا يظهر على الطقم كاملاً، فيصير طقم الفرامل «أربع دفعات» بدل مبلغ واحد.</p><div class="lgs"><span class="lg"><img src="/projects/time-race/assets/tabby.png" alt="tabby" loading="lazy" /></span><span class="lg"><img src="/projects/time-race/assets/tamara.png" alt="tamara" loading="lazy" /></span></div></div>
-      <div class="card rv"><span class="tag g">عملاء جدد</span><h3>حساب الورشة</h3><p>الورش تشتري كل أسبوع. حساب بسعر خاص، وطلب سريع برقم القطعة، وفاتورة ضريبية جاهزة.</p></div>
-      <div class="card rv"><span class="tag g">عملاء جدد</span><h3>كود الفني</h3><p>الفني يعطي زبونه كوداً، فيطلب القطعة الصحيحة من عندك ويُحسب الطلب للورشة. الفني يصير مندوبك.</p></div>
-      <div class="card rv"><span class="tag g">طلب متكرر</span><h3>أكثر من سيارة</h3><p>سيارة الزوجة والأخ في نفس الكراج. كل سيارة بجدولها وتذكيرها، وكلها تشتري من حساب واحد.</p></div>
-      <div class="card rv"><span class="tag r">ثقة</span><h3>تقييم بعد التركيب</h3><p>«ركّبتها على H6 موديل 2022 عند 60 ألف» أقنع من أي إعلان. والتطبيق يطلبه في الوقت المناسب.</p></div>
+      <div class="card rv"><span class="tag g">عملاء جدد</span><h3>حساب الورشة</h3><p>الورش تشتري كل أسبوع. حساب بسعر خاص، وطلب سريع برقم القطعة، وفاتورة ضريبية جاهزة.</p><span class="tag w" style="position:static;margin-top:12px">ضمن الإضافة</span></div>
+      <div class="card rv"><span class="tag g">عملاء جدد</span><h3>كود الفني</h3><p>الفني يعطي زبونه كوداً، فيطلب القطعة الصحيحة من عندك ويُحسب الطلب للورشة. الفني يصير مندوبك.</p><span class="tag w" style="position:static;margin-top:12px">ضمن الإضافة</span></div>
+      <div class="card rv"><span class="tag g">طلب متكرر</span><h3>أكثر من سيارة</h3><p>سيارة الزوجة والأخ في نفس الكراج. كل سيارة بجدولها وتذكيرها، وكلها تشتري من حساب واحد.</p><span class="tag w" style="position:static;margin-top:12px">ضمن الإضافة</span></div>
+      <div class="card rv"><span class="tag r">ثقة</span><h3>تقييم بعد التركيب</h3><p>«ركّبتها على H6 موديل 2022 عند 60 ألف» أقنع من أي إعلان. والتطبيق يطلبه في الوقت المناسب.</p><span class="tag w" style="position:static;margin-top:12px">ضمن الإضافة</span></div>
     </div>
 
     <div class="odo rv">
       <div class="odo-top">
         <div>
-          <h3>حرّك العدّاد وشاهد الطقم</h3>
+          <h3>حرّك العدّاد وشاهد الطقم <span class="tag w">ضمن الإضافة</span></h3>
           <div class="seg" id="o-cars" style="margin-top:12px"></div>
         </div>
         <div class="odo-km"><span id="o-km">0</span><small>km</small></div>
@@ -804,7 +805,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         <div class="jt-s"><i>4</i><span>السلة</span></div>
         <div class="jt-s"><i>5</i><span>الدفع عبر سلة</span></div>
         <div class="jt-s"><i>6</i><span>الشحن</span></div>
-        <div class="jt-s"><i>7</i><span>التذكير القادم</span></div>
+        <div class="jt-s"><i>7</i><span>التذكير القادم (إضافة)</span></div>
       </div>
       <div class="jt-say" id="jt-say"><b></b><p></p></div>
       <div class="jt-ctl"><span class="note" style="margin:0">تعمل تلقائياً عند الوصول إليها.</span><button class="btn" id="jt-replay">أعد التشغيل ↻</button></div>
@@ -817,11 +818,11 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   <div class="wrap">
     <div class="eyebrow rv">07 · كيف يعمل مع سلة</div>
     <h2 class="rv">سلة تبقى المحرّك. نحن نبني المقصورة.</h2>
-    <p class="lead rv">لا ترحيل للمنتجات ولا تغيير في طريقة عملك اليومية. تضيف المنتج في سلة كما تفعل الآن، ويظهر في التطبيق.</p>
+    <p class="lead rv">لا ترحيل للمنتجات ولا تغيير في طريقة عملك اليومية. تضيف المنتج في سلة كما تفعل الآن، ويظهر في التطبيق. في النسخة الأساسية يتصل التطبيق بسلة مباشرة؛ الخادم الوسيط في المنتصف إضافة مقترحة بتكلفة مستقلة، وهو ما يحفظ بيانات العميل وسيارته.</p>
     <div class="arch rv">
       <div class="box"><small>APP</small><h3>التطبيق</h3><ul><li>iOS وأندرويد من كود واحد (Flutter)</li><li>الكراج، البحث، الصيانة، الإشعارات</li><li>عربي أولاً، وإنجليزي</li></ul><div class="lgs"><span class="lg"><img src="/projects/time-race/assets/flutter.svg" alt="flutter" loading="lazy" /></span><span class="lg"><img src="/projects/time-race/assets/apple.svg" alt="apple" loading="lazy" /></span><span class="lg"><img src="/projects/time-race/assets/android.svg" alt="android" loading="lazy" /></span></div></div>
       <div class="pipe"></div>
-      <div class="box me"><small>OURS</small><h3>الخادم الوسيط</h3><ul><li>بيانات التوافق: قطعة ↔ سيارة</li><li>جداول الصيانة والأطقم</li><li>الكراجات والتذكيرات</li><li>يحدّث المنتجات والأسعار من سلة تلقائياً</li></ul></div>
+      <div class="box me" style="border-color:rgba(237,168,59,.55);background:linear-gradient(160deg,rgba(237,168,59,.1),var(--bg2) 60%)"><small>ADD-ON</small><h3>الخادم الوسيط</h3><span class="tag w" style="margin-top:8px">إضافة مقترحة · تكلفة مستقلة</span><ul><li>ملف العميل: سياراته، ممشاه، مواعيد صيانته</li><li>التوافق الدقيق: قطعة ↔ سيارة</li><li>جداول الصيانة والتذكيرات</li><li>الإشعارات الشخصية ولوحة المالك</li></ul></div>
       <div class="pipe"></div>
       <div class="box"><small>SALLA</small><h3 style="display:flex;align-items:center;gap:10px">متجرك على سلة <span class="lg"><img src="/projects/time-race/assets/salla.svg" alt="salla" loading="lazy" /></span></h3><ul><li>المنتجات والأسعار والمخزون</li><li>الطلبات والفواتير</li><li>الدفع: تابي، تمارا، مدى، Apple Pay</li><li>الشحن</li></ul><div class="lgs"><span class="lg"><img src="/projects/time-race/assets/tabby.png" alt="tabby" loading="lazy" /></span><span class="lg"><img src="/projects/time-race/assets/tamara.png" alt="tamara" loading="lazy" /></span><span class="lg"><img src="/projects/time-race/assets/mada.png" alt="mada" loading="lazy" /></span><span class="lg"><img src="/projects/time-race/assets/applepay.png" alt="applepay" loading="lazy" /></span><span class="lg"><img src="/projects/time-race/assets/card.png" alt="card" loading="lazy" /></span></div></div>
     </div>
@@ -837,7 +838,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   <div class="wrap">
     <div class="eyebrow rv">08 · لوحتك</div>
     <h2 class="rv">أسئلة لا تجيب عنها سلة اليوم.</h2>
-    <p class="lead rv">سلة تخبرك ماذا بِيع. التطبيق يخبرك من عندك وماذا سيحتاج. لا نعرض أرقاماً هنا لأننا لا نملك أرقامك، ولن نخترعها.</p>
+    <p class="lead rv">سلة تخبرك ماذا بِيع. التطبيق يخبرك من عندك وماذا سيحتاج. لا نعرض أرقاماً هنا لأننا لا نملك أرقامك، ولن نخترعها. اللوحة جزء من الإضافة المقترحة.</p>
     <div class="grid g4" style="margin-top:36px">
       <div class="card rv"><h3>كم سيارة في الكراجات؟</h3><p>وكم منها H9 وكم جوليان. هذا حجم سوقك الفعلي بالاسم.</p></div>
       <div class="card rv"><h3>من صيانته الشهر القادم؟</h3><p>قائمة بالسيارات المستحقة، قبل أن يبحث أصحابها عن القطع.</p></div>
@@ -864,8 +865,8 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         <tr><td>كراج يحفظ سيارة العميل</td><td class="x">—</td><td class="us y">✓</td></tr>
         <tr><td>علامة «تناسب سيارتك» ومنع القطعة الخطأ</td><td class="x">—</td><td class="us y">✓</td></tr>
         <tr><td>بحث برقم القطعة داخل سيارته</td><td class="x">—</td><td class="us y">✓</td></tr>
-        <tr><td>جدول صيانة وتذكير بالكيلومتر</td><td class="x">—</td><td class="us y">✓</td></tr>
-        <tr><td>أطقم، «تحتاج معها»، حساب ورشة</td><td class="x">—</td><td class="us y">✓</td></tr>
+        <tr><td>جدول صيانة وتذكير بالكيلومتر (إضافة)</td><td class="x">—</td><td class="us y">✓</td></tr>
+        <tr><td>ملف العميل، حساب الورشة، لوحة المالك (إضافة)</td><td class="x">—</td><td class="us y">✓</td></tr>
         <tr><td>ملكية الكود والبيانات</td><td>لسلة</td><td class="us">لك</td></tr>
       </tbody>
     </table></div>
@@ -873,25 +874,47 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   </div>
 </section>
 
-<!-- EXPAND -->
-<section id="s-next">
+<!-- TIERS -->
+<section id="s-tiers">
   <div class="wrap">
-    <div class="eyebrow rv">10 · بعد هافال</div>
-    <h2 class="rv">مبني ليحمل ماركات أخرى من اليوم الأول.</h2>
-    <p class="lead rv">المتاجر المنافسة تبيع لست ماركات صينية أو أكثر. لا نقترح أن تتوسع الآن، لكن التطبيق لن يمنعك حين تقرر.</p>
-    <div class="grid g2" style="margin-top:34px;align-items:start">
-      <div class="rv">
-        <div class="makes"><span class="on">HAVAL</span><span class="on">DARGO</span><span class="on">TANK</span><span>GWM</span><span>CHANGAN</span><span>GEELY</span><span>MG</span><span>CHERY</span><span>JETOUR</span></div>
-        <p class="note">الثلاث الأولى عندك قطعها اليوم. الباقي يُضاف كبيانات، من غير إصدار جديد من التطبيق.</p>
+    <div class="eyebrow rv">10 · الأساسي والإضافة</div>
+    <h2 class="rv">تطبيق يبيع من اليوم الأول، وإضافة تعرف العميل.</h2>
+    <p class="lead rv">قسمنا العرض إلى جزأين. الأساسي تطبيق كامل يبيع ويعمل وحده. الإضافة هي كل ما يتعلق ببيانات العميل الشخصية: سيارته، ممشاه، ومواعيد صيانته، ومعها الخادم الوسيط الذي يحفظها. تُطلب مع الأساسي أو بعده، وتكلفتها مستقلة.</p>
+    <div class="grid g2" style="margin-top:36px;align-items:start">
+      <div class="card rv" style="border-color:rgba(229,41,47,.5)">
+        <span class="tag r">الأساسي</span>
+        <h3 style="margin-top:12px">التطبيق</h3>
+        <p>متصل بمتجرك على سلة مباشرة، من غير خادم إضافي.</p>
+        <ul class="lst">
+          <li><span><b>iOS وأندرويد بهويتك</b>، عربي أولاً.</span></li>
+          <li><span><b>الرئيسية بعدّاد الأقسام</b> وكاروسيل الأقسام بالصور.</span></li>
+          <li><span><b>اختيار الموديل</b> وعرض قطعه. الاختيار يُحفظ على جوال العميل.</span></li>
+          <li><span><b>الفلتر على صورة السيارة:</b> يضغط مكان المشكلة فتظهر قطعه.</span></li>
+          <li><span><b>بحث</b> بالاسم ورقم القطعة.</span></li>
+          <li><span><b>«اشترِ الآن»</b> والدفع عبر سلة: تابي، تمارا، مدى، Apple Pay.</span></li>
+          <li><span><b>طلباتي</b> وتتبعها وإعادة الطلب.</span></li>
+          <li><span><b>واتساب</b> و«ما لقيت قطعتك؟».</span></li>
+        </ul>
+        <p class="note">تصنيف القطع حسب النظام والمكان يُدار في الأساسي بوسوم داخل لوحة سلة، تضيفها أنت على كل منتج.</p>
       </div>
-      <div class="tree rv"><b>Make</b>        HAVAL
-└─ <b>Model</b>     H6
-   └─ <b>Gen</b>    3rd · 2022→
-      └─ <b>Engine</b> 2.0T GW4N20
-         └─ <b>Fits</b>  1307400BEN01
-                  1118100BEN01
-                  3501151AGW01A …</div>
+      <div class="card rv" style="border-color:rgba(237,168,59,.5)">
+        <span class="tag w">إضافة مقترحة · تكلفة مستقلة</span>
+        <h3 style="margin-top:12px">ملف العميل والخادم الوسيط</h3>
+        <p>كل ما يحتاج أن نحفظ معلومة عن العميل نفسه.</p>
+        <ul class="lst">
+          <li><span><b>حساب يحفظ سياراته</b>، أكثر من سيارة، وعلى كل أجهزته.</span></li>
+          <li><span><b>الممشى وتاريخ آخر صيانة</b> وموعد القادمة.</span></li>
+          <li><span><b>جدول الصيانة والتذكير</b> بالكيلومتر والتاريخ.</span></li>
+          <li><span><b>سجل ما ركّبه</b> على كل سيارة.</span></li>
+          <li><span><b>توافق دقيق:</b> القطعة الواحدة تُربط بعدة موديلات وسنوات، مع تنبيه «لا تناسب سيارتك».</span></li>
+          <li><span><b>إشعارات شخصية:</b> السلة المتروكة، تنبيه التوفر، التقييم بعد التركيب.</span></li>
+          <li><span><b>لوحة المالك:</b> السيارات المسجلة، الصيانات المستحقة، البحث بلا نتيجة.</span></li>
+          <li><span><b>حسابات الورش وكود الفني.</b></span></li>
+        </ul>
+        <p class="note">تكلفتها جزآن: تطوير مرة واحدة، واستضافة شهرية للخادم. ولأنها بيانات شخصية، تُحفظ داخل المملكة وبموافقة العميل وفق نظام حماية البيانات الشخصية.</p>
+      </div>
     </div>
+    <p class="note rv">الأساسي مبني بحيث تُضاف الإضافة لاحقاً من غير إعادة بناء التطبيق. الأرقام نحسبها معاً لكل جزء على حدة.</p>
   </div>
 </section>
 
@@ -900,12 +923,12 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   <div class="wrap">
     <div class="eyebrow rv">11 · الخطة</div>
     <h2 class="rv">خمس مراحل، وكل واحدة تنتهي بشيء تراه.</h2>
-    <p class="lead rv">المدد تقديرية وتُثبَّت بعد المرحلة الأولى. السعر غير مذكور هنا عن قصد: نحسبه معاً بعد أن نتفق على ما يدخل في الإصدار الأول.</p>
+    <p class="lead rv">المدد تقديرية وتُثبَّت بعد المرحلة الأولى. السعر غير مذكور هنا عن قصد: نحسبه معاً بعد أن نتفق على ما يدخل في الإصدار الأول. المرحلة الرابعة تخص الإضافة، وتُحذف إن اكتفيت بالأساسي.</p>
     <div class="phs">
       <div class="phz rv"><i>01</i><div><h3>تثبيت النطاق وبيانات التوافق</h3><p>نراجع معك جدول التوافق صفاً صفاً، ونأخذ سنوات الصنع وجداول الصيانة، ونختبر الدفع عبر سلة من تطبيق تجريبي.</p></div><span class="tag">2–3 أسابيع</span></div>
       <div class="phz rv"><i>02</i><div><h3>التصميم</h3><p>كل الشاشات بهويتك، عربي أولاً. تعتمدها قبل كتابة أي كود.</p></div><span class="tag">2–3 أسابيع</span></div>
       <div class="phz rv"><i>03</i><div><h3>البناء الأساسي</h3><p>الكراج، التوافق، البحث بالاسم والرقم، السلة، والدفع عبر سلة. نسخة تجريبية على جوالك.</p></div><span class="tag">6–8 أسابيع</span></div>
-      <div class="phz rv"><i>04</i><div><h3>الصيانة والأطقم والإشعارات</h3><p>جدول الصيانة، التذكير، الأطقم، «تحتاج معها»، وطلب القطعة غير المدرجة.</p></div><span class="tag">3–4 أسابيع</span></div>
+      <div class="phz rv"><i>04</i><div><h3>ملف العميل والصيانة والإشعارات <span class="tag w">إضافة</span></h3><p>جدول الصيانة، التذكير، الأطقم، «تحتاج معها»، وطلب القطعة غير المدرجة.</p></div><span class="tag">3–4 أسابيع</span></div>
       <div class="phz rv"><i>05</i><div><h3>الاختبار والنشر</h3><p>اختبار كل مسار دفع، ثم الرفع على App Store و Google Play باسم مؤسستك.</p><div class="lgs" style="margin-top:10px"><span class="lg"><img src="/projects/time-race/assets/appstore.svg" alt="appstore" loading="lazy" /></span><span class="lg"><img src="/projects/time-race/assets/googleplay.svg" alt="googleplay" loading="lazy" /></span></div></div><span class="tag">أسبوعان</span></div>
     </div>
     <div class="grid g2" style="margin-top:44px">
@@ -914,7 +937,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         <ul class="lst">
           <li><span><b>تثبيت تطبيق الربط</b> في لوحة سلة، ليقرأ خادمنا المنتجات والطلبات.</span></li>
           <li><span><b>مراجعة جدول التوافق</b> وسنوات الصنع لكل جيل.</span></li>
-          <li><span><b>جداول الصيانة</b> من كتيّبات الضمان لكل موديل.</span></li>
+          <li><span><b>جداول الصيانة</b> من كتيّبات الضمان لكل موديل (للإضافة فقط).</span></li>
           <li><span><b>طريقة متابعة المخزون</b> عندك؛ سلة تعرض الآن كل القطع كمتوفرة بلا كمية.</span></li>
           <li><span><b>تصنيف القطع:</b> أصلي وكالة، OEM، أو تجاري، بمسميات ثابتة.</span></li>
           <li><span><b>حسابا المطوّر</b> عند أبل (<span class="n">99</span> دولاراً سنوياً) وقوقل (<span class="n">25</span> دولاراً مرة واحدة) باسم المؤسسة.</span></li>
@@ -928,7 +951,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
           <li><span>دفع داخل التطبيق من غير صفحة سلة.</span></li>
           <li><span>إعادة تصميم الموقع. ممكنة لاحقاً كمرحلة مستقلة.</span></li>
           <li><span>نظام مخزون أو محاسبة.</span></li>
-          <li><span>ماركات غير هافال في الإصدار الأول.</span></li>
+          <li><span>ماركات غير هافال.</span></li>
           <li><span>تصوير المنتجات وكتابة أوصافها.</span></li>
         </ul>
         <h3 style="margin-top:30px">تكاليف التشغيل بعد الإطلاق</h3>
