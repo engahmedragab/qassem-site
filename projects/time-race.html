@@ -338,6 +338,13 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 .tr .px-ok path{fill:none;stroke:#12804B;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60}
 .tr .pv.on .px-ok circle{animation:tr-draw .6s .1s forwards}.tr .pv.on .px-ok path{animation:tr-draw .4s .6s forwards}
 @keyframes tr-draw{to{stroke-dashoffset:0}}
+.tr .px-jump{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.tr .px-jump button{font:inherit;text-align:start;cursor:pointer;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:14px;color:var(--ink);transition:all .25s}
+.tr .px-jump button:hover{border-color:var(--red);transform:translateY(-2px)}
+.tr .px-jump button.on{background:var(--red);border-color:var(--red)}
+.tr .px-jump b{display:block;font-family:var(--disp);font-weight:800;font-size:16px}
+.tr .px-jump span{font-size:13px;color:var(--soft)}
+.tr .px-jump button.on span{color:rgba(255,255,255,.85)}
 .tr .px-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;list-style:none;padding:0;margin:18px 0 0}
 .tr .px-steps li{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--bg2);transition:all .35s;position:relative}
 .tr .px-steps li b{font-family:var(--mono);font-size:22px;color:var(--faint);display:block;transition:color .35s}
@@ -366,7 +373,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   .tr .jt-s{display:flex;gap:12px;align-items:center;text-align:start}.tr .jt-s i{margin:0;flex:none;width:34px;height:34px}
   .tr .phz{grid-template-columns:44px 1fr}.tr .phz .tag{grid-column:2;justify-self:start}
   .tr .kit{grid-template-columns:1fr}.tr .kit-tot{text-align:start}
-  .tr .map{grid-template-columns:1fr}.tr .px-steps{grid-template-columns:1fr}
+  .tr .map{grid-template-columns:1fr}.tr .px-steps{grid-template-columns:1fr}.tr .px-jump{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
   .tr *,.tr *::before,.tr *::after{animation:none!important;transition:none!important}
@@ -605,6 +612,13 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         <div class="px-sheet" id="px-sheet"></div>
       </div></div>
       <div class="side rv">
+        <h3>شاشات النموذج</h3>
+        <p>ثلاث شاشات تعمل داخل الجوال. اضغط أي واحدة لتفتحها:</p>
+        <div class="px-jump" id="px-jump">
+          <button class="on" data-t="home"><b>الرئيسية</b><span>عدّاد السرعة للأقسام</span></button>
+          <button data-t="cats"><b>الأقسام</b><span>كاروسيل كبير بالصور</span></button>
+          <button data-t="car"><b>على السيارة</b><span>صورة السيارة ومكان المشكلة</span></button>
+        </div>
         <h3>عدّاد الضغطات</h3>
         <ol class="px-steps" id="px-steps"><li><b>1</b><span>اختر القطعة</span></li><li><b>2</b><span>اشترِ الآن</span></li><li><b>3</b><span>ادفع</span></li></ol>
         <p style="margin-top:14px">اضغط تبويب <b style="color:var(--ink)">«القطع»</b> أسفل الشاشة: شاشة الأقسام كاروسيل كبير بصورة حقيقية لكل قسم. ثم بدّل من أعلاها إلى <b style="color:var(--ink)">«على السيارة»</b>: صورة سيارته كبيرة، يضغط على مكان المشكلة فتقترب الصورة منه وتظهر قطع ذلك المكان فقط.</p>
@@ -1038,7 +1052,7 @@ const R=118,CX=150,CY=150,ARC=Math.PI*R;
 arc.style.strokeDasharray=ARC;arc.style.strokeDashoffset=ARC;
 $("#px-min").innerHTML=Array.from({length:37},(_,i)=>{const a=Math.PI-i*Math.PI/36,c=Math.cos(a),s=Math.sin(a);return '<line class="mn" x1="'+(CX+(R-4)*c)+'" y1="'+(CY-(R-4)*s)+'" x2="'+(CX+(R-9)*c)+'" y2="'+(CY-(R-9)*s)+'"/>'}).join("");
 const step=n=>steps.forEach((s,i)=>s.classList.toggle("on",i<n));
-const view=v=>px.querySelectorAll(".pv").forEach(e=>e.classList.toggle("on",e.dataset.v===v));
+const view=v=>{px.querySelectorAll(".pv").forEach(e=>e.classList.toggle("on",e.dataset.v===v));px.classList.remove("sh");$("#px-jump").querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.t===v))};
 function build(){
   const cnt={};PARTS.forEach(p=>{if(p.m.includes(pc))cnt[p.s]=(cnt[p.s]||0)+1});
   cats=Object.keys(cnt).filter(k=>k!=="other").sort((a,b)=>cnt[b]-cnt[a]).slice(0,7).map(k=>({k,n:cnt[k]}));
@@ -1158,6 +1172,7 @@ cfS.addEventListener("click",e=>{const b=e.target.closest("button");if(b){cs=b.d
 cfL.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.a)area(b.dataset.a);else open(PARTS[+b.dataset.id])});
 $("#cf-cars").addEventListener("click",e=>{const b=e.target.closest("button");if(b){pc=b.dataset.k;build()}});
 px.addEventListener("click",e=>{const s=e.target.closest(".cf-seg button[data-t]");if(s){view(s.dataset.t);step(0)}});
+$("#px-jump").addEventListener("click",e=>{const b=e.target.closest("button");if(b){stop();view(b.dataset.t);step(0);if(innerWidth<920)px.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"})}});
 build();
 if(!reduce){const pio=new IntersectionObserver(es=>{if(es[0].isIntersecting){pio.disconnect();auto=setInterval(()=>sel(ci+1),2300)}},{threshold:.5});pio.observe(px)}
 })();
