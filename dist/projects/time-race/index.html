@@ -295,13 +295,15 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 .tr .risk{margin-top:18px;border:1px solid var(--warn);border-radius:18px;padding:26px;background:linear-gradient(180deg,rgba(237,168,59,.10),rgba(237,168,59,.02));box-shadow:0 0 0 4px rgba(237,168,59,.06)}
 .tr .risk .rk-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
 .tr .risk .rk-h h3{font-size:22px}
-.tr .risk .rk-g{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:16px}
+.tr .risk ol.rk-g{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.tr .risk ol.rk-g li:last-child:nth-child(odd){grid-column:1/-1}
+.tr .risk li em{display:block;font-style:normal;color:var(--warn);margin-top:6px;font-size:14.5px}
 .tr .risk h4{font-family:var(--disp,inherit);font-size:17px;color:var(--warn);margin-bottom:10px}
 .tr .risk ol{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .tr .risk li{display:flex;gap:12px;align-items:flex-start;background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--soft);font-size:15px}
 .tr .risk li i{flex:none;width:26px;height:26px;border-radius:50%;background:var(--warn);color:#201400;font:700 13px/26px 'IBM Plex Mono',monospace;text-align:center;font-style:normal}
 .tr .risk li b{color:var(--ink);display:block;margin-bottom:2px}
-@media(max-width:820px){.tr .risk .rk-g{grid-template-columns:1fr}.tr .risk{padding:18px}}
+@media(max-width:820px){.tr .risk ol.rk-g{grid-template-columns:1fr}.tr .risk{padding:18px}}
 .tr .addons{border-top:2px solid var(--warn);background:linear-gradient(180deg,rgba(237,168,59,.07),transparent 420px)}
 .tr .addons .eyebrow{color:var(--warn)}.tr .addons .eyebrow::before{background:var(--warn)}
 .tr .cr-ph{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:36px}
@@ -900,27 +902,17 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
       <div class="card rv"><h3>ما نقوله بصراحة</h3><p><b style="color:var(--ink)">الدفع يبقى على صفحة سلة.</b> سلة لا تتيح الدفع كواجهة برمجية لتطبيقات خارجية، وواجهة إنشاء الطلبات عندها لا تقبل تابي وتمارا. لذلك يفتح التطبيق صفحة الدفع الخاصة بسلة من داخله، وتبقى كل طرق الدفع كما هي. من يعدك بدفع «داخل التطبيق بالكامل» على سلة إما سيخرجك منها أو لم يقرأ وثائقها.</p></div>
     </div>
     <div class="risk rv">
-      <div class="rk-h"><span class="tag w">مخاطر نذكرها قبل أن تسأل</span><h3>الاعتماد على سلة: ما قد يتغيّر، وكيف نحتاط له.</h3></div>
-      <p style="color:var(--soft);font-size:15.5px;max-width:75ch">التطبيق مبني فوق متجرك على سلة. هذا ما يجعله سريعاً ورخيصاً، وهو أيضاً مصدر الخطر الوحيد الجدّي فيه: سلة قد تغيّر واجهاتها أو إصداراتها في أي وقت.</p>
-      <div class="rk-g">
-        <div>
-          <h4>ثلاثة أشياء نختبرها أولاً</h4>
-          <ol>
-            <li><i>1</i><span><b>الدفع من داخل التطبيق</b>تابي وتمارا و Apple Pay داخل صفحة دفع سلة المفتوحة من التطبيق، على متجرك الفعلي.</span></li>
-            <li><i>2</i><span><b>واجهة المتجر</b>الواجهة التي يستخدمها موقعك غير موثّقة للتطبيقات الخارجية. نختبرها على متجرك، وعندنا مسار بديل إن تغيّرت.</span></li>
-            <li><i>3</i><span><b>مراجعة أبل</b>التطبيق ليس موقعاً ملفوفاً. عدّاد الأقسام وفلتر السيارة وحاسبة الصيانة شاشات أصلية، وهي ما يُقبل التطبيق لأجله.</span></li>
-          </ol>
-        </div>
-        <div>
-          <h4>إن غيّرت سلة واجهاتها أو إصداراتها</h4>
-          <ol>
-            <li><i>1</i><span><b>تغيير في واجهة المتجر أو إصدارها</b>كل اتصال بسلة يمر من طبقة واحدة معزولة في التطبيق. التغيير يُصلَح في مكان واحد، لا في كل شاشة.</span></li>
-            <li><i>2</i><span><b>توقّف واجهة عن العمل</b>السلة والمنتج يفتحان صفحات متجرك نفسها من داخل التطبيق إلى أن يصدر التحديث، فلا يتوقف البيع.</span></li>
-            <li><i>3</i><span><b>تحديث قالب سلة أو صفحة الدفع</b>صفحة الدفع صفحة سلة نفسها، فتحديثاتها تصل للتطبيق تلقائياً من غير إصدار جديد.</span></li>
-            <li><i>4</i><span><b>من يتحمّل الإصلاح</b>التوافق مع تغييرات سلة ضمن سنة الصيانة والدعم المجانية. بعدها ضمن عقد الصيانة.</span></li>
-          </ol>
-        </div>
-      </div>
+      <div class="rk-h"><span class="tag w">نذكرها قبل أن تسأل</span><h3>نقاط الخطر، وكيف نحتاط لكل واحدة.</h3></div>
+      <p style="color:var(--soft);font-size:15.5px;max-width:75ch">كل مشروع فيه ما قد لا يسير كما خُطّط له. هذه سبع نقاط نعرفها من الآن، ومع كل واحدة ما سنفعله.</p>
+      <ol class="rk-g">
+        <li><i>1</i><span><b>الدفع من داخل التطبيق</b>تابي وتمارا و Apple Pay قد تتصرف بشكل مختلف داخل صفحة الدفع المفتوحة من التطبيق.<em>الاحتياط: نختبرها على متجرك الفعلي في الأسبوع الأول، قبل بناء أي شاشة أخرى.</em></span></li>
+        <li><i>2</i><span><b>واجهة المتجر غير موثّقة</b>الواجهة التي يقرأ منها التطبيق هي واجهة موقعك نفسها، وغير موثّقة للتطبيقات الخارجية.<em>الاحتياط: كل اتصال يمر من طبقة واحدة معزولة، فيُصلَح أي تغيير في مكان واحد لا في كل شاشة.</em></span></li>
+        <li><i>3</i><span><b>تغيير في الواجهات أو إصداراتها</b>المنصة قد تغيّر واجهاتها أو ترفع إصدارها في أي وقت ومن غير إشعار.<em>الاحتياط: السلة والمنتج يفتحان صفحات متجرك من داخل التطبيق إلى أن يصدر التحديث، فلا يتوقف البيع.</em></span></li>
+        <li><i>4</i><span><b>مراجعة أبل وجوجل</b>المتاجر ترفض التطبيق الذي هو موقع ملفوف، وقد تطول المراجعة أو تُعاد.<em>الاحتياط: عدّاد الأقسام وفلتر السيارة وحاسبة الصيانة شاشات أصلية، ونرفع نسخة المراجعة مبكراً ليبقى وقت للتعديل.</em></span></li>
+        <li><i>5</i><span><b>حسابات المطوّرين</b>فتح حساب أبل للشركات قد يأخذ أياماً إلى أسابيع، وهو خارج أيدينا.<em>الاحتياط: نبدأ التسجيل في اليوم الأول، بالتوازي مع البناء.</em></span></li>
+        <li><i>6</i><span><b>بيانات المنتجات</b>الفلترة بالنظام والمكان والموديل تعتمد على الوسوم. منتج بلا وسم لا يظهر في مكانه.<em>الاحتياط: جهّزنا جدولاً مقترحاً لكل المنتجات، ونراجع معك قبل الإطلاق كل منتج ينقصه وسم.</em></span></li>
+        <li><i>7</i><span><b>الصيانة بعد التسليم</b>تحديثات iOS وأندرويد والمنصة تحتاج متابعة، وإلا تقادم التطبيق.<em>الاحتياط: سنة كاملة من الصيانة والدعم مجاناً تشمل هذه التحديثات، وبعدها عقد صيانة.</em></span></li>
+      </ol>
     </div>
   </div>
 </section>
