@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<meta name="x-build" content="6093faf3200d">
+<meta name="x-build" content="63796ac4af2d">
 <title>OurGrowth — Get the orders. Deliver the orders. Keep the cash.</title>
 <meta name="description" content="One platform for cash-on-delivery e-commerce in Egypt and the Gulf. AI runs the ads and the content, confirms every order on WhatsApp and by phone, ships with the right courier, and moves budget toward what actually collects cash — not what looks good at checkout. It replaces the agency, the ops team and the spreadsheet.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0B'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%234D7CFF'/%3E%3C/svg%3E">
@@ -159,6 +159,10 @@ h2{font-size:clamp(24px,3.4vw,38px);font-weight:700;letter-spacing:-.03em;line-h
 .pf__m{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border-radius:8px;
   background:var(--bg-3);color:var(--ink);overflow:hidden}
 .pf__m svg{width:19px;height:19px;display:block}
+/* A real payment or courier mark is wider than it is tall, and drawn for a light
+   ground: a white plate in both themes, sized to the mark rather than a square. */
+.pf__m--img{width:auto;flex:0 0 auto;min-width:30px;padding:0 6px;background:#FFF;box-shadow:0 0 0 1px var(--line)}
+.pf__m--img img{height:16px;width:auto;max-width:58px;display:block;object-fit:contain}
 .pf__m b{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.02em;
   color:var(--pc,var(--rc))}
 .pf__t{font-size:13.5px;color:var(--ink);white-space:nowrap;display:flex;align-items:baseline;gap:7px}
