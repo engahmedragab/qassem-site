@@ -136,6 +136,9 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 .tr .stat{padding:22px 20px;border-inline-start:2px solid var(--red);background:linear-gradient(90deg,rgba(229,41,47,.07),transparent)}
 .tr .stat b{font-family:var(--mono);font-size:clamp(30px,4vw,44px);font-weight:500;display:block;line-height:1.1;direction:ltr;unicode-bidi:isolate;text-align:right}
 .tr .stat b .sar{height:.74em;width:auto;display:inline-block;margin-right:.2em;vertical-align:-.02em}
+.tr .amt{display:inline-flex;align-items:center;gap:.28em;direction:ltr;unicode-bidi:isolate;font-family:var(--mono);font-weight:500;font-size:1.12em;color:#fff;background:var(--redw);border:1px solid rgba(229,41,47,.55);border-radius:9px;padding:.02em .55em;vertical-align:baseline;white-space:nowrap}
+.tr .amt img{height:.78em;width:auto;display:block}
+.tr .amt.w{background:var(--warnw);border-color:rgba(237,168,59,.55)}
 .tr .stat span{color:var(--soft);font-size:14.5px;display:block;margin-top:8px}
 
 /* issues */
@@ -382,7 +385,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 .tr .px-ok path{fill:none;stroke:#12804B;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60}
 .tr .pv.on .px-ok circle{animation:tr-draw .6s .1s forwards}.tr .pv.on .px-ok path{animation:tr-draw .4s .6s forwards}
 @keyframes tr-draw{to{stroke-dashoffset:0}}
-.tr .px-jump{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.tr .px-jump{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
 .tr .px-jump button{font:inherit;text-align:start;cursor:pointer;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:14px;color:var(--ink);transition:all .25s}
 .tr .px-jump button:hover{border-color:var(--red);transform:translateY(-2px)}
 .tr .px-jump button.on{background:var(--red);border-color:var(--red)}
@@ -435,7 +438,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   <div class="wrap">
     <a class="wm" href="#s-top" aria-label="Time Race"><img src="/projects/time-race/assets/logo-dark.webp" alt="Time Race" width="400" height="120" /></a>
     <nav class="topnav">
-      <a href="#s-issues">الموقع</a><a href="#s-demo">جرّب</a><a href="#s-car">على السيارة</a><a href="#s-app">التطبيق</a><a href="#s-sell">يبيع أكثر</a><a href="#s-how">سلة</a><a href="#s-cr" style="color:var(--warn)">طلب التغيير</a><a href="#s-plan">الخطة</a>
+      <a href="#s-svc">الصيانة</a><a href="#s-issues">الموقع</a><a href="#s-demo">جرّب</a><a href="#s-car">على السيارة</a><a href="#s-app">التطبيق</a><a href="#s-sell">يبيع أكثر</a><a href="#s-how">سلة</a><a href="#s-cr" style="color:var(--warn)">طلب التغيير</a><a href="#s-plan">الخطة</a>
     </nav>
     <span class="ver">v0.2 · 12.11.2026</span>
   </div>
@@ -450,12 +453,12 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
       <h1 class="rv"><span>متجرك يعرف القطعة.</span><span class="hl">التطبيق يعرف السيارة.</span></h1>
       <p class="lead rv">عندك اليوم <span class="n">270</span> قطعة هافال بأرقامها الأصلية ووصف دقيق لكل واحدة. الذي ينقص هو سؤال واحد لا يسأله المتجر: <b style="color:var(--ink)">أي سيارة تسوق؟</b> هذا العرض يبني تطبيقاً يبدأ من ذلك السؤال، فوق متجرك الحالي على سلة ومن غير أن يستبدله.</p>
       <ul class="sum rv">
-        <li><span><b>ماذا:</b> تطبيق iOS وأندرويد لمالك هافال: كراجه، القطع التي تناسب سيارته فقط، وجدول صيانتها.</span></li>
+        <li><span><b>ماذا:</b> تطبيق iOS وأندرويد لمالك هافال: يختار سيارته، يرى القطع التي تناسبها فقط، ويحسب طقم صيانتها ويشتريه بضغطة.</span></li>
         <li><span><b>على ماذا:</b> متجرك على سلة يبقى كما هو: المنتجات، المخزون، الطلبات، والدفع بتابي وتمارا ومدى.</span></li>
         <li><span><b>لماذا:</b> راجعنا <span class="n">12</span> متجراً سعودياً لقطع السيارات الصينية؛ واحد فقط عنده تطبيق، ولا واحد يحفظ سيارة العميل.</span></li>
-        <li><span><b>السعر والمدة:</b> <span class="n">8,000</span> ر.س، وأربعة أسابيع، ومعها سنة كاملة من الصيانة والدعم مجاناً.</span></li>
-        <li><span><b>اختياري:</b> ملف العميل والخادم الخارجي في <a href="#s-cr" style="color:var(--warn)">طلب تغيير مستقل</a>، <span class="n">5,000</span> ر.س وثلاثة أسابيع.</span></li>
-        <li><span><b>المطلوب منك:</b> إضافة وسوم النظام والمكان والموديل على منتجاتك في سلة. جهّزنا لك جدولاً مقترحاً بها.</span></li>
+        <li><span><b>السعر والمدة:</b> <span class="amt"><img src="/projects/time-race/assets/sar.webp" alt="ريال سعودي" />8,000</span> ريال، وأربعة أسابيع، ومعها سنة كاملة من الصيانة والدعم مجاناً.</span></li>
+        <li><span><b>اختياري:</b> ملف العميل والخادم الخارجي في <a href="#s-cr" style="color:var(--warn)">طلب تغيير مستقل</a>، <span class="amt w"><img src="/projects/time-race/assets/sar.webp" alt="ريال سعودي" />5,000</span> ريال وثلاثة أسابيع.</span></li>
+        <li><span><b>المطلوب منك:</b> أن تضيف على كل منتج في لوحة سلة وسماً (Tag) يحدد نظامه، ومكانه في السيارة، وموديله. جهّزنا لك جدولاً مقترحاً بالوسوم لكل منتج.</span></li>
       </ul>
     </div>
     <div class="herophone rv">
@@ -486,6 +489,34 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
           </div>
         </div>
       </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section id="s-svc">
+  <div class="wrap">
+    <div class="eyebrow rv">حاسبة الصيانة</div>
+    <h2 class="rv">يحرّك العدّاد على ممشاه، فيرى طقمه وسعره.</h2>
+    <p class="lead rv">أغلب العملاء لا يعرفون ماذا تحتاج سيارتهم عند أربعين ألف كيلومتر. هنا يحرّك العدّاد فيظهر له طقم الصيانة من قطعك وبأسعارك، ويشتريه بضغطة. جرّبها، وهي نفسها داخل التطبيق تحت تبويب «الصيانة».</p>
+    <div class="odo rv">
+      <div class="odo-top">
+        <div>
+          <h3>حرّك العدّاد وشاهد الطقم</h3>
+          <div class="seg" id="o-cars" style="margin-top:12px"></div>
+        </div>
+        <div class="odo-km"><span id="o-km">0</span><small>km</small></div>
+      </div>
+      <input type="range" id="o-range" min="0" max="100000" step="500" value="38000" aria-label="الممشى بالكيلومتر" />
+      <div class="ticks" id="o-ticks"></div>
+      <div class="kit">
+        <div>
+          <span class="tag r" id="o-next"></span>
+          <ul id="o-items"></ul>
+        </div>
+        <div class="kit-tot"><b id="o-tot">0</b><span>ر.س · من أسعار متجرك الحالية</span></div>
+      </div>
+      <p class="note">القطع والأسعار من كتالوجك. المواعيد هنا للتوضيح: نمط <span class="n">5,000</span> ثم كل <span class="n">7,500</span> كم مأخوذ من جدول منشور عام <span class="n">2022</span>، والجدول المعتمد لكل موديل نأخذه من كتيّبات الضمان التي عندك. القطعة المنقّطة لم نجدها مربوطة بهذا الموديل في التصنيف الأولي: إما أنها عندك وتحتاج ربطاً، أو أنها ناقصة وهي فرصة بيع. نحسمها معك في المراجعة.</p>
     </div>
   </div>
 </section>
@@ -617,7 +648,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
             <div class="p-row" style="justify-content:space-between;flex:none"><span class="p-h" id="px-title"></span><span class="p-s">اسحب ←</span></div>
             <div class="px-rail" id="px-rail"></div>
           </div>
-          <div class="tb"><span class="on" data-t="home"><b></b>الرئيسية</span><span data-t="cats"><b></b>القطع</span><span><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
+          <div class="tb"><span class="on" data-t="home"><b></b>الرئيسية</span><span data-t="cats"><b></b>القطع</span><span data-t="svc"><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
         </div>
         <div class="pv" data-v="cats">
           <div class="nv"><span>الأقسام <small id="pc-car" style="margin-inline-start:4px"></small></span><span class="cf-seg"><button class="on" data-t="cats">بالأقسام</button><button data-t="car">على السيارة</button></span></div>
@@ -627,7 +658,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
             <div class="p-row" style="padding-inline:14px;justify-content:space-between;flex:none"><span class="p-h" id="pc-title"></span><span class="p-s" id="pc-n"></span></div>
             <div class="pc-list" id="pc-list"></div>
           </div>
-          <div class="tb"><span data-t="home"><b></b>الرئيسية</span><span class="on" data-t="cats"><b></b>القطع</span><span><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
+          <div class="tb"><span data-t="home"><b></b>الرئيسية</span><span class="on" data-t="cats"><b></b>القطع</span><span data-t="svc"><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
         </div>
         <div class="pv" data-v="car">
           <div class="nv"><span>وين المشكلة؟</span><span class="cf-seg"><button data-t="cats">بالأقسام</button><button class="on" data-t="car">على السيارة</button></span></div>
@@ -641,7 +672,19 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
             <div class="sys" id="cf-sys" style="padding-inline:14px"></div>
             <div class="pc-list" id="cf-list"></div>
           </div>
-          <div class="tb"><span data-t="home"><b></b>الرئيسية</span><span class="on" data-t="cats"><b></b>القطع</span><span><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
+          <div class="tb"><span data-t="home"><b></b>الرئيسية</span><span class="on" data-t="cats"><b></b>القطع</span><span data-t="svc"><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
+        </div>
+        <div class="pv" data-v="svc">
+          <div class="nv"><span>الصيانة</span><small id="ps-car"></small></div>
+          <div class="bd">
+            <div class="p-car"><small>حرّك العدّاد على ممشى سيارتك</small><b class="km" id="ps-km" style="font-size:24px"></b></div>
+            <input type="range" id="ps-range" min="0" max="100000" step="500" value="38000" style="width:100%;accent-color:var(--brand);direction:ltr;flex:none;cursor:pointer" aria-label="الممشى بالكيلومتر" />
+            <div class="p-alert ok" id="ps-next" style="flex:none"></div>
+            <div class="pc-list" id="ps-items" style="padding:0"></div>
+            <div class="p-row" style="justify-content:space-between;flex:none"><span class="p-t">إجمالي الطقم</span><span><span class="p-pr" id="ps-tot" style="font-size:16px"></span> ر.س</span></div>
+            <button class="p-btn px-go" id="ps-buy" style="flex:none">اشترِ الطقم الآن</button>
+          </div>
+          <div class="tb"><span data-t="home"><b></b>الرئيسية</span><span data-t="cats"><b></b>القطع</span><span class="on" data-t="svc"><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
         </div>
         <div class="pv" data-v="pay">
           <div class="nv"><button class="px-go" id="px-back" style="width:auto;background:none;font-family:var(--disp);font-weight:800;font-size:15px;color:var(--pink)">→ الدفع</button><img src="/projects/time-race/assets/salla.svg" alt="Salla" style="height:20px;width:auto" /></div>
@@ -670,11 +713,12 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
       </div></div>
       <div class="side rv">
         <h3>شاشات النموذج</h3>
-        <p>ثلاث شاشات تعمل داخل الجوال. اضغط أي واحدة لتفتحها:</p>
+        <p>أربع شاشات تعمل داخل الجوال. اضغط أي واحدة لتفتحها:</p>
         <div class="px-jump" id="px-jump">
           <button class="on" data-t="home"><b>الرئيسية</b><span>عدّاد السرعة للأقسام</span></button>
           <button data-t="cats"><b>الأقسام</b><span>كاروسيل كبير بالصور</span></button>
           <button data-t="car"><b>على السيارة</b><span>صورة السيارة ومكان المشكلة</span></button>
+          <button data-t="svc"><b>الصيانة</b><span>عدّاد الممشى وطقم الصيانة</span></button>
         </div>
         <h3>عدّاد الضغطات</h3>
         <ol class="px-steps" id="px-steps"><li><b>1</b><span>اختر القطعة</span></li><li><b>2</b><span>اشترِ الآن</span></li><li><b>3</b><span>ادفع</span></li></ol>
@@ -697,7 +741,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
     <div class="map rv">
       <div><small>01</small><h4>الرئيسية</h4><ul><li>الكراج وتبديل السيارة</li><li>عدّاد الأقسام</li><li>تذكير الصيانة القريبة</li><li>أعد الطلب</li></ul></div>
       <div><small>02</small><h4>القطع</h4><ul><li>تصفّح بالنظام والجهة</li><li>بحث بالاسم أو الرقم أو الكاميرا</li><li>من العَرَض إلى القطعة</li><li>صفحة القطعة وتنبيه عدم التوافق</li></ul></div>
-      <div><small>03 · طلب التغيير</small><h4>الصيانة</h4><ul><li>جدول السيارة بالكيلومتر</li><li>أطقم الصيانة</li><li>سجل ما تم تركيبه</li><li>تحديث الممشى</li></ul></div>
+      <div><small>03</small><h4>الصيانة</h4><ul><li>حاسبة الصيانة بالعدّاد</li><li>طقم الصيانة وشراؤه بضغطة</li><li>التذكير وحفظ الممشى والسجل: في طلب التغيير</li></ul></div>
       <div><small>04</small><h4>طلباتي</h4><ul><li>السلة والدفع عبر سلة</li><li>تتبع الشحنة</li><li>التقييم بعد التركيب</li><li>الاستبدال والاسترجاع</li></ul></div>
       <div><small>05</small><h4>حسابي</h4><ul><li>سياراتي والعناوين</li><li>«ما لقيت قطعتك؟» وواتساب</li><li>حساب الورشة وكود الفني</li><li>الإشعارات واللغة</li></ul></div>
     </div>
@@ -866,6 +910,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
           <li><span><b>اختيار الموديل</b> وعرض قطعه. الاختيار يُحفظ على جوال العميل.</span></li>
           <li><span><b>الفلتر على صورة السيارة:</b> يضغط مكان المشكلة فتظهر قطعه.</span></li>
           <li><span><b>بحث</b> بالاسم ورقم القطعة.</span></li>
+          <li><span><b>حاسبة الصيانة:</b> يحرّك العدّاد على ممشاه فيرى طقم الصيانة وسعره ويشتريه.</span></li>
           <li><span><b>«اشترِ الآن»</b> والدفع عبر سلة: تابي، تمارا، مدى، Apple Pay.</span></li>
           <li><span><b>طلباتي</b> وتتبعها وإعادة الطلب.</span></li>
           <li><span><b>واتساب</b> و«ما لقيت قطعتك؟».</span></li>
@@ -877,7 +922,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         <span class="tag w">طلب تغيير مستقل · CR-01</span>
         <h3 style="margin-top:12px">ملف العميل والخادم الخارجي ↓</h3>
         <p>كل ما يحتاج أن نحفظ معلومة عن العميل نفسه: سياراته، ممشاه، مواعيد صيانته، والخادم الخارجي الذي يحفظها. ليس جزءاً من عرض التطبيق. له سعره ومدته، في جزء مستقل آخر هذه الصفحة.</p>
-        <p style="color:var(--ink)"><span class="n">5,000</span> ر.س · ثلاثة أسابيع · استضافة السنة الأولى مشمولة</p>
+        <p style="color:var(--ink)"><span class="amt w"><img src="/projects/time-race/assets/sar.webp" alt="ريال سعودي" />5,000</span> ريال · ثلاثة أسابيع · استضافة السنة الأولى مشمولة</p>
         <p style="color:var(--warn)">انتقل إلى طلب التغيير</p>
       </a>
     </div>
@@ -903,7 +948,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
     <div class="phs">
       <div class="phz rv"><i>01</i><div><h3>النطاق والتصميم</h3><p>نثبت الوسوم في سلة ونختبر الدفع من تطبيق تجريبي، وتعتمد تصميم الشاشات بهويتك قبل كتابة الكود.</p></div><span class="tag">الأسبوع 1</span></div>
       <div class="phz rv"><i>02</i><div><h3>التصفّح</h3><p>الرئيسية بعدّاد الأقسام، كاروسيل الأقسام، اختيار الموديل، الفلتر على صورة السيارة، والبحث بالاسم والرقم. نسخة تجريبية على جوالك.</p></div><span class="tag">الأسبوع 2</span></div>
-      <div class="phz rv"><i>03</i><div><h3>الشراء</h3><p>«اشترِ الآن»، السلة، الدفع عبر سلة، طلباتي وإعادة الطلب، وواتساب و«ما لقيت قطعتك؟».</p></div><span class="tag">الأسبوع 3</span></div>
+      <div class="phz rv"><i>03</i><div><h3>الشراء</h3><p>«اشترِ الآن»، السلة، الدفع عبر سلة، طلباتي وإعادة الطلب، حاسبة الصيانة، وواتساب و«ما لقيت قطعتك؟».</p></div><span class="tag">الأسبوع 3</span></div>
       <div class="phz rv"><i>04</i><div><h3>الاختبار والنشر</h3><p>اختبار كل مسار دفع، ثم الرفع على App Store و Google Play باسم مؤسستك.</p><div class="lgs" style="margin-top:10px"><span class="lg"><img src="/projects/time-race/assets/appstore.svg" alt="appstore" loading="lazy" /></span><span class="lg"><img src="/projects/time-race/assets/googleplay.svg" alt="googleplay" loading="lazy" /></span></div></div><span class="tag">الأسبوع 4</span></div>
     </div>
     <p class="note rv">الأسابيع الأربعة تبدأ من يوم استلام ما في قائمة «ما أحتاجه منك». مراجعة أبل وقوقل للتطبيق بعد الرفع تأخذ أياماً ليست بيدنا.</p>
@@ -1010,7 +1055,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
     <div class="tw rv"><table class="tbl" style="margin-top:18px">
       <thead><tr><th>البند</th><th>متى</th><th>المبلغ</th></tr></thead>
       <tbody>
-        <tr><td>تطوير طلب التغيير CR-01</td><td>مرة واحدة</td><td rowspan="2" style="vertical-align:middle"><span class="n">5,000</span> ر.س</td></tr>
+        <tr><td>تطوير طلب التغيير CR-01</td><td>مرة واحدة</td><td rowspan="2" style="vertical-align:middle"><span class="amt w"><img src="/projects/time-race/assets/sar.webp" alt="ريال سعودي" />5,000</span> ريال</td></tr>
         <tr><td>استضافة الخادم الخارجي، السنة الأولى</td><td>اثنا عشر شهراً من تاريخ التشغيل</td></tr>
         <tr><td>استضافة الخادم الخارجي، من السنة الثانية</td><td>تجديد سنوي</td><td>يُحدَّد قبل نهاية السنة الأولى</td></tr>
       </tbody>
@@ -1035,25 +1080,6 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
       <div class="card rv"><span class="tag g">عملاء جدد</span><h3>كود الفني</h3><p>الفني يعطي زبونه كوداً، فيطلب القطعة الصحيحة من عندك ويُحسب الطلب للورشة. الفني يصير مندوبك.</p></div>
       <div class="card rv"><span class="tag g">طلب متكرر</span><h3>أكثر من سيارة</h3><p>سيارة الزوجة والأخ في نفس الكراج. كل سيارة بجدولها وتذكيرها، وكلها تشتري من حساب واحد.</p></div>
       <div class="card rv"><span class="tag r">ثقة</span><h3>تقييم بعد التركيب</h3><p>«ركّبتها على H6 موديل 2022 عند 60 ألف» أقنع من أي إعلان. والتطبيق يطلبه في الوقت المناسب.</p></div>
-    </div>
-    <div class="odo rv">
-      <div class="odo-top">
-        <div>
-          <h3>حرّك العدّاد وشاهد الطقم</h3>
-          <div class="seg" id="o-cars" style="margin-top:12px"></div>
-        </div>
-        <div class="odo-km"><span id="o-km">0</span><small>km</small></div>
-      </div>
-      <input type="range" id="o-range" min="0" max="100000" step="500" value="38000" aria-label="الممشى بالكيلومتر" />
-      <div class="ticks" id="o-ticks"></div>
-      <div class="kit">
-        <div>
-          <span class="tag r" id="o-next"></span>
-          <ul id="o-items"></ul>
-        </div>
-        <div class="kit-tot"><b id="o-tot">0</b><span>ر.س · من أسعار متجرك الحالية</span></div>
-      </div>
-      <p class="note">القطع والأسعار من كتالوجك. المواعيد هنا للتوضيح: نمط <span class="n">5,000</span> ثم كل <span class="n">7,500</span> كم مأخوذ من جدول منشور عام <span class="n">2022</span>، والجدول المعتمد لكل موديل نأخذه من كتيّبات الضمان التي عندك. القطعة المنقّطة لم نجدها مربوطة بهذا الموديل في التصنيف الأولي: إما أنها عندك وتحتاج ربطاً، أو أنها ناقصة وهي فرصة بيع. نحسمها معك في المراجعة.</p>
     </div>
     <h3 class="rv" style="margin-top:64px">لوحة المالك</h3>
     <p class="lead rv" style="margin-top:6px">سلة تخبرك ماذا بِيع. هذه اللوحة تخبرك من عندك وماذا سيحتاج. لا نعرض أرقاماً هنا لأننا لا نملك أرقامك، ولن نخترعها.</p>
@@ -1210,7 +1236,7 @@ function build(){
   $("#px-cars").innerHTML=CARS.slice(0,5).map(([k,v])=>'<button data-k="'+k+'" class="'+(k===pc?"on":"")+'">'+v+'</button>').join("");
   const n=cats.length;
   lab.innerHTML=cats.map((c,i)=>{const a=Math.PI-(n>1?i/(n-1):.5)*Math.PI,co=Math.cos(a),si=Math.sin(a);return '<line class="mj" x1="'+(CX+(R-3)*co)+'" y1="'+(CY-(R-3)*si)+'" x2="'+(CX+(R-13)*co)+'" y2="'+(CY-(R-13)*si)+'"/><text x="'+(CX+(R-31)*co)+'" y="'+(CY-(R-31)*si+4)+'" data-i="'+i+'">'+SYS[c.k]+'</text>'}).join("");
-  sel(0);buildCats();buildCar();
+  sel(0);buildCats();buildCar();drawSvc();
 }
 function sel(i){
   const n=cats.length;ci=(i%n+n)%n;const c=cats[ci],f=n>1?ci/(n-1):.5;
@@ -1323,6 +1349,23 @@ cfS.addEventListener("click",e=>{const b=e.target.closest("button");if(b){cs=b.d
 cfL.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.a)area(b.dataset.a);else open(PARTS[+b.dataset.id])});
 $("#cf-cars").addEventListener("click",e=>{const b=e.target.closest("button");if(b){pc=b.dataset.k;build()}});
 px.addEventListener("click",e=>{const s=e.target.closest(".cf-seg button[data-t]");if(s){view(s.dataset.t);step(0)}});
+
+/* service calculator */
+const psR=$("#ps-range");let kit=[],kitNext=0,kitTot=0;
+function drawSvc(){
+  const km=+psR.value;$("#ps-car").textContent=CN[pc];$("#ps-km").textContent=km.toLocaleString("en-US")+" km";
+  const idx=MARKS.findIndex(m=>m>=km);
+  if(idx<0){kit=[];kitTot=0;$("#ps-next").textContent="تجاوز آخر موعد في المثال";$("#ps-items").innerHTML="";$("#ps-tot").textContent="0";return}
+  kitNext=MARKS[idx];const n=idx+1,want=[["فلتر زيت",/فلتر زيت/,/قاعدة|وجه|مبرد|قير/]];
+  if(n%2===0)want.push(["فلتر هواء",/فلتر هواء/],["فلتر مكيف",/فلتر مكيف/]);
+  if(n%6===0)want.push(["فحمات أمامية",/فحمات.*(أمام|امام)/],["فحمات خلفية",/فحمات.*خلف/]);
+  kit=want.map(([lb,re,not])=>[lb,find(pc,re,not)]);kitTot=Math.round(kit.reduce((s,k)=>s+(k[1]?k[1].p:0),0)*100)/100;
+  $("#ps-next").innerHTML='الصيانة القادمة عند <span class="n">'+kitNext.toLocaleString("en-US")+'</span> كم · بعد <span class="n">'+(kitNext-km).toLocaleString("en-US")+'</span>';
+  $("#ps-items").innerHTML=kit.map(([lb,p],i)=>p?'<div class="p-card p-row" style="padding:7px 10px;animation:tr-in .35s both;animation-delay:'+i*40+'ms"><span class="p-img" style="background-image:url(\''+p.i+'\')"></span><span style="flex:1;min-width:0"><span class="p-t" style="-webkit-line-clamp:1">'+lb+'</span>'+(p.o?'<span class="p-o">'+esc(p.o)+'</span>':'')+'</span><span class="p-pr">'+fmt(p.p)+'</span></div>':'<div class="p-card p-row" style="padding:9px 10px;border-style:dashed"><span style="flex:1" class="p-s">'+lb+' · غير مربوط بهذا الموديل</span></div>').join("");
+  $("#ps-tot").textContent=fmt(kitTot);
+}
+psR.addEventListener("input",drawSvc);
+$("#ps-buy").addEventListener("click",()=>{const f=kit.filter(k=>k[1]);if(!f.length)return;cur={n:"طقم صيانة "+kitNext.toLocaleString("en-US")+" كم · "+f.length+" قطع",o:"",p:kitTot,i:f[0][1].i};qty=1;addx=false;extra=null;drawPay();view("pay");step(2)});
 $("#px-jump").addEventListener("click",e=>{const b=e.target.closest("button");if(b){stop();view(b.dataset.t);step(0);if(innerWidth<920)px.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"})}});
 build();
 if(!reduce){const pio=new IntersectionObserver(es=>{if(es[0].isIntersecting){pio.disconnect();auto=setInterval(()=>sel(ci+1),2300)}},{threshold:.5});pio.observe(px)}
