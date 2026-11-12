@@ -438,7 +438,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
   <div class="wrap">
     <a class="wm" href="#s-top" aria-label="Time Race"><img src="/projects/time-race/assets/logo-dark.webp" alt="Time Race" width="400" height="120" /></a>
     <nav class="topnav">
-      <a href="#s-svc">الصيانة</a><a href="#s-issues">الموقع</a><a href="#s-demo">جرّب</a><a href="#s-car">على السيارة</a><a href="#s-app">التطبيق</a><a href="#s-sell">يبيع أكثر</a><a href="#s-how">سلة</a><a href="#s-cr" style="color:var(--warn)">طلب التغيير</a><a href="#s-plan">الخطة</a>
+      <a href="#s-issues">الموقع</a><a href="#s-demo">جرّب</a><a href="#s-car">على السيارة</a><a href="#s-app">التطبيق</a><a href="#s-svc">الصيانة</a><a href="#s-sell">يبيع أكثر</a><a href="#s-how">سلة</a><a href="#s-cr" style="color:var(--warn)">طلب التغيير</a><a href="#s-plan">الخطة</a>
     </nav>
     <span class="ver">v0.2 · 12.11.2026</span>
   </div>
@@ -489,34 +489,6 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
           </div>
         </div>
       </div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICE -->
-<section id="s-svc">
-  <div class="wrap">
-    <div class="eyebrow rv">حاسبة الصيانة</div>
-    <h2 class="rv">يحرّك العدّاد على ممشاه، فيرى طقمه وسعره.</h2>
-    <p class="lead rv">أغلب العملاء لا يعرفون ماذا تحتاج سيارتهم عند أربعين ألف كيلومتر. هنا يحرّك العدّاد فيظهر له طقم الصيانة من قطعك وبأسعارك، ويشتريه بضغطة. جرّبها، وهي نفسها داخل التطبيق تحت تبويب «الصيانة».</p>
-    <div class="odo rv">
-      <div class="odo-top">
-        <div>
-          <h3>حرّك العدّاد وشاهد الطقم</h3>
-          <div class="seg" id="o-cars" style="margin-top:12px"></div>
-        </div>
-        <div class="odo-km"><span id="o-km">0</span><small>km</small></div>
-      </div>
-      <input type="range" id="o-range" min="0" max="100000" step="500" value="38000" aria-label="الممشى بالكيلومتر" />
-      <div class="ticks" id="o-ticks"></div>
-      <div class="kit">
-        <div>
-          <span class="tag r" id="o-next"></span>
-          <ul id="o-items"></ul>
-        </div>
-        <div class="kit-tot"><b id="o-tot">0</b><span>ر.س · من أسعار متجرك الحالية</span></div>
-      </div>
-      <p class="note">القطع والأسعار من كتالوجك. المواعيد هنا للتوضيح: نمط <span class="n">5,000</span> ثم كل <span class="n">7,500</span> كم مأخوذ من جدول منشور عام <span class="n">2022</span>، والجدول المعتمد لكل موديل نأخذه من كتيّبات الضمان التي عندك. القطعة المنقّطة لم نجدها مربوطة بهذا الموديل في التصنيف الأولي: إما أنها عندك وتحتاج ربطاً، أو أنها ناقصة وهي فرصة بيع. نحسمها معك في المراجعة.</p>
     </div>
   </div>
 </section>
@@ -832,6 +804,34 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         <div class="p-btn" style="margin-top:auto">أكمل الدفع</div>
       </div>
     </div></div><figcaption><b>الدفع عبر سلة</b>لا شيء يتغير في حساباتك ولا في تسوياتك.</figcaption></figure>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section id="s-svc">
+  <div class="wrap">
+    <div class="eyebrow rv">حاسبة الصيانة</div>
+    <h2 class="rv">يحرّك العدّاد على ممشاه، فيرى طقمه وسعره.</h2>
+    <p class="lead rv">أغلب العملاء لا يعرفون ماذا تحتاج سيارتهم عند أربعين ألف كيلومتر. هنا يحرّك العدّاد فيظهر له طقم الصيانة من قطعك وبأسعارك، ويشتريه بضغطة. جرّبها، وهي نفسها داخل التطبيق تحت تبويب «الصيانة».</p>
+    <div class="odo rv">
+      <div class="odo-top">
+        <div>
+          <h3>حرّك العدّاد وشاهد الطقم</h3>
+          <div class="seg" id="o-cars" style="margin-top:12px"></div>
+        </div>
+        <div class="odo-km"><span id="o-km">0</span><small>km</small></div>
+      </div>
+      <input type="range" id="o-range" min="0" max="100000" step="500" value="38000" aria-label="الممشى بالكيلومتر" />
+      <div class="ticks" id="o-ticks"></div>
+      <div class="kit">
+        <div>
+          <span class="tag r" id="o-next"></span>
+          <ul id="o-items"></ul>
+        </div>
+        <div class="kit-tot"><b id="o-tot">0</b><span>ر.س · من أسعار متجرك الحالية</span></div>
+      </div>
+      <p class="note">القطع والأسعار من كتالوجك. المواعيد هنا للتوضيح: نمط <span class="n">5,000</span> ثم كل <span class="n">7,500</span> كم مأخوذ من جدول منشور عام <span class="n">2022</span>، والجدول المعتمد لكل موديل نأخذه من كتيّبات الضمان التي عندك. القطعة المنقّطة لم نجدها مربوطة بهذا الموديل في التصنيف الأولي: إما أنها عندك وتحتاج ربطاً، أو أنها ناقصة وهي فرصة بيع. نحسمها معك في المراجعة.</p>
+    </div>
   </div>
 </section>
 
