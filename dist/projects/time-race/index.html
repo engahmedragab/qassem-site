@@ -135,6 +135,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 /* stats */
 .tr .stat{padding:22px 20px;border-inline-start:2px solid var(--red);background:linear-gradient(90deg,rgba(229,41,47,.07),transparent)}
 .tr .stat b{font-family:var(--mono);font-size:clamp(30px,4vw,44px);font-weight:500;display:block;line-height:1.1;direction:ltr;unicode-bidi:isolate;text-align:right}
+.tr .stat b .sar{height:.74em;width:auto;display:inline-block;margin-right:.2em;vertical-align:-.02em}
 .tr .stat span{color:var(--soft);font-size:14.5px;display:block;margin-top:8px}
 
 /* issues */
@@ -290,6 +291,10 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 .tr .arch.two{grid-template-columns:1fr 60px 1fr}
 .tr .addons{border-top:2px solid var(--warn);background:linear-gradient(180deg,rgba(237,168,59,.07),transparent 420px)}
 .tr .addons .eyebrow{color:var(--warn)}.tr .addons .eyebrow::before{background:var(--warn)}
+.tr .cr-ph{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.tr .lst2{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}
+.tr .stat span.lg{display:inline-flex;margin-top:0;vertical-align:middle}
+.tr .stat span span{display:inline;margin:0}
 .tr .addons figure{margin:0}.tr .addons figcaption{margin-top:14px;font-size:14px;color:var(--soft);max-width:286px}.tr .addons figcaption b{display:block;color:var(--ink);font-family:var(--disp);font-size:15.5px}
 
 /* prototype */
@@ -395,6 +400,7 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
 .tr .map ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:6px;font-size:13.5px;color:var(--soft)}
 .tr .map small{font-family:var(--mono);font-size:10.5px;color:var(--faint);letter-spacing:.1em}
 @media(max-width:920px){
+  .tr .lst2{grid-template-columns:1fr}
   .tr .c2{grid-template-columns:1fr}.tr .arch.two{grid-template-columns:1fr}
   .tr .proto{grid-template-columns:1fr}.tr .proto .ph{position:relative;top:0;margin-inline:auto;width:min(340px,100%)}
   .tr .map{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -885,12 +891,15 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
     <div class="eyebrow rv">09 · الخطة</div>
     <h2 class="rv">أربعة أسابيع، وكل أسبوع ينتهي بشيء تراه.</h2>
     <p class="lead rv">سعر واحد ثابت للتطبيق كما هو موصوف في القسم السابق.</p>
-    <div class="grid g4 rv" style="margin-top:32px">
-      <div class="stat"><b>8,000</b><span>ر.س · مرة واحدة</span></div>
+    <div class="grid g3 rv" style="margin-top:32px">
+      <div class="stat"><b><img class="sar" src="/projects/time-race/assets/sar.webp" alt="ريال سعودي" />8,000</b><span>ريال سعودي · سعر التطبيق، مرة واحدة</span></div>
       <div class="stat"><b>4</b><span>أسابيع من البداية إلى الرفع على المتجرين</span></div>
-      <div class="stat"><b>0</b><span>ر.س شهرياً للخوادم. التطبيق يتصل بسلة مباشرة</span></div>
       <div class="stat"><b>12</b><span>شهراً من الصيانة والدعم مجاناً بعد الإطلاق</span></div>
+      <div class="stat"><b><img class="sar" src="/projects/time-race/assets/sar.webp" alt="ريال سعودي" />0</b><span>ريال شهرياً للخوادم. التطبيق يتصل بسلة مباشرة</span></div>
+      <div class="stat"><b>$99</b><span><span class="lg" style="height:22px;padding:3px 6px;margin-inline-end:6px"><img src="/projects/time-race/assets/apple.svg" alt="Apple" /></span>سنوياً · حساب المطوّر عند أبل، تدفعه لأبل مباشرة</span></div>
+      <div class="stat"><b>$25</b><span><span class="lg" style="height:22px;padding:3px 6px;margin-inline-end:6px"><img src="/projects/time-race/assets/googleplay.svg" alt="Google Play" /></span>مرة واحدة · حساب المطوّر عند قوقل، تدفعه لقوقل مباشرة</span></div>
     </div>
+    <p class="note rv">رسوم المتجرين خارج سعر التطبيق، وتُدفع باسم مؤسستك حتى يبقى التطبيق ملكاً لك. إن كان عندك الحسابان فلا تدفع شيئاً.</p>
     <div class="phs">
       <div class="phz rv"><i>01</i><div><h3>النطاق والتصميم</h3><p>نثبت الوسوم في سلة ونختبر الدفع من تطبيق تجريبي، وتعتمد تصميم الشاشات بهويتك قبل كتابة الكود.</p></div><span class="tag">الأسبوع 1</span></div>
       <div class="phz rv"><i>02</i><div><h3>التصفّح</h3><p>الرئيسية بعدّاد الأقسام، كاروسيل الأقسام، اختيار الموديل، الفلتر على صورة السيارة، والبحث بالاسم والرقم. نسخة تجريبية على جوالك.</p></div><span class="tag">الأسبوع 2</span></div>
@@ -935,16 +944,16 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
     <h2 class="rv" style="font-size:clamp(32px,5.2vw,56px)">حين يعرف التطبيق <span style="color:var(--warn)">العميل نفسه.</span></h2>
     <p class="lead rv">التطبيق الأساسي يعمل من غير أن نحفظ شيئاً عن العميل. هذا الطلب يضيف خادماً خارجياً يحفظ بياناته التي يدخلها بنفسه: سياراته، ممشاه، ومواعيد صيانته، وكل ما يُبنى عليها. يُنفَّذ بعد التطبيق الأساسي أو معه.</p>
     <div class="grid g3 rv" style="margin-top:32px">
-      <div class="stat" style="border-color:var(--warn);background:linear-gradient(90deg,rgba(237,168,59,.09),transparent)"><b>5,000</b><span>ر.س · مرة واحدة</span></div>
+      <div class="stat" style="border-color:var(--warn);background:linear-gradient(90deg,rgba(237,168,59,.09),transparent)"><b><img class="sar" src="/projects/time-race/assets/sar.webp" alt="ريال سعودي" />5,000</b><span>ريال سعودي · مرة واحدة</span></div>
       <div class="stat" style="border-color:var(--warn);background:linear-gradient(90deg,rgba(237,168,59,.09),transparent)"><b>3</b><span>أسابيع</span></div>
       <div class="stat" style="border-color:var(--warn);background:linear-gradient(90deg,rgba(237,168,59,.09),transparent)"><b>12</b><span>شهراً من استضافة الخادم مشمولة في السعر</span></div>
     </div>
-    <div class="grid g2" style="margin-top:36px;align-items:start">
+    <div style="margin-top:36px">
       <div class="card rv" style="border-color:rgba(237,168,59,.5)">
         <span class="tag w">ما يشمله الطلب</span>
         <h3 style="margin-top:12px">ملف العميل والخادم الخارجي</h3>
         <p>كل ما يحتاج أن نحفظ معلومة عن العميل نفسه.</p>
-        <ul class="lst">
+        <ul class="lst lst2">
           <li><span><b>حساب يحفظ سياراته</b>، أكثر من سيارة، وعلى كل أجهزته.</span></li>
           <li><span><b>الممشى وتاريخ آخر صيانة</b> وموعد القادمة.</span></li>
           <li><span><b>جدول الصيانة والتذكير</b> بالكيلومتر والتاريخ.</span></li>
@@ -957,7 +966,21 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         </ul>
         <p class="note">لأنها بيانات شخصية، تُحفظ داخل المملكة وبموافقة العميل وفق نظام حماية البيانات الشخصية.</p>
       </div>
-      <div class="rv" style="display:flex;justify-content:center"><figure><div class="ph"><div class="scr">
+    </div>
+    <div class="cr-ph rv">
+<figure><div class="ph"><div class="scr">
+      <div class="sb"><span>9:41</span><span>●●●</span></div>
+      <div class="nv"><span>سياراتي</span><small>+ أضف سيارة</small></div>
+      <div class="bd">
+        <div class="p-car"><small>السيارة الأولى</small><b>Haval H6 · الجيل الثالث</b><span class="km">41,200 km</span><small style="margin-top:6px">آخر صيانة عند <span class="km">35,000 km</span> · القادمة عند <span class="km">42,500 km</span></small></div>
+        <div class="p-card"><div class="p-row" style="justify-content:space-between"><div><div class="p-t">Haval H9</div><div class="p-s">السيارة الثانية · <span class="n">88,400</span> كم</div></div><span class="p-chip">القادمة <span class="n">95,000</span></span></div></div>
+        <div class="p-h">ما رُكّب على H6</div>
+        <div class="p-card p-row"><div class="p-img" style="background-image:url(/projects/time-race/assets/oilf3.webp)"></div><div style="flex:1"><div class="p-t">فلتر زيت محرك</div><div class="p-s">عند <span class="n">35,000</span> كم · طلب #4812</div></div><span class="p-ok">✓</span></div>
+        <div class="p-card p-row"><div class="p-img" style="background-image:url(/projects/time-race/assets/pads-f3.webp)"></div><div style="flex:1"><div class="p-t">فحمات أمامية</div><div class="p-s">عند <span class="n">27,500</span> كم · طلب #4391</div></div><span class="p-ok">✓</span></div>
+        <div class="p-btn" style="margin-top:auto">حدّث الممشى</div>
+      </div>
+    </div></div><figcaption><b>ملف العميل</b>سياراته وممشاها وما رُكّب عليها، محفوظة على كل أجهزته.</figcaption></figure>
+<figure><div class="ph"><div class="scr">
       <div class="sb"><span>9:41</span><span>●●●</span></div>
       <div class="nv"><span>الصيانة</span><small>H6 الجيل الثالث</small></div>
       <div class="bd">
@@ -969,8 +992,20 @@ html{background:#0D0C0C!important;scroll-behavior:smooth}
         <div class="p-btn" style="margin-top:auto">اطلب طقم <span class="n">42,500</span></div>
       </div>
       <div class="tb"><span><b></b>الرئيسية</span><span><b></b>القطع</span><span class="on"><b></b>الصيانة</span><span><b></b>طلباتي</span></div>
-    </div></div><figcaption><b>جدول الصيانة</b>سجل السيارة عندك، لا عند الوكالة.</figcaption></figure></div>
+    </div></div><figcaption><b>جدول الصيانة</b>سجل السيارة عندك، لا عند الوكالة.</figcaption></figure>
+<figure><div class="ph"><div class="scr">
+      <div class="sb"><span>9:41</span><span>●●●</span></div>
+      <div class="nv"><span>الإشعارات</span><small>لسيارتك</small></div>
+      <div class="bd">
+        <div class="p-card" style="border-color:var(--brand)"><div class="p-row" style="justify-content:space-between"><div class="p-t">صيانة <span class="n">42,500</span> بعد <span class="n">1,300</span> كم</div><span class="p-chip on">اطلب الطقم</span></div><div class="p-s">تذكير الصيانة · فلتر زيت وفلتر هواء جاهزان</div></div>
+        <div class="p-card"><div class="p-row"><div class="p-img" style="background-image:url(/projects/time-race/assets/pads-f3.webp)"></div><div style="flex:1"><div class="p-t">سلتك بانتظارك</div><div class="p-s">السلة المتروكة · فحمات أمامية</div></div><span class="p-chip">أكمل</span></div></div>
+        <div class="p-card"><div class="p-row"><div class="p-img" style="background-image:url(/projects/time-race/assets/turbo3.webp)"></div><div style="flex:1"><div class="p-t">توفرت القطعة</div><div class="p-s">تنبيه التوفر · تيربو تشارجر</div></div><span class="p-chip">اشترِ</span></div></div>
+        <div class="p-card"><div class="p-row"><div class="p-img" style="background-image:url(/projects/time-race/assets/pump3.webp)"></div><div style="flex:1"><div class="p-t">كيف كانت طرمبة الماء؟</div><div class="p-s">تقييم بعد التركيب · ★★★★★</div></div><span class="p-chip">قيّم</span></div></div>
+        <div class="p-card"><div class="p-row" style="justify-content:space-between"><div><div class="p-t">كود الفني مفعّل</div><div class="p-s">طلبك يُحسب لورشتك</div></div><span class="p-ok">✓</span></div></div>
+      </div>
+    </div></div><figcaption><b>إشعارات شخصية</b>كل إشعار مبني على سيارته وما اشتراه، لا رسالة عامة للجميع.</figcaption></figure>
     </div>
+    <p class="note rv" style="text-align:center;max-width:none">الأسماء والتواريخ وأرقام الطلبات في الشاشات أمثلة للتوضيح.</p>
     <h3 class="rv" style="margin-top:64px">ما تدفعه، ومتى</h3>
     <div class="tw rv"><table class="tbl" style="margin-top:18px">
       <thead><tr><th>البند</th><th>متى</th><th>المبلغ</th></tr></thead>
