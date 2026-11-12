@@ -80,8 +80,9 @@ def build(src):
     print(f"built {out}  (noindex)  /projects/{name}" + (f"  +{n} assets" if n else ""))
 
 
-srcs = sorted(glob.glob("projects/*.html"))
-if not srcs:
-    sys.exit(0)
-for s in srcs:
+for s in sorted(glob.glob("projects/*.html")):
     build(s)
+
+# Link-preview cards and og: tags for every page under dist/skill and dist/projects.
+import subprocess
+subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "make-og.py"), "dist"], check=False)
