@@ -1,0 +1,444 @@
+<title>دكة — من الدكة للملعب</title>
+<meta name="description" content="مقترح مشروع دكة: حجز ملاعب كرة القدم في الرياض بالخانة، مع لوحة حجوزات وعملاء مجانية لصاحب الملعب." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" />
+<style>
+html{background:#090D0B!important;scroll-behavior:smooth}
+.dk{
+  --bg:#090D0B;--s1:#111814;--s2:#19221D;--line:#27332C;--ink:#EEF3EE;--soft:#A9B6AE;--faint:#7E8D85;
+  --volt:#C8F230;--voltink:#0B1205;--turf:#16613A;--turf2:#135633;--white:#F4F6F2;
+  --warn:#FFB224;--bad:#FF6257;--ok:#4ADE80;
+  --dbg:#F3F5EF;--dcard:#FFFFFF;--dink:#0E1A13;--dsoft:#5D6B62;--dline:#D9DFD2;--dgreen:#0D6B3B;
+  background:var(--bg);color:var(--ink);font-family:'Readex Pro',system-ui,sans-serif;font-size:17px;line-height:1.8;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+.dk *{box-sizing:border-box}
+.dk h1,.dk h2,.dk h3,.dk p,.dk ul,.dk ol{margin:0;padding:0}
+.dk ul,.dk ol{list-style:none}
+.dk a{color:inherit}
+.dk .n{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+.dk .wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
+.dk section{padding-block:clamp(56px,9vw,104px);border-top:1px solid rgba(255,255,255,.06);position:relative}
+.dk .eyebrow{font-size:13px;font-weight:600;color:var(--volt);margin-bottom:12px;display:flex;gap:10px;align-items:center}
+.dk .eyebrow::before{content:"";width:26px;height:2px;background:var(--volt)}
+.dk h2{font-weight:700;font-size:clamp(27px,4.4vw,44px);line-height:1.3;text-wrap:balance}
+.dk h3{font-weight:600;font-size:18px;line-height:1.5}
+.dk .lead{color:var(--soft);font-size:clamp(17px,1.9vw,20px);max-width:64ch;margin-top:14px;text-wrap:pretty}
+.dk .note{font-size:14px;color:var(--faint);margin-top:14px;max-width:72ch}
+.dk .mk{color:var(--volt)}
+.dk .card{background:var(--s1);border:1px solid var(--line);border-radius:22px;padding:20px}
+.dk .grid{display:grid;gap:14px;margin-top:32px}
+.dk .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.dk .g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.dk .pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600;background:var(--s2);color:var(--soft)}
+.dk .pill.v{background:var(--volt);color:var(--voltink)}
+.dk .pill.w{background:rgba(255,178,36,.16);color:var(--warn)}
+.dk .pill.g{background:rgba(74,222,128,.16);color:var(--ok)}
+.dk .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:16px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600}
+.dk .btn.p{background:var(--volt);color:var(--voltink)}
+.dk .btn.q{background:var(--s2);color:var(--ink);border:1px solid var(--line)}
+
+/* hero */
+.dk .hero{border-top:0;padding-top:clamp(40px,7vw,80px);overflow:hidden}
+.dk .hero::before{content:"";position:absolute;inset-inline:-20%;top:-260px;height:520px;background:radial-gradient(closest-side,rgba(200,242,48,.22),transparent);pointer-events:none}
+.dk .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:26px;margin-bottom:clamp(36px,6vw,64px);position:relative}
+.dk h1{font-weight:700;font-size:clamp(38px,7.4vw,84px);line-height:1.18;text-wrap:balance;position:relative}
+.dk .hero .lead{font-size:clamp(18px,2.2vw,22px)}
+.dk .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.dk .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:48px}
+.dk .fact{border-inline-start:2px solid var(--volt);padding-inline-start:14px}
+.dk .fact b{display:block;font-size:30px;font-weight:700;line-height:1.2}
+.dk .fact span{color:var(--soft);font-size:14.5px}
+
+/* twelve dots */
+.dk .dots{display:inline-flex;align-items:center;gap:9px}
+.dk .dots i{display:flex;gap:4px}
+.dk .dots u{width:11px;height:11px;border-radius:50%;box-shadow:inset 0 0 0 1.5px var(--line);text-decoration:none}
+.dk .dots .a u.on{background:var(--volt);box-shadow:none}
+.dk .dots .b u.on{background:var(--white);box-shadow:none}
+.dk .dots .x u.on{background:var(--faint);box-shadow:none}
+
+/* problem */
+.dk .quote{border-inline-start:3px solid var(--bad);padding:6px 16px;color:var(--soft)}
+.dk .vs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:32px}
+.dk .vs .card h3{margin-bottom:10px}
+.dk .cal{display:flex;gap:10px;align-items:center;justify-content:center;margin:18px 0 6px;flex-wrap:wrap}
+.dk .cal span{border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:14.5px;background:var(--s2)}
+.dk .cal em{font-style:normal;color:var(--bad);font-weight:700;font-size:22px}
+.dk .cal em.ok{color:var(--volt)}
+
+/* demo */
+.dk .demo{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:28px;margin-top:36px;align-items:start}
+@media(max-width:860px){.dk .demo{grid-template-columns:1fr}}
+.dk .pitch{position:relative;aspect-ratio:10/14.5;border-radius:26px;overflow:hidden;
+  background:radial-gradient(120% 60% at 50% -10%,rgba(200,242,48,.18),transparent 60%),repeating-linear-gradient(180deg,var(--turf) 0 10%,var(--turf2) 10% 20%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 20px 60px rgba(0,0,0,.5)}
+.dk .pitch svg{position:absolute;inset:0;width:100%;height:100%}
+.dk .slot{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:4px;width:74px;background:none;border:0;padding:0;font:inherit;color:#fff;cursor:pointer}
+.dk .slot b{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;font-size:17px;font-weight:700;transition:transform .15s}
+.dk .slot:active b{transform:scale(.93)}
+.dk .slot span{font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:99px;background:rgba(5,12,8,.65);white-space:nowrap}
+.dk .slot.free b{border:2px dashed rgba(255,255,255,.75);background:rgba(0,0,0,.18);animation:dkp 2.6s ease-in-out infinite}
+.dk .slot.ta b{background:var(--volt);color:var(--voltink)}
+.dk .slot.tb b,.dk .slot.tx b{background:var(--white);color:#0E1A13}
+.dk .slot.me b{box-shadow:0 0 0 3px var(--bg),0 0 0 6px #fff}
+.dk .slot[disabled]{cursor:default}
+@keyframes dkp{0%,100%{box-shadow:0 0 0 0 rgba(200,242,48,.45)}50%{box-shadow:0 0 0 9px rgba(200,242,48,0)}}
+.dk .benchrow{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:14px}
+.dk .benchrow .slot{position:static;transform:none;width:64px}
+.dk .benchrow p{font-size:13.5px;color:var(--soft);line-height:1.6}
+.dk .side h3{margin-bottom:6px}
+.dk .rowline{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.dk .rowline:last-child{border-bottom:0}
+.dk .rowline b{font-weight:700}
+.dk .ownercell{border-radius:16px;padding:14px;margin-top:14px;border:1px solid var(--dgreen);background:#EAF6C4;color:var(--dink);transition:background .3s}
+.dk .ownercell.done{background:#C8F230}
+.dk .ownercell small{display:block;color:var(--dsoft);font-size:13px}
+.dk .ownercell strong{font-size:17px}
+
+/* ideas */
+.dk .idea{display:flex;gap:14px;align-items:flex-start}
+.dk .idea .k{flex:none;width:38px;height:38px;border-radius:50%;background:var(--volt);color:var(--voltink);display:grid;place-items:center;font-weight:700}
+.dk .idea p{color:var(--soft);font-size:15.5px;margin-top:4px}
+.dk .idea.core{border-color:var(--volt);grid-column:1/-1}
+.dk .ui .k{background:var(--s2);color:var(--volt);border:1px solid var(--line)}
+.dk .tag{font-size:12px;font-weight:600;color:var(--faint);margin-inline-start:6px}
+
+/* day theme block */
+.dk .day{background:var(--dbg);color:var(--dink);border-radius:28px;padding:clamp(16px,3vw,28px);margin-top:36px}
+.dk .day .dc{background:var(--dcard);border:1px solid var(--dline);border-radius:18px;padding:16px}
+.dk .day h3{color:var(--dink)}
+.dk .day .muted{color:var(--dsoft);font-size:13.5px}
+.dk .board{display:grid;grid-template-columns:58px repeat(3,minmax(96px,1fr));gap:6px;overflow-x:auto;font-size:13.5px}
+.dk .board .h{font-weight:600;display:flex;align-items:center}
+.dk .board .c{min-height:56px;border-radius:12px;padding:8px;border:1px solid var(--dline);display:flex;flex-direction:column;justify-content:space-between}
+.dk .board .c.f{border-style:dashed;color:var(--dsoft)}
+.dk .board .c.d{background:#EAEEE5}
+.dk .board .c.m{background:#E4F3B4;border-color:var(--dgreen)}
+.dk .board .c b{font-weight:600}
+.dk .board .c small{font-size:12px}
+.dk .ok{color:var(--dgreen)}.dk .wr{color:#A76A00}.dk .bd{color:#C2362C}
+.dk .daygrid{display:grid;grid-template-columns:1.5fr 1fr;gap:14px}
+@media(max-width:860px){.dk .daygrid{grid-template-columns:1fr}}
+.dk .cust{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--dline);font-size:14.5px}
+.dk .cust:last-child{border-bottom:0}
+.dk .seg{font-size:12px;font-weight:600;border-radius:99px;padding:2px 10px}
+.dk .heat{display:grid;grid-template-columns:52px repeat(10,1fr);gap:3px;font-size:11px;margin-top:10px}
+.dk .heat div{height:26px;border-radius:5px;display:grid;place-items:center;font-weight:600}
+.dk .heat .l{justify-content:start;color:var(--dsoft);font-weight:500;font-size:12px}
+
+/* tables */
+.dk table{width:100%;border-collapse:collapse;margin-top:28px;font-size:15.5px}
+.dk th,.dk td{text-align:start;padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.dk th{color:var(--faint);font-weight:500;font-size:13.5px}
+.dk td b{font-weight:600}
+.dk .tw{overflow-x:auto}
+.dk .phase{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.dk .phase .num{grid-row:span 2;width:44px;height:44px;border-radius:14px;background:var(--s2);border:1px solid var(--line);display:grid;place-items:center;font-weight:700;color:var(--volt)}
+.dk .phase p{color:var(--soft);font-size:15.5px}
+.dk footer{padding:40px 0 70px;color:var(--faint);font-size:14px;border-top:1px solid rgba(255,255,255,.06)}
+@media(prefers-reduced-motion:reduce){.dk .slot.free b{animation:none}html{scroll-behavior:auto}}
+</style>
+
+<div class="dk">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="40" height="40" viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="#C8F230"/><path d="M7 20.5h18M10 20.5V25M22 20.5V25" stroke="#0B1205" stroke-width="2.4" stroke-linecap="round" fill="none"/><circle cx="16" cy="12.5" r="4.5" fill="#0B1205"/></svg>
+      <span>دكة</span>
+    </div>
+    <h1>من <span class="mk">الدكة</span> للملعب.</h1>
+    <p class="lead">حجز ملاعب كرة القدم في الرياض بالخانة: خمسة ضد خمسة وخانتان على الدكة. اللاعب يختار مركزه ويدفع حصته فقط، وصاحب الملعب يدير كل حجوزاته من لوحة واحدة مجانية.</p>
+    <div class="cta">
+      <a class="btn p" href="#demo">جرّب الفكرة الآن</a>
+      <a class="btn q" href="#ideas">الأفكار الذكية</a>
+    </div>
+    <div class="facts">
+      <div class="fact"><b class="n">12</b><span>خانة في كل مباراة: 10 في الملعب و2 على الدكة</span></div>
+      <div class="fact"><b class="n">0%</b><span>عمولة على سعر صاحب الملعب</span></div>
+      <div class="fact"><b>تقويم واحد</b><span>للمالك واللاعبين، فلا يتكرر الحجز</span></div>
+      <div class="fact"><b>3 ساعات</b><span>قبل المباراة: تكتمل أو يرجع المبلغ كامل</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="problem">
+  <div class="wrap">
+    <div class="eyebrow">المشكلة</div>
+    <h2>الفكرة موجودة في السوق. الثقة هي الناقصة.</h2>
+    <p class="lead">وجدنا في متجر التطبيقات السعودي تسعة تطبيقات على الأقل تبيع مقعداً في مباراة، وتطبيقاً عاشراً أُطلق هذا الشهر. لكن تقييمات المستخدمين في أكبرها تكرر الشكاوى نفسها:</p>
+    <div class="grid g3">
+      <div class="card"><p class="quote">دفعت ووصلت والملعب مقفل، أو محجوز لفريق آخر.</p></div>
+      <div class="card"><p class="quote">العربون ما رجع، والدعم ما يرد.</p></div>
+      <div class="card"><p class="quote">للأسف ما عندنا بديل.</p></div>
+    </div>
+    <div class="vs">
+      <div class="card">
+        <h3>لماذا يحصل هذا</h3>
+        <p style="color:var(--soft)">التطبيق عنده تقويم، وصاحب الملعب عنده دفتر وواتساب. تقويمان لا يعرف أحدهما الآخر.</p>
+        <div class="cal"><span>تقويم التطبيق</span><em>≠</em><span>دفتر المالك</span></div>
+      </div>
+      <div class="card" style="border-color:var(--volt)">
+        <h3>ما تفعله دكة</h3>
+        <p style="color:var(--soft)">لوحة المالك وتطبيق اللاعب يقرآن ويكتبان في التقويم نفسه. الساعة لها حجز واحد فقط، مهما كان مصدره.</p>
+        <div class="cal"><span>لوحة المالك</span><em class="ok">=</em><span>تطبيق اللاعب</span></div>
+      </div>
+    </div>
+    <p class="note">أدوات صاحب الملعب في التطبيقات الحالية ضعيفة: تطبيق المالك لدى أحد أكبرها تقييمه <span class="n">2.25</span> من <span class="n">8</span> تقييمات. المصدر: متجر التطبيقات السعودي، 13 نوفمبر 2026.</p>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <div class="eyebrow">جرّبها</div>
+    <h2>اضغط على خانة فاضية في الملعب.</h2>
+    <p class="lead">هذا ما يراه اللاعب. وعلى الجانب ما يراه صاحب الملعب في اللحظة نفسها. الأسعار هنا مثال على ملعب سعره <span class="n">250</span> ريالاً للساعة.</p>
+    <div class="demo">
+      <div>
+        <div class="pitch" id="dk-pitch">
+          <svg viewBox="0 0 100 145" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,.55)" stroke-width=".6" aria-hidden="true">
+            <rect x="4" y="4" width="92" height="137" rx="1.5"/><path d="M4 72.5h92"/><ellipse cx="50" cy="72.5" rx="11" ry="11"/>
+            <rect x="29" y="4" width="42" height="15"/><rect x="29" y="126" width="42" height="15"/>
+          </svg>
+        </div>
+        <div class="card benchrow">
+          <p><b style="color:var(--ink)">الدكة</b><br>بنصف السعر. تنزل تبديل، ولك الأولوية إذا غاب لاعب.</p>
+          <div id="dk-bench" style="display:flex;gap:4px"></div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+            <h3>السبت · <span class="n">9:00</span> م</h3>
+            <span class="pill w" id="dk-status">ناقص 4 للتأكيد</span>
+          </div>
+          <div style="margin:12px 0 4px"><span class="dots" id="dk-dots"></span></div>
+          <div class="rowline"><span>سعر الخانة في الملعب</span><b><span class="n">28</span> ر.س</b></div>
+          <div class="rowline"><span>سعر خانة الدكة</span><b><span class="n">14</span> ر.س</b></div>
+          <div class="rowline"><span>المحجوز</span><b><span class="n" id="dk-filled">6/12</span></b></div>
+          <div class="rowline"><span>دفعه اللاعبون</span><b><span class="n" id="dk-paid">168</span> ر.س</b></div>
+        </div>
+        <div class="card" style="margin-top:14px">
+          <h3>ما يراه صاحب الملعب</h3>
+          <div class="ownercell" id="dk-cell">
+            <small>ملعب 1 · <span class="n">9:00</span> م</small>
+            <strong>مباراة مفتوحة · <span class="n" id="dk-cellfill">6/12</span></strong>
+            <small id="dk-cellstate">تتكوّن. إذا لم تكتمل قبل <span class="n">6:00</span> م ترجع لك الساعة.</small>
+          </div>
+          <div class="rowline" style="margin-top:8px"><span>يستلم المالك</span><b><span class="n" id="dk-owner">0</span> ر.س</b></div>
+          <div class="rowline"><span>دخل دكة</span><b><span class="n" id="dk-us">0</span> ر.س</b></div>
+        </div>
+        <button class="btn q" id="dk-reset" style="margin-top:14px;width:100%">أعد المثال</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ideas">
+  <div class="wrap">
+    <div class="eyebrow">الأفكار الذكية في المشروع</div>
+    <h2>ثلاث عشرة فكرة تجعل دكة مختلفة.</h2>
+    <p class="lead">الأولى هي الأساس، والباقي مبني عليها.</p>
+    <div class="grid g2">
+      <div class="card idea core"><div class="k n">1</div><div><h3>تقويم واحد للمالك واللاعبين</h3><p>لوحة حجوزات المالك هي نفسها ما يحجز منه اللاعب. خانة مدفوعة لا يمكن أن تقابل ملعباً مقفلاً أو محجوزاً مرتين.</p></div></div>
+      <div class="card idea"><div class="k n">2</div><div><h3>الدكة: الخانتان الإضافيتان</h3><p>بنصف السعر. لاعب الدكة ينزل تبديلاً، وله الأولوية إذا غاب أحد. تحمي المباراة من الغياب وتزيد دخل المالك.</p></div></div>
+      <div class="card idea"><div class="k n">3</div><div><h3>سعر المالك له كاملاً</h3><p>لا عمولة على سعر الملعب. دخلنا رسم ثابت على كل خانة يدفعه اللاعب، ونصف دخل الدكة.</p></div></div>
+      <div class="card idea"><div class="k n">4</div><div><h3>تكتمل أو يرجع المبلغ</h3><p>إذا لم تكتمل المباراة قبل موعدها بثلاث ساعات تُلغى، ويرجع المبلغ كاملاً، وترجع الساعة للمالك ليبيعها.</p></div></div>
+      <div class="card idea"><div class="k n">5</div><div><h3>سلّم خانتك بدل الحظر</h3><p>اللاعب الذي لا يستطيع الحضور يرسل خانته برابط لغيره ويسترد مبلغه. لا حظر ولا خسارة.</p></div></div>
+      <div class="card idea"><div class="k n">6</div><div><h3>الساعة الفاضية تصير مباراة</h3><p>المالك يحوّل ساعة لم تُبع إلى مباراة مفتوحة بضغطة، بالسعر الذي يختاره.</p></div></div>
+      <div class="card idea"><div class="k n">7</div><div><h3>كل ملعب في الرياض له صفحة</h3><p>الدليل يعرض الملعب قبل أن ينضم صاحبه، وفي الصفحة: «أنت صاحب الملعب؟ استلم صفحتك مجاناً».</p></div></div>
+      <div class="card idea"><div class="k n">8</div><div><h3>ندخل حجوزات المالك عنه</h3><p>يرسل صورة الدفتر، فتمتلئ اللوحة في اليوم نفسه. لا عمل عليه في البداية.</p></div></div>
+      <div class="card idea"><div class="k n">9</div><div><h3>الحارس يلعب بأقل</h3><p>خانة الحارس مخفّضة، لأنها الخانة التي لا يريدها أحد.</p></div></div>
+      <div class="card idea"><div class="k n">10</div><div><h3>مكافأة الكابتن</h3><p>من يفتح مباراة وتكتمل يحصل على رصيد للمباراة القادمة. المنظّم لا يدفع اشتراكاً.</p></div></div>
+      <div class="card idea"><div class="k n">11</div><div><h3>ضمان «وصلت والملعب مقفل»</h3><p>استرداد كامل وخانة مجانية. ضمان نقدر عليه لأن التقويم واحد.</p></div></div>
+      <div class="card idea"><div class="k n">12</div><div><h3>ليالي دكة</h3><p>مباريات ننظمها نحن في البداية بمشرف وصدريات وكرة، حتى تكون أول مباراة للاعب الجديد مباراة جيدة.</p></div></div>
+      <div class="card idea"><div class="k n">13</div><div><h3>العربية والإنجليزية من أول يوم</h3><p><span class="n">44%</span> من سكان المملكة غير سعوديين، وكثير منهم يبحث عن مباراة ولا يجد.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ui">
+  <div class="wrap">
+    <div class="eyebrow">الأفكار الذكية في الواجهة</div>
+    <h2>الملعب هو الواجهة.</h2>
+    <p class="lead">اللعبة تُلعب ليلاً تحت الكشافات، وصاحب الملعب يعمل من مكتبه. لذلك للتطبيق وجهان على القواعد نفسها.</p>
+    <div class="grid g3 ui">
+      <div class="card idea"><div class="k n">1</div><div><h3>اضغط على مركزك</h3><p>المباراة تظهر ملعباً من الأعلى. لا قوائم ولا نماذج.</p></div></div>
+      <div class="card idea"><div class="k n">2</div><div><h3>اثنتا عشرة نقطة</h3><p>تعرف امتلاء المباراة من نظرة، بدون قراءة رقم.</p><div style="margin-top:10px"><span class="dots"><i class="a"><u class="on"></u><u class="on"></u><u class="on"></u><u class="on"></u><u></u></i><i class="b"><u class="on"></u><u class="on"></u><u class="on"></u><u></u><u></u></i><i class="x"><u class="on"></u><u></u></i></span></div></div></div>
+      <div class="card idea"><div class="k n">3</div><div><h3>ليل للاعب ونهار للمالك</h3><p>واجهة داكنة بلون الكشافات للاعب، وواجهة فاتحة واضحة للمالك.</p><div style="display:flex;gap:6px;margin-top:10px"><i style="width:34px;height:22px;border-radius:6px;background:#090D0B;border:1px solid var(--line)"></i><i style="width:34px;height:22px;border-radius:6px;background:#C8F230"></i><i style="width:34px;height:22px;border-radius:6px;background:#F3F5EF"></i><i style="width:34px;height:22px;border-radius:6px;background:#0D6B3B"></i></div></div></div>
+      <div class="card idea"><div class="k n">4</div><div><h3>الفريقان صدريات</h3><p>الفسفوري ضد الأبيض. لا ألوان أندية ولا انحياز.</p></div></div>
+      <div class="card idea"><div class="k n">5</div><div><h3>ضغطتان للمالك</h3><p>اضغط على الساعة الفاضية، اكتب الاسم والجوال، احفظ.</p></div></div>
+      <div class="card idea"><div class="k n">6</div><div><h3>الدفع فوق الملعب</h3><p>نافذة الدفع تصعد من الأسفل والملعب ظاهر خلفها. لا صفحات جديدة.</p></div></div>
+      <div class="card idea"><div class="k n">7</div><div><h3>صورة التشكيلة في الواتساب<span class="tag">قادم</span></h3><p>الرابط يظهر بصورة الملعب والخانات الناقصة، فيأتي الرد أسرع من «ناقصنا اثنين».</p></div></div>
+      <div class="card idea"><div class="k n">8</div><div><h3>حالة صادقة</h3><p>«ناقص 3 للتأكيد» وموعد الاكتمال ظاهران دائماً في صفحة المباراة.</p></div></div>
+      <div class="card idea"><div class="k n">9</div><div><h3>خريطة امتلاء الملعب</h3><p>يرى المالك متى يمتلئ ملعبه حسب اليوم والساعة، فيعرف أين يضع العرض.</p></div></div>
+      <div class="card idea"><div class="k n">10</div><div><h3>العملاء مصنّفون تلقائياً</h3><p>منتظم، جديد، منقطع، يغيب. ورسالة «وحشتنا» بالواتساب بضغطة.</p></div></div>
+      <div class="card idea"><div class="k n">11</div><div><h3>علامة الملتزم</h3><p>نسبة الحضور ظاهرة، والكابتن يختار اللاعب الملتزم.</p></div></div>
+      <div class="card idea"><div class="k n">12</div><div><h3>من اليمين لليسار أولاً</h3><p>مصمَّم للعربية، والإنجليزية لغة ثانية كاملة.</p></div></div>
+    </div>
+
+    <div class="day">
+      <h3 style="font-size:20px">لوحة صاحب الملعب</h3>
+      <p class="muted" style="margin-bottom:14px">مثال توضيحي ببيانات تجريبية.</p>
+      <div class="daygrid">
+        <div class="dc">
+          <div class="board">
+            <div></div><div class="h">ملعب 1</div><div class="h">ملعب 2</div><div class="h">ملعب 3</div>
+            <div class="h n">7:00 م</div><div class="c d"><b>نواف</b><small class="ok">مدفوع · ثابت</small></div><div class="c f"><b>+</b><small class="n">250 ر.س</small></div><div class="c f"><b>+</b><small class="n">380 ر.س</small></div>
+            <div class="h n">8:00 م</div><div class="c m"><b>مباراة مفتوحة</b><small><span class="n">10/12</span> · <span class="ok">مؤكدة</span></small></div><div class="c d"><b>مشعل</b><small class="ok">مدفوع</small></div><div class="c d"><b>أنس</b><small class="wr">غير مدفوع</small></div>
+            <div class="h n">9:00 م</div><div class="c m"><b>مباراة مفتوحة</b><small><span class="n">6/12</span> · تتكوّن</small></div><div class="c d"><b>فهد</b><small class="bd">ما حضر</small></div><div class="c m"><b>مع ربعي فقط</b><small><span class="n">14/16</span> · <span class="ok">مؤكدة</span></small></div>
+            <div class="h n">10:00 م</div><div class="c d"><b>سلطان</b><small class="ok">مدفوع · ثابت</small></div><div class="c m"><b>مباراة مفتوحة</b><small><span class="n">9/12</span> · تتكوّن</small></div><div class="c f"><b>+</b><small class="n">480 ر.س</small></div>
+          </div>
+        </div>
+        <div class="dc">
+          <h3 style="font-size:16px">العملاء</h3>
+          <div class="cust"><span><b>فهد الزهراني</b><br><span class="muted"><span class="n">12</span> زيارة</span></span><span class="seg" style="background:#DDF0E3;color:#0D6B3B">منتظم</span></div>
+          <div class="cust"><span><b>ياسر المطيري</b><br><span class="muted">آخر زيارة قبل <span class="n">20</span> يوماً</span></span><span class="seg" style="background:#FBEBCB;color:#A76A00">منقطع</span></div>
+          <div class="cust"><span><b>بدر الشمري</b><br><span class="muted">غاب مرتين</span></span><span class="seg" style="background:#F9DAD6;color:#C2362C">يغيب</span></div>
+          <h3 style="font-size:16px;margin-top:16px">متى يمتلئ ملعبك</h3>
+          <div class="heat" id="dk-heat"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="money">
+  <div class="wrap">
+    <div class="eyebrow">نموذج الدخل</div>
+    <h2>المالك يأخذ سعره، واللاعب يدفع رسماً صغيراً.</h2>
+    <p class="lead">مثال على مباراة واحدة في ملعب سعره <span class="n">250</span> ريالاً للساعة. السعر افتراض وليس سعر السوق: الأسعار الفعلية في الرياض لم تُجمع بعد.</p>
+    <div class="tw"><table>
+      <tr><th></th><th>اكتملت 10 من 12</th><th>اكتملت 12 من 12</th></tr>
+      <tr><td>يدفع اللاعبون</td><td><span class="n">280</span> ر.س</td><td><span class="n">308</span> ر.س</td></tr>
+      <tr><td>يستلم المالك</td><td><b><span class="n">250</span> ر.س</b></td><td><b><span class="n">264</span> ر.س</b></td></tr>
+      <tr><td>دخل دكة قبل رسوم الدفع</td><td><span class="n">30</span> ر.س</td><td><span class="n">44</span> ر.س</td></tr>
+    </table></div>
+    <div class="grid g3">
+      <div class="card"><h3>رسم الخانة</h3><p style="color:var(--soft);font-size:15.5px"><span class="n">3</span> ريالات ثابتة على كل خانة يدفعها اللاعب.</p></div>
+      <div class="card"><h3>نصف دخل الدكة</h3><p style="color:var(--soft);font-size:15.5px">النصف الآخر يذهب للمالك فوق سعره.</p></div>
+      <div class="card"><h3>باقة المالك المدفوعة <span class="tag">لاحقاً</span></h3><p style="color:var(--soft);font-size:15.5px">تذكير تلقائي بالواتساب، روابط دفع، عدة فروع. اللوحة الأساسية تبقى مجانية.</p></div>
+    </div>
+    <p class="note">بصراحة: رسم الخانة وحده دخل صغير. الحساب التقريبي لمئة ملعب بمباراة واحدة في الليلة يعطي نحو <span class="n">54,000</span> ريال شهرياً. لذلك الباقة المدفوعة وليالي دكة جزء أساسي من الخطة، ورسوم بوابة الدفع على المبالغ الصغيرة تحتاج تفاوضاً.</p>
+  </div>
+</section>
+
+<section id="market">
+  <div class="wrap">
+    <div class="eyebrow">السوق</div>
+    <h2>ما نعرفه، وما لا نعرفه بعد.</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="margin-bottom:8px">نعرفه بمصدر</h3>
+        <div class="rowline"><span>سكان مدينة الرياض (تعداد 2022)</span><b class="n">6.92M</b></div>
+        <div class="rowline"><span>السعوديون تحت 35 سنة</span><b class="n">69–71%</b></div>
+        <div class="rowline"><span>البالغون الذين يمارسون النشاط البدني (2025)</span><b class="n">59.1%</b></div>
+        <div class="rowline"><span>تراخيص المنشآت الرياضية الخاصة (2025)</span><b class="n">4,228</b></div>
+        <div class="rowline"><span>ملاعب في الرياض جمعناها من مصادر عامة</span><b class="n">74</b></div>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px">لا ينشره أحد، وسنجمعه بأنفسنا</h3>
+        <div class="rowline"><span>عدد الملاعب المؤجَّرة في الرياض</span><b>غير معروف</b></div>
+        <div class="rowline"><span>سعر الساعة حسب الحي والوقت</span><b>غير معروف</b></div>
+        <div class="rowline"><span>الساعات التي لا تُباع</span><b>غير معروف</b></div>
+        <div class="rowline"><span>سعر المقعد عند المنافسين</span><b>غير معروف</b></div>
+        <p class="note">من الـ<span class="n">74</span> ملعباً، <span class="n">17</span> فقط تأكد أنها تؤجَّر بالساعة، واثنان فقط لهما سعر منشور.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="eyebrow">الخطة</div>
+    <h2>حيّ واحد أولاً، وأصحاب الملاعب قبل اللاعبين.</h2>
+    <p class="lead">اللاعب يحتاج مباراة الليلة قريبة منه. خمسة ملاعب في حيّ واحد أنفع من عشرة متفرقة في المدينة. وكل مرحلة لها شرط لا ننتقل قبله.</p>
+    <div style="margin-top:24px">
+      <div class="phase"><div class="num n">0</div><h3>التحقق · 3 أسابيع · بدون برمجة</h3><p>اتصال بـ30 ملعباً، زيارة 8 ليلاً، اللعب في 5 مباريات عند المنافسين، فحص العلامة التجارية، عروض بوابات الدفع. <b style="color:var(--ink)">الشرط:</b> 10 ملّاك يوافقون على استخدام اللوحة، 5 منهم في حيّ واحد.</p></div>
+      <div class="phase"><div class="num n">1</div><h3>تجربة لوحة المالك · 6 أسابيع</h3><p>5 ملاعب تدير حجوزاتها الحقيقية على اللوحة. <b style="color:var(--ink)">الشرط:</b> الملّاك يدخلون الحجوزات بأنفسهم 5 أيام في الأسبوع.</p></div>
+      <div class="phase"><div class="num n">2</div><h3>الخانات · 6 أسابيع</h3><p>مباريات مفتوحة على الساعات الفاضية بدفع حقيقي، مع ليالي دكة. <b style="color:var(--ink)">الشرط:</b> 60% من المباريات تكتمل، ولا حالة «ملعب مقفل».</p></div>
+      <div class="phase"><div class="num n">3</div><h3>الحيّ كاملاً · 3 أشهر</h3><p>20 ملعباً، المجموعات الأسبوعية، تسليم الخانة، الباقة المدفوعة، تطبيقات الجوال. <b style="color:var(--ink)">الشرط:</b> ربح موجب في المباراة الواحدة.</p></div>
+      <div class="phase" style="border-bottom:0"><div class="num n">4</div><h3>الرياض</h3><p>حيّاً بعد حيّ بالطريقة نفسها، ثم الدوريات والرعايات.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="next">
+  <div class="wrap">
+    <div class="eyebrow">ما نحتاجه الآن</div>
+    <h2>أربعة قرارات تبدأ بها المرحلة صفر.</h2>
+    <div class="grid g2">
+      <div class="card idea"><div class="k n">1</div><div><h3>من يتصل بالملاعب ومتى</h3><p>كل ما بعده ينتظر أسعار وإشغال 30 ملعباً.</p></div></div>
+      <div class="card idea"><div class="k n">2</div><div><h3>فحص اسم «دكة» كعلامة تجارية</h3><p>لم نجد تطبيقاً رياضياً بالاسم، لكن العلامة لم تُفحص بعد.</p></div></div>
+      <div class="card idea"><div class="k n">3</div><div><h3>التقنية والفريق</h3><p>يحددان الميزانية والمدة.</p></div></div>
+      <div class="card idea"><div class="k n">4</div><div><h3>أي حيّ نبدأ به</h3><p>يُحسم بعد الاتصالات، حيث يوافق أكبر عدد من الملّاك.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>مقترح مشروع دكة · 13 نوفمبر 2026 · النسخة 0.1</p>
+    <p>الأسعار في الأمثلة افتراضية. أرقام السوق من مصادر عامة بتاريخ البحث. اسم «دكة» لم يُفحص كعلامة تجارية بعد. بيانات اللوحة تجريبية.</p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var F=[{r:'حارس',x:50,y:7},{r:'دفاع',x:50,y:19},{r:'وسط',x:21,y:30},{r:'وسط',x:79,y:30},{r:'هجوم',x:50,y:41}];
+  var START={A:[null,'سعود','نواف',null,'كريم'],B:['ناصر','راكان','عادل',null,null],X:[null,null]};
+  var st, pitch=document.getElementById('dk-pitch'), bench=document.getElementById('dk-bench');
+  function $(id){return document.getElementById(id)}
+  function mk(team,i){
+    var b=document.createElement('button');b.type='button';b.className='slot';b.dataset.t=team;b.dataset.i=i;
+    b.innerHTML='<b></b><span></span>';
+    if(team!=='X'){var p=F[i];b.style.left=(team==='A'?p.x:100-p.x)+'%';b.style.top=(team==='A'?p.y:100-p.y)+'%';pitch.appendChild(b)}
+    else bench.appendChild(b);
+    b.addEventListener('click',function(){var s=st[team];if(s[i]===null){s[i]='أنت';draw()}else if(s[i]==='أنت'){s[i]=null;draw()}});
+    return b;
+  }
+  var els={A:[],B:[],X:[]};
+  ['A','B'].forEach(function(t){for(var i=0;i<5;i++)els[t].push(mk(t,i))});
+  for(var i=0;i<2;i++)els.X.push(mk('X',i));
+  function draw(){
+    var field=0,ben=0;
+    ['A','B','X'].forEach(function(t){
+      st[t].forEach(function(v,i){
+        var e=els[t][i],role=t==='X'?'احتياط':F[i].r;
+        e.className='slot '+(v===null?'free':(t==='A'?'ta':t==='B'?'tb':'tx'))+(v==='أنت'?' me':'');
+        e.firstChild.textContent=v===null?'+':v.charAt(0);
+        e.lastChild.textContent=v===null?role:v;
+        e.disabled=v!==null&&v!=='أنت';
+        e.setAttribute('aria-label',(t==='A'?'الفسفوري':t==='B'?'الأبيض':'الدكة')+' · '+role+' · '+(v===null?'فاضية':v));
+        if(v!==null){if(t==='X')ben++;else field++}
+      });
+    });
+    var ok=field>=10,total=field+ben;
+    $('dk-filled').textContent=total+'/12';$('dk-cellfill').textContent=total+'/12';
+    $('dk-paid').textContent=field*28+ben*14;
+    var s=$('dk-status');s.className='pill '+(ok?'g':'w');s.textContent=ok?'✓ مؤكدة':'ناقص '+(10-field)+' للتأكيد';
+    $('dk-owner').textContent=ok?250+ben*7:0;$('dk-us').textContent=ok?field*3+ben*7:0;
+    $('dk-cell').className='ownercell'+(ok?' done':'');
+    $('dk-cellstate').innerHTML=ok?'مؤكدة. سعرك مضمون'+(ben?' ومعه نصف دخل الدكة.':'.'):'تتكوّن. إذا لم تكتمل قبل <span class="n">6:00</span> م ترجع لك الساعة.';
+    var a=st.A.filter(Boolean).length,b=st.B.filter(Boolean).length,h='';
+    function row(c,n,on){var o='<i class="'+c+'">';for(var k=0;k<n;k++)o+='<u'+(k<on?' class="on"':'')+'></u>';return o+'</i>'}
+    $('dk-dots').innerHTML=row('a',5,a)+row('b',5,b)+row('x',2,ben);
+  }
+  function reset(){st={A:START.A.slice(),B:START.B.slice(),X:START.X.slice()};draw()}
+  $('dk-reset').addEventListener('click',reset);reset();
+
+  var days=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],base=[17,33,42,58,75,83,75,58,42,17],h='';
+  days.forEach(function(d,di){
+    h+='<div class="l">'+d+'</div>';
+    base.forEach(function(v,hi){
+      var x=Math.max(0,Math.min(100,v+(di===5?17:di===4?8:di===1?-8:0)+((di*7+hi*3)%9)-4));
+      h+='<div style="background:color-mix(in srgb,#0D6B3B '+x+'%,#EAEEE5);color:'+(x>55?'#fff':'#5D6B62')+'" class="n">'+x+'</div>';
+    });
+  });
+  $('dk-heat').innerHTML=h;
+})();
+</script>
