@@ -200,6 +200,18 @@ html{background:#090D0B!important;scroll-behavior:smooth}
 .dk .bar{display:grid;grid-template-columns:54px 1fr 44px;gap:10px;align-items:center;font-size:14.5px}
 .dk .bar i{height:14px;border-radius:7px;background:var(--volt);display:block}
 .dk .bar b{text-align:end}
+.dk .chats{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:32px}
+.dk .chatbox{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:#0B141A}
+.dk .chead{background:#1F2C34;padding:12px 16px;display:flex;flex-direction:column;line-height:1.5}
+.dk .chead span{font-size:13px;color:#8696A0}
+.dk .cbody{padding:16px;display:flex;flex-direction:column;gap:9px;font-size:14.5px;line-height:1.7}
+.dk .cbody .bub{background:#1F2C34;border-radius:14px 14px 14px 4px;padding:9px 12px;color:#E9EDEF;max-width:88%;align-self:flex-start}
+.dk .cbody .bub.o{background:#005C4B;border-radius:14px 14px 4px 14px;align-self:flex-end}
+.dk .qb{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.dk .qb>span{border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:3px 12px;font-size:13.5px;color:#53BDEB;font-weight:600}
+.dk .qb>span.y{background:var(--volt);color:var(--voltink);border-color:var(--volt)}
+.dk td a{color:var(--volt);text-decoration:none;white-space:nowrap}
+.dk td a:hover{text-decoration:underline}
 @media(prefers-reduced-motion:reduce){.dk .slot.free b{animation:none}html{scroll-behavior:auto}}
 </style>
 
@@ -217,6 +229,8 @@ html{background:#090D0B!important;scroll-behavior:smooth}
       <a class="btn p" href="#demo">جرّب الفكرة الآن</a>
       <a class="btn q" href="#ideas">الأفكار الذكية</a>
       <a class="btn q" href="#journey">رحلة الشاشات</a>
+      <a class="btn q" href="#chat">مساعد المحادثة</a>
+      <a class="btn q" href="#edge">المنافسون وميزتنا</a>
     </div>
     <div class="facts">
       <div class="fact"><b class="n">12</b><span>خانة في كل مباراة: 10 في الملعب و2 على الدكة</span></div>
@@ -459,6 +473,64 @@ html{background:#090D0B!important;scroll-behavior:smooth}
   </div>
 </section>
 
+<section id="chat">
+  <div class="wrap">
+    <div class="eyebrow">مساعد دكة في المحادثة</div>
+    <h2>كل شيء بالكتابة، من التطبيق الذي تستخدمه أصلاً.</h2>
+    <p class="lead">صاحب الملعب يدير حجوزاته اليوم في الواتساب. لذلك أسرع لوحة هي لوحة يكتب لها. المساعد باب ثانٍ للتقويم نفسه: ما يُحجز بالمحادثة يظهر في اللوحة والتطبيق فوراً.</p>
+    <div class="chats">
+      <div class="chatbox">
+        <div class="chead"><b>صاحب الملعب</b><span>يكتب لدكة في الواتساب</span></div>
+        <div class="cbody">
+          <div class="bub o">وش الفاضي الليلة؟</div>
+          <div class="bub">الليلة عندك 3 ساعات فاضية:<br>ملعب 1 · <span class="n">7:00</span> م<br>ملعب 2 · <span class="n">10:00</span> م<br>ملعب 3 · <span class="n">11:00</span> م<div class="qb"><span>افتح <span class="n">10:00</span> مباراة</span><span>احجز لعميل</span></div></div>
+          <div class="bub o">احجز ملعب 1 الساعة 7 لفهد 0551234567</div>
+          <div class="bub">ملعب 1 · الليلة <span class="n">7:00</span> م · فهد · <span class="n">250</span> ر.س.<br>أحفظ الحجز؟<div class="qb"><span class="y">نعم، احفظ</span><span>عدّل</span></div></div>
+          <div class="bub o">نعم</div>
+          <div class="bub">تم ✓ الحجز في لوحتك. أرسل لفهد تذكيراً قبل الموعد؟</div>
+          <div class="bub o">مين ما دفع اليوم؟</div>
+          <div class="bub">حجزان غير مدفوعين، المجموع <span class="n">570</span> ر.س:<br>أنس · <span class="n">8:00</span> م · <span class="n">320</span><br>سعد · <span class="n">7:00</span> م · <span class="n">250</span><div class="qb"><span>ذكّرهما بالواتساب</span></div></div>
+        </div>
+      </div>
+      <div class="chatbox">
+        <div class="chead"><b>اللاعب</b><span>يكتب لدكة في الواتساب</span></div>
+        <div class="cbody">
+          <div class="bub o">أبي مباراة الليلة في الشمال</div>
+          <div class="bub">لقيت لك مباراتين:<br><b>ملاعب النخبة</b> · <span class="n">9:00</span> م · ناقص 4 · <span class="n">28</span> ر.س<br><b>أرينا الياسمين</b> · <span class="n">10:00</span> م · ناقص 2 · <span class="n">33</span> ر.س<div class="qb"><span>الأولى</span><span>الثانية</span><span>غيرها</span></div></div>
+          <div class="bub o">الأولى، أبي حارس</div>
+          <div class="bub">خانة الحارس في الفسفوري فاضية، وسعرها مخفّض: <span class="n">14</span> ر.س.<br>ادفع من الرابط وتنحجز لك:<div class="qb"><span class="y">ادفع <span class="n">14</span> ر.س</span></div></div>
+          <div class="bub">تم الدفع ✓ خانتك محجوزة. نبلغك أول ما تكتمل المباراة.</div>
+          <div class="bub o">ما أقدر أحضر 😕</div>
+          <div class="bub">باقي أكثر من 3 ساعات، فالإلغاء مجاني. ألغي خانتك وأرجع لك المبلغ؟<div class="qb"><span>نعم، ألغِ</span><span>لا، خلّها</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="grid g3">
+      <div class="card idea"><div class="k n">24</div><div><h3>بالكتابة أو الصوت أو الصورة</h3><p>رسالة، مقطع صوتي، أو صورة صفحة من الدفتر. المساعد يقترح الحجوزات والمالك يوافق.</p></div></div>
+      <div class="card idea"><div class="k n">25</div><div><h3>حوّل رسالة العميل</h3><p>العميل كتب «أبي ملعب بكرة 9»؟ المالك يحوّل الرسالة للمساعد، فيجهّز الحجز بضغطة.</p></div></div>
+      <div class="card idea"><div class="k n">26</div><div><h3>كل بياناته بسؤال</h3><p>دخل الأسبوع، الساعات الفاضية، من انقطع، من عليه مبلغ. يسأل ويأتيه الجواب.</p></div></div>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="margin-bottom:8px">القنوات</h3>
+        <div class="rowline"><span>واتساب</span><b>الأساس، للمالك واللاعب</b></div>
+        <div class="rowline"><span>رسائل إنستغرام</span><b>الثانية</b></div>
+        <div class="rowline"><span>تيليغرام</span><b>سهلة البناء</b></div>
+        <div class="rowline"><span>محادثة في صفحة كل ملعب</span><b>للقادمين من البحث والخرائط</b></div>
+        <div class="rowline"><span>سناب شات، تيك توك، X</span><b>رابط إلى الواتساب</b></div>
+        <p class="note">نبدأ بالواتساب فقط ثم نضيف قناة قناة. شروط كل منصة وتكلفة الرسائل لم تُفحص بعد.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px">ثلاث قواعد للأمان</h3>
+        <div class="rowline"><span>تأكيد قبل أي تغيير</span><b>لا يخمّن حجزاً أبداً</b></div>
+        <div class="rowline"><span>الدفع برابط فقط</span><b>لا بيانات بطاقة في المحادثة</b></div>
+        <div class="rowline"><span>كل واحد يرى بياناته فقط</span><b>رقم الواتساب هو الحساب</b></div>
+        <p class="note">المساعد لا يكتب في قاعدة البيانات مباشرة. ينفّذ الأوامر نفسها التي ينفذها التطبيق، وبالصلاحيات نفسها، وإذا لم يفهم يحوّل المحادثة إلى موظف.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="subs" class="sub">
   <div class="wrap">
     <div class="eyebrow">الاشتراكات</div>
@@ -511,6 +583,48 @@ html{background:#090D0B!important;scroll-behavior:smooth}
       <div class="card idea"><div class="k n">21</div><div><h3>لوحة على سياج الملعب</h3><p>رمز مطبوع: «ساعة فاضية الليلة؟ احجز خانتك». المالك يرى اللاعبين يأتون منه.</p></div></div>
       <div class="card idea"><div class="k n">22</div><div><h3>حكم ومصوّر بالطلب</h3><p>إضافة اختيارية عند فتح المباراة، وتُقسم تكلفتها على الخانات.</p></div></div>
       <div class="card idea"><div class="k n">23</div><div><h3>وضع الصيف ورمضان</h3><p>في الصيف تتقدم الصالات المكيفة والمواعيد المتأخرة. وفي رمضان مباريات بعد التراويح ودوري أحياء.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="launch">
+  <div class="wrap">
+    <div class="eyebrow">كيف نصل للناس</div>
+    <h2>الملاعب أولاً، ثم اللاعبون.</h2>
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="margin-bottom:8px">كيف نكسب صاحب الملعب</h3>
+        <ul class="ntl">
+          <li>الدليل يعرض ملعبه من قبل<small>صفحة جاهزة، وزر «استلم صفحتك مجاناً»</small></li>
+          <li>ندخل حجوزاته عنه<small>صورة الدفتر تكفي</small></li>
+          <li>بدون عمولة، مكتوبة وموقّعة<small>ورقة واحدة: سعرك لك</small></li>
+          <li>عرض الساعة الفاضية<small>«خلّنا نجرب نملأ ساعتين فاضيتين. إذا امتلأت أخذت سعرك، وإذا لا فما تغيّر شيء»</small></li>
+          <li>الزيارة في الملعب ليلاً<small>البيع عند البوابة والجوال في اليد</small></li>
+          <li>مالك يجيب مالك<small>ثلاثة أشهر من باقة برو لكل مالك يأتي عن طريقه</small></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:8px">كيف نكسب اللاعب</h3>
+        <ul class="ntl">
+          <li>رابط «ناقصنا اثنين»<small>كل مباراة رابط مصنوع لمجموعات الواتساب</small></li>
+          <li>ليالي دكة<small>مباريات بمشرف وصدريات، تضمن أول تجربة جيدة</small></li>
+          <li>المنظّمون مجاناً ولهم مكافأة<small>بدون اشتراك، ورصيد عند اكتمال المباراة</small></li>
+          <li>أول خانة بدون رسم<small>للاعب الجديد</small></li>
+          <li>الشركات والمجمّعات السكنية<small>ساعة أسبوعية ثابتة، وكل عضو يدفع حصته</small></li>
+          <li>الضمان بصوت عالٍ<small>«وصلت والملعب مقفل؟ يرجع مبلغك وخانتك القادمة علينا»</small></li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid g3">
+      <div class="card"><h3>رمضان</h3><p style="color:var(--soft);font-size:15.5px">دوري أحياء بعد التراويح.</p></div>
+      <div class="card"><h3>الصيف</h3><p style="color:var(--soft);font-size:15.5px">الصالات المكيفة أولاً، ومواعيد أبعد في الليل.</p></div>
+      <div class="card"><h3>أيام مباريات الدوري والمنتخب</h3><p style="color:var(--soft);font-size:15.5px">«العب قبل ما تتفرج»: مباريات تنتهي قبل صافرة البداية بساعة.</p></div>
+    </div>
+    <h3 style="margin-top:36px">ما نقيسه</h3>
+    <div class="grid g3">
+      <div class="card"><p style="color:var(--soft);font-size:15.5px"><b style="color:var(--ink)">ملّاك يدخلون حجوزاتهم 5 أيام في الأسبوع.</b> دليل أن اللوحة مستخدمة فعلاً.</p></div>
+      <div class="card"><p style="color:var(--soft);font-size:15.5px"><b style="color:var(--ink)">نسبة المباريات التي تكتمل.</b> مؤشر صحة المنتج الأول.</p></div>
+      <div class="card"><p style="color:var(--soft);font-size:15.5px"><b style="color:var(--ink)">لاعبون يلعبون مرة ثانية خلال 14 يوماً.</b> دليل أن التجربة أعجبتهم.</p></div>
     </div>
   </div>
 </section>
@@ -582,22 +696,103 @@ html{background:#090D0B!important;scroll-behavior:smooth}
         <h3>التطبيقات التي تبيع مقعداً في مباراة</h3>
         <div class="tw"><table style="margin-top:10px;font-size:14.5px">
           <tr><th>التطبيق</th><th>التقييم</th><th>عدد التقييمات</th><th>آخر تحديث</th></tr>
-          <tr><td>Koora App</td><td class="n">4.54</td><td class="n">2,276</td><td class="n">2023-12</td></tr>
-          <tr><td>Grintafy</td><td class="n">4.27</td><td class="n">686</td><td class="n">2026-07</td></tr>
-          <tr><td>Golato</td><td class="n">4.12</td><td class="n">262</td><td class="n">2026-10</td></tr>
-          <tr><td>Malaeb</td><td class="n">3.63</td><td class="n">241</td><td class="n">2026-11</td></tr>
-          <tr><td>Kammel</td><td class="n">4.09</td><td class="n">23</td><td class="n">2026-07</td></tr>
-          <tr><td>Hawari</td><td class="n">4.50</td><td class="n">16</td><td class="n">2026-11</td></tr>
-          <tr><td>Fatbalah</td><td class="n">3.40</td><td class="n">15</td><td class="n">2026-10</td></tr>
-          <tr><td>Wajeh</td><td class="n">5.00</td><td class="n">9</td><td class="n">2026-05</td></tr>
-          <tr><td>Tamrien</td><td class="n">5.00</td><td class="n">8</td><td class="n">2026-11</td></tr>
-          <tr><td>Haddaf</td><td class="n">4.20</td><td class="n">5</td><td class="n">2026-09</td></tr>
-          <tr><td>Squadra</td><td class="n">5.00</td><td class="n">2</td><td class="n">2026-09</td></tr>
-          <tr><td>Tashkil</td><td>—</td><td class="n">0</td><td class="n">2026-11</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/koora-app/id1143050799" target="_blank" rel="noopener noreferrer">Koora App ↗</a></td><td class="n">4.54</td><td class="n">2,276</td><td class="n">2023-12</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/grintafy-%D9%82%D8%B1%D9%86%D8%AA%D8%A7%D9%81%D8%A7%D9%8A/id1278333539" target="_blank" rel="noopener noreferrer">Grintafy ↗</a></td><td class="n">4.27</td><td class="n">686</td><td class="n">2026-07</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/golato-%D9%82%D9%88%D9%84%D8%A7%D8%AA%D9%88/id1212783287" target="_blank" rel="noopener noreferrer">Golato ↗</a></td><td class="n">4.12</td><td class="n">262</td><td class="n">2026-10</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/malaeb-%D9%85%D9%84%D8%A7%D8%B9%D8%A8/id1094201670" target="_blank" rel="noopener noreferrer">Malaeb ↗</a></td><td class="n">3.63</td><td class="n">241</td><td class="n">2026-11</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/kammel-%D9%83%D9%85%D9%84/id6739165958" target="_blank" rel="noopener noreferrer">Kammel ↗</a></td><td class="n">4.09</td><td class="n">23</td><td class="n">2026-07</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/%D8%AD%D9%88%D8%A7%D8%B1%D9%8A/id6502416902" target="_blank" rel="noopener noreferrer">Hawari ↗</a></td><td class="n">4.50</td><td class="n">16</td><td class="n">2026-11</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/fatbalah/id6747132102" target="_blank" rel="noopener noreferrer">Fatbalah ↗</a></td><td class="n">3.40</td><td class="n">15</td><td class="n">2026-10</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/%D9%88%D8%A7%D8%AC%D9%87/id6768588226" target="_blank" rel="noopener noreferrer">Wajeh ↗</a></td><td class="n">5.00</td><td class="n">9</td><td class="n">2026-05</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/%D8%AA%D9%85%D8%B1%D9%8A%D9%80%D9%86/id6757168784" target="_blank" rel="noopener noreferrer">Tamrien ↗</a></td><td class="n">5.00</td><td class="n">8</td><td class="n">2026-11</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/haddaf-football-matches/id6769593441" target="_blank" rel="noopener noreferrer">Haddaf ↗</a></td><td class="n">4.20</td><td class="n">5</td><td class="n">2026-09</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/squadra-%D8%B3%D9%83%D9%88%D8%A7%D8%AF%D8%B1%D8%A7/id6772215344" target="_blank" rel="noopener noreferrer">Squadra ↗</a></td><td class="n">5.00</td><td class="n">2</td><td class="n">2026-09</td></tr>
+          <tr><td><a href="https://apps.apple.com/sa/app/%D8%AA%D8%B4%D9%83%D9%8A%D9%84%D8%A9-tashkil/id6824603517" target="_blank" rel="noopener noreferrer">Tashkil ↗</a></td><td>—</td><td class="n">0</td><td class="n">2026-11</td></tr>
         </table></div>
-        <p class="note">المصدر: متجر التطبيقات السعودي. أربعة تطبيقات فقط تجاوزت مئتي تقييم، والباقي صغير وجديد.</p>
+        <p class="note">المصدر: متجر التطبيقات السعودي. اضغط على اسم التطبيق لفتح صفحته في المتجر. أربعة تطبيقات فقط تجاوزت مئتي تقييم، والباقي صغير وجديد.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="edge">
+  <div class="wrap">
+    <div class="eyebrow">تحليل المنافسين وميزتنا</div>
+    <h2>خمس فئات من المنافسين، وسبع نقاط نتميز بها.</h2>
+    <p class="lead">قرأنا مزايا المنافسين من صفحاتهم في المتجر ومواقعهم وتقييمات مستخدميهم، وليس من داخل كل تطبيق. تجربتها واحداً واحداً جزء من مرحلة التحقق.</p>
+    <div class="tw"><table>
+      <tr><th>الفئة</th><th>أمثلة</th><th>ما يجيدونه</th><th>أين يضعفون</th></tr>
+      <tr><td><b>أ. منظّمون</b><br>يستأجرون الملعب ويديرون المباراة</td><td>Koora App، Wajeh، Kammel، Fatbalah</td><td>عدد مكتمل وحكم ومشرف. أفضل تجربة في السوق</td><td>كل مباراة تحتاج موظفاً. شكاوى من الحظر والصرامة</td></tr>
+      <tr><td><b>ب. منصات حجز</b></td><td>Malaeb، Golato، Hawari</td><td>قوائم ملاعب كبيرة وأسماء معروفة</td><td>تقييمات عن ملعب مقفل أو محجوز مرتين بعد الدفع، وعربون لا يرجع. أدوات المالك ضعيفة</td></tr>
+      <tr><td><b>ج. أدوات اجتماعية وتنظيم</b></td><td>Grintafy، Squadra، Tamrien، Haddaf</td><td>مجتمع وملفات لاعبين وتوزيع فرق</td><td>صعوبة في تحقيق الدخل، والدفع غالباً خارج التطبيق</td></tr>
+      <tr><td><b>د. منصات مقاعد جديدة</b></td><td>Tashkil</td><td>الفكرة نفسها مع قواعد للغياب</td><td>جديدة جداً وبلا تقييمات بعد</td></tr>
+      <tr><td><b>هـ. المنافس الحقيقي</b></td><td>مجموعات الواتساب، دفتر المالك، الكاش والتحويل</td><td>مجاني ومألوف والكل موجود فيه</td><td>لا سجل، لا دفع مقدم، ملاحقة دائمة، والغريب لا يجد مكاناً</td></tr>
+    </table></div>
+    <p class="note">لا نحاول استبدال الواتساب. رابط المباراة ومساعد المحادثة يعملان داخله.</p>
+
+    <h3 style="margin-top:40px;font-size:22px">ميزتنا</h3>
+    <div class="grid g2">
+      <div class="card idea core"><div class="k n">1</div><div><h3>نحن تقويم صاحب الملعب</h3><p>منصة الحجز تحتاج أن تعيد بناء نفسها كنظام للمالك وتكسب عادته اليومية. والمالك لا يدير تقويمين.</p></div></div>
+      <div class="card idea"><div class="k n">2</div><div><h3>بدون عمولة على سعر المالك</h3><p>من يعيش على العمولة أو اشتراك المالك لا يستطيع مجاراتها بدون أن يخسر دخله.</p></div></div>
+      <div class="card idea"><div class="k n">3</div><div><h3>الضمان</h3><p>لا يقدر على وعد «الملعب موجود» بتكلفة قليلة إلا من يملك التقويم.</p></div></div>
+      <div class="card idea"><div class="k n">4</div><div><h3>الدكة</h3><p>قاعدة بسيطة تزيد دخل المالك وتغطي الغياب. سهلة التقليد، فهي ميزة بداية وليست حاجزاً.</p></div></div>
+      <div class="card idea"><div class="k n">5</div><div><h3>نعمل داخل الواتساب</h3><p>نلاقي المالك والمجموعات حيث هم الآن.</p></div></div>
+      <div class="card idea"><div class="k n">6</div><div><h3>كثافة في حيّ واحد</h3><p>اللاعب يريد مباراة الليلة قريبة. حيّ مكتظ بملاعبنا أقوى من قائمة متفرقة في المدينة.</p></div></div>
+      <div class="card idea"><div class="k n">7</div><div><h3>سجل العملاء</h3><p>بعد شهور على اللوحة يصير تاريخ عملاء المالك عندنا. هذا ما يجعل التبديل صعباً فعلاً.</p></div></div>
+    </div>
+
+    <h3 style="margin-top:40px;font-size:22px">وأين نحن ضعفاء</h3>
+    <div class="grid g2">
+      <div class="card"><div class="rowline"><span>لا اسم ولا مستخدمون ولا ملاعب بعد</span><b>نبدأ بحيّ يكفيه عدد قليل</b></div><div class="rowline"><span>غيرنا عنده تمويل وسبق</span><b>لا ننافس على الانتشار</b></div><div class="rowline"><span>المنظّمون يقدمون أول مباراة أفضل</span><b>ننظم ليالي دكة بأنفسنا</b></div></div>
+      <div class="card"><div class="rowline"><span>اللوحة المجانية لا تجلب دخلاً</span><b>الخانات والاشتراكات وباقة برو</b></div><div class="rowline"><span>الفكرة ليست فريدة</span><b>نبيع الثقة لا الجِدّة</b></div><div class="rowline"><span>رسوم الدفع على المبالغ الصغيرة</span><b>الباقات والاشتراك تقلل العمليات</b></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="marketing">
+  <div class="wrap">
+    <div class="eyebrow">خطة التسويق</div>
+    <h2>لكل جمهور رسالة، وكل الصرف داخل الحيّ.</h2>
+    <div class="tw"><table>
+      <tr><th>الجمهور</th><th>الرسالة</th><th>أين نصله</th></tr>
+      <tr><td><b>أصحاب الملاعب وموظفو البوابة</b></td><td>«دفتر حجوزاتك، مجاناً. سعرك لك.»</td><td>زيارة في الملعب ليلاً، واتساب، مالك يجيب مالك</td></tr>
+      <tr><td><b>المنظّمون</b></td><td>«أرسل رابطاً واحداً. ما أحد عليه لك فلوس.»</td><td>دعوة مباشرة بالاسم، ومجموعاتهم</td></tr>
+      <tr><td><b>اللاعب بدون شلة</b></td><td>«ما عندك شلة؟ مباراة الليلة قريبة منك.»</td><td>سناب شات، تيك توك، صفحات الملاعب في البحث والخرائط</td></tr>
+      <tr><td><b>المقيمون</b></td><td dir="ltr" style="text-align:end">Find a game tonight. Pay your share. Play.</td><td>مجموعات المقيمين، المجمّعات السكنية، الشركات</td></tr>
+      <tr><td><b>الحراس</b></td><td>«الحارس عندنا مطلوب، ويلعب بأقل.»</td><td>مقاطع قصيرة، وتنبيهات الحراس</td></tr>
+      <tr><td><b>الشركات</b></td><td>«ساعة كورة أسبوعية لفريقك بفاتورة واحدة.»</td><td>لينكدإن، والتواصل مع الموارد البشرية</td></tr>
+    </table></div>
+    <div class="grid g2">
+      <div class="card">
+        <h3 style="margin-bottom:10px">توزيع ميزانية التسويق <span class="tag">مقترح</span></h3>
+        <div class="bars">
+          <div class="bar" style="grid-template-columns:150px 1fr 44px"><span>ليالي دكة</span><i style="width:100%"></i><b class="n">35%</b></div>
+          <div class="bar" style="grid-template-columns:150px 1fr 44px"><span>المحتوى والتصوير</span><i style="width:57%"></i><b class="n">20%</b></div>
+          <div class="bar" style="grid-template-columns:150px 1fr 44px"><span>إعلانات تجريبية</span><i style="width:57%"></i><b class="n">20%</b></div>
+          <div class="bar" style="grid-template-columns:150px 1fr 44px"><span>مطبوعات وصدريات</span><i style="width:43%"></i><b class="n">15%</b></div>
+          <div class="bar" style="grid-template-columns:150px 1fr 44px"><span>مكافآت الإحالة</span><i style="width:29%"></i><b class="n">10%</b></div>
+        </div>
+        <p class="note">لا إعلانات على مستوى المدينة في السنة الأولى: اللاعب الذي يأتي من خارج الحيّ لا يجد مباراة قريبة منه.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:10px">أهداف أول 90 يوماً <span class="tag">مقترحة</span></h3>
+        <div class="rowline"><span>ملاعب تستخدم اللوحة يومياً</span><b><span class="n">5</span> ثم <span class="n">10</span></b></div>
+        <div class="rowline"><span>مباريات مفتوحة في الأسبوع</span><b class="n">20</b></div>
+        <div class="rowline"><span>نسبة المباريات التي تكتمل</span><b class="n">60%</b></div>
+        <div class="rowline"><span>لاعبون دفعوا مباراة واحدة على الأقل</span><b class="n">500</b></div>
+        <div class="rowline"><span>يلعبون مرة ثانية خلال 14 يوماً</span><b class="n">40%</b></div>
+      </div>
+    </div>
+    <h3 style="margin-top:36px;font-size:20px">تقويم التسعين يوماً</h3>
+    <div class="tw"><table>
+      <tr><th>الأسابيع</th><th>أصحاب الملاعب</th><th>اللاعبون</th><th>المحتوى</th></tr>
+      <tr><td class="n">1–2</td><td>زيارة 15 ملعباً في الحيّ، وتشغيل أول 5، وإدخال دفاترهم</td><td>—</td><td>تصوير الملاعب وأصحابها</td></tr>
+      <tr><td class="n">3–4</td><td>متابعة يومية وإزالة ما يمنع الاستخدام</td><td>دعوة 20 منظّماً بالاسم، وأول ليلة دكة</td><td>مقطع «كيف تشتغل دكة»</td></tr>
+      <tr><td class="n">5–6</td><td>الملّاك يفتحون أول مباريات الساعات الفاضية</td><td>ليلتا دكة في الأسبوع، ولوحات السياج</td><td>«خانة فاضية الليلة» كل عصر</td></tr>
+      <tr><td class="n">7–8</td><td>مالك يجيب مالك، وتشغيل الملاعب 6 إلى 10</td><td>بطاقة الحارس، وأول خانة بدون رسم، ومجموعات المقيمين</td><td>قصص لاعبين، ومقطع للحراس</td></tr>
+      <tr><td class="n">9–10</td><td>أول تقارير أسبوعية وتحويلات</td><td>اشتراك الشلة، وتجربة ساعة شركة</td><td>شهادة صاحب ملعب</td></tr>
+      <tr><td class="n">11–12</td><td>مراجعة الأهداف وقرار الحيّ الثاني</td><td>كأس أحياء صغير</td><td>ملخص الكأس والنتائج</td></tr>
+    </table></div>
   </div>
 </section>
 
@@ -616,6 +811,40 @@ html{background:#090D0B!important;scroll-behavior:smooth}
   </div>
 </section>
 
+<section id="numbers">
+  <div class="wrap">
+    <div class="eyebrow">خطة العمل بالأرقام</div>
+    <h2>ثلاثة احتمالات للشهر الثاني عشر.</h2>
+    <p class="lead">كل الأرقام هنا افتراضات وتقديرات أولية وليست قياسات. مرحلة التحقق وُضعت لتستبدلها بأرقام حقيقية.</p>
+    <div class="tw"><table>
+      <tr><th></th><th>منخفض</th><th>متوسط</th><th>مرتفع</th></tr>
+      <tr><td>ملاعب تعمل</td><td class="n">25</td><td class="n">60</td><td class="n">120</td></tr>
+      <tr><td>مباريات التطبيق لكل ملعب في الليلة</td><td class="n">0.6</td><td class="n">1.0</td><td class="n">1.5</td></tr>
+      <tr><td>نسبة المباريات التي تكتمل</td><td class="n">50%</td><td class="n">60%</td><td class="n">70%</td></tr>
+      <tr><td>دخل الخانات</td><td class="n">6,750</td><td class="n">34,560</td><td class="n">132,300</td></tr>
+      <tr><td>باقة برو للملّاك</td><td class="n">600</td><td class="n">2,390</td><td class="n">7,160</td></tr>
+      <tr><td>دكة بلس للاعبين</td><td class="n">2,900</td><td class="n">14,500</td><td class="n">43,500</td></tr>
+      <tr><td>ليالي دكة</td><td class="n">800</td><td class="n">2,000</td><td class="n">3,000</td></tr>
+      <tr><td><b>الدخل الشهري، ر.س</b></td><td><b class="n">11,000</b></td><td><b class="n">53,500</b></td><td><b class="n">186,000</b></td></tr>
+      <tr><td>يغطي من تكلفة شهرية تقديرها <span class="n">71,000</span> ر.س</td><td class="n">15%</td><td class="n">75%</td><td class="n">260%</td></tr>
+    </table></div>
+    <div class="grid g3">
+      <div class="card"><h3>ماذا تقول الأرقام</h3><p style="color:var(--soft);font-size:15.5px">عدد الملاعب وحده لا يكفي: 60 ملعباً بمباراة واحدة في الليلة أقل من التكلفة. الرقمان الحاسمان هما عدد المباريات لكل ملعب والاشتراكات.</p></div>
+      <div class="card"><h3>تكلفة السنة الأولى</h3><p style="color:var(--soft);font-size:15.5px">تقدير أعلى: نحو <span class="n">700,000</span> ر.س قبل الدخل. يقل إذا بنى الفريق الحالي المنتج. رقم للنقاش وليس طلب تمويل.</p></div>
+      <div class="card" style="border-color:var(--volt)"><h3>قاعدة الصرف</h3><p style="color:var(--soft);font-size:15.5px">الصرف مرحلة بمرحلة. مرحلة التحقق تكلف قليلاً وتقرر هل نبني. ولا تُموَّل مرحلة قبل تحقق شرط التي قبلها.</p></div>
+    </div>
+    <h3 style="margin-top:36px;font-size:20px">أهم المخاطر</h3>
+    <div class="tw"><table>
+      <tr><th>الخطر</th><th>ما نفعله</th></tr>
+      <tr><td>أصحاب الملاعب لا يستخدمون اللوحة</td><td>نختبره قبل أي بناء، وندخل حجوزاتهم عنهم، ومساعد الواتساب يخفف الجهد</td></tr>
+      <tr><td>المباريات لا تكتمل</td><td>حيّ واحد، ليالي دكة، دعوة المنظّمين أولاً، وخصم آخر خانة</td></tr>
+      <tr><td>رسوم الدفع تأكل رسم الخانة</td><td>تسعير خاص للمبالغ الصغيرة، والباقات والاشتراك لتقليل عدد العمليات</td></tr>
+      <tr><td>منافس مموَّل يبني لوحة مالك جيدة قبلنا</td><td>السرعة في حيّ واحد. المالك لا يبدّل تقويمه بسهولة</td></tr>
+      <tr><td>تعارض في اسم العلامة</td><td>فحص العلامة قبل أي مواد عامة أخرى</td></tr>
+    </table></div>
+  </div>
+</section>
+
 <section id="next">
   <div class="wrap">
     <div class="eyebrow">ما نحتاجه الآن</div>
@@ -631,7 +860,7 @@ html{background:#090D0B!important;scroll-behavior:smooth}
 
 <footer>
   <div class="wrap">
-    <p>مقترح مشروع دكة · 13 نوفمبر 2026 · النسخة 0.1</p>
+    <p>مقترح مشروع دكة · 13 نوفمبر 2026 · النسخة 0.3</p>
     <p>الأسعار في الأمثلة افتراضية. أرقام السوق من مصادر عامة بتاريخ البحث. اسم «دكة» لم يُفحص كعلامة تجارية بعد. بيانات اللوحة تجريبية.</p>
   </div>
 </footer>
