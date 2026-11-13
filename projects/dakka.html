@@ -138,6 +138,68 @@ html{background:#090D0B!important;scroll-behavior:smooth}
 .dk .phase .num{grid-row:span 2;width:44px;height:44px;border-radius:14px;background:var(--s2);border:1px solid var(--line);display:grid;place-items:center;font-weight:700;color:var(--volt)}
 .dk .phase p{color:var(--soft);font-size:15.5px}
 .dk footer{padding:40px 0 70px;color:var(--faint);font-size:14px;border-top:1px solid rgba(255,255,255,.06)}
+/* journey */
+.dk .strip{display:flex;gap:16px;overflow-x:auto;padding:6px 2px 18px;margin-top:28px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.dk .step{flex:none;width:212px;scroll-snap-align:start}
+.dk .step h3{font-size:15.5px;margin-top:12px;display:flex;gap:8px;align-items:center}
+.dk .step h3 i{flex:none;width:24px;height:24px;border-radius:50%;background:var(--volt);color:var(--voltink);display:grid;place-items:center;font-size:12.5px;font-weight:700;font-style:normal}
+.dk .step p{color:var(--soft);font-size:13.5px;line-height:1.65;margin-top:4px}
+.dk .ph{height:392px;border-radius:30px;border:6px solid #050806;outline:1px solid var(--line);background:var(--bg);padding:14px 11px;font-size:11.5px;line-height:1.5;overflow:hidden;display:flex;flex-direction:column;gap:8px;position:relative}
+.dk .ph.lt{background:var(--dbg);color:var(--dink)}
+.dk .ph.wa{background:#0B141A}
+.dk .ph .t{font-weight:700;font-size:13px}
+.dk .ph .m{color:var(--faint);font-size:10.5px}
+.dk .ph.lt .m{color:var(--dsoft)}
+.dk .ph .bx{background:var(--s1);border:1px solid var(--line);border-radius:12px;padding:8px}
+.dk .ph.lt .bx{background:#fff;border-color:var(--dline)}
+.dk .ph .bt{background:var(--volt);color:var(--voltink);border-radius:10px;text-align:center;font-weight:700;padding:8px 6px;margin-top:auto}
+.dk .ph .bt.g{background:var(--s2);color:var(--ink);border:1px solid var(--line);margin-top:0}
+.dk .ph .rw{display:flex;justify-content:space-between;gap:6px;align-items:center}
+.dk .ph .pl{display:inline-block;border-radius:99px;padding:1px 8px;font-size:10px;font-weight:700;background:rgba(255,178,36,.18);color:var(--warn)}
+.dk .ph .pl.g{background:rgba(74,222,128,.18);color:var(--ok)}
+.dk .ph .pl.v{background:var(--volt);color:var(--voltink)}
+.dk .ph .sh{margin:auto -11px -14px;background:var(--s1);border-top:1px solid var(--line);border-radius:18px 18px 0 0;padding:12px 11px 14px;display:flex;flex-direction:column;gap:7px}
+.dk .ph.lt .sh{background:#fff;border-color:var(--dline)}
+.dk .ph .in{background:var(--s2);border:1px solid var(--line);border-radius:9px;padding:6px 8px;color:var(--faint)}
+.dk .ph.lt .in{background:var(--dbg);border-color:var(--dline);color:var(--dsoft)}
+.dk .ph .bub{background:#1F2C34;border-radius:12px 12px 12px 3px;padding:7px;color:#E9EDEF;max-width:92%}
+.dk .ph .bub.o{background:#005C4B;border-radius:12px 12px 3px 12px;margin-inline-start:auto}
+.dk .ph .nt{background:rgba(255,255,255,.1);border-radius:14px;padding:9px;backdrop-filter:blur(6px)}
+.dk .ph .clock{text-align:center;font-size:40px;font-weight:300;line-height:1.1;margin:10px 0 2px}
+.dk .mp{position:relative;border-radius:10px;overflow:hidden;background:repeating-linear-gradient(180deg,var(--turf) 0 12.5%,var(--turf2) 12.5% 25%);aspect-ratio:10/12.5;flex:none}
+.dk .mp.s{aspect-ratio:10/7}
+.dk .mp svg{position:absolute;inset:0;width:100%;height:100%}
+.dk .ph .cells{display:grid;grid-template-columns:repeat(2,1fr);gap:4px}
+.dk .ph .cells div{border-radius:8px;padding:5px 6px;border:1px solid var(--dline);min-height:34px;font-size:10px;background:#EAEEE5}
+.dk .ph .cells .f{background:none;border-style:dashed;color:var(--dsoft)}
+.dk .ph .cells .mm{background:#E4F3B4;border-color:var(--dgreen)}
+.dk .branch{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:8px}
+.dk .branch .card{display:flex;gap:12px;align-items:flex-start}
+.dk .branch .card b{flex:none;font-size:22px;line-height:1.2}
+.dk .branch p{color:var(--soft);font-size:15px}
+
+/* notifications */
+.dk .ntl li{padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.dk .ntl li:last-child{border-bottom:0}
+.dk .ntl small{display:block;color:var(--faint);font-size:13px;margin-top:2px}
+.dk .ch{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:0 6px;margin-inline-start:6px;vertical-align:middle;background:var(--s2);color:var(--soft);border:1px solid var(--line)}
+.dk .ch.w{color:#4ADE80;border-color:rgba(74,222,128,.4)}
+.dk .ch.p{color:var(--volt);border-color:rgba(200,242,48,.4)}
+
+/* subscriptions */
+.dk .plan{display:flex;flex-direction:column;gap:8px}
+.dk .plan .pr{font-size:26px;font-weight:700;line-height:1.3}
+.dk .plan .pr small{font-size:13px;font-weight:500;color:var(--faint)}
+.dk .plan li{color:var(--soft);font-size:15px;padding-inline-start:20px;position:relative}
+.dk .plan li::before{content:"";position:absolute;inset-inline-start:2px;top:.75em;width:8px;height:8px;border-radius:50%;background:var(--volt)}
+.dk .plan.hot{border-color:var(--volt)}
+.dk .sub h3.grp{margin-top:36px;font-size:20px}
+
+/* riyadh now */
+.dk .bars{display:grid;gap:10px;margin-top:8px}
+.dk .bar{display:grid;grid-template-columns:54px 1fr 44px;gap:10px;align-items:center;font-size:14.5px}
+.dk .bar i{height:14px;border-radius:7px;background:var(--volt);display:block}
+.dk .bar b{text-align:end}
 @media(prefers-reduced-motion:reduce){.dk .slot.free b{animation:none}html{scroll-behavior:auto}}
 </style>
 
@@ -154,6 +216,7 @@ html{background:#090D0B!important;scroll-behavior:smooth}
     <div class="cta">
       <a class="btn p" href="#demo">جرّب الفكرة الآن</a>
       <a class="btn q" href="#ideas">الأفكار الذكية</a>
+      <a class="btn q" href="#journey">رحلة الشاشات</a>
     </div>
     <div class="facts">
       <div class="fact"><b class="n">12</b><span>خانة في كل مباراة: 10 في الملعب و2 على الدكة</span></div>
@@ -305,6 +368,153 @@ html{background:#090D0B!important;scroll-behavior:smooth}
   </div>
 </section>
 
+<section id="journey">
+  <div class="wrap">
+    <div class="eyebrow">رحلة اللاعب</div>
+    <h2>من رابط في الواتساب إلى مباراة الأسبوع القادم.</h2>
+    <p class="lead">تسع شاشات، وكل شاشة فيها قرار واحد. اسحب لتتابع الرحلة.</p>
+    <div class="strip">
+      <div class="step"><div class="ph wa"><div class="m" style="text-align:center">شلة الخميس ⚽</div><div class="bub">مين نازل السبت؟</div><div class="bub o"><div class="mp s" data-f="0111011100"></div><b>ناقصنا 4 · السبت 9:00 م</b><br><span style="opacity:.75">ملاعب النخبة · الملقا</span></div><div class="bub">حجزت خانتي 👍</div></div><h3><i class="n">1</i>الرابط يوصل</h3><p>صورة التشكيلة والخانات الناقصة داخل المجموعة. يفتح بدون تحميل تطبيق.</p></div>
+      <div class="step"><div class="ph"><div class="rw"><span class="t">السبت · 9:00 م</span><span class="pl">ناقص 4</span></div><div class="m">ملاعب النخبة · ملعب 1</div><div class="mp" data-f="0111011100"></div><div class="rw"><span>28 ر.س للاعب</span><span class="m">6/12</span></div></div><h3><i class="n">2</i>صفحة المباراة</h3><p>الملعب من الأعلى، ومن حجز، وكم ناقص، وآخر موعد للاكتمال.</p></div>
+      <div class="step"><div class="ph"><div class="mp" data-f="0111011100" style="opacity:.45"></div><div class="sh"><div class="rw"><span class="t">الأبيض · وسط</span><b>28 ر.س</b></div><div class="rw"><span class="bt g" style="flex:1">لي</span><span class="bt g" style="flex:1;opacity:.6">لصاحبي</span></div><div class="bt" style="margin-top:0">احجز الخانة</div></div></div><h3><i class="n">3</i>اختر مركزك</h3><p>ضغطة على الخانة الفاضية. لك أو لصاحبك.</p></div>
+      <div class="step"><div class="ph"><div class="t" style="margin-top:14px">رقم جوالك</div><div class="in n">05xxxxxxxx</div><div class="t">رمز التحقق</div><div class="rw"><span class="in" style="flex:1;text-align:center">4</span><span class="in" style="flex:1;text-align:center">7</span><span class="in" style="flex:1;text-align:center">1</span><span class="in" style="flex:1;text-align:center">9</span></div><div class="m">مرة واحدة فقط. بدون كلمة مرور.</div><div class="bt">تحقق</div></div><h3><i class="n">4</i>الدخول برقم الجوال</h3><p>رقم ورمز واسم أول. لا نماذج طويلة.</p></div>
+      <div class="step"><div class="ph"><div class="mp" data-f="0111011100" style="opacity:.45"></div><div class="sh"><div class="rw"><span>الإجمالي</span><b>28 ر.س</b></div><div class="rw"><span class="bt g" style="flex:1;border-color:var(--volt)">Apple Pay</span><span class="bt g" style="flex:1">mada</span></div><div class="bt g">STC Pay</div><div class="bt" style="margin-top:0">ادفع واحجز</div></div></div><h3><i class="n">5</i>ادفع حصتك فقط</h3><p>لا تحويلات ولا «مين دفع؟». المبلغ عند بوابة الدفع حتى تكتمل المباراة.</p></div>
+      <div class="step"><div class="ph"><div class="rw"><span class="t">خانتك محجوزة ✓</span><span class="pl">ناقص 3</span></div><div class="mp" data-f="0111011110" data-me="8"></div><div class="bt">شارك في واتساب</div></div><h3><i class="n">6</i>خانتك محجوزة</h3><p>اسمك في الملعب، وزر المشاركة جاهز ليكتمل العدد أسرع.</p></div>
+      <div class="step"><div class="ph" style="background:linear-gradient(180deg,#16211B,#090D0B)"><div class="clock n">5:40</div><div class="m" style="text-align:center">السبت 14 نوفمبر</div><div class="nt"><b>دكة · اكتملت المباراة ✓</b><br>السبت 9:00 م في ملاعب النخبة. نشوفك في الملعب.</div><div class="nt" style="opacity:.6"><b>دكة</b><br>تركي حجز خانة الهجوم.</div></div><h3><i class="n">7</i>اكتملت المباراة</h3><p>إشعار لكل اللاعبين عند اكتمال العشرة. ولو ما اكتملت قبل الموعد يرجع المبلغ كاملاً.</p></div>
+      <div class="step"><div class="ph"><div class="rw"><span class="t">الليلة · 9:00 م</span><span class="pl g">مؤكدة</span></div><div class="bx"><b>ملاعب النخبة · ملعب 1</b><br><span class="m">الملقا · 12 دقيقة بالسيارة</span></div><div class="bt g">افتح الموقع في الخريطة</div><div class="bx" style="text-align:center"><svg width="74" height="74" viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="#EEF3EE" d="M0 0h3v3H0zM4 0h3v3H4zM0 4h3v3H0zM4 4h1v1H4zM6 4h1v1H6zM5 5h1v1H5zM4 6h1v1H4zM6 6h1v1H6zM3 3h1v1H3z"/><path fill="#090D0B" d="M1 1h1v1H1zM5 1h1v1H5zM1 5h1v1H1z"/></svg><br><span class="m">رمز الحضور عند البوابة</span></div></div><h3><i class="n">8</i>يوم المباراة</h3><p>تذكير قبل ساعتين، الموقع، ورمز يسجّل حضورك عند البوابة.</p></div>
+      <div class="step"><div class="ph"><div class="t">كيف كانت المباراة؟</div><div class="bx"><div class="rw"><span>الالتزام</span><b style="color:var(--volt)">100%</b></div><span class="m">حضرت 4 من 4</span></div><div class="bx"><b>نجم المباراة</b><div class="rw" style="margin-top:4px"><span class="pl v">سعود</span><span class="pl g">نواف</span><span class="pl g">كريم</span></div></div><div class="bt">نفس الموعد الأسبوع القادم</div></div><h3><i class="n">9</i>بعد المباراة</h3><p>حضورك يُسجَّل، تصويت لنجم المباراة، وحجز الأسبوع القادم بضغطة.</p></div>
+    </div>
+    <h3 style="margin-top:22px">وإذا تغيّر شيء في الطريق</h3>
+    <div class="branch">
+      <div class="card"><b>↩</b><p><b style="color:var(--ink);font-size:16px">ما أقدر أحضر</b><br>قبل الموعد بثلاث ساعات: إلغاء مجاني. بعدها: سلّم خانتك برابط واسترد مبلغك.</p></div>
+      <div class="card"><b>✕</b><p><b style="color:var(--ink);font-size:16px">المباراة ما اكتملت</b><br>تُلغى تلقائياً، ويرجع المبلغ كاملاً، ونقترح عليك أقرب مباراة مفتوحة.</p></div>
+      <div class="card"><b>＋</b><p><b style="color:var(--ink);font-size:16px">ما لقيت مباراة تناسبني</b><br>افتح مباراة على أي ساعة فاضية، للكل أو لربعك فقط، وادفع خانتك.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="ownerjourney">
+  <div class="wrap">
+    <div class="eyebrow">رحلة صاحب الملعب</div>
+    <h2>من الدفتر إلى لوحة تعمل من أول يوم.</h2>
+    <p class="lead">ثماني شاشات. المالك لا يكتب شيئاً في البداية، ولا يدفع شيئاً.</p>
+    <div class="strip">
+      <div class="step"><div class="ph lt"><div class="t">ملاعب النخبة</div><div class="m">الملقا · شمال الرياض</div><div class="bx">هذا الملعب لم ينضم لدكة بعد. المعلومات من مصادر عامة.</div><div class="bx" style="border-color:var(--dgreen)"><b>أنت صاحب الملعب؟</b><br>استلم صفحتك مجاناً.</div><div class="bt">استلم صفحة ملعبك</div></div><h3><i class="n">1</i>صفحته موجودة</h3><p>الدليل يعرض الملعب قبل انضمامه. المالك يطلب استلام الصفحة ونتحقق منه بالهاتف.</p></div>
+      <div class="step"><div class="ph wa"><div class="m" style="text-align:center">دكة · الدعم</div><div class="bub">أرسل لنا صورة دفتر الحجوزات وندخلها عنك.</div><div class="bub o"><div style="height:74px;border-radius:8px;background:repeating-linear-gradient(180deg,#E9E4D4 0 9px,#CFC8B4 9px 10px)"></div>دفتر هذا الأسبوع</div><div class="bub">تم. 23 حجزاً في لوحتك ✓</div></div><h3><i class="n">2</i>ندخل حجوزاته عنه</h3><p>صورة الدفتر تكفي. اللوحة تمتلئ في اليوم نفسه.</p></div>
+      <div class="step"><div class="ph lt"><div class="rw"><span class="t">الجمعة 13 نوفمبر</span><span class="m">20 حجزاً</span></div><div class="cells"><div><b>نواف</b><br>7 م · مدفوع</div><div class="f">+ 7 م<br>250 ر.س</div><div class="mm"><b>مباراة</b><br>8 م · 10/12</div><div><b>مشعل</b><br>8 م · ثابت</div><div class="mm"><b>مباراة</b><br>9 م · 6/12</div><div><b>فهد</b><br>9 م · غير مدفوع</div><div><b>سلطان</b><br>10 م · مدفوع</div><div class="f">+ 10 م<br>320 ر.س</div></div></div><h3><i class="n">3</i>لوحة اليوم</h3><p>كل الملاعب والساعات في شاشة: الهاتف، الثابت، ومباريات التطبيق.</p></div>
+      <div class="step"><div class="ph lt"><div class="cells" style="opacity:.45"><div>نواف</div><div class="f">+</div><div class="mm">مباراة</div><div>مشعل</div></div><div class="sh"><div class="t">حجز سريع · 7:00 م</div><div class="in">اسم العميل</div><div class="in n">05xxxxxxxx</div><div class="rw"><span class="in" style="flex:1">250 ر.س</span><span class="in" style="flex:1">كل أسبوع</span></div><div class="bt" style="margin-top:0">احفظ الحجز</div></div></div><h3><i class="n">4</i>حجز في ضغطتين</h3><p>اسم وجوال. وإذا كان حجزاً ثابتاً يتكرر كل أسبوع تلقائياً.</p></div>
+      <div class="step"><div class="ph lt"><div class="t">ساعة 10:00 م فاضية</div><div class="bx">حوّلها إلى مباراة مفتوحة. إذا اكتملت تأخذ سعرك كاملاً.</div><div class="rw"><span class="in" style="flex:1">السعر 320 ر.س</span><span class="in" style="flex:1">الموعد 3 س</span></div><div class="bx"><div class="rw"><span>خانة اللاعب</span><b>35 ر.س</b></div></div><div class="bt">افتحها مباراة</div></div><h3><i class="n">5</i>الساعة الفاضية تصير مباراة</h3><p>بضغطة، وبالسعر الذي يختاره.</p></div>
+      <div class="step"><div class="ph" style="background:linear-gradient(180deg,#16211B,#090D0B)"><div class="clock n">7:02</div><div class="m" style="text-align:center">الجمعة 13 نوفمبر</div><div class="nt"><b>دكة · اكتملت مباراة 10:00 م ✓</b><br>ملعب 2 · 12/12. سعرك 320 ر.س مضمون، ومعه 18 ر.س من الدكة.</div><div class="nt" style="opacity:.6"><b>دكة</b><br>3 حجوزات غير مدفوعة اليوم.</div></div><h3><i class="n">6</i>سعره مضمون</h3><p>إشعار عند الاكتمال. وإذا لم تكتمل ترجع له الساعة قبل الموعد بثلاث ساعات.</p></div>
+      <div class="step"><div class="ph lt"><div class="t">العملاء</div><div class="rw"><span class="pl g">منتظم 86</span><span class="pl">منقطع 4</span><span class="pl" style="background:#F9DAD6;color:#C2362C">يغيب 4</span></div><div class="bx"><b>ياسر المطيري</b><br><span class="m">آخر زيارة قبل 20 يوماً · 9 زيارات</span></div><div class="bx" style="background:#DCF8C6;border-color:#B5E0A0">هلا ياسر، وحشتنا. عندنا ساعات فاضية هذا الأسبوع، تبي نحجز لك؟</div><div class="bt">أرسلها بالواتساب</div></div><h3><i class="n">7</i>يعرف عملاءه</h3><p>من ينتظم، من انقطع، من يغيب. ورسالة جاهزة بضغطة.</p></div>
+      <div class="step"><div class="ph lt"><div class="t">هذا الأسبوع</div><div class="bx"><div class="rw"><span>الدخل</span><b>33,900 ر.س</b></div><div class="rw"><span>الإشغال</span><b>48%</b></div><div class="rw"><span>ساعات لم تُبع</span><b>108</b></div></div><div class="bx"><div class="rw"><span>تحويل دكة</span><b class="ok">9,240 ر.س</b></div><span class="m">وصل حسابك الأحد</span></div><div class="bx">أضعف ساعاتك: الاثنين 4–6 م. جرّب عرضاً.</div></div><h3><i class="n">8</i>تقرير الأسبوع</h3><p>الدخل والإشغال والتحويل، واقتراح واحد لساعاته الضعيفة.</p></div>
+    </div>
+    <p class="note">الأرقام داخل الشاشات بيانات تجريبية للتوضيح.</p>
+  </div>
+</section>
+
+<section id="notify">
+  <div class="wrap">
+    <div class="eyebrow">الإشعارات</div>
+    <h2>كل إشعار له سبب، ولا شيء غير ذلك.</h2>
+    <p class="lead">الإشعار هنا جزء من الوعد: تعرف أن مباراتك اكتملت قبل أن تخرج من البيت، ويعرف المالك أن ساعته بيعت أو رجعت له.</p>
+    <div class="grid g3">
+      <div class="card"><h3>اللاعب</h3><ul class="ntl">
+        <li>خانتك محجوزة<span class="ch p">إشعار</span><small>فور الدفع، ومعه رابط المشاركة</small></li>
+        <li>اكتملت المباراة<span class="ch p">إشعار</span><span class="ch w">واتساب</span><small>عند وصول العشرة</small></li>
+        <li>ناقص اثنان وباقي ساعتان على الموعد<span class="ch p">إشعار</span><small>تنبيه ليشارك الرابط</small></li>
+        <li>لم تكتمل، ورجع مبلغك<span class="ch p">إشعار</span><span class="ch w">واتساب</span><small>مع أقرب مباراة بديلة</small></li>
+        <li>تذكير قبل المباراة بساعتين<span class="ch p">إشعار</span><small>الموقع ورمز الحضور</small></li>
+        <li>نزلت من الدكة إلى الملعب<span class="ch p">إشعار</span><small>عند غياب لاعب</small></li>
+        <li>أحدهم أخذ خانتك، ورجع مبلغك<span class="ch p">إشعار</span><small>بعد تسليم الخانة</small></li>
+        <li>فتحت خانة في مباراة تتابعها<span class="ch p">إشعار</span><small>لمن ضغط «نبّهني»</small></li>
+        <li>مباراة في وقتك المعتاد قرب بيتك<span class="ch p">إشعار</span><small>اختياري، ويُغلق من الإعدادات</small></li>
+        <li>رمز التحقق<span class="ch">SMS</span><small>عند الدخول فقط</small></li>
+      </ul></div>
+      <div class="card"><h3>الكابتن</h3><ul class="ntl">
+        <li>لاعب حجز خانة<span class="ch p">إشعار</span><small>مع العدد الباقي</small></li>
+        <li>لاعب ترك خانته<span class="ch p">إشعار</span><small>ليعيد المشاركة</small></li>
+        <li>اقترب الموعد وباقي خانات<span class="ch p">إشعار</span><span class="ch w">واتساب</span><small>مع زر «ادفع الباقي وأكّد الملعب»</small></li>
+        <li>اكتملت مباراتك، ولك رصيد<span class="ch p">إشعار</span><small>مكافأة الكابتن</small></li>
+        <li>تحصيل حصة المجموعة الأسبوعية<span class="ch p">إشعار</span><small>من دفع ومن لم يدفع</small></li>
+      </ul>
+      <h3 style="margin-top:22px">قواعدنا</h3><ul class="ntl">
+        <li>لا إشعارات بعد منتصف الليل إلا لمباراة الليلة</li>
+        <li>الإشعارات التسويقية بموافقة صريحة فقط</li>
+        <li>كل نوع يُغلق من الإعدادات</li>
+        <li>لا نرسل الخبر نفسه من قناتين إلا للمهم: الاكتمال والإلغاء</li>
+      </ul></div>
+      <div class="card"><h3>صاحب الملعب</h3><ul class="ntl">
+        <li>فُتحت مباراة على ملعبك<span class="ch p">إشعار</span><small>الساعة والسعر</small></li>
+        <li>اكتملت: سعرك مضمون<span class="ch p">إشعار</span><span class="ch w">واتساب</span><small>مع دخل الدكة إن وُجد</small></li>
+        <li>لم تكتمل: الساعة رجعت لك<span class="ch p">إشعار</span><span class="ch w">واتساب</span><small>قبل الموعد بثلاث ساعات</small></li>
+        <li>ملخص حجوزات اليوم<span class="ch w">واتساب</span><small>كل يوم بعد الظهر</small></li>
+        <li>ساعة ذروة فاضية الليلة<span class="ch p">إشعار</span><small>مع زر «افتحها مباراة»</small></li>
+        <li>حجوزات غير مدفوعة<span class="ch p">إشعار</span><small>آخر اليوم</small></li>
+        <li>حجز ثابت ينتهي الأسبوع القادم<span class="ch p">إشعار</span><small>ليجدده مع العميل</small></li>
+        <li>عملاء انقطعوا هذا الشهر<span class="ch p">إشعار</span><small>مرة في الأسبوع، مع الرسالة الجاهزة</small></li>
+        <li>وصل تحويلك<span class="ch p">إشعار</span><span class="ch w">واتساب</span><small>أسبوعياً، مع الكشف</small></li>
+      </ul></div>
+    </div>
+    <p class="note">وللعميل الذي حجز بالهاتف: المالك يرسل له تذكير الموعد بالواتساب بضغطة من اللوحة. الإرسال التلقائي ضمن الباقة المدفوعة.</p>
+  </div>
+</section>
+
+<section id="subs" class="sub">
+  <div class="wrap">
+    <div class="eyebrow">الاشتراكات</div>
+    <h2>الاشتراك يضيف مزايا، ولا يقفل شيئاً أساسياً.</h2>
+    <p class="lead">تنظيم مباراة والانضمام لها وإدارة الحجوزات تبقى بدون اشتراك دائماً. أحد التطبيقات فرض اشتراكاً على المنظّمين، وتقييمات مستخدميه تقول إنهم يغادرونه. الأسعار أدناه مقترحة للاختبار وليست نهائية.</p>
+
+    <h3 class="grp">للاعبين</h3>
+    <div class="grid g3">
+      <div class="card plan hot"><h3>دكة بلس</h3><div class="pr"><span class="n">29</span> ر.س <small>شهرياً · مقترح</small></div><ul>
+        <li>بدون رسم الخانة في كل مبارياتك</li><li>أولوية في المباريات المزدحمة</li><li>خانة دكة مجانية كل شهر</li><li>تسليم الخانة بدون شروط</li></ul><p class="note" style="margin-top:auto">يغطي نفسه من المباراة العاشرة في الشهر.</p></div>
+      <div class="card plan"><h3>باقة المباريات</h3><div class="pr"><span class="n">10</span> خانات <small>بسعر 9 · مقترح</small></div><ul>
+        <li>رصيد خانات يُستخدم في أي ملعب</li><li>صالح لثلاثة أشهر</li><li>يُهدى لصديق</li></ul><p class="note" style="margin-top:auto">دفعة واحدة بدل عشر، فتقلّ رسوم بوابة الدفع.</p></div>
+      <div class="card plan"><h3>اشتراك الشلة</h3><div class="pr">الساعة نفسها <small>كل أسبوع</small></div><ul>
+        <li>ملعب وموعد ثابتان للمجموعة</li><li>كل عضو تُخصم حصته تلقائياً</li><li>خانة الغائب تُفتح للدكة ثم للعامة</li><li>الكابتن لا يجمع مالاً من أحد</li></ul><p class="note" style="margin-top:auto">بدون رسم اشتراك. رسم الخانة المعتاد فقط.</p></div>
+      <div class="card plan"><h3>بطاقة الحارس</h3><div class="pr">مجاناً <small>للحراس الملتزمين</small></div><ul>
+        <li>الحارس يلعب بنصف السعر أو مجاناً</li><li>يصله تنبيه بكل مباراة ينقصها حارس قربه</li><li>تُسحب البطاقة عند الغياب المتكرر</li></ul><p class="note" style="margin-top:auto">تحل أصعب خانة في كل مباراة.</p></div>
+    </div>
+
+    <h3 class="grp">لأصحاب الملاعب</h3>
+    <div class="grid g3">
+      <div class="card plan"><h3>الأساسية</h3><div class="pr">مجاناً <small>دائماً</small></div><ul>
+        <li>لوحة الحجوزات والحجز السريع</li><li>الحجز الثابت الأسبوعي</li><li>قائمة العملاء والتصنيف</li><li>مباريات التطبيق والتقارير</li><li>تذكير واتساب بضغطة</li></ul></div>
+      <div class="card plan hot"><h3>برو</h3><div class="pr"><span class="n">199</span> ر.س <small>شهرياً · مقترح</small></div><ul>
+        <li>تذكير وتأكيد تلقائي بالواتساب</li><li>رابط دفع لحجوزات الهاتف</li><li>رابط «القطة»: كل لاعب يدفع حصته في حجز الهاتف</li><li>حسابات للموظفين بصلاحيات</li><li>عروض على الساعات الضعيفة</li><li>تصدير الكشوف والفواتير</li></ul></div>
+      <div class="card plan"><h3>أعمال</h3><div class="pr">حسب الفروع</div><ul>
+        <li>عدة فروع في حساب واحد</li><li>تقارير مجمّعة ومقارنة الفروع</li><li>إدارة الأكاديمية والاشتراكات الشهرية</li><li>مدير حساب</li></ul></div>
+    </div>
+
+    <h3 class="grp">للشركات والمجمّعات</h3>
+    <div class="grid g2">
+      <div class="card plan"><h3>ساعة الشركة</h3><div class="pr">فاتورة شهرية واحدة</div><ul><li>ساعة ثابتة لموظفي الشركة كل أسبوع</li><li>الشركة تدفع كل المبلغ أو جزءاً منه والموظف الباقي</li><li>تقرير مشاركة للموارد البشرية</li></ul></div>
+      <div class="card plan"><h3>دوري دكة</h3><div class="pr">اشتراك فريق <small>للموسم</small></div><ul><li>دوري أحياء أو شركات على ملاعب دكة</li><li>جدول ونتائج وترتيب في التطبيق</li><li>مساحة لراعٍ على الصدريات والصفحة</li></ul></div>
+    </div>
+    <p class="note">لماذا الاشتراكات مهمة: رسم الخانة وحده دخل صغير. الاشتراك يعطي دخلاً ثابتاً، ويقلل عدد عمليات الدفع الصغيرة.</p>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <div class="eyebrow">أفكار إضافية</div>
+    <h2>عشر أفكار أخرى للمراحل القادمة.</h2>
+    <div class="grid g3">
+      <div class="card idea"><div class="k n">14</div><div><h3>رابط «القطة» لحجز الهاتف</h3><p>العميل حجز بالهاتف؟ المالك يرسل له رابطاً، وكل لاعب في مجموعته يدفع حصته. حجز الهاتف يصير مدفوعاً مقدماً.</p></div></div>
+      <div class="card idea"><div class="k n">15</div><div><h3>رمز الحضور عند البوابة</h3><p>اللاعب يعرض الرمز والبواب يمسحه. الحضور يُسجَّل بدون ورقة، ونسبة الالتزام تصير دقيقة.</p></div></div>
+      <div class="card idea"><div class="k n">16</div><div><h3>«نبّهني» على المباراة المكتملة</h3><p>قائمة انتظار. أول من يُنبَّه هو لاعب الدكة ثم الأعلى التزاماً.</p></div></div>
+      <div class="card idea"><div class="k n">17</div><div><h3>نفس الشلة الأسبوع القادم</h3><p>بعد المباراة: زر واحد يفتح الموعد نفسه ويدعو اللاعبين أنفسهم.</p></div></div>
+      <div class="card idea"><div class="k n">18</div><div><h3>توزيع الفريقين بالعدل</h3><p>زر يوزّع اللاعبين على الفريقين حسب المستوى والمركز قبل المباراة.</p></div></div>
+      <div class="card idea"><div class="k n">19</div><div><h3>خصم آخر خانة</h3><p>المالك يسمح بتخفيض الخانة الأخيرة قبل الموعد بساعات، حتى لا تُلغى مباراة ينقصها لاعب واحد.</p></div></div>
+      <div class="card idea"><div class="k n">20</div><div><h3>بطاقة المباراة</h3><p>صورة بعد المباراة فيها النتيجة ونجم المباراة، جاهزة للسناب والتيك توك.</p></div></div>
+      <div class="card idea"><div class="k n">21</div><div><h3>لوحة على سياج الملعب</h3><p>رمز مطبوع: «ساعة فاضية الليلة؟ احجز خانتك». المالك يرى اللاعبين يأتون منه.</p></div></div>
+      <div class="card idea"><div class="k n">22</div><div><h3>حكم ومصوّر بالطلب</h3><p>إضافة اختيارية عند فتح المباراة، وتُقسم تكلفتها على الخانات.</p></div></div>
+      <div class="card idea"><div class="k n">23</div><div><h3>وضع الصيف ورمضان</h3><p>في الصيف تتقدم الصالات المكيفة والمواعيد المتأخرة. وفي رمضان مباريات بعد التراويح ودوري أحياء.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <section id="money">
   <div class="wrap">
     <div class="eyebrow">نموذج الدخل</div>
@@ -345,6 +555,47 @@ html{background:#090D0B!important;scroll-behavior:smooth}
         <div class="rowline"><span>الساعات التي لا تُباع</span><b>غير معروف</b></div>
         <div class="rowline"><span>سعر المقعد عند المنافسين</span><b>غير معروف</b></div>
         <p class="note">من الـ<span class="n">74</span> ملعباً، <span class="n">17</span> فقط تأكد أنها تؤجَّر بالساعة، واثنان فقط لهما سعر منشور.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="riyadh">
+  <div class="wrap">
+    <div class="eyebrow">الرياض الآن · بيانات حقيقية</div>
+    <h2>ما الموجود فعلاً اليوم.</h2>
+    <p class="lead">جمعناها ببرنامجين صغيرين من مصادر مفتوحة يوم 13 نوفمبر 2026: خريطة OpenStreetMap ومتجر التطبيقات السعودي. بيانات أماكن وتطبيقات فقط، لا بيانات أشخاص.</p>
+    <div class="grid g2">
+      <div class="card">
+        <h3>ملاعب كرة قدم مرسومة على الخريطة</h3>
+        <div class="fact" style="margin:14px 0"><b class="n">667</b><span>ملعباً في الرياض الكبرى</span></div>
+        <div class="bars">
+          <div class="bar"><span>شرق</span><i style="width:100%"></i><b class="n">218</b></div>
+          <div class="bar"><span>جنوب</span><i style="width:90%"></i><b class="n">197</b></div>
+          <div class="bar"><span>شمال</span><i style="width:54%"></i><b class="n">117</b></div>
+          <div class="bar"><span>غرب</span><i style="width:38%"></i><b class="n">82</b></div>
+          <div class="bar"><span>وسط</span><i style="width:24%"></i><b class="n">53</b></div>
+        </div>
+        <p class="note">تنبيه مهم: هذا عدد الملاعب المرسومة، ومنها ملاعب المدارس والمجمّعات والحدائق. ليس عدد الملاعب المؤجَّرة. <span class="n">8</span> فقط منها لها اسم، ولا واحد له رقم هاتف. لذلك الاتصال والزيارة هما الخطوة التالية.</p>
+      </div>
+      <div class="card">
+        <h3>التطبيقات التي تبيع مقعداً في مباراة</h3>
+        <div class="tw"><table style="margin-top:10px;font-size:14.5px">
+          <tr><th>التطبيق</th><th>التقييم</th><th>عدد التقييمات</th><th>آخر تحديث</th></tr>
+          <tr><td>Koora App</td><td class="n">4.54</td><td class="n">2,276</td><td class="n">2023-12</td></tr>
+          <tr><td>Grintafy</td><td class="n">4.27</td><td class="n">686</td><td class="n">2026-07</td></tr>
+          <tr><td>Golato</td><td class="n">4.12</td><td class="n">262</td><td class="n">2026-10</td></tr>
+          <tr><td>Malaeb</td><td class="n">3.63</td><td class="n">241</td><td class="n">2026-11</td></tr>
+          <tr><td>Kammel</td><td class="n">4.09</td><td class="n">23</td><td class="n">2026-07</td></tr>
+          <tr><td>Hawari</td><td class="n">4.50</td><td class="n">16</td><td class="n">2026-11</td></tr>
+          <tr><td>Fatbalah</td><td class="n">3.40</td><td class="n">15</td><td class="n">2026-10</td></tr>
+          <tr><td>Wajeh</td><td class="n">5.00</td><td class="n">9</td><td class="n">2026-05</td></tr>
+          <tr><td>Tamrien</td><td class="n">5.00</td><td class="n">8</td><td class="n">2026-11</td></tr>
+          <tr><td>Haddaf</td><td class="n">4.20</td><td class="n">5</td><td class="n">2026-09</td></tr>
+          <tr><td>Squadra</td><td class="n">5.00</td><td class="n">2</td><td class="n">2026-09</td></tr>
+          <tr><td>Tashkil</td><td>—</td><td class="n">0</td><td class="n">2026-11</td></tr>
+        </table></div>
+        <p class="note">المصدر: متجر التطبيقات السعودي. أربعة تطبيقات فقط تجاوزت مئتي تقييم، والباقي صغير وجديد.</p>
       </div>
     </div>
   </div>
@@ -440,5 +691,16 @@ html{background:#090D0B!important;scroll-behavior:smooth}
     });
   });
   $('dk-heat').innerHTML=h;
+  // mini pitches inside the journey screens
+  var P=[[50,9],[50,24],[22,36],[78,36],[50,44]];
+  Array.prototype.forEach.call(document.querySelectorAll('.dk .mp'),function(el){
+    var f=el.dataset.f||'',me=el.dataset.me,sm=el.classList.contains('s'),r=sm?5.5:4.6;
+    var s='<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M3 50h94" stroke="rgba(255,255,255,.5)" stroke-width=".8"/><rect x="3" y="3" width="94" height="94" fill="none" stroke="rgba(255,255,255,.5)" stroke-width=".8"/></svg>';
+    for(var i=0;i<10;i++){
+      var p=P[i%5],a=i<5,x=a?p[0]:100-p[0],y=a?p[1]:100-p[1],on=f.charAt(i)==='1';
+      s+='<i style="position:absolute;left:'+x+'%;top:'+y+'%;width:'+(sm?10:13)+'px;height:'+(sm?10:13)+'px;margin:-'+(sm?5:6.5)+'px;border-radius:50%;'+(on?'background:'+(a?'#C8F230':'#F4F6F2'):'border:1.5px dashed rgba(255,255,255,.8)')+(String(i)===me?';box-shadow:0 0 0 2px #090D0B,0 0 0 4px #fff':'')+'"></i>';
+    }
+    el.innerHTML=s;void r;
+  });
 })();
 </script>
