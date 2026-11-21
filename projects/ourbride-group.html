@@ -78,6 +78,33 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 .og .flowline{stroke-dasharray:6 8;animation:ogdash 1.6s linear infinite}
 @keyframes ogdash{to{stroke-dashoffset:-28}}
 
+/* hub diagram */
+.og .hub{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,1fr);grid-template-areas:"a c d" "b c e";gap:22px 52px;margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,3vw,32px)}
+.og .hub-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.og .hub-lines path{fill:none;stroke-width:.5;vector-effect:non-scaling-stroke;stroke-width:2.5}
+.og .hc{position:relative;z-index:1;display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .3s,box-shadow .3s}
+.og a.hc:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(22,23,29,.12)}
+.og .hc.ob{border-color:#f14739}.og .hc.bz{border-color:#f97316}.og .hc.sh{border-color:#7c5cf2}.og .hc.nx{border-style:dashed;border-color:#B4B7C0;background:#FAF9F6}
+.og .hs{display:block;aspect-ratio:16/8;overflow:hidden;background:#EDEAE4;border-bottom:1px solid var(--line)}
+.og .hs img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.og .hs.hz{display:flex;flex-wrap:wrap;gap:8px;align-content:center;justify-content:center;padding:12px;background:repeating-linear-gradient(135deg,#F4F2EE 0 10px,#EFEDE8 10px 20px)}
+.og .hs.hz i{font-style:normal;font-size:13px;font-weight:600;border:1px dashed #B4B7C0;border-radius:99px;padding:4px 12px;background:#fff;color:#5E616B;direction:ltr}
+.og .hb{display:flex;align-items:center;gap:10px;padding:12px 14px 4px}
+.og .hl{width:38px;height:38px;border-radius:10px;object-fit:contain;background:#fff;border:1px solid var(--line);padding:4px;flex:none}
+.og .hq{display:grid;place-items:center;font-size:22px;color:#8C8F98;font-weight:600}
+.og .hb b{display:block;font-size:15.5px;line-height:1.35}
+.og .hc.ob b{color:#C0331F}.og .hc.bz b{color:#B85A0B}.og .hc.sh b{color:#5B3FD6}
+.og .hb small{display:block;color:var(--faint);font-size:12.5px;line-height:1.4}
+.og .hd{display:block;padding:2px 14px 14px;font-size:13.5px;color:var(--stone);line-height:1.7}
+.og .core{position:relative;z-index:1;align-self:center;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:26px 18px;border-radius:24px;color:#fff;background:linear-gradient(145deg,#2F3983,#7c5cf2 45%,#E53429);box-shadow:0 20px 50px rgba(47,57,131,.35)}
+.og .core img{width:62px;height:62px;border-radius:16px;background:#fff;padding:8px;margin-bottom:6px}
+.og .core b{font-size:19px;direction:ltr}
+.og .core>span{font-size:15px;opacity:.9}
+.og .core ul{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:10px}
+.og .core li{font-size:12.5px;background:rgba(255,255,255,.16);border-radius:99px;padding:2px 10px}
+.og .core small{margin-top:8px;opacity:.85;font-size:12px}
+@media(max-width:860px){.og .hub{grid-template-columns:1fr 1fr;grid-template-areas:"c c" "a d" "b e";gap:16px}.og .hub-lines{display:none}}
+@media(max-width:560px){.og .hub{grid-template-columns:1fr;grid-template-areas:"c" "d" "a" "b" "e"}}
 /* switcher */
 .og .sw{position:sticky;top:46px;z-index:25;background:rgba(246,244,240,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .og .sw .wrap{display:flex;gap:8px;padding-block:10px;overflow-x:auto;scrollbar-width:none}
@@ -365,22 +392,40 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
     <div class="eyebrow">المجموعة</div>
     <h2>مزوّد يسجّل مرة واحدة، ويظهر على كل واجهة.</h2>
     <p class="lead">هذا ادعاء شاشة مستثمري شامل نفسها: الخلفية والدخول والمدفوعات ونماذج البيانات بُنيت أولاً لأور برايد، ثم صارت محرك شامل، ثم بُني بازار فوقها. لوحات تحكم منظمي البازارات والبائعين موجودة داخل بوابة شامل، لا داخل موقع بازار.</p>
-    <div class="map">
-      <svg viewBox="0 0 900 330" role="img" aria-label="شامل في المنتصف يغذي أور برايد وبازار وموقع شامل">
-        <defs><linearGradient id="gsh" x1="0" x2="1"><stop offset="0" stop-color="#2F3983"/><stop offset="1" stop-color="#E53429"/></linearGradient></defs>
-        <path class="flowline" d="M450 165 L170 70" stroke="#F14836" stroke-width="2.5" fill="none"/>
-        <path class="flowline" d="M450 165 L170 260" stroke="#E05C00" stroke-width="2.5" fill="none"/>
-        <path class="flowline" d="M450 165 L730 70" stroke="#2F3983" stroke-width="2.5" fill="none"/>
-        <path class="flowline" d="M450 165 L730 260" stroke="#8C8F98" stroke-width="2.5" fill="none"/>
-        <rect x="330" y="112" width="240" height="106" rx="22" fill="url(#gsh)"/>
-        <text x="450" y="150" text-anchor="middle" fill="#fff" class="lbl" style="font-size:19px">محرك شامل</text>
-        <text x="450" y="176" text-anchor="middle" fill="#fff" class="sub" style="fill:#E8E9F5">مزودون · حجوزات · مدفوعات · تسوية</text>
-        <text x="450" y="198" text-anchor="middle" fill="#fff" class="sub" style="fill:#E8E9F5">.NET Core · واجهات API موثقة</text>
-        <g><rect x="40" y="30" width="250" height="80" rx="18" fill="#FFF1EF" stroke="#F14836"/><text x="165" y="64" text-anchor="middle" class="lbl" fill="#C0331F">أور برايد · our-bride.com</text><text x="165" y="88" text-anchor="middle" class="sub">العروس: تخطيط، متجر، مجتمع</text></g>
-        <g><rect x="40" y="220" width="250" height="80" rx="18" fill="#FFF3EA" stroke="#E05C00"/><text x="165" y="254" text-anchor="middle" class="lbl" fill="#B04800">بازار · our-bazaar.com</text><text x="165" y="278" text-anchor="middle" class="sub">منظمون، بائعون، زوار</text></g>
-        <g><rect x="610" y="30" width="250" height="80" rx="18" fill="#EEF0FA" stroke="#2F3983"/><text x="735" y="64" text-anchor="middle" class="lbl" fill="#2F3983">شامل · shaaml.online</text><text x="735" y="88" text-anchor="middle" class="sub">سوق مباشر + لوحة المزود</text></g>
-        <g><rect x="610" y="220" width="250" height="80" rx="18" fill="#F4F3F0" stroke="#B4B7C0" stroke-dasharray="5 5"/><text x="735" y="254" text-anchor="middle" class="lbl" fill="#5E616B">واجهات قادمة</text><text x="735" y="278" text-anchor="middle" class="sub">تطبيق تجميل · تطبيق لايف ستايل</text></g>
+    <div class="hub" id="og-hub">
+      <svg class="hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="flowline" d="M50 50 L84 24" stroke="#f14739"/>
+        <path class="flowline" d="M50 50 L84 76" stroke="#f97316"/>
+        <path class="flowline" d="M50 50 L16 24" stroke="#7c5cf2"/>
+        <path class="flowline" d="M50 50 L16 76" stroke="#9aa0ad"/>
       </svg>
+      <a class="hc ob" href="https://our-bride.com" target="_blank" rel="noopener" style="grid-area:a">
+        <span class="hs"><img src="assets/dr-ourbride-desktop.webp" alt="لقطة أور برايد" loading="lazy"></span>
+        <span class="hb"><img class="hl" src="assets/ourbride.webp" alt=""><span><b>OurBride · أور برايد</b><small class="u">our-bride.com</small></span></span>
+        <span class="hd">للعروس: مخطط الزفاف، متجر العرائس، المجتمع. ويب + iOS + Android.</span>
+      </a>
+      <a class="hc bz" href="https://our-bazaar.com" target="_blank" rel="noopener" style="grid-area:b">
+        <span class="hs"><img src="assets/bazaar-boothallocation.webp" alt="لقطة بازار" loading="lazy"></span>
+        <span class="hb"><img class="hl" src="assets/bazaar.svg" alt=""><span><b>Bazaar · بازار</b><small class="u">our-bazaar.com</small></span></span>
+        <span class="hd">للمنظمين والبائعين والزوار: أكشاك، تذاكر، نقاط بيع، كونسبت ستور.</span>
+      </a>
+      <div class="core" style="grid-area:c">
+        <img src="assets/shaaml.svg" alt="">
+        <b>Shaaml Core Engine</b>
+        <span>محرك شامل</span>
+        <ul><li>مزودون</li><li>حجوزات</li><li>مدفوعات</li><li>تسوية</li></ul>
+        <small class="u">.NET Core · REST APIs</small>
+      </div>
+      <a class="hc sh" href="https://shaaml.online" target="_blank" rel="noopener" style="grid-area:d">
+        <span class="hs"><img src="assets/dr-shaaml-desktop.webp" alt="لقطة شامل" loading="lazy"></span>
+        <span class="hb"><img class="hl" src="assets/shaaml.svg" alt=""><span><b>Shaaml · شامل</b><small class="u">shaaml.online</small></span></span>
+        <span class="hd">لمقدمي الخدمات: لوحة إدارة كاملة + سوق مباشر للحجز.</span>
+      </a>
+      <div class="hc nx" style="grid-area:e">
+        <span class="hs hz"><i>Beauty App</i><i>Lifestyle App</i><i>+ Future platforms</i></span>
+        <span class="hb"><span class="hl hq">+</span><span><b>Next platforms · واجهات قادمة</b><small>من خارطة طريق شامل</small></span></span>
+        <span class="hd">تطبيق تجميل وتطبيق لايف ستايل على نفس المحرك. لم تُطلق بعد.</span>
+      </div>
     </div>
     <div class="grid g3">
       <div class="card"><h3>الشركة</h3><p><span class="n">OUR BRIDE for Technology Services &amp; Supplies LLC</span> · سجل تجاري <span class="n">223226</span> · القاهرة · تأسست <span class="n">2023</span> · الفريق <span class="n">12</span> حسب غرفة البيانات.</p></div>
