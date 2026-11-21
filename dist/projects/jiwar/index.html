@@ -283,6 +283,12 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
 .jw .gantt .bar{height:26px;border-radius:8px;background:var(--signal);opacity:.9;transform-origin:right;animation:jwbar .9s ease backwards}
 .jw .gantt .bar.b2{background:#5FA8D3}.jw .gantt .bar.b3{background:#1E9E6A}.jw .gantt .bar.gate{background:#F7F3EC}
 @keyframes jwbar{from{transform:scaleX(0)}}
+.jw .fun{display:flex;flex-direction:column;gap:6px;margin:14px 0 10px}
+.jw .fun div{width:var(--w);min-width:210px;background:linear-gradient(90deg,rgba(245,163,26,.28),rgba(245,163,26,.12));border-inline-start:4px solid var(--signal);border-radius:10px;padding:8px 12px;display:flex;align-items:baseline;gap:10px;animation:jwfun .9s ease backwards}
+.jw .fun div:nth-child(2){animation-delay:.15s}.jw .fun div:nth-child(3){animation-delay:.3s}.jw .fun div:nth-child(4){animation-delay:.45s;background:rgba(30,158,106,.16);border-color:var(--count)}
+.jw .fun b{font-size:22px;font-weight:600}.jw .fun span{font-size:14.5px;color:var(--stone)}
+@keyframes jwfun{from{width:0;opacity:0}}
+.jw .step .sm{color:var(--stone);font-size:13.5px;line-height:1.6;margin-top:4px}
 @media(prefers-reduced-motion:reduce){.jw *{animation:none!important;transition:none!important}}
 </style>
 
@@ -346,6 +352,7 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
 <a href="#prices"><svg class="ic"><use href="#i-tag"/></svg>الباقات</a>
 <a href="#calc"><svg class="ic"><use href="#i-chart"/></svg>الأرقام</a>
 <a href="#edge"><svg class="ic"><use href="#i-shield"/></svg>ميزتنا</a>
+<a href="#field"><svg class="ic"><use href="#i-users"/></svg>الفريق الميداني</a>
 <a href="#legal"><svg class="ic"><use href="#i-doc"/></svg>الموافقات</a>
 <a href="#plan"><svg class="ic"><use href="#i-cal"/></svg>الخطة</a>
 <a href="#kickoff"><svg class="ic"><use href="#i-flag"/></svg>الانطلاق</a>
@@ -758,13 +765,88 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
         <li>كل نشاط على بعد دقائق من محل فيه شاشاتنا.</li>
         <li>إعلان على الشاشة نفسها: "نشاطك هنا من <span class="n">1,500</span> ريال".</li>
         <li>تقويم المناسبات سبب للاتصال بكل عميل حالي وسابق.</li>
-        <li>المؤسس يبيع في الأشهر الستة الأولى، وبائع بالعمولة من الشهر الثالث.</li></ul></div>
+        <li>فريق ميداني من مندوبتين يزور الأنشطة المجاورة لكل محل، مع المؤسس.</li></ul></div>
     </div>
     <div class="grid g4">
       <div class="card"><span class="pill">اليوم الأول</span><p>الإعلان جاهز ويُعرض، وصورة له في المحل تصل المعلن.</p></div>
       <div class="card"><span class="pill">الأسبوع الثاني</span><p>أول أرقام المسح، وتعديل العرض إن كانت ضعيفة.</p></div>
       <div class="card"><span class="pill">كل شهر</span><p>تقرير واقتراح للشهر القادم.</p></div>
       <div class="card"><span class="pill">الشهر الثالث</span><p>حديث التجديد قبل انتهاء المدة.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="field">
+  <div class="wrap">
+    <div class="eyebrow">الفريق الميداني</div>
+    <h2>من يطرق الأبواب: مندوبتان في الحي، من أول أسبوع.</h2>
+    <p class="lead">المحلات لا توقّع من إعلان، توقّع من زيارة. فريق ميداني صغير من مندوبات ومندوبين يزور المقاهي والنوادي والمطاعم، يعرض النظام على جهاز لوحي، ويخرج بخطاب نوايا. ثم يزور الأنشطة المجاورة لكل محل وقّع، فيبيع الإعلان. فريق واحد للجهتين.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <span class="pill s">قمع المحلات · المرحلة صفر</span>
+        <div class="fun">
+          <div style="--w:100%"><b class="n">100</b><span>زيارة لمحل</span></div>
+          <div style="--w:62%"><b class="n">30</b><span>لقاء مع صاحب القرار</span></div>
+          <div style="--w:42%"><b class="n">15</b><span>عرض بنموذج قائمته على الشاشة</span></div>
+          <div style="--w:30%"><b class="n">10</b><span>خطاب نوايا موقّع</span></div>
+        </div>
+        <p>مندوبتان بدوام جزئي تنجزان <span class="n">100</span> زيارة في أسبوعين، والمتابعة تأخذ الأسابيع التالية.</p>
+      </div>
+      <div class="card">
+        <span class="pill s">قمع المعلنين · كل شهر</span>
+        <div class="fun">
+          <div style="--w:100%"><b class="n">180</b><span>زيارة لنشاط قريب من محل</span></div>
+          <div style="--w:62%"><b class="n">60</b><span>محادثة مع صاحب النشاط</span></div>
+          <div style="--w:42%"><b class="n">15</b><span>عرض سعر وتقرير نموذجي</span></div>
+          <div style="--w:30%"><b class="n">6</b><span>اشتراك جديد</span></div>
+        </div>
+        <p>هذا ما يحتاجه رقم <span class="n">6</span> اشتراكات شهرياً: نحو <span class="n">45</span> زيارة في الأسبوع.</p>
+      </div>
+    </div>
+    <p class="note">نسب التحويل افتراضات لم تُختبر. أول أسبوعين من الزيارات يعطيان النسب الحقيقية، وعليها يُعدَّل حجم الفريق.</p>
+
+    <h3 style="margin-top:36px">زيارة واحدة، ست خطوات</h3>
+    <div class="steps" style="margin-top:14px">
+      <div class="step" style="cursor:default"><small>1</small><span class="ib"><svg class="ic"><use href="#i-map"/></svg></span><b>قائمة الحي</b><p class="sm">محلات الحي مرتبة بالأولوية، ووقت الزيارة خارج الذروة.</p></div>
+      <div class="step" style="cursor:default"><small>2</small><span class="ib"><svg class="ic"><use href="#i-phone"/></svg></span><b>العرض على الجهاز</b><p class="sm">دقيقتان: قائمتك على الشاشة مجاناً، والجدار يدفع لك.</p></div>
+      <div class="step" style="cursor:default"><small>3</small><span class="ib"><svg class="ic"><use href="#i-screen"/></svg></span><b>نموذج بقائمته</b><p class="sm">تصوّر صنفاً من قائمته وتريه شكله على الشاشة فوراً.</p></div>
+      <div class="step" style="cursor:default"><small>4</small><span class="ib"><svg class="ic"><use href="#i-doc"/></svg></span><b>خطاب النوايا</b><p class="sm">ورقة واحدة: عدد الشاشات، الحد الأدنى، الفئات المستثناة.</p></div>
+      <div class="step" style="cursor:default"><small>5</small><span class="ib"><svg class="ic"><use href="#i-users"/></svg></span><b>الأنشطة المجاورة</b><p class="sm">تسأل صاحب المحل عن جيرانه، وتسجّل <span class="n">20</span> نشاطاً حوله.</p></div>
+      <div class="step" style="cursor:default"><small>6</small><span class="ib"><svg class="ic"><use href="#i-loop"/></svg></span><b>المتابعة</b><p class="sm">واتساب في اليوم نفسه، وزيارة ثانية خلال أسبوع.</p></div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <h3>الأجر: ثابت صغير، والباقي على النتيجة</h3>
+        <div class="tw"><table class="tbl">
+          <tr><th>البند</th><th class="num">ريال</th></tr>
+          <tr><td>ثابت شهري لكل مندوبة، دوام جزئي</td><td class="num n">2,000</td></tr>
+          <tr><td>مكافأة خطاب نوايا من محل</td><td class="num n">300</td></tr>
+          <tr><td>مكافأة عند تركيب الشاشات في المحل</td><td class="num n">200</td></tr>
+          <tr><td>مكافأة توقيع معلن جديد</td><td class="num n">250</td></tr>
+          <tr><td>عمولة من اشتراك المعلن</td><td class="num n">10%</td></tr>
+        </table></div>
+        <p>العمولة هي نفسها عمولة البيع الموجودة في النموذج. الجديد هو الثابت والمكافآت. كلها أرقام مقترحة تُراجع على أجور السوق.</p>
+      </div>
+      <div class="card">
+        <h3>أثر الفريق على الأرقام</h3>
+        <div class="rows">
+          <div><span>تكلفة المرحلة صفر: شهران، مندوبتان، مكافآت <span class="n">10</span> محلات و<span class="n">5</span> معلنين، وأدوات العرض</span><span class="n">15,750</span></div>
+          <div><span>الثابت الشهري بعد الانطلاق، مندوبتان</span><span class="n">4,000</span></div>
+          <div><span>نقطة التعادل بمندوبتين</span><span><span class="n">7</span> معلنين</span></div>
+          <div><span>نقطة التعادل بمندوبة واحدة</span><span><span class="n">6</span> معلنين</span></div>
+          <div><span>ربح الشهر <span class="n">12</span> بمندوبتين</span><span class="n">27,300</span></div>
+          <div><span>التمويل المقترح بدل <span class="n">150,000</span></span><span class="n">180,000</span></div>
+        </div>
+        <p>الزيادة <span class="n">30,500</span>: ثابت الفريق ستة أشهر، ومكافآت المحلات، وأدوات العرض. بدون الفريق تبقى نقطة التعادل <span class="n">5</span>، لكن لا أحد يجلب المحلات ولا المعلنين.</p>
+      </div>
+    </div>
+
+    <div class="grid g3">
+      <div class="card icard"><div class="ib"><svg class="ic"><use href="#i-users"/></svg></div><div><h3>من نوظّف</h3><p>من يعرف الحي ويجيد الحديث مع أصحاب المحلات، نساءً ورجالاً. المندوبات يصلن بسهولة إلى الصالونات والنوادي النسائية والمقاهي العائلية.</p></div></div>
+      <div class="card icard"><div class="ib"><svg class="ic"><use href="#i-phone"/></svg></div><div><h3>أدوات العرض</h3><p>جهاز لوحي عليه العرض ونموذج القائمة، ورقة تعريف بالعربية، صورة الإطار، نموذج خطاب النوايا، وورقة الأسعار.</p></div></div>
+      <div class="card icard"><div class="ib"><svg class="ic"><use href="#i-shield"/></svg></div><div><h3>قبل التوظيف</h3><p>صيغة التعاقد النظامية تُحسم مع المحامي: موظف، أو عمل حر بوثيقة. وتُراجع نسب التوطين في مهن التسويق والمبيعات.</p></div></div>
     </div>
   </div>
 </section>
@@ -797,13 +879,13 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
       <div class="card ph"><span class="pill s">البوابة <span class="n">2</span> · قبل طلب الشاشات</span>
         <div class="need" style="margin-top:12px">
           <div class="icard"><div class="ib"><svg class="ic"><use href="#i-doc"/></svg></div><div><h3>السجل التجاري</h3><p>وزارة التجارة. يتضمن النشاط الإعلامي، وهو شرط لترخيص الإعلان.</p></div></div>
-          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-screen"/></svg></div><div><h3>اعتماد الأجهزة</h3><p>اعتماد النوع من هيئة الاتصالات والفضاء والتقنية، وشهادة المطابقة عبر سابر. على المورد، وهو شرط لاختياره.</p></div></div>
-          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-map"/></svg></div><div><h3>تأكيد البلدية</h3><p>الشاشات داخل المحل وموجهة للداخل، فلا تحتاج تصريح لوحات خارجية. يُؤكَّد ذلك، خصوصاً لشاشة تُرى من الواجهة.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-screen"/></svg></div><div><h3>اعتماد الأجهزة</h3><p>شهادة المطابقة عبر سابر، وتشمل المتطلبات اللاسلكية منذ <span class="n">2025</span>. على المستورد، فالشراء من موزع محلي يجعلها عليه.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-map"/></svg></div><div><h3>تأكيد البلدية</h3><p>الشاشات داخل المحل وموجهة للداخل، وبلدي تنص على أن الإعلان داخل المحل لا يحتاج تصريحاً. الشاشة على زجاج الواجهة أو المواجهة له تحتاج.</p></div></div>
           <div class="icard"><div class="ib"><svg class="ic"><use href="#i-inv"/></svg></div><div><h3>عقد المحل</h3><p>محامٍ. <span class="n">12</span> شهراً وحصري، قاعدة الحصة، ملكية الشاشات، وما يحدث عند الإغلاق أو البيع.</p></div></div>
         </div></div>
       <div class="card ph"><span class="pill s">البوابة <span class="n">3</span> · قبل أول إعلان مدفوع</span>
         <div class="need" style="margin-top:12px">
-          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-flag"/></svg></div><div><h3>ترخيص الإعلان</h3><p>الهيئة العامة لتنظيم الإعلام. إلزامي، مع التعهد بالسياسة الإعلامية ونظام حماية البيانات. العمل بلا ترخيص غرامته حتى <span class="n">5</span> ملايين ريال.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-flag"/></svg></div><div><h3>ترخيص الإعلان</h3><p>الهيئة العامة لتنظيم الإعلام. إلزامي، مع التعهد بالسياسة الإعلامية ونظام حماية البيانات. العمل بلا ترخيص غرامته تصل إلى <span class="n">10</span> ملايين ريال.</p></div></div>
           <div class="icard"><div class="ib"><svg class="ic"><use href="#i-inv"/></svg></div><div><h3>الفوترة والضريبة</h3><p>هيئة الزكاة والضريبة والجمارك. فواتير إلكترونية متوافقة من أول فاتورة، وتسجيل ضريبة القيمة المضافة عند دخل <span class="n">375,000</span> ريال.</p></div></div>
           <div class="icard"><div class="ib"><svg class="ic"><use href="#i-doc"/></svg></div><div><h3>شروط المعلن</h3><p>محامٍ. ضوابط المحتوى، ما يقيسه التقرير وما لا يقيسه، التجديد والإلغاء.</p></div></div>
           <div class="icard"><div class="ib"><svg class="ic"><use href="#i-qr"/></svg></div><div><h3>إشعار الخصوصية</h3><p>محامٍ. سجل المسح بلا هوية: وقت وحملة ومحل فقط.</p></div></div>
@@ -815,26 +897,33 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
       <div class="card"><h3>بديل لاحق للكيان</h3><p>ترخيص استثمار أجنبي عبر الشركة الأم في القاهرة بعد اكتمال سنة مالية مدققة. أعلى تكلفة، لذلك ليس طريق البداية.</p></div>
     </div>
     <div class="card" style="margin-top:14px" id="legalcost">
-      <span class="pill s">تقديرات أولية · تُؤكَّد عند التقديم</span>
+      <span class="pill s">بحث في الرسوم · <span class="n">21</span> نوفمبر <span class="n">2026</span></span>
       <h3 style="margin-top:8px">تكلفة الموافقات: ما يُدفع مرة واحدة، وما يتكرر كل سنة</h3>
       <div class="tw"><table class="tbl">
-        <tr><th>البند</th><th class="num">مرة واحدة (ريال)</th><th class="num">سنوياً (ريال)</th><th>ملاحظة</th></tr>
-        <tr><td>تأسيس الشركة: السجل التجاري وعقد التأسيس والتوثيق</td><td class="num n">2,000–4,000</td><td class="num n">~1,200</td><td>السنوي هو تجديد السجل</td></tr>
-        <tr><td>اشتراك الغرفة التجارية</td><td class="num n">—</td><td class="num n">1,000–3,000</td><td>حسب رأس المال</td></tr>
-        <tr><td>اتفاقية الشركاء بصياغة محامٍ</td><td class="num n">4,000–7,000</td><td class="num n">—</td><td>أهم مبلغ في القائمة</td></tr>
-        <tr><td>عقد المحل وشروط المعلن</td><td class="num n">2,000–4,000</td><td class="num n">—</td><td>تُصاغ مرة وتُستخدم دائماً</td></tr>
-        <tr><td>ترخيص الإعلان من هيئة تنظيم الإعلام</td><td class="num n">2,000–5,000</td><td class="num n">مماثل عند التجديد</td><td>الرسم يختلف حسب النشاط ولا يتأكد إلا عند التقديم، وكذلك مدة الترخيص</td></tr>
-        <tr><td>اعتماد الأجهزة وسابر</td><td class="num n">0</td><td class="num n">0</td><td>على المورد، بشرط أن يكون الاعتماد المسبق معياراً لاختياره</td></tr>
-        <tr><td>تصاريح البلدية</td><td class="num n">0</td><td class="num n">0</td><td>الشاشات داخلية. يُؤكَّد</td></tr>
-        <tr><td>المحاسبة وإقرارات هيئة الزكاة والضريبة</td><td class="num n">—</td><td class="num n">6,000–12,000</td><td><span class="n">500–1,000</span> شهرياً بالتعهيد</td></tr>
-        <tr><td>ضريبة القيمة المضافة</td><td class="num n">0</td><td class="num n">0</td><td>تُحصَّل من العميل وتُورَّد، بعد دخل <span class="n">375,000</span></td></tr>
-        <tr><td>التأمينات الاجتماعية والتوطين</td><td class="num n">0</td><td class="num n">0</td><td>حتى توظيف أول موظف</td></tr>
-        <tr><td>تسجيل العلامة التجارية</td><td class="num n">لم يُحدَّد</td><td class="num n">—</td><td>ليس ضمن التقدير بعد</td></tr>
-        <tr class="hl"><td>الإجمالي التقريبي</td><td class="num n">10,000–20,000</td><td class="num n">12,000–20,000</td><td>في التمويل <span class="n">15,000</span> للمرة الواحدة</td></tr>
+        <tr><th>البند</th><th class="num">مرة واحدة (ريال)</th><th class="num">سنوياً (ريال)</th><th>ملاحظة</th><th>الثقة</th></tr>
+        <tr><td>السجل التجاري لشركة ذات مسؤولية محدودة، مع نشر عقد التأسيس</td><td class="num n">1,955</td><td class="num n">1,200</td><td>السنوي تأكيد بيانات من السنة الثانية</td><td><span class="pill g">رسمي</span></td></tr>
+        <tr><td>الغرفة التجارية</td><td class="num n">0</td><td class="num n">0</td><td>معفاة في السنوات الثلاث الأولى، ثم من <span class="n">200</span></td><td><span class="pill g">رسمي</span></td></tr>
+        <tr><td>العنوان الوطني للمنشأة</td><td class="num n">0</td><td class="num n">1,000</td><td>السنة الأولى مجانية</td><td><span class="pill g">رسمي</span></td></tr>
+        <tr><td>تسجيل العلامة التجارية، فئة واحدة</td><td class="num n">6,500</td><td class="num n">—</td><td>الاسم والشعار كعلامة واحدة. التجديد كل عشر سنوات</td><td><span class="pill g">رسمي</span></td></tr>
+        <tr><td>ترخيص مكاتب ووكالات الدعاية والإعلان</td><td class="num n">2,000</td><td class="num n">—</td><td>مدته ثلاث سنوات. الهيئة لا تنشر الرسم في صفحتها</td><td><span class="pill">مصدر ثانوي</span></td></tr>
+        <tr><td>شهادات سابر للشاشات</td><td class="num n">~980</td><td class="num n">~575</td><td>فقط إذا استوردنا بأنفسنا: <span class="n">500</span> للموديل و<span class="n">350</span> للشحنة. الشراء من موزع محلي يجعلها عليه</td><td><span class="pill">مصدر ثانوي</span></td></tr>
+        <tr><td>اشتراك منصة قوى</td><td class="num n">—</td><td class="num n">~3,040</td><td>لمنشأة فيها <span class="n">1–4</span> عاملين</td><td><span class="pill">مصدر ثانوي</span></td></tr>
+        <tr><td>اتفاقية الشركاء بصياغة محامٍ</td><td class="num n">4,000–7,000</td><td class="num n">—</td><td>أهم مبلغ في القائمة</td><td><span class="pill">تقدير</span></td></tr>
+        <tr><td>عقد المحل وشروط المعلن</td><td class="num n">2,000–4,000</td><td class="num n">—</td><td>تُصاغ مرة واحدة</td><td><span class="pill">تقدير</span></td></tr>
+        <tr><td>المحاسبة وإقرارات هيئة الزكاة والضريبة</td><td class="num n">—</td><td class="num n">6,000–12,000</td><td><span class="n">500–1,000</span> شهرياً بالتعهيد</td><td><span class="pill">تقدير</span></td></tr>
+        <tr><td>التسجيل في ضريبة القيمة المضافة</td><td class="num n">0</td><td class="num n">0</td><td>إلزامي فوق <span class="n">375,000</span>، واختياري من <span class="n">187,500</span></td><td><span class="pill g">رسمي</span></td></tr>
+        <tr><td>تسجيل جهة التحكم في البيانات الشخصية</td><td class="num n">0</td><td class="num n">0</td><td>غير مطلوب لنشاطنا ما دمنا لا نعالج بيانات حساسة</td><td><span class="pill">مصدر ثانوي</span></td></tr>
+        <tr><td>رخصة البلدية لمقر الشركة</td><td class="num n">لم يُعثر</td><td class="num n">لم يُعثر</td><td>تُحسب بحاسبة الرسوم حسب الموقع والمساحة</td><td><span class="pill">غير معروف</span></td></tr>
+        <tr><td>موافقة المحتوى لكل إعلان</td><td class="num n">؟</td><td class="num n">؟</td><td>الهيئة تدرج <span class="n">2,000</span> ريال لبند "الإعلانات". لا نعرف هل ينطبق على شاشات داخل المحلات</td><td><span class="pill">غير معروف</span></td></tr>
+        <tr class="hl"><td>الإجمالي المعروف</td><td class="num n">16,500–21,500</td><td class="num n">11,200–17,200</td><td>السنوي من السنة الثانية. في السنة الأولى <span class="n">9,000–15,000</span></td><td></td></tr>
       </table></div>
-      <p>التكلفة السنوية المتكررة ليست كلها ضمن المصروف الشهري في النموذج. إذا لم تكن المحاسبة داخل بند التشغيل (<span class="n">2,000</span> شهرياً)، ترتفع نقطة التعادل من <span class="n">5</span> إلى <span class="n">6</span> معلنين. وما يُتفق عليه مع الشريك من حصة ربح أو مبلغ سنوي تكلفة إضافية فوق هذا كله.</p>
+      <p>بند التأسيس والتراخيص في التمويل <span class="n">15,000</span> ريال، والمعروف حتى الآن يتجاوزه لأن العلامة التجارية (<span class="n">6,500</span>) لم تكن محسوبة. والمتكرر سنوياً ليس كله ضمن المصروف الشهري في النموذج: إن لم تكن المحاسبة داخل بند التشغيل، ترتفع نقطة التعادل من <span class="n">5</span> إلى <span class="n">6</span> معلنين.</p>
     </div>
-    <p class="note">هذه القائمة من خطة العمل ولم تُراجَع مع محامٍ بعد. جلسة المحامي الأولى تؤكدها وتضيف ما ينقصها من تسجيلات تأسيس الشركة المعتادة. ميزانية التأسيس والتراخيص في التمويل <span class="n">15,000</span> ريال وتحتاج مراجعة.</p>
+    <div class="grid g2">
+      <div class="card" style="border-color:var(--bad)"><h3>سؤال يجب أن يُحسم كتابةً مع الهيئة</h3><p>هل شركة نشاطها عرض إعلانات الغير على شاشات داخل المحلات تدخل في ترخيص وكالات الإعلان؟ وهل يحتاج كل إعلان موافقة محتوى برسم مستقل؟ لو كان الجواب نعم للثانية، فـ<span class="n">55</span> إعلاناً في السنة تغيّر الحساب كله.</p></div>
+      <div class="card"><h3>تصحيحان على خطة العمل</h3><p>غرامة العمل الإعلامي بلا ترخيص تصل إلى <span class="n">10</span> ملايين ريال وفق نظام الإعلام المرئي والمسموع، لا <span class="n">5</span>. واعتماد الأجهزة اللاسلكية صار منذ <span class="n">2025</span> جزءاً من شهادة سابر، لا شهادة مستقلة.</p></div>
+    </div>
+    <p class="note">"رسمي" يعني أن الرقم من موقع الجهة نفسها، و"مصدر ثانوي" من مكاتب استشارية، و"تقدير" بلا مصدر. لم يُراجَع شيء من هذا مع محامٍ بعد. غير محسوب: مقر الشركة، التأمينات الاجتماعية عند التوظيف، ورسوم العمالة الوافدة.</p>
   </div>
 </section>
 
@@ -929,7 +1018,7 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
   <div class="wrap">
     <div class="eyebrow">الانطلاق</div>
     <h2>ما نحتاجه لنبدأ، بنداً بنداً.</h2>
-    <p class="lead">ستة مسارات تعمل معاً في عشرة أسابيع، بلا شراء شاشات. علّم على ما تم لترى أين نقف.</p>
+    <p class="lead">سبعة مسارات تعمل معاً في عشرة أسابيع، بلا شراء شاشات. علّم على ما تم لترى أين نقف.</p>
     <div class="prog"><span>الجاهزية</span><div class="track"><i id="jw-kp"></i></div><b class="n" id="jw-kn">0 / 0</b></div>
     <div class="grid g3" id="jw-kick">
       <div class="card"><div class="icard"><div class="ib"><svg class="ic"><use href="#i-hand"/></svg></div><div><h3>الشريك والكيان</h3></div></div><div class="need">
@@ -941,7 +1030,7 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
       <div class="card"><div class="icard"><div class="ib"><svg class="ic"><use href="#i-screen"/></svg></div><div><h3>الشاشات</h3></div></div><div class="need">
         <label><input type="checkbox"><span><span class="n">2–3</span> شاشات عينة من موردين</span></label>
         <label><input type="checkbox"><span>اختبار <span class="n">14</span> ساعة يومياً لأسبوعين</span></label>
-        <label><input type="checkbox"><span>مورد يحمل اعتماد هيئة الاتصالات وشهادة سابر</span></label>
+        <label><input type="checkbox"><span>مورد أو موزع محلي يحمل شهادة سابر للموديل</span></label>
         <label><input type="checkbox"><span>تصميم الإطار وعينة منه</span></label></div></div>
       <div class="card"><div class="icard"><div class="ib"><svg class="ic"><use href="#i-code"/></svg></div><div><h3>البرمجيات</h3></div></div><div class="need">
         <label><input type="checkbox"><span>تجربة نظامَي عرض واختيار واحد</span></label>
@@ -959,11 +1048,17 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
         <label><input type="checkbox"><span>قائمة الأنشطة القريبة من كل محل</span></label>
         <label><input type="checkbox"><span><span class="n">5</span> معلنين مؤسسين من فئات مختلفة</span></label>
         <label><input type="checkbox"><span>تحديد أجر البائع وشروط الخطة المشتركة</span></label></div></div>
+      <div class="card"><div class="icard"><div class="ib"><svg class="ic"><use href="#i-users"/></svg></div><div><h3>الفريق الميداني</h3></div></div><div class="need">
+        <label><input type="checkbox"><span>صيغة التعاقد مع المندوبات، بمراجعة المحامي</span></label>
+        <label><input type="checkbox"><span>توظيف مندوبتين أو مندوبين يعرفون الحي</span></label>
+        <label><input type="checkbox"><span>أدوات العرض: جهاز لوحي، ورقة تعريف، خطاب نوايا</span></label>
+        <label><input type="checkbox"><span>يوم تدريب: العرض، الاعتراضات، تسجيل الزيارات</span></label>
+        <label><input type="checkbox"><span><span class="n">100</span> زيارة في أول أسبوعين وقياس نسب التحويل</span></label></div></div>
       <div class="card"><div class="icard"><div class="ib"><svg class="ic"><use href="#i-flask"/></svg></div><div><h3>التجربة والتمويل</h3></div></div><div class="need">
         <label><input type="checkbox"><span>شاشة واحدة في مقهى واحد لأسبوعين</span></label>
         <label><input type="checkbox"><span>أول نسبة مسح حقيقية</span></label>
         <label><input type="checkbox"><span>تصحيح بنود التمويل ومراجعتها</span></label>
-        <label><input type="checkbox"><span>تأمين <span class="n">150,000</span> ريال قبل طلب الشاشات</span></label></div></div>
+        <label><input type="checkbox"><span>تأمين التمويل قبل طلب الشاشات: <span class="n">150,000</span>، أو <span class="n">180,000</span> مع الفريق الميداني</span></label></div></div>
     </div>
     <div class="card" style="margin-top:14px">
       <h3>عشرة أسابيع، جدول مقترح</h3>
@@ -972,6 +1067,7 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
         <span>الشريك والترخيص</span><i class="bar" style="grid-column:2/12"></i>
         <span>اختبار الشاشات</span><i class="bar b2" style="grid-column:3/7;animation-delay:.1s"></i><i style="grid-column:7/12"></i>
         <span>نظام العرض والبرمجيات</span><i style="grid-column:2/4"></i><i class="bar b2" style="grid-column:4/10;animation-delay:.2s"></i><i style="grid-column:10/12"></i>
+        <span>توظيف وتدريب الفريق الميداني</span><i class="bar" style="grid-column:2/4;animation-delay:.25s"></i><i style="grid-column:4/12"></i>
         <span>خطابات المحلات</span><i style="grid-column:2/3"></i><i class="bar b3" style="grid-column:3/10;animation-delay:.3s"></i><i style="grid-column:10/12"></i>
         <span>تجربة الشاشة الواحدة</span><i style="grid-column:2/7"></i><i class="bar b3" style="grid-column:7/9;animation-delay:.4s"></i><i style="grid-column:9/12"></i>
         <span>المعلنون المؤسسون</span><i style="grid-column:2/6"></i><i class="bar" style="grid-column:6/12;animation-delay:.5s"></i>
@@ -1058,17 +1154,17 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
   hrs.forEach(function(v,i){mh+='<i style="height:'+v+'%;animation-delay:'+(i*40)+'ms"></i>'});$('jw-mini').innerHTML=mh;
   // business flow
   var S=[
-   ['i-hand','توقيع المحل','فريق المحلات','عقد 12 شهراً وحصري. تُكتب فيه فئات الإعلانات المستثناة وقاعدة الحصة.','عقد المحل','لا مال يتحرك بعد'],
+   ['i-hand','توقيع المحل','المندوبة الميدانية','عقد 12 شهراً وحصري. تُكتب فيه فئات الإعلانات المستثناة وقاعدة الحصة.','عقد المحل','لا مال يتحرك بعد'],
    ['i-screen','تركيب الشاشات','الفني','4 إلى 6 شاشات على مستوى النظر، تُربط بنظام العرض وتُختبر.','نظام العرض','تكلفة علينا: نحو 950 ريالاً للشاشة'],
    ['i-phone','محتوى المحل','صاحب المحل','يختار قالباً ويرفع صور قائمته وأسعاره. الشاشة تعمل من اليوم الأول.','قوالب المحل','مجاناً للمحل'],
-   ['i-tag','اشتراك المعلن','البائع','نشاط قريب يختار باقة وحيّاً. السعر من الصفحة المعلنة.','الفوترة','من 1,500 ريال شهرياً'],
+   ['i-tag','اشتراك المعلن','المندوبة الميدانية','بعد زيارة الأنشطة المجاورة للمحل، نشاط قريب يختار باقة وحيّاً. السعر من الصفحة المعلنة.','الفوترة','من 1,500 ريال شهرياً'],
    ['i-film','صناعة الإعلان','المصمم','15 ثانية من صور المعلن وشعاره، مع عرض يعطي سبباً للمسح.','الرموز والقياس','تكلفة علينا: 200–400 ريال'],
    ['i-cal','الجدولة والعرض','التشغيل','يُجدول حسب الحي ونوع المحل والوقت والمناسبة. النظام يسجل كل عرض.','نظام العرض','—'],
    ['i-qr','المسح والتحويل','الزبون','يمسح الرمز من مقعده. نسجل الوقت والحملة والمحل ونحوّله لوجهة المعلن.','الرموز والقياس','الطلب يتم عند المعلن'],
    ['i-chart','التقرير الشهري','النظام','مرات العرض، المحلات، المسح، النقرات، واقتراح للشهر القادم.','تقرير المعلن','—'],
    ['i-inv','الفاتورة والتحصيل','المالية','فاتورة إلكترونية متوافقة مع هيئة الزكاة والضريبة.','الفوترة','المعلن يدفع الاشتراك'],
    ['i-coin','حصة المحل','النظام','يوزّع دخل كل معلن على الشاشات حسب دقائق العرض الفعلية، ويصدر كشفاً.','محرك الحصص','الأكبر من 500 ريال أو 25%'],
-   ['i-loop','التجديد أو الترقية','البائع','حديث التجديد قبل نهاية الشهر الثالث: باقة أعلى، خطة مشتركة، أو وقت مناسبة.','تقرير المعلن','يبدأ شهر جديد']
+   ['i-loop','التجديد أو الترقية','المندوبة الميدانية','حديث التجديد قبل نهاية الشهر الثالث: باقة أعلى، خطة مشتركة، أو وقت مناسبة.','تقرير المعلن','يبدأ شهر جديد']
   ],cur=0,tm,playing=!still,h='';
   S.forEach(function(s,i){h+='<button class="step" data-i="'+i+'"><small>'+(i+1)+'</small><span class="ib"><svg class="ic"><use href="#'+s[0]+'"/></svg></span><b>'+s[1]+'</b></button>'});
   $('jw-steps').innerHTML=h;
