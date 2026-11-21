@@ -1,5 +1,5 @@
-<title>OurBride Group — ثلاث منصات، محرك واحد</title>
-<meta name="description" content="صفحة مشروع مجموعة أور برايد: شامل وبازار وأور برايد. الفكرة، أركان العمل، المزايا، العملاء، خطة العمل، شاشات المستثمرين، العروض التقديمية، وكل روابط المنصات." />
+<title>OurBride Group — أربع منصات، محرك واحد</title>
+<meta name="description" content="صفحة مشروع مجموعة أور برايد: شامل وبازار وأور إيفنتس وأور برايد. الفكرة، أركان العمل، المزايا، العملاء، خطة العمل، شاشات المستثمرين، العروض التقديمية، وكل روابط المنصات." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" />
@@ -8,12 +8,12 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 .og{
   --ink:#16171D;--ink2:#20222B;--paper:#F6F4F0;--card:#FFFFFF;--line:#E4E0D8;
   --stone:#5E616B;--faint:#8C8F98;--ok:#1E9E6A;--next:#C98A12;--bad:#C2452D;
-  --sh:#7c5cf2;--sh2:#E53429;--bz:#f97316;--ob:#f14739;
+  --sh:#7c5cf2;--sh2:#E53429;--bz:#f97316;--ob:#f14739;--ev:#62984C;
   --ac:var(--sh);
   background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;font-size:16.5px;line-height:1.85;
   overflow-x:hidden;-webkit-font-smoothing:antialiased;
 }
-.og[data-p="bz"]{--ac:var(--bz)}.og[data-p="ob"]{--ac:var(--ob)}
+.og[data-p="bz"]{--ac:var(--bz)}.og[data-p="ev"]{--ac:var(--ev)}.og[data-p="ob"]{--ac:var(--ob)}
 .og *{box-sizing:border-box}
 .og h1,.og h2,.og h3,.og h4,.og p,.og ul,.og ol{margin:0;padding:0}
 .og ul,.og ol{list-style:none}
@@ -105,10 +105,10 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 .og .ovt td.n,.og .ovt th.n{white-space:normal;font-size:12.5px}
 .og .ovt td:first-child{min-width:76px}
 /* overview */
-.og .ovg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px;align-items:start}
+.og .ovg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px;align-items:start}
 @media(max-width:980px){.og .ovg{grid-template-columns:1fr}}
 .og .ov{--c:#7c5cf2;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:16px;min-width:0}
-.og .ov.bz{--c:#f97316}.og .ov.ob{--c:#f14739}
+.og .ov.bz{--c:#f97316}.og .ov.ev{--c:#62984C}.og .ov.ob{--c:#f14739}
 .og .ovh{display:flex;gap:12px;align-items:center}
 .og .ovh img{width:48px;height:48px;border-radius:12px;border:1px solid var(--line);padding:5px;object-fit:contain;background:#fff;flex:none}
 .og .ovh b{display:block;font-size:18px;line-height:1.3}
@@ -143,12 +143,12 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 .og .ov .pr{font-size:13px;color:var(--stone);margin-top:8px}
 .og .ov .cv{font-size:12px;color:var(--bad);margin-top:6px}
 /* hub diagram */
-.og .hub{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,1fr);grid-template-areas:"a c d" "b c e";gap:22px 52px;margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,3vw,32px)}
+.og .hub{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr) minmax(0,1fr);grid-template-areas:"a c d" "b c e" "f c e";gap:22px 52px;margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,3vw,32px)}
 .og .hub-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .og .hub-lines path{fill:none;stroke-width:.5;vector-effect:non-scaling-stroke;stroke-width:2.5}
 .og .hc{position:relative;z-index:1;display:flex;flex-direction:column;background:#fff;border:1.5px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .3s,box-shadow .3s}
 .og a.hc:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(22,23,29,.12)}
-.og .hc.ob{border-color:#f14739}.og .hc.bz{border-color:#f97316}.og .hc.sh{border-color:#7c5cf2}.og .hc.nx{border-style:dashed;border-color:#B4B7C0;background:#FAF9F6}
+.og .hc.ob{border-color:#f14739}.og .hc.ev{border-color:#62984C}.og .hc.bz{border-color:#f97316}.og .hc.sh{border-color:#7c5cf2}.og .hc.nx{align-self:center;border-style:dashed;border-color:#B4B7C0;background:#FAF9F6}
 .og .hs{display:block;aspect-ratio:16/8;overflow:hidden;background:#EDEAE4;border-bottom:1px solid var(--line)}
 .og .hs img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 .og .hs.hz{display:flex;flex-wrap:wrap;gap:8px;align-content:center;justify-content:center;padding:12px;background:repeating-linear-gradient(135deg,#F4F2EE 0 10px,#EFEDE8 10px 20px)}
@@ -157,7 +157,7 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 .og .hl{width:38px;height:38px;border-radius:10px;object-fit:contain;background:#fff;border:1px solid var(--line);padding:4px;flex:none}
 .og .hq{display:grid;place-items:center;font-size:22px;color:#8C8F98;font-weight:600}
 .og .hb b{display:block;font-size:15.5px;line-height:1.35}
-.og .hc.ob b{color:#C0331F}.og .hc.bz b{color:#B85A0B}.og .hc.sh b{color:#5B3FD6}
+.og .hc.ob b{color:#C0331F}.og .hc.ev b{color:#3F6B2E}.og .hc.bz b{color:#B85A0B}.og .hc.sh b{color:#5B3FD6}
 .og .hb small{display:block;color:var(--faint);font-size:12.5px;line-height:1.4}
 .og .hd{display:block;padding:2px 14px 14px;font-size:13.5px;color:var(--stone);line-height:1.7}
 .og .core{position:relative;z-index:1;align-self:center;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:26px 18px;border-radius:24px;color:#fff;background:linear-gradient(145deg,#2F3983,#7c5cf2 45%,#E53429);box-shadow:0 20px 50px rgba(47,57,131,.35)}
@@ -167,8 +167,8 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 .og .core ul{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:10px}
 .og .core li{font-size:12.5px;background:rgba(255,255,255,.16);border-radius:99px;padding:2px 10px}
 .og .core small{margin-top:8px;opacity:.85;font-size:12px}
-@media(max-width:860px){.og .hub{grid-template-columns:1fr 1fr;grid-template-areas:"c c" "a d" "b e";gap:16px}.og .hub-lines{display:none}}
-@media(max-width:560px){.og .hub{grid-template-columns:1fr;grid-template-areas:"c" "d" "a" "b" "e"}}
+@media(max-width:860px){.og .hub{grid-template-columns:1fr 1fr;grid-template-areas:"c c" "a d" "b f" "e e";gap:16px}.og .hub-lines{display:none}}
+@media(max-width:560px){.og .hub{grid-template-columns:1fr;grid-template-areas:"c" "d" "a" "b" "f" "e"}}
 /* switcher */
 .og .sw{position:sticky;top:103px;z-index:25;background:rgba(246,244,240,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .og .sw .wrap{display:flex;gap:8px;padding-block:10px;overflow-x:auto;scrollbar-width:none}
@@ -308,18 +308,19 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 .og .dr-room b{display:block;font-size:16.5px}
 .og .dr-room small{color:var(--muted);font-size:13.5px}
 .og .dr-room .u{color:#f56b60;font-size:13.5px}
-.og .sel{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-@media(max-width:768px){.og .sel{grid-template-columns:1fr}}
+.og .sel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media(max-width:1000px){.og .sel{grid-template-columns:1fr 1fr}}@media(max-width:560px){.og .sel{grid-template-columns:1fr}}
 .og .selc{position:relative;background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:22px;cursor:pointer;overflow:hidden;text-align:start;font:inherit;color:inherit;transition:all .4s cubic-bezier(.4,0,.2,1)}
 .og .selc::before{content:"";position:absolute;inset:0;border-radius:16px;padding:1px;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s}
 .og .selc:hover,.og .selc.on{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 40px rgba(0,0,0,.25)}
 .og .selc:hover::before,.og .selc.on::before{opacity:1}
 .og .selc.bz::before{background:linear-gradient(135deg,#f97316,#fbbf24,#f97316)}
 .og .selc.sh::before{background:linear-gradient(135deg,#7c5cf2,#3b82f6,#7c5cf2)}
+.og .selc.ev::before{background:linear-gradient(135deg,#62984C,#a3c96b,#62984C)}
 .og .selc.ob::before{background:linear-gradient(135deg,#f14739,#ec4899,#f14739)}
 .og .selc .glow{position:absolute;top:-40%;inset-inline-end:-30%;width:200px;height:200px;border-radius:50%;filter:blur(60px);opacity:0;transition:opacity .4s;pointer-events:none}
 .og .selc:hover .glow,.og .selc.on .glow{opacity:.18}
-.og .selc.bz .glow,.og .selc.bz .dot{background:#f97316}.og .selc.sh .glow,.og .selc.sh .dot{background:#7c5cf2}.og .selc.ob .glow,.og .selc.ob .dot{background:#f14739}
+.og .selc.bz .glow,.og .selc.bz .dot{background:#f97316}.og .selc.sh .glow,.og .selc.sh .dot{background:#7c5cf2}.og .selc.ob .glow,.og .selc.ob .dot{background:#f14739}.og .selc.ev .glow,.og .selc.ev .dot{background:#62984C}
 .og .selc .dot{position:absolute;top:14px;inset-inline-end:14px;width:8px;height:8px;border-radius:50%;opacity:0}
 .og .selc.on .dot{opacity:1;animation:drPulse 2s ease-in-out infinite;box-shadow:0 0 12px currentColor}
 @keyframes drPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
@@ -342,10 +343,12 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 .og .ibn:hover .ar{transform:scaleX(-1) translateX(4px)}
 .og .ibn.bz{background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(251,191,36,.08));border:1px solid rgba(249,115,22,.3);color:#f97316}
 .og .ibn.sh{background:linear-gradient(135deg,rgba(124,92,242,.15),rgba(59,130,246,.08));border:1px solid rgba(124,92,242,.3);color:#9d85ff}
+.og .ibn.ev{background:linear-gradient(135deg,rgba(98,152,76,.18),rgba(163,201,107,.08));border:1px solid rgba(98,152,76,.4);color:#8fc46f}
 .og .ibn.ob{background:linear-gradient(135deg,rgba(241,71,57,.15),rgba(236,72,153,.08));border:1px solid rgba(241,71,57,.3);color:#f56b60}
 .og .shero{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
 .og .shero.bz{background:linear-gradient(135deg,rgba(249,115,22,.12) 0%,rgba(251,191,36,.06) 50%,var(--bg3) 100%)}
 .og .shero.sh{background:linear-gradient(135deg,rgba(124,92,242,.12) 0%,rgba(59,130,246,.06) 50%,var(--bg3) 100%)}
+.og .shero.ev{background:linear-gradient(135deg,rgba(98,152,76,.14) 0%,rgba(163,201,107,.06) 50%,var(--bg3) 100%)}
 .og .shero.ob{background:linear-gradient(135deg,rgba(241,71,57,.12) 0%,rgba(236,72,153,.06) 50%,var(--bg3) 100%)}
 .og .shin{padding:clamp(20px,4vw,40px)}
 .og .shh{display:flex;align-items:center;gap:18px;margin-bottom:22px}
@@ -365,6 +368,7 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 .og .mg:hover::before{opacity:1}
 .og .shero.bz .mg::before{background:linear-gradient(90deg,#f97316,#fbbf24)}
 .og .shero.sh .mg::before{background:linear-gradient(90deg,#7c5cf2,#3b82f6)}
+.og .shero.ev .mg::before{background:linear-gradient(90deg,#62984C,#a3c96b)}
 .og .shero.ob .mg::before{background:linear-gradient(90deg,#f14739,#ec4899)}
 .og .mg b{display:block;font-size:25px;font-weight:700;direction:ltr;unicode-bidi:isolate;font-family:'IBM Plex Mono',monospace}
 .og .mg span{font-size:12.5px;color:var(--muted)}
@@ -414,7 +418,7 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
   <div class="idz">
     <a class="home" href="/"><span class="dot"></span>Qassem</a>
     <span class="sep"></span>
-    <span class="prj"><span class="prj-m"><img src="assets/shaaml.svg" alt=""><img src="assets/bazaar.svg" alt=""><img src="assets/ourbride.webp" alt=""></span><b>OurBride Group</b><i>3 PLATFORMS</i></span>
+    <span class="prj"><span class="prj-m"><img src="assets/shaaml.svg" alt=""><img src="assets/bazaar.svg" alt=""><img src="assets/ourbride.webp" alt=""><img src="assets/events.svg" alt=""></span><b>OurBride Group</b><i>4 PLATFORMS</i></span>
   </div>
   <div class="ctrls">
     <a class="ghb" href="#links"><span>كل الروابط</span></a>
@@ -425,12 +429,12 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 <section class="hero dark" id="top">
   <div class="wrap">
     <div class="top">
-      <div class="marks"><i><img src="assets/shaaml.svg" alt="Shaaml"></i><i><img src="assets/bazaar.svg" alt="Bazaar"></i><i><img src="assets/ourbride.webp" alt="OurBride"></i></div>
+      <div class="marks"><i><img src="assets/shaaml.svg" alt="Shaaml"></i><i><img src="assets/bazaar.svg" alt="Bazaar"></i><i><img src="assets/ourbride.webp" alt="OurBride"></i><i><img src="assets/events.svg" alt="OurEvents"></i></div>
       <b>OurBride Group</b>
       <span class="conf">صفحة مشروع · سرّي · نوفمبر <span class="n">2026</span></span>
     </div>
-    <h1>ثلاث منصات حيّة.<br><em>محرك واحد</em> خلفها كلها.</h1>
-    <p class="lead">شامل يدير مقدمي الخدمات ويوزعهم. بازار يشغّل البازارات والمتاجر المؤقتة. أور برايد يخطط للعروس ويبيع لها. ثلاث واجهات على نفس الخلفية التقنية، ومن نفس الشركة، وكل واحدة لها شاشة مستثمرين وعرض تقديمي خاص بها. هذه الصفحة تجمعها في مكان واحد.</p>
+    <h1>أربع منصات حيّة.<br><em>محرك واحد</em> خلفها كلها.</h1>
+    <p class="lead">شامل يدير مقدمي الخدمات ويوزعهم. بازار يشغّل البازارات والمتاجر المؤقتة، وأور إيفنتس نسخته للفعاليات والمعارض. أور برايد يخطط للعروس ويبيع لها. أربع واجهات على نفس الخلفية التقنية، ومن نفس الشركة، وكل واحدة لها شاشة مستثمرين وعرض تقديمي خاص بها. هذه الصفحة تجمعها في مكان واحد.</p>
     <div class="cta">
       <a class="btn p" href="#platforms">استعرض المنصات</a>
       <a class="btn q" href="#pitch">شاشات المستثمرين والعروض</a>
@@ -439,8 +443,8 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
       <a class="btn q" href="#issues">ما لا يتطابق</a>
     </div>
     <div class="facts">
-      <div class="fact"><b class="n">3</b><span>منصات حيّة على الويب، بالعربية والإنجليزية</span></div>
-      <div class="fact"><b class="n">1</b><span>خلفية <span class="n">.NET</span> واحدة تخدم المنصات الثلاث</span></div>
+      <div class="fact"><b class="n">4</b><span>منصات حيّة على الويب، بالعربية والإنجليزية</span></div>
+      <div class="fact"><b class="n">1</b><span>خلفية <span class="n">.NET</span> واحدة تخدم المنصات الأربع</span></div>
       <div class="fact"><b class="n">3</b><span>جولات تأسيسية منفصلة معروضة، بثلاثة عروض تقديمية</span></div>
       <div class="fact"><b class="n">1</b><span>شركة واحدة: <span class="n">OUR BRIDE for Technology Services &amp; Supplies LLC</span>، القاهرة، <span class="n">2023</span></span></div>
     </div>
@@ -467,7 +471,7 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 <section id="overview">
   <div class="wrap">
     <div class="eyebrow">نظرة عامة</div>
-    <h2>ثلاث منصات في صفحة واحدة.</h2>
+    <h2>أربع منصات في صفحة واحدة.</h2>
     <p class="lead">لكل منصة: ماذا تفعل، أهم مزاياها، لمن، في أي سوق، وما الأرقام والإيرادات المتوقعة في ثلاث سنوات. الأرقام من شاشات المستثمرين والعروض التقديمية في الكود، وكل ما هو متوقع إسقاط لا قياس.</p>
     <div class="ovg" id="og-ov"></div>
   </div>
@@ -480,10 +484,11 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
     <p class="lead">هذا ادعاء شاشة مستثمري شامل نفسها: الخلفية والدخول والمدفوعات ونماذج البيانات بُنيت أولاً لأور برايد، ثم صارت محرك شامل، ثم بُني بازار فوقها. لوحات تحكم منظمي البازارات والبائعين موجودة داخل بوابة شامل، لا داخل موقع بازار.</p>
     <div class="hub" id="og-hub">
       <svg class="hub-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <path class="flowline" d="M50 50 L84 24" stroke="#f14739"/>
-        <path class="flowline" d="M50 50 L84 76" stroke="#f97316"/>
-        <path class="flowline" d="M50 50 L16 24" stroke="#7c5cf2"/>
-        <path class="flowline" d="M50 50 L16 76" stroke="#9aa0ad"/>
+        <path class="flowline" d="M50 50 L84 17" stroke="#f14739"/>
+        <path class="flowline" d="M50 50 L84 50" stroke="#f97316"/>
+        <path class="flowline" d="M50 50 L84 83" stroke="#62984C"/>
+        <path class="flowline" d="M50 50 L16 17" stroke="#7c5cf2"/>
+        <path class="flowline" d="M50 50 L16 66" stroke="#9aa0ad"/>
       </svg>
       <a class="hc ob" href="https://our-bride.com" target="_blank" rel="noopener" style="grid-area:a">
         <span class="hs"><img src="assets/dr-ourbride-desktop.webp" alt="لقطة أور برايد" loading="lazy"></span>
@@ -494,6 +499,11 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
         <span class="hs"><img src="assets/bazaar-home.webp" alt="الصفحة الرئيسية لبازار" loading="lazy"></span>
         <span class="hb"><img class="hl" src="assets/bazaar.svg" alt=""><span><b>Bazaar · بازار</b><small class="u">our-bazaar.com</small></span></span>
         <span class="hd">للمنظمين والبائعين والزوار: أكشاك، تذاكر، نقاط بيع، كونسبت ستور.</span>
+      </a>
+      <a class="hc ev" href="https://ourevent.shaaml.online/" target="_blank" rel="noopener" style="grid-area:f">
+        <span class="hs"><img src="assets/events-home.webp" alt="الصفحة الرئيسية لـ OurEvents" loading="lazy"></span>
+        <span class="hb"><img class="hl" src="assets/events.svg" alt=""><span><b>OurEvents · أور إيفنتس</b><small class="u">ourevent.shaaml.online</small></span></span>
+        <span class="hd">نسخة بازار للفعاليات والمعارض: عارضون، أكشاك، تذاكر، نقاط بيع، مساحات عرض.</span>
       </a>
       <div class="core" style="grid-area:c">
         <img src="assets/shaaml.svg" alt="">
@@ -524,8 +534,8 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 <section class="dr" id="products">
   <div class="wrap">
     <div class="eyebrow">المنتجات</div>
-    <h2>ثلاثة منتجات، شركة واحدة.</h2>
-    <p class="lead">بنفس تصميم غرفة البيانات على shaaml.online/data-room وبنفس بياناتها. اختر منتجاً لترى أرقامه وروابطه ولقطاته ووثائقه، ثم انزل لتفاصيل خطة العمل.</p>
+    <h2>أربعة منتجات، شركة واحدة.</h2>
+    <p class="lead">بنفس تصميم غرفة البيانات على shaaml.online/data-room وبنفس بياناتها. أور إيفنتس غير موجود في غرفة البيانات؛ بطاقته منسوخة من بازار لأن شاشته نسخة منه. اختر منتجاً لترى أرقامه وروابطه ولقطاته ووثائقه، ثم انزل لتفاصيل خطة العمل.</p>
     <a class="dr-room" href="https://shaaml.online/data-room" target="_blank" rel="noopener">
       <span><b>غرفة البيانات · Data Room — Due Diligence</b><small>الوثائق القانونية والمالية والاستثمارية لمجموعة أور برايد ومنتجاتها الثلاثة</small></span>
       <span class="u">shaaml.online/data-room ↗</span>
@@ -539,6 +549,7 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 <div class="sw" id="platforms"><div class="wrap" id="og-sw">
   <button data-p="sh" class="on"><img src="assets/shaaml.svg" alt=""><span><b>شامل · Shaaml</b><small>نظام تشغيل لمقدمي الخدمات</small></span></button>
   <button data-p="bz"><img src="assets/bazaar.svg" alt=""><span><b>بازار · Bazaar</b><small>نظام تشغيل البازارات والمتاجر</small></span></button>
+  <button data-p="ev"><img src="assets/events.svg" alt=""><span><b>أور إيفنتس · OurEvents</b><small>نسخة بازار للفعاليات</small></span></button>
   <button data-p="ob"><img src="assets/ourbride.webp" alt=""><span><b>أور برايد · OurBride</b><small>نظام تشغيل الزفاف</small></span></button>
 </div></div>
 
@@ -547,21 +558,21 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 <section id="compare" class="dark">
   <div class="wrap">
     <div class="eyebrow">المقارنة</div>
-    <h2>الثلاثة جنباً إلى جنب، كما تقولها شاشاتها.</h2>
+    <h2>الأربعة جنباً إلى جنب، كما تقولها شاشاتها.</h2>
     <p class="lead">الأرقام منسوخة من شاشات المستثمرين في الكود. لم تُراجع مقابل أي قاعدة بيانات. ما يأتي من العرض التقديمي فقط مكتوب بجانبه.</p>
     <div class="tw"><table class="tbl cmp">
-      <thead><tr><th></th><th><img src="assets/shaaml.svg" alt="">شامل</th><th><img src="assets/bazaar.svg" alt="">بازار</th><th><img src="assets/ourbride.webp" alt="">أور برايد</th></tr></thead>
+      <thead><tr><th></th><th><img src="assets/shaaml.svg" alt="">شامل</th><th><img src="assets/bazaar.svg" alt="">بازار</th><th><img src="assets/events.svg" alt="">أور إيفنتس</th><th><img src="assets/ourbride.webp" alt="">أور برايد</th></tr></thead>
       <tbody>
-      <tr><td>الفئة</td><td>SaaS عمودي + شبكة توزيع</td><td>نظام تشغيل التجارة المحلية</td><td>نظام تشغيل الزفاف</td></tr>
-      <tr><td>العميل الذي يدفع</td><td>مقدم الخدمة، ثم المنصات</td><td>المنظم، المتجر، صاحب الامتياز</td><td>العروس اليوم، البائع لاحقاً</td></tr>
-      <tr><td>الإيراد اليوم</td><td>لا رقم معلن · «مرحلة إطلاق الإيراد»</td><td>لا رقم معلن · «مرحلة إطلاق الإيراد»</td><td>«قبل الإيرادات» مع متجر يبيع</td></tr>
-      <tr><td>أهم رقم جذب</td><td><span class="n">800</span> مزود · <span class="n">5,200</span> حجز</td><td><span class="n">840</span> بائع · <span class="n">29</span> بازار</td><td><span class="n">333</span> مستخدم · <span class="n">332</span> منتج</td></tr>
-      <tr><td>السعر الأساسي</td><td><span class="n">EGP 299 / 599 / 999</span> شهرياً</td><td><span class="n">EGP 38K–78K</span> لكل فعالية</td><td>هامش المتجر · عمولة <span class="n">8–15%</span> لاحقاً</td></tr>
-      <tr><td>TAM / SAM / SOM</td><td><span class="n">$4.3B+ / $620M / $65M</span></td><td><span class="n">$4.5B+ / $800M / $80–150M</span></td><td><span class="n">$3.2B / $800M / $24M</span></td></tr>
-      <tr><td>إيراد السنة الثالثة</td><td><span class="n">EGP 180M</span> ARR (الشاشة) · <span class="n">EGP 18–45M</span> (العرض)</td><td><span class="n">EGP 20M–50M</span></td><td><span class="n">EGP 20–50M</span> (العرض)</td></tr>
-      <tr><td>الطلب</td><td><span class="n">$500K</span> (الشاشة) · <span class="n">EGP 4M–6M</span> (العرض)</td><td><span class="n">EGP 3M–5M</span> · <span class="n">≈ $60K–100K</span></td><td><span class="n">EGP 3M–5M</span> (العرض فقط)</td></tr>
-      <tr><td>التقييم</td><td>غير معلن</td><td><span class="n">EGP 15M–25M</span> قبل الاستثمار (في دليل الأسئلة فقط)</td><td>غير معلن</td></tr>
-      <tr><td>الفريق المعلن</td><td>«3 مؤسسين، 2 مهندسين»</td><td>قسم المؤسس غير معروض · «[X] people»</td><td>مؤسس واحد + وظيفتان شاغرتان</td></tr>
+      <tr><td>الفئة</td><td>SaaS عمودي + شبكة توزيع</td><td>نظام تشغيل التجارة المحلية</td><td>نظام تشغيل التجارة المحلية</td><td>نظام تشغيل الزفاف</td></tr>
+      <tr><td>العميل الذي يدفع</td><td>مقدم الخدمة، ثم المنصات</td><td>المنظم، المتجر، صاحب الامتياز</td><td>المنظم، المتجر، صاحب الامتياز</td><td>العروس اليوم، البائع لاحقاً</td></tr>
+      <tr><td>الإيراد اليوم</td><td>لا رقم معلن · «مرحلة إطلاق الإيراد»</td><td>لا رقم معلن · «مرحلة إطلاق الإيراد»</td><td>لا رقم معلن · «مرحلة إطلاق الإيراد»</td><td>«قبل الإيرادات» مع متجر يبيع</td></tr>
+      <tr><td>أهم رقم جذب</td><td><span class="n">800</span> مزود · <span class="n">5,200</span> حجز</td><td><span class="n">840</span> بائع · <span class="n">29</span> بازار</td><td><span class="n">840</span> بائع · <span class="n">29</span> بازار</td><td><span class="n">333</span> مستخدم · <span class="n">332</span> منتج</td></tr>
+      <tr><td>السعر الأساسي</td><td><span class="n">EGP 299 / 599 / 999</span> شهرياً</td><td><span class="n">EGP 38K–78K</span> لكل فعالية</td><td><span class="n">EGP 38K–78K</span> لكل فعالية</td><td>هامش المتجر · عمولة <span class="n">8–15%</span> لاحقاً</td></tr>
+      <tr><td>TAM / SAM / SOM</td><td><span class="n">$4.3B+ / $620M / $65M</span></td><td><span class="n">$4.5B+ / $800M / $80–150M</span></td><td><span class="n">$4.5B+ / $800M / $80–150M</span></td><td><span class="n">$3.2B / $800M / $24M</span></td></tr>
+      <tr><td>إيراد السنة الثالثة</td><td><span class="n">EGP 180M</span> ARR (الشاشة) · <span class="n">EGP 18–45M</span> (العرض)</td><td><span class="n">EGP 20M–50M</span></td><td><span class="n">EGP 20M–50M</span></td><td><span class="n">EGP 20–50M</span> (العرض)</td></tr>
+      <tr><td>الطلب</td><td><span class="n">$500K</span> (الشاشة) · <span class="n">EGP 4M–6M</span> (العرض)</td><td><span class="n">EGP 3M–5M</span> · <span class="n">≈ $60K–100K</span></td><td><span class="n">EGP 3M–5M</span> · <span class="n">≈ $60K–100K</span></td><td><span class="n">EGP 3M–5M</span> (العرض فقط)</td></tr>
+      <tr><td>التقييم</td><td>غير معلن</td><td><span class="n">EGP 15M–25M</span> قبل الاستثمار (في دليل الأسئلة فقط)</td><td><span class="n">EGP 15M–25M</span> قبل الاستثمار (في دليل الأسئلة فقط)</td><td>غير معلن</td></tr>
+      <tr><td>الفريق المعلن</td><td>«3 مؤسسين، 2 مهندسين»</td><td>قسم المؤسس غير معروض · «[X] people»</td><td>قسم المؤسس غير معروض · «[X] people»</td><td>مؤسس واحد + وظيفتان شاغرتان</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -570,11 +581,11 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 <section id="links">
   <div class="wrap">
     <div class="eyebrow">الروابط</div>
-    <h2>كل شاشة عامة في المنصات الثلاث، في قائمة واحدة.</h2>
+    <h2>كل شاشة عامة في المنصات الأربع، في قائمة واحدة.</h2>
     <p class="lead">من ملفات المسارات في الكود. الروابط التي تحتاج معرّفاً (<span class="u">:id</span>) معروضة بلا رابط. المناطق التي تحتاج دخولاً ملخّصة في آخر القائمة بعدد شاشاتها.</p>
     <div class="lf">
       <input id="og-q" type="search" placeholder="ابحث: investors، plans، community، booking…" aria-label="ابحث في الروابط">
-      <button data-f="all" class="on">الكل</button><button data-f="sh">شامل</button><button data-f="bz">بازار</button><button data-f="ob">أور برايد</button>
+      <button data-f="all" class="on">الكل</button><button data-f="sh">شامل</button><button data-f="bz">بازار</button><button data-f="ev">أور إيفنتس</button><button data-f="ob">أور برايد</button>
     </div>
     <div class="lcount" id="og-lc"></div>
     <div class="lgroups" id="og-lg"></div>
@@ -634,7 +645,7 @@ html{background:#F6F4F0!important;scroll-behavior:smooth}
 var $=function(i){return document.getElementById(i)};
 function each(l,f){Array.prototype.forEach.call(l,f)}
 function num(t){return String(t).replace(/(?<![A-Za-z\d.])((?:EGP|SAR|AED|\$|~|≈)?\s?\d[\d,.]*(?:[KMB]|\+|%|★)*(?:\s?[–-]\s?\$?\d[\d,.]*(?:[KMB]|%|\+)*)?)/g,'<span class="n">$1</span>')}
-var LOGO={sh:'assets/shaaml.svg',bz:'assets/bazaar.svg',ob:'assets/ourbride.webp'};
+var LOGO={sh:'assets/shaaml.svg',bz:'assets/bazaar.svg',ev:'assets/events.svg',ob:'assets/ourbride.webp'};
 
 var P={
 sh:{
@@ -731,7 +742,8 @@ var L=[
  ['ob','المجتمع والتطبيق',[['/ar/community','المجتمع'],['/ar/community/search','بحث المجتمع'],['/ar/auth/login','الدخول'],['/ar/auth/signup','حساب جديد'],['https://play.google.com/store/apps/details?id=com.ourbride.app','Google Play'],['https://apps.apple.com/eg/app/id6747453812','App Store (المعرّف من الكود، لم يُفتح من هنا)'],['https://instagram.com/ourbridestore','Instagram'],['https://facebook.com/OurBrideStores','Facebook'],['https://tiktok.com/@our.bride.store','TikTok']]],
  ['ob','بعد الدخول',[['#','مخطط الزفاف','12 شاشة · /events/planning/*'],['#','لوحة العروس','16 شاشة · /dashboard · مناسبات، هدايا، إعدادات'],['#','التسوق','9 شاشات · /cart · /checkout · /orders'],['#','الحجوزات','3 شاشات · /booking · /reservations'],['#','الملف والرسائل','6 شاشات · /profile · /messages'],['#','الإحالة','/referrals']]]
 ];
-var BASE={sh:'https://shaaml.online',bz:'https://our-bazaar.com',ob:'https://our-bride.com'};
+L=L.concat(L.filter(function(g){return g[0]==='bz'}).map(function(g){return ['ev',g[1],g[2].filter(function(x){return x[0]!=='/bazaar-investor-deck.pdf'||true}).map(function(x){return x[0]==='/investors'?['/investors','شاشة المستثمرين']:x})]}));
+var BASE={sh:'https://shaaml.online',bz:'https://our-bazaar.com',ev:'https://ourevent.shaaml.online',ob:'https://our-bride.com'};
 
 var ISS=[
  ['sh','bad','الطلب','الشاشة: $500K (≈ EGP 25M)','العرض: EGP 4M–6M (≈ $80K–120K). فرق خمسة أضعاف في نفس الجولة.'],
@@ -746,9 +758,18 @@ var ISS=[
  ['bz','nx','توزيع الأموال','الشاشة: 5 بنود تجمع EGP 2.7M–4.3M','الطلب EGP 3M–5M. العرض يقسم 40/30/20/10 ببنود مختلفة.'],
  ['all','nx','اللقطات','شامل «7,960 حجز اليوم» · بازار «500 تاجر» وصورة فارغة · أور برايد «+0 مستخدم»','مقابل 5,200 حجز إجمالاً · 840 بائع · 333 مستخدم. أعد الالتقاط قبل الإرسال.'],
  ['all','nx','روابط المتاجر','غرفة البيانات: # للثلاثة','شامل com.shaaml.app وبازار com.ourbazaar.bazaar لا يظهران على Google Play من هنا. أور برايد على Play يعمل.'],
+ ['ev','bad','نطاق our-events.com','كود أور إيفنتس يعلن our-events.com عنواناً أساسياً (canonical وog:url)','النطاق ليس لكم: يفتح صفحة «This is our-events.com» على خادم آخر. الموقع الحقيقي ourevent.shaaml.online.'],
+ ['ev','nx','نسخة من بازار','شاشة المستثمرين ودليل النمو والعرض نفس ملفات بازار حرفياً (ملف العرض اسمه bazaar-investor-deck.pdf)','أرقام 840/843/29 نفسها. هل أور إيفنتس منتج منفصل أم اسم بازار الجديد؟ القرار يحدد ما يُعرض على المستثمر.'],
  ['all','','المصادر','لا رقم سوق واحد على الشاشات الثلاث له مصدر','دليل نمو بازار وحده يذكر المصادر. $28B تُستخدم لثلاثة أسواق مختلفة عبر المنصات.']
 ];
 
+/* OurEvents is the same build as Bazaar under its own brand: same investor page, playbook and deck */
+(function(){var b=P.bz,e=JSON.parse(JSON.stringify(b));
+ e.name='أور إيفنتس';e.en='OurEvents';e.site='https://ourevent.shaaml.online';
+ e.stage='نفس منصة بازار باسم أور إيفنتس · الفعاليات والمعارض ومساحات العرض';
+ e.shots=[['events-home.webp','الصفحة الرئيسية','ourevent.shaaml.online · التقاط حي اليوم'],['bazaar-boothallocation.webp','إدارة الأكشاك','نفس لوحة بازار'],['bazaar-eventdetails.webp','صفحة الفعالية','نفس لوحة بازار'],['bazaar-bazaarsearch.webp','البحث على الخريطة','نفس لوحة بازار'],['bazaar-analysis.webp','التقارير والتحليلات','نفس لوحة بازار']];
+ e.pitch=[['شاشة المستثمرين','https://ourevent.shaaml.online/investors','حيّة · نسخة من شاشة بازار',b.pitch[0][3],'افتح الشاشة'],['دليل النمو في 6 أسواق','https://ourevent.shaaml.online/investors/growth-playbook','صفحة مستقلة · نفس دليل بازار',b.pitch[1][3],'افتح الدليل'],['العرض التقديمي PDF','https://ourevent.shaaml.online/bazaar-investor-deck.pdf','PDF · نفس ملف بازار (الاسم bazaar-investor-deck)',b.pitch[2][3],'تحميل PDF'],['دليل الأسئلة الكامل','https://ourevent.shaaml.online/investors','نافذة داخل الشاشة',b.pitch[4][3],'زر «Q&A Playbook»']];
+ P.ev=e;})();
 var cur='sh',body=$('og-body'),root=$('og');
 
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
@@ -826,6 +847,14 @@ var DR={
   links:[['الموقع','https://shaaml.online'],['شاشة المستثمرين','https://shaaml.online/investors'],['العرض PPTX','https://shaaml.online/documents/shaaml-pitch-deck-final.pptx'],['غرفة البيانات','https://shaaml.online/data-room'],['App Store',''],['Google Play','']],
   shots:[['dr-shaaml-desktop.webp','الرئيسية · سطح المكتب'],['shaaml-mobile.webp','الرئيسية · الجوال',1],['shaaml-investors.webp','شاشة المستثمرين · اليوم']],
   docs:[['Shaaml Pitch Deck','PPTX · 11 شريحة','https://shaaml.online/documents/shaaml-pitch-deck-final.pptx','av'],['Shaaml Growth Metrics Report','قيد الإعداد','','pe']]},
+ ev:{n:'OurEvents',ar:'أور إيفنتس',tag:'Events & Exhibitions Marketplace',tagAr:'سوق الفعاليات والمعارض',
+  en:'The same platform as Bazaar under the OurEvents brand: organizers, presenters and visitors, with booth booking, ticketing, POS and exhibition spaces. Not listed in the Data Room.',
+  arD:'نفس منصة بازار تحت اسم أور إيفنتس: منظمون وعارضون وزوار، مع حجز الأكشاك والتذاكر ونقاط البيع ومساحات العرض. غير مدرجة في غرفة البيانات.',
+  m:[['840','بائع نشط'],['843','إجمالي الأكشاك'],['29','بازار'],['21','فعالية'],['4','مساحات عرض'],['3','صالات عرض'],['3','مدن']],
+  inv:'https://ourevent.shaaml.online/investors',
+  links:[['الموقع','https://ourevent.shaaml.online/'],['شاشة المستثمرين','https://ourevent.shaaml.online/investors'],['دليل النمو','https://ourevent.shaaml.online/investors/growth-playbook'],['العرض PDF','https://ourevent.shaaml.online/bazaar-investor-deck.pdf'],['غرفة البيانات','https://shaaml.online/data-room'],['App Store',''],['Google Play','']],
+  shots:[['events-home.webp','الرئيسية · اليوم'],['bazaar-boothallocation.webp','إدارة الأكشاك'],['bazaar-eventdetails.webp','صفحة الفعالية'],['bazaar-bazaarsearch.webp','البحث على الخريطة'],['bazaar-analysis.webp','التقارير والتحليلات']],
+  docs:[['OurEvents Investor Deck','PDF · نفس ملف بازار','https://ourevent.shaaml.online/bazaar-investor-deck.pdf','av'],['OurEvents في غرفة البيانات','غير مدرج','','no']]},
  ob:{n:'OurBride',ar:'أور برايد',tag:'Wedding & Events Planning Platform',tagAr:'منصة تخطيط حفلات الزفاف والفعاليات',
   en:'The flagship platform for wedding planning — connecting couples with verified service providers, venues, and everything needed to plan their perfect day.',
   arD:'المنصة الرئيسية لتخطيط حفلات الزفاف — تربط الأزواج بمقدمي الخدمات والأماكن المعتمدة وكل ما يحتاجونه لتخطيط يومهم المثالي.',
@@ -836,7 +865,7 @@ var DR={
   docs:[['OurBride Pitch Deck','PPTX · 13 شريحة','https://shaaml.online/documents/OurBride-Investor-Deck-2026.pptx','av'],['OurBride Growth Metrics Report','قيد الإعداد','','pe']]}
 };
 var SHARED=[['Commercial Registration — CR #223226','السجل التجاري','https://shaaml.online/documents/commercial-registration.pdf','av'],['Articles of Incorporation — 2023/12/24','عقد التأسيس','https://shaaml.online/documents/articles-of-incorporation.pdf','av'],['Incorporation Certificate','شهادة تأسيس الشركة','https://shaaml.online/documents/incorporation-certificate.pdf','av'],['Activity License — #011560','ترخيص مزاولة نشاط','https://shaaml.online/documents/activity-license.pdf','av'],['Financial Statements','القوائم المالية','','pe'],['Revenue Breakdown','تفاصيل الإيرادات','','pe'],['P&L Projection · Executive Summary','مكتوبة «متاحة» بلا ملف','','no']];
-var ORDER=['bz','sh','ob'],STL={av:'متاح',pe:'قيد الإعداد',no:'بلا ملف'};
+var ORDER=['bz','ev','sh','ob'],STL={av:'متاح',pe:'قيد الإعداد',no:'بلا ملف'};
 function doc(d){var inner='<svg class="ic"><use href="#i-deck"/></svg><span><b>'+esc(d[0])+'</b><small>'+esc(d[1])+'</small></span><span class="st '+d[3]+'">'+STL[d[3]]+'</span>';
  return d[2]?'<a class="dd" href="'+d[2]+'" target="_blank" rel="noopener">'+inner+'</a>':'<div class="dd">'+inner+'</div>'}
 $('og-sel').innerHTML=ORDER.map(function(k){var d=DR[k];return '<button class="selc '+k+'" data-p="'+k+'"><span class="glow"></span><span class="dot"></span><span class="selt"><img class="blogo" src="'+LOGO[k]+'" alt=""><span><h3>'+d.n+' <span>'+d.ar+'</span></h3><p>'+d.tag+'</p></span></span><span class="sels">'+d.m.slice(0,2).map(function(x){return '<span><b>'+esc(x[0])+'</b><span>'+esc(x[1])+'</span></span>'}).join('')+'</span></button>'}).join('');
@@ -865,8 +894,10 @@ each($('og-sel').children,function(b){b.addEventListener('click',function(){pick
 var OV={
  sh:{geo:'مصر أولاً (مدينتان نشطتان)، ثم الإمارات والسعودية في Q4 2027.',nums:[['المزودون','1,500','6,000','18,000'],['المنصات المتصلة','3','8','15+'],['الحجوزات / شهر','15K','60K','200K']],rev:[['Y1',12,'EGP 12M'],['Y2',55,'EGP 55M'],['Y3',180,'EGP 180M']],rl:'الإيراد السنوي المتكرر ARR',pr:'اشتراك EGP 299–999 شهرياً + عمولة 8–12% + ترخيص منصات EGP 50K وEGP 8K شهرياً.',cv:'العرض التقديمي يقول أقل: EGP 1.5–2.5M ثم EGP 18–45M.'},
  bz:{geo:'القاهرة والجيزة والإسكندرية، ثم السعودية (السنة 1) والإمارات وعُمان وتونس والمغرب (السنة 2–3).',nums:[['الفعاليات النشطة','20–40','80–150','250–400'],['البائعون النشطون','500–1K','3K–6K','10K–20K'],['الكونسبت ستور','5–10','20–40','80–150']],rev:[['Y1',2.25,'EGP 1.5–3M'],['Y2',10.5,'EGP 6–15M'],['Y3',35,'EGP 20–50M']],rl:'الإيراد السنوي (تقديري)',pr:'EGP 38K–78K لكل فعالية + EGP 13K–37K شهرياً لكل متجر + امتياز EGP 100K–150K.'},
+ ev:null,
  ob:{geo:'مصر أولاً (600K+ حالة زواج سنوياً)، مدرج في متجر السعودية؛ إطلاق السعودية وتجربة الإمارات في 2027.',nums:[['العرائس النشطات','500–1K','3K–6K','10K–20K'],['البائعون النشطون','50–100','200–500','500–1,000'],['GMV المتجر','EGP 2–5M','EGP 8–20M','EGP 25–60M']],rev:[['Y1',2.25,'EGP 1.5–3M'],['Y2',10.5,'EGP 6–15M'],['Y3',35,'EGP 20–50M']],rl:'الإيراد السنوي (من العرض)',pr:'هامش المتجر 15–35% اليوم + عمولة حجز 8–15% + SaaS للبائع EGP 3–5K شهرياً.'}
 };
+OV.ev=OV.bz;
 $('og-ov').innerHTML=ORDER.map(function(k){var p=P[k],o=OV[k],d=DR[k],mx=Math.max.apply(null,o.rev.map(function(r){return r[1]}));
  var f=p.feats.filter(function(x){return x[0]==='ok'}).slice(0,5).concat(p.feats.filter(function(x){return x[0]==='nx'}).slice(0,2));
  return '<article class="ov '+k+'"><div class="ovh"><img src="'+LOGO[k]+'" alt=""><span><b>'+d.n+' · '+d.ar+'</b><small>'+d.tagAr+'</small></span><a href="'+p.site+'" target="_blank" rel="noopener">'+p.site.replace('https://','')+' ↗</a></div>'
@@ -901,7 +932,7 @@ each(document.querySelectorAll('.lf button'),function(b){b.addEventListener('cli
 links();
 
 /* issues */
-var NM={sh:'شامل',bz:'بازار',ob:'أور برايد',all:'الثلاثة'};
+var NM={sh:'شامل',bz:'بازار',ev:'أور إيفنتس',ob:'أور برايد',all:'الكل'};
 $('og-iss').innerHTML=ISS.map(function(i){return '<div><span class="tag"><span class="pill '+(i[1]||'')+'">'+NM[i[0]]+'</span><b>'+esc(i[2])+'</b></span><span>'+T(i[3])+'</span><span>'+T(i[4])+'</span></div>'}).join('');
 
 /* Riyadh clock in the footer, as on the other project pages */
