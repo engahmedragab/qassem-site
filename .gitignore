@@ -4,3 +4,6 @@ node_modules/
 
 # generated deliverables
 *-proposal-*.pdf
+
+# page lock credentials
+projects/.locks.json
