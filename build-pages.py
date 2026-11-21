@@ -82,6 +82,19 @@ try{{var s=JSON.parse(sessionStorage.getItem(K)||"null");if(s)open_(s[0],s[1]).c
 }})();</script>"""
 
 
+# The lock screen is the markup and style before <script>; the script is shared.
+# A page can bring its own lock screen in projects/gate/<name>.html (plain HTML,
+# single braces). It must keep the ids lk, lk-f, lk-u, lk-p, lk-b and lk-e.
+GATE_UI, GATE_JS = GATE.split("<script>", 1)
+GATE_UI, GATE_JS = GATE_UI.format(), "<script>" + GATE_JS
+
+
+def gate_for(name, payload):
+    f = os.path.join("projects", "gate", name + ".html")
+    ui = open(f, encoding="utf-8").read().strip() + "\n" if os.path.exists(f) else GATE_UI
+    return ui + GATE_JS.format(name=name, payload=payload)
+
+
 def locked_names():
     f = os.path.join("projects", ".locked")
     if not os.path.exists(f):
@@ -162,7 +175,7 @@ def build(src):
     body = body.strip()
     if locked:
         c = CREDS[name]
-        body = GATE.format(name=name, payload=encrypt_body(name, body, c["user"], c["pass"]))
+        body = gate_for(name, encrypt_body(name, body, c["user"], c["pass"]))
     open(out, "w", encoding="utf-8").write(head + body + "\n</body>\n</html>\n")
     n = copy_assets(name)
     print(f"built {out}  ({'LOCKED' if locked else 'noindex'})  /projects/{name}" + (f"  +{n} assets" if n else ""))
