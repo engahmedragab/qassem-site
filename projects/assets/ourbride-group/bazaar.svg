@@ -1,0 +1,14 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bazaarGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF8C00"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+  </defs>
+  <!-- Store awning -->
+  <path d="M30 28 C30 22, 35 18, 40 18 L80 18 C85 18, 90 22, 90 28 L90 38 C90 38, 83.3 44, 76.6 38 C76.6 38, 70 44, 63.3 38 C63.3 38, 56.6 44, 50 38 C50 38, 43.3 44, 36.6 38 C36.6 38, 30 44, 30 38 Z" fill="url(#bazaarGrad)"/>
+  <!-- Pole left -->
+  <rect x="32" y="38" width="3" height="45" rx="1.5" fill="url(#bazaarGrad)"/>
+  <!-- Letter B -->
+  <path d="M48 48 L48 95 L68 95 C78 95, 86 89, 86 81 C86 75, 82 70, 76 68 C80 66, 83 62, 83 57 C83 50, 76 45, 68 45 L48 48 Z M56 54 L66 54 C72 54, 76 57, 76 61 C76 65, 72 68, 66 68 L56 68 Z M56 74 L68 74 C75 74, 79 77, 79 81 C79 86, 75 89, 68 89 L56 89 Z" fill="url(#bazaarGrad)"/>
+</svg>

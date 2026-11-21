@@ -1,0 +1,21 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    Shaaml logo: Two interlocking rounded hooks
+    Red: top-left hook opening right
+    Blue: bottom-right hook opening left
+  -->
+
+  <!-- Red hook (top-left) - thick stroke path -->
+  <path d="M70,20 L42,20 C29,20 19,30 19,43 L19,68"
+        fill="none" stroke="#E53429" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Red hook horizontal arm to center -->
+  <path d="M19,68 L60,68"
+        fill="none" stroke="#E53429" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Blue hook (bottom-right) - thick stroke path -->
+  <path d="M50,100 L78,100 C91,100 101,90 101,77 L101,52"
+        fill="none" stroke="#1E2D6F" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Blue hook horizontal arm to center -->
+  <path d="M101,52 L60,52"
+        fill="none" stroke="#1E2D6F" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
