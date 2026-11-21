@@ -242,6 +242,7 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
 @keyframes jwwide{from{flex-grow:0;opacity:0}}
 /* kickoff */
 .jw .need{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.jw .need>.icard{padding:8px 0;border-bottom:1px solid var(--line)}.jw .need>.icard:last-child{border:0}
 .jw .need label{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--stone);cursor:pointer}
 .jw .need input{appearance:none;width:20px;height:20px;border-radius:6px;border:1.5px solid #5B6B82;flex:none;margin-top:5px;cursor:pointer;display:grid;place-items:center}
 .jw .need input:checked{background:var(--signal);border-color:var(--signal)}
@@ -273,6 +274,7 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
       <a class="btn q" href="#screens">الشاشات</a>
       <a class="btn q" href="#software">البرمجيات</a>
       <a class="btn q" href="#calc">احسب نقطة التعادل</a>
+      <a class="btn q" href="#legal">الموافقات النظامية</a>
       <a class="btn q" href="#kickoff">ما نحتاجه للانطلاق</a>
     </div>
     <div class="facts">
@@ -316,6 +318,7 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
 <a href="#prices"><svg class="ic"><use href="#i-tag"/></svg>الباقات</a>
 <a href="#calc"><svg class="ic"><use href="#i-chart"/></svg>الأرقام</a>
 <a href="#edge"><svg class="ic"><use href="#i-shield"/></svg>ميزتنا</a>
+<a href="#legal"><svg class="ic"><use href="#i-doc"/></svg>الموافقات</a>
 <a href="#plan"><svg class="ic"><use href="#i-cal"/></svg>الخطة</a>
 <a href="#kickoff"><svg class="ic"><use href="#i-flag"/></svg>الانطلاق</a>
 </div></nav>
@@ -417,36 +420,36 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
       <div class="bar"><u></u><u></u><u></u><span id="jw-swt">تقرير المعلن · معهد تدريب</span><span class="pill">بيانات تجريبية للعرض</span></div>
       <div class="pane on" data-k="0">
         <div class="kp">
-          <div><b class="n">9,360</b><span>مرة عرض هذا الشهر</span></div>
-          <div><b class="n">3</b><span>محلات في حي واحد</span></div>
+          <div><b class="n">26,880</b><span>مرة عرض هذا الشهر</span></div>
+          <div><b class="n">6,720</b><span>دقيقة شاشة من <span class="n">6,720</span> مضمونة</span></div>
           <div><b class="n" style="color:#1E9E6A">—</b><span>مسح للرمز</span></div>
           <div><b class="n" style="color:#1E9E6A">—</b><span>نقرة إلى واتساب</span></div>
         </div>
         <div class="two">
           <div class="box"><h4>مرات العرض حسب ساعات اليوم</h4><div class="mini" id="jw-mini"></div><div class="strip"><i>صباح</i><i>ظهر</i><i class="pk">مساء</i><i>ليل</i></div></div>
           <div class="box"><h4>حسب المحل</h4><div class="lst">
-            <div><span>مقهى أ</span><span class="n">3,480</span></div><div><span>مقهى ب</span><span class="n">3,120</span></div><div><span>نادي ج</span><span class="n">2,760</span></div>
+            <div><span>مقهى أ · <span class="n">6</span> شاشات</span><span class="n">10,080</span></div><div><span>مقهى ب · <span class="n">5</span> شاشات</span><span class="n">8,400</span></div><div><span>نادي ج · <span class="n">5</span> شاشات</span><span class="n">8,400</span></div>
             <div><span>اقتراح الشهر القادم</span><span>عرض بكود خصم</span></div></div></div>
         </div>
         <p class="note" style="color:#5F6875">أرقام المسح والنقرات تُترك فارغة حتى تُقاس فعلاً. مرات العرض تأتي من سجل نظام العرض.</p>
       </div>
       <div class="pane" data-k="1">
         <div class="kp">
-          <div><b class="n">1,600</b><span>مستحق هذا الشهر (ريال)</span></div>
-          <div><b class="n">6,400</b><span>دخل منسوب لشاشاتك</span></div>
+          <div><b class="n">1,625</b><span>مستحق هذا الشهر (ريال)</span></div>
+          <div><b class="n">6,500</b><span>دخل منسوب لشاشاتك</span></div>
           <div><b class="n">25%</b><span>حصتك، وهي أكبر من الحد الأدنى <span class="n">500</span></span></div>
           <div><b class="n">98%</b><span>وقت تشغيل الشاشات</span></div>
         </div>
         <div class="two">
           <div class="box"><h4>من أين جاء الدخل</h4><div class="lst">
-            <div><span>معهد تدريب · <span class="n">3,120</span> دقيقة</span><span class="n">2,400</span></div>
-            <div><span>عيادة أسنان · <span class="n">2,600</span> دقيقة</span><span class="n">2,000</span></div>
-            <div><span>مكتب سفر · <span class="n">2,600</span> دقيقة</span><span class="n">2,000</span></div>
-            <div class="tot"><span>الإجمالي المنسوب</span><span class="n">6,400</span></div></div></div>
+            <div><span><span class="n">4</span> باقات أساسية · <span class="n">8,400</span> دقيقة</span><span class="n">2,000</span></div>
+            <div><span><span class="n">6</span> باقات قياسية · <span class="n">18,900</span> دقيقة</span><span class="n">2,500</span></div>
+            <div><span><span class="n">5</span> باقات مميزة · <span class="n">21,000</span> دقيقة</span><span class="n">2,000</span></div>
+            <div class="tot"><span>الإجمالي المنسوب</span><span class="n">6,500</span></div></div></div>
           <div class="box"><h4>الحساب</h4><div class="lst">
-            <div><span><span class="n">25%</span> من <span class="n">6,400</span></span><span class="n">1,600</span></div>
+            <div><span><span class="n">25%</span> من <span class="n">6,500</span></span><span class="n">1,625</span></div>
             <div><span>الحد الأدنى المضمون</span><span class="n">500</span></div>
-            <div class="tot"><span>تستلم الأكبر</span><span class="n" style="color:#1E9E6A">1,600</span></div></div></div>
+            <div class="tot"><span>تستلم الأكبر</span><span class="n" style="color:#1E9E6A">1,625</span></div></div></div>
         </div>
       </div>
       <div class="pane" data-k="2">
@@ -539,21 +542,44 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
 <section id="prices">
   <div class="wrap">
     <div class="eyebrow">الباقات</div>
-    <h2>ثلاثة أسعار معلنة. بدون طلب عرض سعر.</h2>
+    <h2>ثلاثة أسعار معلنة، وكل باقة بدقائق مضمونة.</h2>
+    <p class="lead">السعر شهري وثابت، وما يشتريه المعلن محسوب بالدقيقة: كم شاشة، وكل كم دقيقة يظهر إعلانه، وكم دقيقة شاشة في الشهر. ما لم يُعرض يُعوَّض.</p>
     <div class="grid g3">
       <div class="card price"><h3>الأساسية</h3><div class="amt n">1,500 <small>ريال / شهر</small></div><ul>
-        <li>حي واحد</li><li>حتى <span class="n">3</span> محلات</li><li>إعلان <span class="n">15</span> ثانية</li><li>تكرار عادي</li><li>رمز يُقاس</li></ul></div>
+        <li>حي واحد</li><li>حتى <span class="n">3</span> محلات</li><li>إعلان <span class="n">15</span> ثانية ورمز يُقاس</li><li>يظهر كل <span class="n">15</span> دقيقة على كل شاشة</li><li>نحو <span class="n">6,700</span> دقيقة شاشة شهرياً</li></ul></div>
       <div class="card price mid"><h3>القياسية</h3><div class="amt n">2,500 <small>ريال / شهر</small></div><ul>
-        <li>حيّان، أو استهداف بنوع المحل</li><li>تكرار أعلى</li><li>تقرير شهري مفصّل</li></ul></div>
+        <li>حيّان، أو استهداف بنوع المحل</li><li>يظهر كل <span class="n">10</span> دقائق على كل شاشة</li><li>نحو <span class="n">20,800</span> دقيقة شاشة شهرياً</li><li>تقرير شهري مفصّل</li></ul></div>
       <div class="card price"><h3>المميزة</h3><div class="amt n">4,000 <small>ريال / شهر</small></div><ul>
-        <li>كل الشبكة، أو أوقات المناسبات</li><li>أولوية في التكرار</li><li>تجديد الإعلان ضمن السعر</li></ul></div>
+        <li>كل الشبكة، أو أوقات المناسبات</li><li>يظهر كل <span class="n">7.5</span> دقيقة على كل شاشة</li><li>نحو <span class="n">46,200</span> دقيقة شاشة شهرياً</li><li>تجديد الإعلان ضمن السعر</li></ul></div>
     </div>
     <div class="grid g3">
       <div class="card"><h3>الإعلان علينا</h3><p>إعلان متحرك <span class="n">15</span> ثانية نصنعه عند الاشتراك. بدونه تتوقف حملة النشاط الصغير قبل أن تبدأ.</p></div>
       <div class="card"><h3>الخطة المشتركة</h3><p>رسم أساسي مخفّض وعمولة على الطلبات التي يؤكدها المعلن شهرياً. لا نبيع بالعمولة وحدها أبداً.</p></div>
       <div class="card"><h3>المناسبات وأوقات الذروة</h3><p>زيادة <span class="n">25–50%</span>. المساء في المقاهي أضعاف الصباح، والسعر يتبع ذلك.</p></div>
     </div>
-    <p class="note">لم يُحدَّد بعد: عدد مرات الظهور في الساعة لكل مستوى تكرار، ونسبة الخصم والعمولة في الخطة المشتركة.</p>
+    <div class="card" style="margin-top:14px">
+      <span class="pill s">مقترح للمراجعة</span>
+      <h3 style="margin-top:8px">التسعير بالدقيقة: ماذا تشتري كل باقة</h3>
+      <div class="tw"><table class="tbl">
+        <tr><th>الباقة</th><th class="num">الشاشات</th><th class="num">مرات الظهور شهرياً</th><th class="num">دقائق الشاشة شهرياً</th><th class="num">سعر الدقيقة</th><th class="num">سعر الظهور</th></tr>
+        <tr><td>الأساسية · <span class="n">1,500</span></td><td class="num n">16</td><td class="num n">26,880</td><td class="num n">6,720</td><td class="num n">0.22</td><td class="num n">0.056</td></tr>
+        <tr><td>القياسية · <span class="n">2,500</span></td><td class="num n">33</td><td class="num n">83,160</td><td class="num n">20,790</td><td class="num n">0.12</td><td class="num n">0.030</td></tr>
+        <tr><td>المميزة · <span class="n">4,000</span></td><td class="num n">55</td><td class="num n">184,800</td><td class="num n">46,200</td><td class="num n">0.087</td><td class="num n">0.022</td></tr>
+      </table></div>
+      <p>دقيقة الشاشة هي دقيقة عرض على شاشة واحدة. الحساب على <span class="n">14</span> ساعة تشغيل يومياً و<span class="n">30</span> يوماً، وإعلان <span class="n">15</span> ثانية.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card"><h3>دقائق مضمونة</h3><p>التقرير يعرض الدقائق المنفذة من سجل العرض. النقص يُضاف للشهر التالي.</p></div>
+      <div class="card"><h3>دقيقة الذروة</h3><p>دقيقة المساء تُحسب بدقيقة ونصف، ووقت المناسبة بزيادة <span class="n">25–50%</span>.</p></div>
+      <div class="card"><h3>دقائق إضافية</h3><p><span class="n">150</span> ريالاً لكل <span class="n">1,000</span> دقيقة شاشة، فوق باقة قائمة فقط.</p></div>
+      <div class="card"><h3>لا بيع بالدقيقة وحدها</h3><p>أقل اشتراك يبقى <span class="n">1,500</span> ريال. رصيد دقائق صغير بلا باقة يكسر نقطة التعادل.</p></div>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h3>هل تتحمل الشبكة <span class="n">25</span> معلناً؟</h3>
+      <div class="track" style="height:14px;margin-top:10px"><i style="width:77%"></i></div>
+      <p><span class="n">534,240</span> دقيقة مباعة من <span class="n">693,000</span> دقيقة قابلة للبيع شهرياً (<span class="n">77%</span>)، على افتراض أن نصف وقت الشاشة على الأكثر للإعلانات المدفوعة والباقي لمحتوى المحل. أي أن الإعلانات تأخذ نحو <span class="n">39%</span> من الساعة على الشاشة المتوسطة.</p>
+    </div>
+    <p class="note">الأسعار الشهرية ثابتة كما في الخطة. أرقام الدقائق مقترح يحتاج قرارين: ساعات التشغيل الفعلية للمحلات، ونسبة وقت الشاشة المخصصة للإعلانات. لم تُحدَّد بعد نسبة الخصم والعمولة في الخطة المشتركة.</p>
   </div>
 </section>
 
@@ -730,17 +756,37 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
 
 <section id="legal">
   <div class="wrap">
-    <div class="eyebrow">النظامي</div>
-    <h2>الترخيص قبل أول إعلان مدفوع.</h2>
+    <div class="eyebrow">النظامي والموافقات</div>
+    <h2>كل موافقة نحتاجها، ومتى، ومن يصدرها.</h2>
+    <p class="lead">الموافقات مرتبة على ثلاث بوابات: ما يسبق تحويل أي مبلغ، ما يسبق طلب الشاشات، وما يسبق أول إعلان مدفوع. المدة المتوقعة <span class="n">6–10</span> أسابيع، بالتوازي مع توقيع المحلات والبيع المسبق.</p>
     <div class="grid g3">
-      <div class="card"><h3>الكيان</h3><p>شركة سعودية مع شريك سعودي. شكل الشراكة وحصص كل طرف يُحسم مع محامٍ سعودي قبل تحويل أي مبلغ، وبصورة تعكس الملكية الحقيقية.</p></div>
-      <div class="card"><h3>ترخيص الإعلان</h3><p>ترخيص الهيئة العامة لتنظيم الإعلام إلزامي قبل عرض أول إعلان مدفوع، والسجل التجاري يتضمن النشاط الإعلامي.</p></div>
-      <div class="card"><h3>داخل المحل</h3><p>الشاشات داخلية وموجهة للداخل، فلا تدخل في تصاريح اللوحات الخارجية. يُؤكَّد ذلك لدى الجهة المختصة.</p></div>
-      <div class="card"><h3>المحتوى</h3><p>التزام بضوابط المحتوى، وحفظ سجل ما عُرض <span class="n">90</span> يوماً، وهو ما يفعله النظام تلقائياً.</p></div>
-      <div class="card"><h3>الضريبة والفوترة</h3><p>تسجيل ضريبة القيمة المضافة عند دخل <span class="n">375,000</span> ريال، وتبلغه الحالة الأساسية في الشهر <span class="n">12</span>. فواتير إلكترونية متوافقة.</p></div>
-      <div class="card"><h3>البيانات الشخصية</h3><p>سجل المسح بلا هوية. لا بيانات حيوية إطلاقاً.</p></div>
+      <div class="card ph"><span class="pill s">البوابة <span class="n">1</span> · قبل تحويل أي مبلغ</span>
+        <div class="need" style="margin-top:12px">
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-hand"/></svg></div><div><h3>اتفاقية الشركاء</h3><p>محامٍ سعودي. الحصص والأدوار والعائد كتابةً، وبصورة تعكس الملكية الحقيقية.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-users"/></svg></div><div><h3>صفة كل شريك</h3><p>محامٍ سعودي. من يُسجَّل في الشركة، ومن يحق له العمل فيها والتوقيع عنها.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-shield"/></svg></div><div><h3>العلامة التجارية</h3><p>الهيئة السعودية للملكية الفكرية. بحث اسم جِوار ثم تسجيله في فئات الإعلان والإعلام.</p></div></div>
+        </div></div>
+      <div class="card ph"><span class="pill s">البوابة <span class="n">2</span> · قبل طلب الشاشات</span>
+        <div class="need" style="margin-top:12px">
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-doc"/></svg></div><div><h3>السجل التجاري</h3><p>وزارة التجارة. يتضمن النشاط الإعلامي، وهو شرط لترخيص الإعلان.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-screen"/></svg></div><div><h3>اعتماد الأجهزة</h3><p>اعتماد النوع من هيئة الاتصالات والفضاء والتقنية، وشهادة المطابقة عبر سابر. على المورد، وهو شرط لاختياره.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-map"/></svg></div><div><h3>تأكيد البلدية</h3><p>الشاشات داخل المحل وموجهة للداخل، فلا تحتاج تصريح لوحات خارجية. يُؤكَّد ذلك، خصوصاً لشاشة تُرى من الواجهة.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-inv"/></svg></div><div><h3>عقد المحل</h3><p>محامٍ. <span class="n">12</span> شهراً وحصري، قاعدة الحصة، ملكية الشاشات، وما يحدث عند الإغلاق أو البيع.</p></div></div>
+        </div></div>
+      <div class="card ph"><span class="pill s">البوابة <span class="n">3</span> · قبل أول إعلان مدفوع</span>
+        <div class="need" style="margin-top:12px">
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-flag"/></svg></div><div><h3>ترخيص الإعلان</h3><p>الهيئة العامة لتنظيم الإعلام. إلزامي، مع التعهد بالسياسة الإعلامية ونظام حماية البيانات. العمل بلا ترخيص غرامته حتى <span class="n">5</span> ملايين ريال.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-inv"/></svg></div><div><h3>الفوترة والضريبة</h3><p>هيئة الزكاة والضريبة والجمارك. فواتير إلكترونية متوافقة من أول فاتورة، وتسجيل ضريبة القيمة المضافة عند دخل <span class="n">375,000</span> ريال.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-doc"/></svg></div><div><h3>شروط المعلن</h3><p>محامٍ. ضوابط المحتوى، ما يقيسه التقرير وما لا يقيسه، التجديد والإلغاء.</p></div></div>
+          <div class="icard"><div class="ib"><svg class="ic"><use href="#i-qr"/></svg></div><div><h3>إشعار الخصوصية</h3><p>محامٍ. سجل المسح بلا هوية: وقت وحملة ومحل فقط.</p></div></div>
+        </div></div>
     </div>
-    <p class="note">المدة المتوقعة <span class="n">6–10</span> أسابيع، بالتوازي مع توقيع المحلات والبيع المسبق. لم يُراجَع أي من هذا مع محامٍ بعد.</p>
+    <div class="grid g3">
+      <div class="card"><h3>التزامات دائمة</h3><p>ضوابط المحتوى الإعلامي في كل إعلان، وحفظ سجل ما عُرض <span class="n">90</span> يوماً، وهو ما يفعله النظام تلقائياً.</p></div>
+      <div class="card" style="border-color:var(--bad)"><h3>ما لا نطلب له موافقة لأننا لا نفعله</h3><p>التعرف على الوجوه واستنتاج العمر أو الجنس. أما العدّ المجهول للحضور فمرحلة لاحقة، ويُراجَع نظامياً ويُفصح عنه في العقد وعلى لافتة قبل تجربته.</p></div>
+      <div class="card"><h3>بديل لاحق للكيان</h3><p>ترخيص استثمار أجنبي عبر الشركة الأم في القاهرة بعد اكتمال سنة مالية مدققة. أعلى تكلفة، لذلك ليس طريق البداية.</p></div>
+    </div>
+    <p class="note">هذه القائمة من خطة العمل ولم تُراجَع مع محامٍ بعد. جلسة المحامي الأولى تؤكدها وتضيف ما ينقصها من تسجيلات تأسيس الشركة المعتادة. ميزانية التأسيس والتراخيص في التمويل <span class="n">15,000</span> ريال وتحتاج مراجعة.</p>
   </div>
 </section>
 
