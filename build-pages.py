@@ -86,13 +86,17 @@ try{{var s=JSON.parse(sessionStorage.getItem(K)||"null");if(s)open_(s[0],s[1]).c
 # A page can bring its own lock screen in projects/gate/<name>.html (plain HTML,
 # single braces). It must keep the ids lk, lk-f, lk-u, lk-p, lk-b and lk-e.
 GATE_UI, GATE_JS = GATE.split("<script>", 1)
-GATE_UI, GATE_JS = GATE_UI.format(), "<script>" + GATE_JS
+GATE_UI, GATE_JS = GATE_UI.format(), "<script>" + GATE_JS.replace("sessionStorage", "{store}")
 
 
 def gate_for(name, payload):
+    """A page's own lock screen may contain <!-- lock:remember -->: the login is then
+    kept in localStorage, so the browser stays signed in across visits. Without it
+    the login lasts for the tab only (sessionStorage), as before."""
     f = os.path.join("projects", "gate", name + ".html")
     ui = open(f, encoding="utf-8").read().strip() + "\n" if os.path.exists(f) else GATE_UI
-    return ui + GATE_JS.format(name=name, payload=payload)
+    store = "localStorage" if "<!-- lock:remember -->" in ui else "sessionStorage"
+    return ui + GATE_JS.format(name=name, payload=payload, store=store)
 
 
 def locked_names():

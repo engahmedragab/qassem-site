@@ -1202,7 +1202,7 @@ html{background:#F7F3EC!important;scroll-behavior:smooth}
   function tick(){try{clk.textContent=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:'Asia/Riyadh'}).format(new Date())+' AST'}catch(e){clk.textContent='—'}}
   if(clk){tick();setInterval(tick,1000)}
   // sign out: forget the saved login for this tab and show the lock again
-  $('jw-out').addEventListener('click',function(){try{sessionStorage.removeItem('lk:jiwar')}catch(e){}location.reload()});
+  $('jw-out').addEventListener('click',function(){try{localStorage.removeItem('lk:jiwar');sessionStorage.removeItem('lk:jiwar')}catch(e){}location.reload()});
   // nav highlight
   var links=$('jw-nav').querySelectorAll('a');
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)each(links,function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+x.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
